@@ -8,6 +8,6 @@ To setup project file open command line and type:
  * For eclipse: `gradlew eclipse`
  * For IDEA: `gradlew idea`
  
- ## License & Copytight
+## License & Copyright
 Copyright (c) 2017 ZCaliptium.
 This project licensed under LGPL v3. See LICENSE.txt for all details or go to http://www.gnu.org/licenses/lgpl-3.0.txt
