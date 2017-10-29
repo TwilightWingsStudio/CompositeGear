@@ -1,0 +1,16 @@
+[
+{
+  "modid": "compositegear",
+  "name": "Composite Gear Addon",
+  "description": "Addon for IC2 Experimental",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ZCaliptium"],
+  "credits": "Here is no any credits! All credits was stolen by me! Mwahahahahahaha!",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
