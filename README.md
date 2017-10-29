@@ -1,5 +1,6 @@
 # Composite Gear
-Composite Gear is a modification (IC2 Experimental addon) for game Minecraft.w
+Composite Gear is a modification (IC2 Experimental addon) for game Minecraft.
+
 This mod adds some good things like full set of composite alloy armor.
 
 ## Building
