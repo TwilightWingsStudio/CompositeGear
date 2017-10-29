@@ -12,7 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.crafting.CraftingManager;
 import tws.zcaliptium.compositegear.common.item.crafting.RecipesDyingArmor;
-import tws.zcaliptium.compositegear.common.items.Items;
+import tws.zcaliptium.compositegear.common.items.ItemsCG;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -52,7 +52,7 @@ public class CompositeGear
     {
     	getIC2Tab();
 
-    	Items.load();
+    	ItemsCG.load();
     }
     
     @EventHandler
@@ -61,7 +61,6 @@ public class CompositeGear
     @EventHandler
     public void afterModsLoaded(FMLPostInitializationEvent event)
     {
-    	GameRegistry.addRecipe(new RecipesDyingArmor());
-    	// TODO: Add recipes registration here.
+    	ItemsCG.loadRecipes();
     }
 }
