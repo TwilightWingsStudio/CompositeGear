@@ -94,6 +94,7 @@ public class ItemCompositeArmor extends ItemArmor implements IMetalArmor
         }
     }
 
+    // setColor
     @Override
     public void func_82813_b(ItemStack stack, int newColor)
     {
@@ -130,22 +131,25 @@ public class ItemCompositeArmor extends ItemArmor implements IMetalArmor
     }
     
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister p_94581_1_)
+    @Override
+    public void registerIcons(IIconRegister iconRegister)
     {
-        super.registerIcons(p_94581_1_);
+        super.registerIcons(iconRegister);
         
-        this.overlayIcon = p_94581_1_.registerIcon(ModInfo.MODID + ":empty");
+        this.overlayIcon = iconRegister.registerIcon(ModInfo.MODID + ":empty");
     }
     
     @SideOnly(Side.CLIENT)
+    @Override
     public boolean requiresMultipleRenderPasses()
     {
         return true;
     }
     
     @SideOnly(Side.CLIENT)
-    public IIcon getIconFromDamageForRenderPass(int p_77618_1_, int p_77618_2_)
+    @Override
+    public IIcon getIconFromDamageForRenderPass(int damage, int renderPass)
     {
-    	return p_77618_2_ == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(p_77618_1_, p_77618_2_);
+    	return renderPass == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(damage, renderPass);
     }
 }
