@@ -24,15 +24,20 @@ public class ItemsCG
 	public static Item compositeChestplate;
 	public static Item compositeLeggings;
 	public static Item compositeBoots;
+	
+	public static Item compositeSword;
 
 	public static void load()
 	{
-		ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial("BETTER_COMPOSITE", 50, new int[] { 3, 9, 6, 3 }, 12);
+		ItemArmor.ArmorMaterial compositeArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE", 50, new int[] { 3, 9, 6, 3 }, 12);
+		Item.ToolMaterial compositeToolMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE", 2, 1800, 6.0F, 2.0F, 13);
 		
-		compositeHelmet = new ItemCompositeArmor("composite_helmet", material, COMPOSITE_NAME, 0, 0);
-		compositeChestplate = new ItemCompositeArmor("composite_chestplate", material, COMPOSITE_NAME , 0, 1);
-		compositeLeggings = new ItemCompositeArmor("composite_leggings", material, COMPOSITE_NAME, 0, 2);
-		compositeBoots = new ItemCompositeArmor("composite_boots", material, COMPOSITE_NAME, 0, 3);
+		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, 0);
+		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, 1);
+		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, 2);
+		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, 3);
+		
+		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)
@@ -50,5 +55,7 @@ public class ItemsCG
 		GameRegistry.addRecipe(new ItemStack(compositeChestplate, 1, 0), new Object[] { "AIA", "ALA", "AAA", Character.valueOf('A'), IC2Items.getItem("advancedAlloy"), Character.valueOf('I'), getStackNoMeta(Items.iron_chestplate), Character.valueOf('L'), getStackNoMeta(Items.leather_chestplate)});
 		GameRegistry.addRecipe(new ItemStack(compositeLeggings, 1, 0), new Object[] { "AAA", "ALA", "AIA", Character.valueOf('A'), IC2Items.getItem("advancedAlloy"), Character.valueOf('I'), getStackNoMeta(Items.iron_leggings), Character.valueOf('L'), getStackNoMeta(Items.leather_leggings)});
 		GameRegistry.addRecipe(new ItemStack(compositeBoots, 1, 0), new Object[] { "ALA", "AIA", Character.valueOf('A'), IC2Items.getItem("advancedAlloy"), Character.valueOf('I'), getStackNoMeta(Items.iron_boots), Character.valueOf('L'), getStackNoMeta(Items.leather_boots)});
+		
+		GameRegistry.addRecipe(new ItemStack(compositeSword, 1, 0), new Object[] { "A", "A", "I", Character.valueOf('A'), IC2Items.getItem("advancedAlloy"), Character.valueOf('I'), getStackNoMeta(Items.iron_sword)});
 	}
 }

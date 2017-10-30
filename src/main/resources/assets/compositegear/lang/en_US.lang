@@ -1,4 +1,6 @@
 item.composite_helmet.name=Composite Helmet
 item.composite_chestplate.name=Composite Chestplate
-item.composite_leggings.name=Composite Leggins
+item.composite_leggings.name=Composite Leggings
 item.composite_boots.name=Composite Boots
+
+item.composite_sword.name=Composite Sword
