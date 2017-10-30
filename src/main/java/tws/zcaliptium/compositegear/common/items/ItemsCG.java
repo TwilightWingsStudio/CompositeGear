@@ -19,12 +19,12 @@ import tws.zcaliptium.compositegear.common.item.crafting.RecipesDyingArmor;
 public class ItemsCG
 {
 	private static final String COMPOSITE_NAME = "composite";
-	
+
 	public static Item compositeHelmet;
 	public static Item compositeChestplate;
 	public static Item compositeLeggings;
 	public static Item compositeBoots;
-	
+
 	public static void load()
 	{
 		ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial("BETTER_COMPOSITE", 50, new int[] { 3, 9, 6, 3 }, 12);
@@ -34,14 +34,14 @@ public class ItemsCG
 		compositeLeggings = new ItemCompositeArmor("composite_leggings", material, COMPOSITE_NAME, 0, 2);
 		compositeBoots = new ItemCompositeArmor("composite_boots", material, COMPOSITE_NAME, 0, 3);
 	}
-	
+
 	public static ItemStack getStackNoMeta(Item prototype)
 	{
 		ItemStack result = new ItemStack(prototype);
 		Items.apple.setDamage(result, 32767);
 		return result;
 	}
-	
+
 	public static void loadRecipes()
 	{
     	GameRegistry.addRecipe(new RecipesDyingArmor());

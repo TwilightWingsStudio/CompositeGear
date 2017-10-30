@@ -19,7 +19,7 @@ apply plugin: 'forge'
 
 version = "1.0"
 group= "tws.zcaliptium.compositegear" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "compositegear"
+archivesBaseName = "CompositeGear-" + mcversion
 
 minecraft {
     version = "1.7.10-10.13.4.1614-1.7.10"
