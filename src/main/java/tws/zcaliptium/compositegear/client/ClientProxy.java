@@ -7,8 +7,23 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.client;
 
+import net.minecraft.client.Minecraft;
 import tws.zcaliptium.compositegear.common.CommonProxy;
 
 public class ClientProxy extends CommonProxy
 {
+	@Override
+	public boolean isClient() {
+		return true;
+	}
+	
+	@Override
+	public boolean isOpenToLAN()
+	{
+		if (Minecraft.getMinecraft().isIntegratedServerRunning()) {
+			return Minecraft.getMinecraft().getIntegratedServer().getPublic();
+		} else {
+			return false;
+		}
+	}
 }

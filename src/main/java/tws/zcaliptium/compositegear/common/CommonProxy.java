@@ -9,4 +9,11 @@ package tws.zcaliptium.compositegear.common;
 
 public class CommonProxy
 {
+	public boolean isClient() {
+		return false;
+	}
+	
+	public boolean isOpenToLAN() {
+		return false;
+	}
 }

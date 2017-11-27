@@ -23,6 +23,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import ic2.api.recipe.Recipes;
 
 @Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="required-after:IC2;", version = ModInfo.VERSION)
@@ -37,7 +38,7 @@ public class CompositeGear
     public static final Side side = FMLCommonHandler.instance().getEffectiveSide();
     
     public static CreativeTabs ic2Tab;
-    
+
 	public static void getIC2Tab()
 	{
 		for (int i = 0; i < CreativeTabs.creativeTabArray.length; i++) {
@@ -50,7 +51,9 @@ public class CompositeGear
     @EventHandler
     public void load(FMLPreInitializationEvent event)
     {
-    	getIC2Tab();
+    	if (proxy.isClient()) {
+        	getIC2Tab();
+    	}
 
     	ItemsCG.load();
     }
