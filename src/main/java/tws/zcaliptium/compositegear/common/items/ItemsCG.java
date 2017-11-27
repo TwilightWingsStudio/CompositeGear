@@ -26,6 +26,7 @@ public class ItemsCG
 	public static Item compositeBoots;
 	
 	public static Item compositeSword;
+	public static Item compositeBow;
 
 	public static void load()
 	{
@@ -38,6 +39,7 @@ public class ItemsCG
 		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, 3);
 		
 		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
+		compositeBow = new ItemCGBow("composite_bow", 2000);
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)
@@ -57,5 +59,6 @@ public class ItemsCG
 		GameRegistry.addRecipe(new ItemStack(compositeBoots, 1, 0), new Object[] { "ALA", "AIA", Character.valueOf('A'), IC2Items.getItem("advancedAlloy"), Character.valueOf('I'), getStackNoMeta(Items.iron_boots), Character.valueOf('L'), getStackNoMeta(Items.leather_boots)});
 		
 		GameRegistry.addRecipe(new ItemStack(compositeSword, 1, 0), new Object[] { "A", "A", "I", Character.valueOf('A'), IC2Items.getItem("advancedAlloy"), Character.valueOf('I'), getStackNoMeta(Items.iron_sword)});
+		GameRegistry.addRecipe(new ItemStack(compositeBow, 1, 0), new Object[] { "CAA", "ABC", "AC ", Character.valueOf('A'), IC2Items.getItem("advancedAlloy"), Character.valueOf('C'), IC2Items.getItem("carbonPlate"), Character.valueOf('B'), getStackNoMeta(Items.bow)});
 	}
 }
