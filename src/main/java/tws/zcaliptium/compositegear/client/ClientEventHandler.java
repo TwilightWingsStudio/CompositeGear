@@ -12,6 +12,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import tws.zcaliptium.compositegear.common.IClassifiedItem;
+import tws.zcaliptium.compositegear.common.items.ItemCGBow;
+import tws.zcaliptium.compositegear.common.items.ItemCGSword;
 import tws.zcaliptium.compositegear.common.items.ItemCompositeArmor;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -26,10 +29,12 @@ public class ClientEventHandler
 	{
 		ItemStack itemStack = ev.itemStack;
 
-		if (itemStack.getItem() instanceof ItemCompositeArmor) {
+		if (itemStack.getItem() instanceof IClassifiedItem)
+		{
+			IClassifiedItem classifiedItem = (IClassifiedItem)itemStack.getItem();
 			String transItemClass = StatCollector.translateToLocal("compositegear.itemclass");
-			
-			ev.toolTip.add(1, transItemClass + ": " + StatCollector.translateToLocal("compositegear.itemclass.mediumarmor"));
+
+			ev.toolTip.add(1, transItemClass + ": " + classifiedItem.getItemClass().getLocalized());
 		}
 	}
 }

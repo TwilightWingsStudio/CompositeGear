@@ -14,9 +14,11 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import tws.zcaliptium.compositegear.common.CompositeGear;
+import tws.zcaliptium.compositegear.common.EnumItemClass;
+import tws.zcaliptium.compositegear.common.IClassifiedItem;
 import tws.zcaliptium.compositegear.common.ModInfo;
 
-public class ItemCGSword extends ItemSword
+public class ItemCGSword extends ItemSword implements IClassifiedItem
 {
 	public ItemCGSword(String id, ToolMaterial material)
 	{
@@ -37,4 +39,9 @@ public class ItemCGSword extends ItemSword
     {
     	return EnumRarity.uncommon;
     }
+
+	@Override
+	public EnumItemClass getItemClass() {
+		return EnumItemClass.MELEE_WEAPON;
+	}
 }

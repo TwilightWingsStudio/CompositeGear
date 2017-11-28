@@ -1,0 +1,13 @@
+item.composite_helmet.name=Kompozitní Helma
+item.composite_chestplate.name=Kompozitní Brnění
+item.composite_leggings.name=Kompozitní Kalhoty
+item.composite_boots.name=Kompozitní Boty
+
+item.composite_sword.name=Kompozitní Meč
+item.composite_dagger.name=Kompozitní Dýka
+item.composite_bow.name=Kompozitní Luk
+
+compositegear.itemclass=Třída
+compositegear.itemclass.mediumarmor=Střední Brnění
+compositegear.itemclass.meleeweapon=Na blízko
+compositegear.itemclass.rangedweapon=Na dálku

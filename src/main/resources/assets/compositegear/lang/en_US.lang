@@ -9,3 +9,5 @@ item.composite_bow.name=Composite Bow
 
 compositegear.itemclass=Class
 compositegear.itemclass.mediumarmor=Medium Armor
+compositegear.itemclass.meleeweapon=Melee
+compositegear.itemclass.rangedweapon=Ranged

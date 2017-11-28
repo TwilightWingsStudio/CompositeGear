@@ -9,3 +9,5 @@ item.composite_bow.name=Композитный лук
 
 compositegear.itemclass=Класс
 compositegear.itemclass.mediumarmor=Средняя броня
+compositegear.itemclass.meleeweapon=Ближний бой
+compositegear.itemclass.rangedweapon=Дальнобойное

@@ -25,9 +25,11 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.common.ISpecialArmor;
 import tws.zcaliptium.compositegear.common.CompositeGear;
+import tws.zcaliptium.compositegear.common.EnumItemClass;
+import tws.zcaliptium.compositegear.common.IClassifiedItem;
 import tws.zcaliptium.compositegear.common.ModInfo;
 
-public class ItemCompositeArmor extends ItemArmor implements IMetalArmor
+public class ItemCompositeArmor extends ItemArmor implements IMetalArmor, IClassifiedItem
 {
 	private static final int DEFAULT_COLOR = 8815987;//5328964;
 	
@@ -152,4 +154,9 @@ public class ItemCompositeArmor extends ItemArmor implements IMetalArmor
     {
     	return renderPass == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(damage, renderPass);
     }
+
+	@Override
+	public EnumItemClass getItemClass() {
+		return EnumItemClass.MEDIUM_ARMOR;
+	}
 }
