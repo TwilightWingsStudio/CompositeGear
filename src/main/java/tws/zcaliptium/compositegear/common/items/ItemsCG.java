@@ -42,7 +42,7 @@ public class ItemsCG
 		
 		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
 		compositeDagger = new ItemCGSword("composite_dagger", compositeDaggerMaterial);
-		compositeBow = new ItemCGBow("composite_bow", 2000);
+		compositeBow = new ItemCGBow("composite_bow", 2000, 15);
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)

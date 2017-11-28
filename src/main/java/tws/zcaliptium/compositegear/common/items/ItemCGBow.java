@@ -36,8 +36,9 @@ public class ItemCGBow extends Item implements IClassifiedItem
     public static final String[] bowPullIconNameArray = new String[] {"pulling_0", "pulling_1", "pulling_2"};
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
+    private int enchantability;
 
-    public ItemCGBow(String id, int maxDamage)
+    public ItemCGBow(String id, int maxDamage, int enchantability)
     {
 		GameRegistry.registerItem(this, id, ModInfo.MODID);
 		setUnlocalizedName(id);
@@ -45,6 +46,7 @@ public class ItemCGBow extends Item implements IClassifiedItem
 
         this.maxStackSize = 1;
         this.setMaxDamage(maxDamage);
+        this.enchantability = enchantability;
 
 		if (CompositeGear.ic2Tab != null) {
 			setCreativeTab(CompositeGear.ic2Tab);
@@ -174,7 +176,7 @@ public class ItemCGBow extends Item implements IClassifiedItem
      */
     public int getItemEnchantability()
     {
-        return 15;
+        return 10;
     }
 
     @SideOnly(Side.CLIENT)
