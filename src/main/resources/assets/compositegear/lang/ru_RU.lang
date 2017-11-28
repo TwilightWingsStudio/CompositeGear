@@ -6,3 +6,6 @@ item.composite_boots.name=Композитные ботинки
 item.composite_sword.name=Композитный меч
 item.composite_dagger.name=Композитный кинжал
 item.composite_bow.name=Композитный лук
+
+compositegear.itemclass=Класс
+compositegear.itemclass.mediumarmor=Средняя броня

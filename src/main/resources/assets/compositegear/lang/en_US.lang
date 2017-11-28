@@ -6,3 +6,6 @@ item.composite_boots.name=Composite Boots
 item.composite_sword.name=Composite Sword
 item.composite_dagger.name=Composite Dagger
 item.composite_bow.name=Composite Bow
+
+compositegear.itemclass=Class
+compositegear.itemclass.mediumarmor=Medium Armor

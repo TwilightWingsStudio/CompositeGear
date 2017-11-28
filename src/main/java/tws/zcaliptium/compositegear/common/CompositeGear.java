@@ -59,7 +59,10 @@ public class CompositeGear
     }
     
     @EventHandler
-    public void init(FMLInitializationEvent event) {}
+    public void init(FMLInitializationEvent event)
+    {
+		proxy.registerEventHandlers();
+    }
     
     @EventHandler
     public void afterModsLoaded(FMLPostInitializationEvent event)
