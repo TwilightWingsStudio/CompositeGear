@@ -27,11 +27,13 @@ public class ItemsCG
 	
 	public static Item compositeSword;
 	public static Item compositeBow;
+	public static Item compositeDagger;
 
 	public static void load()
 	{
 		ItemArmor.ArmorMaterial compositeArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE", 50, new int[] { 3, 9, 6, 3 }, 12);
 		Item.ToolMaterial compositeToolMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE", 2, 1800, 6.0F, 2.0F, 13);
+		Item.ToolMaterial compositeDaggerMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE_DAGGER", 2, 600, 6.0F, 0.0F, 15);
 		
 		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, 0);
 		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, 1);
@@ -39,6 +41,7 @@ public class ItemsCG
 		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, 3);
 		
 		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
+		compositeDagger = new ItemCGSword("composite_dagger", compositeDaggerMaterial);
 		compositeBow = new ItemCGBow("composite_bow", 2000);
 	}
 
@@ -59,6 +62,7 @@ public class ItemsCG
 		GameRegistry.addRecipe(new ItemStack(compositeBoots, 1, 0), new Object[] { "ALA", "AIA", Character.valueOf('A'), IC2Items.getItem("advancedAlloy"), Character.valueOf('I'), getStackNoMeta(Items.iron_boots), Character.valueOf('L'), getStackNoMeta(Items.leather_boots)});
 		
 		GameRegistry.addRecipe(new ItemStack(compositeSword, 1, 0), new Object[] { "A", "A", "I", Character.valueOf('A'), IC2Items.getItem("advancedAlloy"), Character.valueOf('I'), getStackNoMeta(Items.iron_sword)});
+		GameRegistry.addRecipe(new ItemStack(compositeDagger, 1, 0), new Object[] { "A", "I", Character.valueOf('A'), IC2Items.getItem("advancedAlloy"), Character.valueOf('I'), Items.stick});
 		GameRegistry.addRecipe(new ItemStack(compositeBow, 1, 0), new Object[] { "CAA", "ABC", "AC ", Character.valueOf('A'), IC2Items.getItem("advancedAlloy"), Character.valueOf('C'), IC2Items.getItem("carbonPlate"), Character.valueOf('B'), getStackNoMeta(Items.bow)});
 	}
 }
