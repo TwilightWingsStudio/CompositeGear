@@ -13,6 +13,9 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.crafting.CraftingManager;
 import tws.zcaliptium.compositegear.common.item.crafting.RecipesDyingArmor;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
+
+import org.apache.logging.log4j.Logger;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -38,6 +41,7 @@ public class CompositeGear
     public static final Side side = FMLCommonHandler.instance().getEffectiveSide();
     
     public static CreativeTabs ic2Tab;
+	public static Logger modLog;
 
 	public static void getIC2Tab()
 	{
@@ -51,6 +55,9 @@ public class CompositeGear
     @EventHandler
     public void load(FMLPreInitializationEvent event)
     {
+    	modLog = event.getModLog();
+    	ConfigurationCG.init(event.getSuggestedConfigurationFile());
+
     	if (proxy.isClient()) {
         	getIC2Tab();
     	}
