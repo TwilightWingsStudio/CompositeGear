@@ -41,6 +41,8 @@ public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
 		super(id, armorMaterial, armorName, renderIndex, armorType);
 	}
 
+	// IMetalArmor
+	@Optional.Method(modid = "IC2")
 	@Override
 	public boolean isMetalArmor(ItemStack itemstack, EntityPlayer player) {
 		return true;
