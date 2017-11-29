@@ -29,7 +29,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import ic2.api.recipe.Recipes;
 
-@Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="required-after:IC2;", version = ModInfo.VERSION)
+@Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="required-after:IC2;after:hzdslib", version = ModInfo.VERSION)
 public class CompositeGear
 {
     @Instance(ModInfo.MODID)

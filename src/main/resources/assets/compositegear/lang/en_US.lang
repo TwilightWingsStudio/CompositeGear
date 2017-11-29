@@ -8,6 +8,9 @@ item.composite_dagger.name=Composite Dagger
 item.composite_bow.name=Composite Bow
 
 compositegear.itemclass=Class
+compositegear.itemclass.accessoryarmor=Accessory Gear
+compositegear.itemclass.lightarmor=Light Armor
 compositegear.itemclass.mediumarmor=Medium Armor
+compositegear.itemclass.heavyarmor=Heavy Armor
 compositegear.itemclass.meleeweapon=Melee
 compositegear.itemclass.rangedweapon=Ranged
