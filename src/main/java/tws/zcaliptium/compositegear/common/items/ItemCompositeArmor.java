@@ -29,39 +29,15 @@ import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.IClassifiedItem;
 import tws.zcaliptium.compositegear.common.ModInfo;
 
-public class ItemCompositeArmor extends ItemArmor implements IMetalArmor, IClassifiedItem
+public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
 {
 	private static final int DEFAULT_COLOR = 8815987;//5328964;
-	
-	private final String armorName;
 
 	private IIcon overlayIcon;
 
 	public ItemCompositeArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, int armorType)
 	{
-		super(armorMaterial, renderIndex, armorType);
-
-		this.armorName = armorName;
-		
-		GameRegistry.registerItem(this, id, ModInfo.MODID);
-		setUnlocalizedName(id);
-		setTextureName(ModInfo.MODID + ":" + id);
-		
-		if (CompositeGear.ic2Tab != null) {
-			setCreativeTab(CompositeGear.ic2Tab);
-		}
-	}
-
-	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
-	{
-		int suffix = this.armorType == 2 ? 2 : 1;
-	
-		if (type == null) {
-			return ModInfo.MODID + ":textures/armor/" + this.armorName + "_" + suffix + ".png";
-		}
-		
-		return ModInfo.MODID + ":textures/armor/" + this.armorName + "_" + suffix + "_overlay.png";
+		super(id, armorMaterial, armorName, renderIndex, armorType);
 	}
 
 	@Override
@@ -154,9 +130,4 @@ public class ItemCompositeArmor extends ItemArmor implements IMetalArmor, IClass
     {
     	return renderPass == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(damage, renderPass);
     }
-
-	@Override
-	public EnumItemClass getItemClass() {
-		return EnumItemClass.MEDIUM_ARMOR;
-	}
 }
