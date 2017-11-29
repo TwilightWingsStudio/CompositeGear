@@ -35,6 +35,11 @@ public class ItemsCG
 	
 	public static Item respiratorHalfMask;
 
+	public static ItemStack ic2AirCell;
+	public static ItemStack ic2EmptyCell;
+	public static ItemStack ic2AdvancedAlloy;
+	public static ItemStack ic2CarbonPlate;
+
 	public static void load()
 	{
 		ItemArmor.ArmorMaterial accessoryArmorMaterial = EnumHelper.addArmorMaterial("CG_ACCESSORY", 100, new int[] { 1, 2, 2, 1 }, 15);
@@ -47,12 +52,15 @@ public class ItemsCG
 		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, 2);
 		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, 3);
 		
-		respiratorHalfMask = new ItemCGArmor("respirator_halfmask", accessoryArmorMaterial, "respirator_halfmask", 0, 0).setItemClass(EnumItemClass.ACCESSORY_ARMOR);
+		respiratorHalfMask = new ItemCGArmor("respirator_halfmask", accessoryArmorMaterial, "respirator_halfmask", 0, 0)
+				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true);
 		
 		// Weapons
 		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
 		compositeDagger = new ItemCGSword("composite_dagger", compositeDaggerMaterial);
 		compositeBow = new ItemCGBow("composite_bow", 2000, 15);
+		
+		loadIC2Items();
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)
@@ -61,29 +69,37 @@ public class ItemsCG
 		Items.apple.setDamage(result, 32767);
 		return result;
 	}
+	
+	@Optional.Method(modid = "IC2")
+	public static void loadIC2Items()
+	{
+		ic2AirCell = IC2Items.getItem("airCell");
+		ic2EmptyCell = IC2Items.getItem("cell");
+
+		ic2AdvancedAlloy = IC2Items.getItem("advancedAlloy");
+		ic2CarbonPlate = IC2Items.getItem("carbonPlate");
+	}
 
 	// TODO: Find way to automate it and get rid of this ugly code.
 	@Optional.Method(modid = "IC2")
 	public static void loadRecipes()
 	{
     	GameRegistry.addRecipe(new RecipesDyingArmor());
-    	
-    	ItemStack advancedAlloy = IC2Items.getItem("advancedAlloy");
 
     	if (ConfigurationCG.compositeHelmet) {
-    		GameRegistry.addRecipe(new ItemStack(compositeHelmet, 1, 0), new Object[] { "AIA", "ALA", Character.valueOf('A'), advancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_helmet), Character.valueOf('L'), getStackNoMeta(Items.leather_helmet)});
+    		GameRegistry.addRecipe(new ItemStack(compositeHelmet, 1, 0), new Object[] { "AIA", "ALA", Character.valueOf('A'), ic2AdvancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_helmet), Character.valueOf('L'), getStackNoMeta(Items.leather_helmet)});
     	}
 		
 		if (ConfigurationCG.compositeChestplate) {
-			GameRegistry.addRecipe(new ItemStack(compositeChestplate, 1, 0), new Object[] { "AIA", "ALA", "AAA", Character.valueOf('A'), advancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_chestplate), Character.valueOf('L'), getStackNoMeta(Items.leather_chestplate)});
+			GameRegistry.addRecipe(new ItemStack(compositeChestplate, 1, 0), new Object[] { "AIA", "ALA", "AAA", Character.valueOf('A'), ic2AdvancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_chestplate), Character.valueOf('L'), getStackNoMeta(Items.leather_chestplate)});
 		}
 
 		if (ConfigurationCG.compositeLeggings) {
-			GameRegistry.addRecipe(new ItemStack(compositeLeggings, 1, 0), new Object[] { "AAA", "ALA", "AIA", Character.valueOf('A'), advancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_leggings), Character.valueOf('L'), getStackNoMeta(Items.leather_leggings)});
+			GameRegistry.addRecipe(new ItemStack(compositeLeggings, 1, 0), new Object[] { "AAA", "ALA", "AIA", Character.valueOf('A'), ic2AdvancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_leggings), Character.valueOf('L'), getStackNoMeta(Items.leather_leggings)});
 		}
 		
 		if (ConfigurationCG.compositeBoots) {
-			GameRegistry.addRecipe(new ItemStack(compositeBoots, 1, 0), new Object[] { "ALA", "AIA", Character.valueOf('A'), advancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_boots), Character.valueOf('L'), getStackNoMeta(Items.leather_boots)});
+			GameRegistry.addRecipe(new ItemStack(compositeBoots, 1, 0), new Object[] { "ALA", "AIA", Character.valueOf('A'), ic2AdvancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_boots), Character.valueOf('L'), getStackNoMeta(Items.leather_boots)});
 		}
 		
 		GameRegistry.addRecipe(new ItemStack(respiratorHalfMask, 1, 0), new Object[] { "RWR", "IDI", "RBR", Character.valueOf('R'), IC2Items.getItem("rubber"), Character.valueOf('W'), Blocks.wool, Character.valueOf('B'), Blocks.iron_bars, Character.valueOf('I'), IC2Items.getItem("plateiron"), Character.valueOf('D'), IC2Items.getItem("coalDust")});
@@ -91,15 +107,15 @@ public class ItemsCG
 		// WEAPONS
 
 		if (ConfigurationCG.compositeSword) {
-			GameRegistry.addRecipe(new ItemStack(compositeSword, 1, 0), new Object[] { "A", "A", "I", Character.valueOf('A'), advancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_sword)});
+			GameRegistry.addRecipe(new ItemStack(compositeSword, 1, 0), new Object[] { "A", "A", "I", Character.valueOf('A'), ic2AdvancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_sword)});
 		}
 
 		if (ConfigurationCG.compositeDagger) {
-			GameRegistry.addRecipe(new ItemStack(compositeDagger, 1, 0), new Object[] { "A", "I", Character.valueOf('A'), advancedAlloy, Character.valueOf('I'), Items.stick});
+			GameRegistry.addRecipe(new ItemStack(compositeDagger, 1, 0), new Object[] { "A", "I", Character.valueOf('A'), ic2AdvancedAlloy, Character.valueOf('I'), Items.stick});
 		}
 		
 		if (ConfigurationCG.compositeBow) {
-			GameRegistry.addRecipe(new ItemStack(compositeBow, 1, 0), new Object[] { "CAA", "ABC", "AC ", Character.valueOf('A'), advancedAlloy, Character.valueOf('C'), IC2Items.getItem("carbonPlate"), Character.valueOf('B'), getStackNoMeta(Items.bow)});
+			GameRegistry.addRecipe(new ItemStack(compositeBow, 1, 0), new Object[] { "CAA", "ABC", "AC ", Character.valueOf('A'), ic2AdvancedAlloy, Character.valueOf('C'), ic2CarbonPlate, Character.valueOf('B'), getStackNoMeta(Items.bow)});
 		}
 	}
 }
