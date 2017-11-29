@@ -10,7 +10,7 @@ package tws.zcaliptium.compositegear.common.items;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import ic2.api.item.IElectricItem;
+import cpw.mods.fml.common.Optional;
 import ic2.api.item.IMetalArmor;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
@@ -29,6 +29,7 @@ import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.IClassifiedItem;
 import tws.zcaliptium.compositegear.common.ModInfo;
 
+@Optional.Interface(iface = "ic2.api.item.IMetalArmor", modid = "IC2")
 public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
 {
 	private static final int DEFAULT_COLOR = 8815987;//5328964;
