@@ -34,11 +34,14 @@ public class ItemsCG
 	public static Item compositeDagger;
 	
 	public static Item respiratorHalfMask;
+	public static Item respiratorMask;
 
 	public static ItemStack ic2AirCell;
 	public static ItemStack ic2EmptyCell;
 	public static ItemStack ic2AdvancedAlloy;
 	public static ItemStack ic2CarbonPlate;
+	public static ItemStack ic2Rubber;
+	public static ItemStack ic2PlateIron;
 
 	public static void load()
 	{
@@ -53,6 +56,9 @@ public class ItemsCG
 		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, 3);
 		
 		respiratorHalfMask = new ItemCGArmor("respirator_halfmask", accessoryArmorMaterial, "respirator_halfmask", 0, 0)
+				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true);
+		
+		respiratorMask = new ItemCGArmor("respirator_mask", accessoryArmorMaterial, "respirator_mask", 0, 0)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true);
 		
 		// Weapons
@@ -78,6 +84,8 @@ public class ItemsCG
 
 		ic2AdvancedAlloy = IC2Items.getItem("advancedAlloy");
 		ic2CarbonPlate = IC2Items.getItem("carbonPlate");
+		ic2Rubber = IC2Items.getItem("rubber");
+		ic2PlateIron = IC2Items.getItem("plateiron");
 	}
 
 	// TODO: Find way to automate it and get rid of this ugly code.
@@ -102,8 +110,16 @@ public class ItemsCG
 			GameRegistry.addRecipe(new ItemStack(compositeBoots, 1, 0), new Object[] { "ALA", "AIA", Character.valueOf('A'), ic2AdvancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_boots), Character.valueOf('L'), getStackNoMeta(Items.leather_boots)});
 		}
 		
-		GameRegistry.addRecipe(new ItemStack(respiratorHalfMask, 1, 0), new Object[] { "RWR", "IDI", "RBR", Character.valueOf('R'), IC2Items.getItem("rubber"), Character.valueOf('W'), Blocks.wool, Character.valueOf('B'), Blocks.iron_bars, Character.valueOf('I'), IC2Items.getItem("plateiron"), Character.valueOf('D'), IC2Items.getItem("coalDust")});
+		// TODO: Maybe use OreDictionary for stuff like Iron Plate.
 		
+		if (ConfigurationCG.respiratorHalfMask) {
+			GameRegistry.addRecipe(new ItemStack(respiratorHalfMask, 1, 0), new Object[] { "RWR", "IDI", "RBR", Character.valueOf('R'), ic2Rubber, Character.valueOf('W'), Blocks.wool, Character.valueOf('B'), Blocks.iron_bars, Character.valueOf('I'), ic2PlateIron, Character.valueOf('D'), IC2Items.getItem("coalDust")});
+		}
+
+		if (ConfigurationCG.respiratorMask) {
+			GameRegistry.addRecipe(new ItemStack(respiratorMask, 1, 0), new Object[] { "RIR", "IGI", "RMR", Character.valueOf('R'), ic2Rubber, Character.valueOf('G'), Blocks.glass_pane, Character.valueOf('I'), ic2PlateIron, Character.valueOf('M'), getStackNoMeta(respiratorHalfMask)});
+		}
+
 		// WEAPONS
 
 		if (ConfigurationCG.compositeSword) {

@@ -8,6 +8,7 @@ item.composite_dagger.name=Composite Dagger
 item.composite_bow.name=Composite Bow
 
 item.respirator_halfmask.name=Respirator Half-Mask
+item.respirator_mask.name=Respirator Mask
 
 compositegear.itemclass=Class
 compositegear.itemclass.accessoryarmor=Accessory Gear

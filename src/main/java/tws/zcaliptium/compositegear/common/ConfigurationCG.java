@@ -17,6 +17,9 @@ public class ConfigurationCG
 	public static boolean compositeDagger;
 	public static boolean compositeBow;
 	
+	public static boolean respiratorHalfMask;
+	public static boolean respiratorMask;
+	
 	public static void init(File configFile)
 	{
 	    Configuration config = new Configuration(configFile);
@@ -33,6 +36,9 @@ public class ConfigurationCG
 	    	compositeSword = config.getBoolean("composite_sword", "crafting", true, allowCraftingNote);
 	    	compositeDagger = config.getBoolean("composite_dagger", "crafting", true, allowCraftingNote);
 	    	compositeBow = config.getBoolean("composite_bow", "crafting", true, allowCraftingNote);
+	    	
+	    	respiratorHalfMask = config.getBoolean("respirator_halfmask", "crafting", true, allowCraftingNote);
+	    	respiratorMask = config.getBoolean("respirator_mask", "crafting", true, allowCraftingNote);
 	    	
 	    } catch (Exception e) {
 	      CompositeGear.modLog.error("Unable to load log file!");
