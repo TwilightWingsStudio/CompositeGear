@@ -49,23 +49,23 @@ public class ItemsCG
 		ItemArmor.ArmorMaterial compositeArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE", 50, new int[] { 3, 9, 6, 3 }, 12);
 		Item.ToolMaterial compositeToolMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE", 2, 1800, 6.0F, 2.0F, 13);
 		Item.ToolMaterial compositeDaggerMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE_DAGGER", 2, 600, 6.0F, 0.0F, 15);
-		
+
 		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, 0);
 		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, 1);
 		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, 2);
 		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, 3);
-		
+
 		respiratorHalfMask = new ItemCGArmor("respirator_halfmask", accessoryArmorMaterial, "respirator_halfmask", 0, 0)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true);
-		
+
 		respiratorMask = new ItemCGArmor("respirator_mask", accessoryArmorMaterial, "respirator_mask", 0, 0)
-				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true);
-		
+				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMaxDamage(200);
+
 		// Weapons
 		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
 		compositeDagger = new ItemCGSword("composite_dagger", compositeDaggerMaterial);
 		compositeBow = new ItemCGBow("composite_bow", 2000, 15);
-		
+
 		loadIC2Items();
 	}
 
@@ -75,7 +75,7 @@ public class ItemsCG
 		Items.apple.setDamage(result, 32767);
 		return result;
 	}
-	
+
 	@Optional.Method(modid = "IC2")
 	public static void loadIC2Items()
 	{
@@ -97,7 +97,7 @@ public class ItemsCG
     	if (ConfigurationCG.compositeHelmet) {
     		GameRegistry.addRecipe(new ItemStack(compositeHelmet, 1, 0), new Object[] { "AIA", "ALA", Character.valueOf('A'), ic2AdvancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_helmet), Character.valueOf('L'), getStackNoMeta(Items.leather_helmet)});
     	}
-		
+
 		if (ConfigurationCG.compositeChestplate) {
 			GameRegistry.addRecipe(new ItemStack(compositeChestplate, 1, 0), new Object[] { "AIA", "ALA", "AAA", Character.valueOf('A'), ic2AdvancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_chestplate), Character.valueOf('L'), getStackNoMeta(Items.leather_chestplate)});
 		}
@@ -105,13 +105,13 @@ public class ItemsCG
 		if (ConfigurationCG.compositeLeggings) {
 			GameRegistry.addRecipe(new ItemStack(compositeLeggings, 1, 0), new Object[] { "AAA", "ALA", "AIA", Character.valueOf('A'), ic2AdvancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_leggings), Character.valueOf('L'), getStackNoMeta(Items.leather_leggings)});
 		}
-		
+
 		if (ConfigurationCG.compositeBoots) {
 			GameRegistry.addRecipe(new ItemStack(compositeBoots, 1, 0), new Object[] { "ALA", "AIA", Character.valueOf('A'), ic2AdvancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_boots), Character.valueOf('L'), getStackNoMeta(Items.leather_boots)});
 		}
-		
+
 		// TODO: Maybe use OreDictionary for stuff like Iron Plate.
-		
+
 		if (ConfigurationCG.respiratorHalfMask) {
 			GameRegistry.addRecipe(new ItemStack(respiratorHalfMask, 1, 0), new Object[] { "RWR", "IDI", "RBR", Character.valueOf('R'), ic2Rubber, Character.valueOf('W'), Blocks.wool, Character.valueOf('B'), Blocks.iron_bars, Character.valueOf('I'), ic2PlateIron, Character.valueOf('D'), IC2Items.getItem("coalDust")});
 		}
@@ -129,7 +129,7 @@ public class ItemsCG
 		if (ConfigurationCG.compositeDagger) {
 			GameRegistry.addRecipe(new ItemStack(compositeDagger, 1, 0), new Object[] { "A", "I", Character.valueOf('A'), ic2AdvancedAlloy, Character.valueOf('I'), Items.stick});
 		}
-		
+
 		if (ConfigurationCG.compositeBow) {
 			GameRegistry.addRecipe(new ItemStack(compositeBow, 1, 0), new Object[] { "CAA", "ABC", "AC ", Character.valueOf('A'), ic2AdvancedAlloy, Character.valueOf('C'), ic2CarbonPlate, Character.valueOf('B'), getStackNoMeta(Items.bow)});
 		}
