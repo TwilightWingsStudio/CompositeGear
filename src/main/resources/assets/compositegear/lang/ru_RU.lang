@@ -9,9 +9,12 @@ item.composite_bow.name=Композитный лук
 
 item.respirator_halfmask.name=Респиратор-полумаска
 item.respirator_mask.name=Респиратор-маска
+item.respirator_mask_composite.name=Композитная респиратор-маска
 
 compositegear.itemclass=Класс
 compositegear.itemclass.accessoryarmor=Снаряжение
+compositegear.itemclass.lightarmor=Лёгкая броня
 compositegear.itemclass.mediumarmor=Средняя броня
+compositegear.itemclass.heavyarmor=Тяжёлая броня
 compositegear.itemclass.meleeweapon=Ближний бой
 compositegear.itemclass.rangedweapon=Дальнобойное оружие
