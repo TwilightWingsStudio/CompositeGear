@@ -16,6 +16,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.item.crafting.RecipesDyingArmor;
@@ -41,8 +42,6 @@ public class ItemsCG
 	public static ItemStack ic2EmptyCell;
 	public static ItemStack ic2AdvancedAlloy;
 	public static ItemStack ic2CarbonPlate;
-	public static ItemStack ic2Rubber;
-	public static ItemStack ic2PlateIron;
 	public static ItemStack ic2ReinforcedGlass;
 
 	public static void load()
@@ -91,8 +90,6 @@ public class ItemsCG
 
 		ic2AdvancedAlloy = IC2Items.getItem("advancedAlloy");
 		ic2CarbonPlate = IC2Items.getItem("carbonPlate");
-		ic2Rubber = IC2Items.getItem("rubber");
-		ic2PlateIron = IC2Items.getItem("plateiron");
 		ic2ReinforcedGlass = IC2Items.getItem("reinforcedGlass");
 	}
 
@@ -125,13 +122,13 @@ public class ItemsCG
 		// TODO: Maybe use OreDictionary for stuff like Iron Plate.
 
 		if (ConfigurationCG.respiratorHalfMask) {
-			GameRegistry.addRecipe(new ItemStack(respiratorHalfMask, 1, 0), new Object[] { "RWR", "IDI", "RBR", Character.valueOf('R'), ic2Rubber,
-					Character.valueOf('W'), Blocks.wool, Character.valueOf('B'), Blocks.iron_bars, Character.valueOf('I'), ic2PlateIron, Character.valueOf('D'), IC2Items.getItem("coalDust")});
+			GameRegistry.addRecipe(new ShapedOreRecipe( new ItemStack(respiratorHalfMask, 1, 0), new Object[] { "RWR", "IDI", "RBR", Character.valueOf('R'), "itemRubber",
+					Character.valueOf('W'), Blocks.wool, Character.valueOf('B'), Blocks.iron_bars, Character.valueOf('I'), "plateIron", Character.valueOf('D'), "dustCoal"}));
 		}
 
 		if (ConfigurationCG.respiratorMask) {
-			GameRegistry.addRecipe(new ItemStack(respiratorMask, 1, 0), new Object[] { "RIR", "IGI", "RMR", Character.valueOf('R'), ic2Rubber,
-					Character.valueOf('G'), Blocks.glass_pane, Character.valueOf('I'), ic2PlateIron, Character.valueOf('M'), getStackNoMeta(respiratorHalfMask)});
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(respiratorMask, 1, 0), new Object[] { "RIR", "IGI", "RMR", Character.valueOf('R'), "itemRubber",
+					Character.valueOf('G'), Blocks.glass_pane, Character.valueOf('I'), "plateIron", Character.valueOf('M'), getStackNoMeta(respiratorHalfMask)}));
 		}
 		
 		if (ConfigurationCG.respiratorMaskComposite) {
