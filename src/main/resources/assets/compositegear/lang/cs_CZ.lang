@@ -9,9 +9,11 @@ item.composite_bow.name=Kompozitní Luk
 
 item.respirator_halfmask.name=Respirátor
 item.respirator_mask.name=Dýchací Maska
+item.respirator_mask_composite.name=Kompozitní Dýchací Maska
 
 compositegear.itemclass=Třída
 compositegear.itemclass.accessoryarmor=Doplňky
+compositegear.itemclass.lightarmor=Lehké Brnění
 compositegear.itemclass.mediumarmor=Střední Brnění
 compositegear.itemclass.meleeweapon=Na blízko
 compositegear.itemclass.rangedweapon=Na dálku
