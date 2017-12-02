@@ -22,7 +22,9 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 {
 	protected final String armorName;
 	protected EnumItemClass itemClass;
+
 	protected boolean isAirMask;
+	protected int minAirToStartRefil;
 
 	public ItemCGArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, int armorType)
 	{
@@ -31,6 +33,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 		this.armorName = armorName;
 		this.itemClass = EnumItemClass.MEDIUM_ARMOR;
 		this.isAirMask = false;
+		this.minAirToStartRefil = 0;
 		
 		GameRegistry.registerItem(this, id, ModInfo.MODID);
 		setUnlocalizedName(id);
@@ -85,11 +88,13 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 		// If we wear some air mask on head.
 		if (this.isAirMask && this.armorType == 0)
 		{
-			if ((player.getAir() <= 100) && (player.inventory.hasItemStack(ItemsCG.ic2AirCell)))
+			// Default max value is 300
+			
+			if ((player.getAir() <= minAirToStartRefil) && (player.inventory.hasItemStack(ItemsCG.ic2AirCell)))
 			{
 				consumeItemFromInventory(player, ItemsCG.ic2AirCell);
 		        player.inventory.addItemStackToInventory(new ItemStack(ItemsCG.ic2EmptyCell.getItem()));
-		        player.setAir(player.getAir() + 150);
+		        player.setAir(300);
 		        shouldUpdate = true;
 			}
 		}
@@ -139,4 +144,10 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
     {
     	return isAirMask;
     }
+    
+	public ItemCGArmor setMinAir(int minAir) {
+		this.minAirToStartRefil = minAir;
+		
+		return this;
+	}
 }

@@ -19,6 +19,7 @@ public class ConfigurationCG
 	
 	public static boolean respiratorHalfMask;
 	public static boolean respiratorMask;
+	public static boolean respiratorMaskComposite;
 	
 	public static void init(File configFile)
 	{
@@ -39,6 +40,7 @@ public class ConfigurationCG
 	    	
 	    	respiratorHalfMask = config.getBoolean("respirator_halfmask", "crafting", true, allowCraftingNote);
 	    	respiratorMask = config.getBoolean("respirator_mask", "crafting", true, allowCraftingNote);
+	    	respiratorMaskComposite = config.getBoolean("respirator_mask_composite", "crafting", true, allowCraftingNote);
 	    	
 	    } catch (Exception e) {
 	      CompositeGear.modLog.error("Unable to load log file!");

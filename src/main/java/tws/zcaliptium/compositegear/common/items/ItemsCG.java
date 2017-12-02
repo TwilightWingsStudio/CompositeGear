@@ -43,6 +43,7 @@ public class ItemsCG
 	public static ItemStack ic2CarbonPlate;
 	public static ItemStack ic2Rubber;
 	public static ItemStack ic2PlateIron;
+	public static ItemStack ic2ReinforcedGlass;
 
 	public static void load()
 	{
@@ -92,6 +93,7 @@ public class ItemsCG
 		ic2CarbonPlate = IC2Items.getItem("carbonPlate");
 		ic2Rubber = IC2Items.getItem("rubber");
 		ic2PlateIron = IC2Items.getItem("plateiron");
+		ic2ReinforcedGlass = IC2Items.getItem("reinforcedGlass");
 	}
 
 	// TODO: Find way to automate it and get rid of this ugly code.
@@ -132,8 +134,11 @@ public class ItemsCG
 					Character.valueOf('G'), Blocks.glass_pane, Character.valueOf('I'), ic2PlateIron, Character.valueOf('M'), getStackNoMeta(respiratorHalfMask)});
 		}
 		
-		GameRegistry.addRecipe(new ItemStack(respiratorMaskComposite, 1, 0), new Object[] { "CAC", "AGA", "CMC", Character.valueOf('A'), ic2AdvancedAlloy,
-				Character.valueOf('G'), IC2Items.getItem("reinforcedGlass"), Character.valueOf('C'), ic2CarbonPlate, Character.valueOf('M'), getStackNoMeta(respiratorMask)});
+		if (ConfigurationCG.respiratorMaskComposite) {
+			GameRegistry.addRecipe(new ItemStack(respiratorMaskComposite, 1, 0), new Object[] { "CAC", "AGA", "CMC", Character.valueOf('A'), ic2AdvancedAlloy,
+					Character.valueOf('G'), ic2ReinforcedGlass, Character.valueOf('C'), ic2CarbonPlate, Character.valueOf('M'), getStackNoMeta(respiratorMask)});
+
+		}
 
 		// WEAPONS
 
