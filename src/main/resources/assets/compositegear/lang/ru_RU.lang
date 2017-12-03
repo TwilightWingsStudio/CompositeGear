@@ -11,6 +11,11 @@ item.respirator_halfmask.name=Респиратор-полумаска
 item.respirator_mask.name=Респиратор-маска
 item.respirator_mask_composite.name=Композитная респиратор-маска
 
+item.ushanka_hat.name=Ушанка
+item.ushanka_hat.description=Только настоящие славяне носят ушанку!
+
+compositegear.itemdesc=Описание
+
 compositegear.itemclass=Класс
 compositegear.itemclass.accessoryarmor=Снаряжение
 compositegear.itemclass.lightarmor=Лёгкая броня

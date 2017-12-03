@@ -21,6 +21,8 @@ public class ConfigurationCG
 	public static boolean respiratorMask;
 	public static boolean respiratorMaskComposite;
 	
+	public static boolean ushankaHat;
+	
 	public static void init(File configFile)
 	{
 	    Configuration config = new Configuration(configFile);
@@ -33,14 +35,16 @@ public class ConfigurationCG
 	    	compositeChestplate = config.getBoolean("composite_chestplate", "crafting", true, allowCraftingNote);
 	    	compositeLeggings = config.getBoolean("composite_leggings", "crafting", true, allowCraftingNote);
 	    	compositeBoots = config.getBoolean("composite_boots", "crafting", true, allowCraftingNote);
-	    	
+
 	    	compositeSword = config.getBoolean("composite_sword", "crafting", true, allowCraftingNote);
 	    	compositeDagger = config.getBoolean("composite_dagger", "crafting", true, allowCraftingNote);
 	    	compositeBow = config.getBoolean("composite_bow", "crafting", true, allowCraftingNote);
-	    	
+
 	    	respiratorHalfMask = config.getBoolean("respirator_halfmask", "crafting", true, allowCraftingNote);
 	    	respiratorMask = config.getBoolean("respirator_mask", "crafting", true, allowCraftingNote);
 	    	respiratorMaskComposite = config.getBoolean("respirator_mask_composite", "crafting", true, allowCraftingNote);
+
+	    	ushankaHat = config.getBoolean("ushanka_hat", "crafting", true, allowCraftingNote);
 	    	
 	    } catch (Exception e) {
 	      CompositeGear.modLog.error("Unable to load log file!");

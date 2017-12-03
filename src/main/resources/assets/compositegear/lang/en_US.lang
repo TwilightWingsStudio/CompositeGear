@@ -11,6 +11,11 @@ item.respirator_halfmask.name=Respirator Half-Mask
 item.respirator_mask.name=Respirator Mask
 item.respirator_mask_composite.name=Composite Respirator Mask
 
+item.ushanka_hat.name=Ushanka Hat
+item.ushanka_hat.description=Only true slavs wear ushanka!
+
+compositegear.itemdesc=Description
+
 compositegear.itemclass=Class
 compositegear.itemclass.accessoryarmor=Accessory Gear
 compositegear.itemclass.lightarmor=Light Armor

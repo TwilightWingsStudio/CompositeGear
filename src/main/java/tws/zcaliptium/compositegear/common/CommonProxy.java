@@ -7,10 +7,18 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common;
 
+import java.io.File;
+
+import net.minecraft.client.Minecraft;
+
 public class CommonProxy
 {
 	public void registerEventHandlers()
 	{
+	}
+	
+	public File getGameDir() {
+	    return new File(".");
 	}
 	
 	public boolean isClient() {

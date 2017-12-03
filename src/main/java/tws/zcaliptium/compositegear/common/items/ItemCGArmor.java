@@ -24,6 +24,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 	protected EnumItemClass itemClass;
 
 	protected boolean isAirMask;
+	protected boolean hasDescription;
 	protected int minAirToStartRefil;
 
 	public ItemCGArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, int armorType)
@@ -133,6 +134,17 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 	public IIcon getIconFromDamageForRenderPass(int damage, int renderPass) {
 		return super.getIconFromDamageForRenderPass(damage, renderPass);
 	}
+    
+    public ItemCGArmor setHasDescription(boolean hasDescription)
+    {
+    	this.hasDescription = hasDescription;
+		return this;
+    }
+    
+    public boolean hasDescription() 
+    {
+    	return hasDescription;
+    }
     
     public ItemCGArmor setAirMask(boolean isAirMask)
     {

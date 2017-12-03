@@ -37,6 +37,8 @@ public class ItemsCG
 	public static Item respiratorHalfMask;
 	public static Item respiratorMask;
 	public static Item respiratorMaskComposite;
+	
+	public static Item ushankaHat;
 
 	public static ItemStack ic2AirCell;
 	public static ItemStack ic2EmptyCell;
@@ -53,10 +55,10 @@ public class ItemsCG
 		Item.ToolMaterial compositeToolMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE", 2, 1800, 6.0F, 2.0F, 13);
 		Item.ToolMaterial compositeDaggerMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE_DAGGER", 2, 600, 6.0F, 0.0F, 15);
 
-		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, 0);
-		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, 1);
-		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, 2);
-		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, 3);
+		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, 0).setDefaultColor(8815987);
+		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, 1).setDefaultColor(8815987);
+		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, 2).setDefaultColor(8815987);
+		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, 3).setDefaultColor(8815987);
 
 		respiratorHalfMask = new ItemCGArmor("respirator_halfmask", accessoryArmorMaterial, "respirator_halfmask", 0, 0)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(80);
@@ -66,6 +68,9 @@ public class ItemsCG
 		
 		respiratorMaskComposite = new ItemCGArmor("respirator_mask_composite", compositeMaskArmorMaterial, "respirator_mask_composite", 0, 0)
 				.setItemClass(EnumItemClass.LIGHT_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(200);
+		
+		ushankaHat = new ItemCompositeArmor("ushanka_hat", accessoryArmorMaterial, "ushanka_hat", 0, 0).setDefaultColor(8487297)
+				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true);
 
 		// Weapons
 		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
@@ -135,6 +140,11 @@ public class ItemsCG
 			GameRegistry.addRecipe(new ItemStack(respiratorMaskComposite, 1, 0), new Object[] { "CAC", "AGA", "CMC", Character.valueOf('A'), ic2AdvancedAlloy,
 					Character.valueOf('G'), ic2ReinforcedGlass, Character.valueOf('C'), ic2CarbonPlate, Character.valueOf('M'), getStackNoMeta(respiratorMask)});
 
+		}
+		
+		if (ConfigurationCG.ushankaHat) {
+			GameRegistry.addRecipe(new ItemStack(ushankaHat, 1, 0), new Object[] { "LWL", "LWL", "S S", Character.valueOf('L'), Items.leather,
+					Character.valueOf('W'), Blocks.wool, Character.valueOf('S'), Items.string});
 		}
 
 		// WEAPONS

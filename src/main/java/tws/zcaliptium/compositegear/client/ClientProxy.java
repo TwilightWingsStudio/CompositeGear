@@ -7,6 +7,8 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.client;
 
+import java.io.File;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
@@ -23,6 +25,10 @@ public class ClientProxy extends CommonProxy
 		MinecraftForge.EVENT_BUS.register(eventhandler);
 	}
 	
+	@Override
+	public File getGameDir() {
+	    return new File(".");
+	}
 	
 	@Override
 	public boolean isClient() {

@@ -13,6 +13,7 @@ import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import tws.zcaliptium.compositegear.common.IClassifiedItem;
+import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
 import tws.zcaliptium.compositegear.common.items.ItemCGBow;
 import tws.zcaliptium.compositegear.common.items.ItemCGSword;
 import tws.zcaliptium.compositegear.common.items.ItemCompositeArmor;
@@ -35,6 +36,16 @@ public class ClientEventHandler
 			String transItemClass = StatCollector.translateToLocal("compositegear.itemclass");
 
 			ev.toolTip.add(1, transItemClass + ": " + classifiedItem.getItemClass().getLocalized());
+			
+			if (itemStack.getItem() instanceof ItemCGArmor) {
+				String transItemDesc = StatCollector.translateToLocal("compositegear.itemdesc");
+				
+				
+				if (((ItemCGArmor)itemStack.getItem()).hasDescription()) {
+					String descriptionString = StatCollector.translateToLocal(itemStack.getItem().getUnlocalizedName() + ".description");
+					ev.toolTip.add(2, transItemDesc + ": " + descriptionString);
+				}
+			}
 		}
 	}
 }

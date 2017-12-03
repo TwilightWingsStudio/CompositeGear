@@ -32,13 +32,14 @@ import tws.zcaliptium.compositegear.common.ModInfo;
 @Optional.Interface(iface = "ic2.api.item.IMetalArmor", modid = "IC2")
 public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
 {
-	private static final int DEFAULT_COLOR = 8815987;//5328964;
-
+	private int defaultColor;
 	private IIcon overlayIcon;
 
 	public ItemCompositeArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, int armorType)
 	{
 		super(id, armorMaterial, armorName, renderIndex, armorType);
+	
+		defaultColor = 0;
 	}
 
 	// IMetalArmor
@@ -67,11 +68,11 @@ public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
         NBTTagCompound nbttagcompound = stack.getTagCompound();
         
         if (nbttagcompound == null) {
-            return DEFAULT_COLOR;
+            return defaultColor;
         } else {
         	//System.out.println("DA KURWA!");
             NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("display");
-            return nbttagcompound1 == null ? DEFAULT_COLOR : (nbttagcompound1.hasKey("color", 3) ? nbttagcompound1.getInteger("color") : DEFAULT_COLOR);
+            return nbttagcompound1 == null ? defaultColor : (nbttagcompound1.hasKey("color", 3) ? nbttagcompound1.getInteger("color") : defaultColor);
         }
     }
 
@@ -132,5 +133,11 @@ public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
     public IIcon getIconFromDamageForRenderPass(int damage, int renderPass)
     {
     	return renderPass == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(damage, renderPass);
+    }
+    
+    public ItemCompositeArmor setDefaultColor(int color)
+    {
+    	this.defaultColor = color;
+    	return this;
     }
 }
