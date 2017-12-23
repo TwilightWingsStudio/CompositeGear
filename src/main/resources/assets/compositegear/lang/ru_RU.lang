@@ -14,6 +14,12 @@ item.respirator_mask_composite.name=Композитная респиратор-
 item.ushanka_hat.name=Ушанка
 item.ushanka_hat.description=Только настоящие славяне носят ушанку!
 
+item.balaclava_mask.name=Балаклава
+item.balaclava_mask.description=Стиль ниндзя!
+
+item.shemagh_mask.name=Шемаг
+item.shemagh_mask.description=Аллах-бабах!
+
 compositegear.itemdesc=Описание
 
 compositegear.itemclass=Класс

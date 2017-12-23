@@ -14,6 +14,12 @@ item.respirator_mask_composite.name=Composite Respirator Mask
 item.ushanka_hat.name=Ushanka Hat
 item.ushanka_hat.description=Only true slavs wear ushanka!
 
+item.balaclava_mask.name=Balaclava Mask
+item.balaclava_mask.description=Oppa ninja style!
+
+item.shemagh_mask.name=Shemagh Mask
+item.shemagh_mask.description=Bomb has been planted!
+
 compositegear.itemdesc=Description
 
 compositegear.itemclass=Class
