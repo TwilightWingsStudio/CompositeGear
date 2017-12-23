@@ -12,13 +12,14 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import ic2.api.item.IC2Items;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.oredict.ShapedOreRecipe;
-import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
+import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.item.crafting.RecipesDyingArmor;
 
 public class ItemsCG
@@ -39,6 +40,8 @@ public class ItemsCG
 	public static Item respiratorMaskComposite;
 	
 	public static Item ushankaHat;
+	public static Item balaclavaMask;
+	public static Item shemaghMask;
 
 	public static ItemStack ic2AirCell;
 	public static ItemStack ic2EmptyCell;
@@ -55,10 +58,10 @@ public class ItemsCG
 		Item.ToolMaterial compositeToolMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE", 2, 1800, 6.0F, 2.0F, 13);
 		Item.ToolMaterial compositeDaggerMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE_DAGGER", 2, 600, 6.0F, 0.0F, 15);
 
-		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, 0).setDefaultColor(8815987);
-		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, 1).setDefaultColor(8815987);
-		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, 2).setDefaultColor(8815987);
-		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, 3).setDefaultColor(8815987);
+		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, 0).setDefaultColor(8815987).setRarity(EnumRarity.uncommon);
+		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, 1).setDefaultColor(8815987).setRarity(EnumRarity.uncommon);
+		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, 2).setDefaultColor(8815987).setRarity(EnumRarity.uncommon);
+		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, 3).setDefaultColor(8815987).setRarity(EnumRarity.uncommon);
 
 		respiratorHalfMask = new ItemCGArmor("respirator_halfmask", accessoryArmorMaterial, "respirator_halfmask", 0, 0)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(80);
@@ -67,10 +70,16 @@ public class ItemsCG
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(150);
 		
 		respiratorMaskComposite = new ItemCGArmor("respirator_mask_composite", compositeMaskArmorMaterial, "respirator_mask_composite", 0, 0)
-				.setItemClass(EnumItemClass.LIGHT_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(200);
+				.setItemClass(EnumItemClass.LIGHT_ARMOR).setAirMask(true).setMinAir(20).setRarity(EnumRarity.uncommon).setMaxDamage(200);
 		
 		ushankaHat = new ItemCompositeArmor("ushanka_hat", accessoryArmorMaterial, "ushanka_hat", 0, 0).setDefaultColor(8487297)
+				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true).setMaxDamage(300);
+		
+		balaclavaMask = new ItemCompositeArmor("balaclava_mask", accessoryArmorMaterial, "balaclava_mask", 0, 0).setDefaultColor(8487297)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true);
+		
+		shemaghMask = new ItemCompositeArmor("shemagh_mask", accessoryArmorMaterial, "shemagh_mask", 0, 0).setDefaultColor(8487297)
+				.setHasOverlayIcon(true).setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true);
 
 		// Weapons
 		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
@@ -124,8 +133,6 @@ public class ItemsCG
 					ic2AdvancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_boots), Character.valueOf('L'), getStackNoMeta(Items.leather_boots)});
 		}
 
-		// TODO: Maybe use OreDictionary for stuff like Iron Plate.
-
 		if (ConfigurationCG.respiratorHalfMask) {
 			GameRegistry.addRecipe(new ShapedOreRecipe( new ItemStack(respiratorHalfMask, 1, 0), new Object[] { "RWR", "IDI", "RBR", Character.valueOf('R'), "itemRubber",
 					Character.valueOf('W'), Blocks.wool, Character.valueOf('B'), Blocks.iron_bars, Character.valueOf('I'), "plateIron", Character.valueOf('D'), "dustCoal"}));
@@ -142,9 +149,21 @@ public class ItemsCG
 
 		}
 		
+		// DECORATIVE
+		
 		if (ConfigurationCG.ushankaHat) {
 			GameRegistry.addRecipe(new ItemStack(ushankaHat, 1, 0), new Object[] { "LWL", "LWL", "S S", Character.valueOf('L'), Items.leather,
 					Character.valueOf('W'), Blocks.wool, Character.valueOf('S'), Items.string});
+		}
+		
+		if (ConfigurationCG.balaclavaMask) {
+			GameRegistry.addRecipe(new ItemStack(balaclavaMask, 1, 0), new Object[] { "SWS", "WSW", Character.valueOf('W'), Blocks.wool,
+					Character.valueOf('S'), Items.string});
+		}
+		
+		if (ConfigurationCG.shemaghMask) {
+			GameRegistry.addRecipe(new ItemStack(shemaghMask, 1, 0), new Object[] { "WWW", "S S", "SWS", Character.valueOf('W'), Blocks.wool,
+					Character.valueOf('S'), Items.string});
 		}
 
 		// WEAPONS

@@ -34,6 +34,7 @@ public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
 {
 	private int defaultColor;
 	private IIcon overlayIcon;
+	private boolean hasOverlayIcon;
 
 	public ItemCompositeArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, int armorType)
 	{
@@ -53,7 +54,7 @@ public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
     @SideOnly(Side.CLIENT)
     public EnumRarity getRarity(ItemStack var1)
     {
-    	return EnumRarity.uncommon;
+    	return this.rarity;
     }
 
     @Override
@@ -118,6 +119,11 @@ public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
     {
         super.registerIcons(iconRegister);
         
+        if (hasOverlayIcon) {
+        	this.overlayIcon = iconRegister.registerIcon(this.iconString + "_overlay");
+        	return;
+        }
+
         this.overlayIcon = iconRegister.registerIcon(ModInfo.MODID + ":empty");
     }
     
@@ -139,5 +145,11 @@ public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
     {
     	this.defaultColor = color;
     	return this;
+    }
+    
+    public ItemCompositeArmor setHasOverlayIcon(boolean hasOverlayIcon)
+    {
+    	this.hasOverlayIcon = hasOverlayIcon;
+		return this;
     }
 }

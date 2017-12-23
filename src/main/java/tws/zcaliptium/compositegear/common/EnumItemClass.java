@@ -2,7 +2,8 @@ package tws.zcaliptium.compositegear.common;
 
 import net.minecraft.util.StatCollector;
 
-public enum EnumItemClass {
+public enum EnumItemClass
+{
 	ACCESSORY_ARMOR("compositegear.itemclass.accessoryarmor"),
 	LIGHT_ARMOR("compositegear.itemclass.lightarmor"),
 	MEDIUM_ARMOR("compositegear.itemclass.mediumarmor"),

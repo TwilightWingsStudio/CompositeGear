@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * Copyright (c) 2017 ZCaliptium.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the GNU Lesser Public License v3
+ * which accompanies this distribution, and is available at
+ * http://www.gnu.org/licenses/lgpl-3.0.txt
+ ******************************************************************************/
 package tws.zcaliptium.compositegear.common.items;
 
 import cpw.mods.fml.common.Optional;
@@ -26,6 +33,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 	protected boolean isAirMask;
 	protected boolean hasDescription;
 	protected int minAirToStartRefil;
+	protected EnumRarity rarity;
 
 	public ItemCGArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, int armorType)
 	{
@@ -35,6 +43,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 		this.itemClass = EnumItemClass.MEDIUM_ARMOR;
 		this.isAirMask = false;
 		this.minAirToStartRefil = 0;
+		this.rarity = EnumRarity.common;
 		
 		GameRegistry.registerItem(this, id, ModInfo.MODID);
 		setUnlocalizedName(id);
@@ -110,7 +119,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
     @SideOnly(Side.CLIENT)
     public EnumRarity getRarity(ItemStack var1)
     {
-    	return EnumRarity.common;
+    	return rarity;
     }
 
 	public boolean hasColor(ItemStack stack) {
@@ -155,6 +164,12 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
     public boolean isAirMask()
     {
     	return isAirMask;
+    }
+    
+    public ItemCGArmor setRarity(EnumRarity rarity)
+    {
+    	this.rarity = rarity;
+		return this;
     }
     
 	public ItemCGArmor setMinAir(int minAir) {
