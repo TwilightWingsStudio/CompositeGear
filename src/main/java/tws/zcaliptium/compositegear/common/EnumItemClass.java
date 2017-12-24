@@ -1,6 +1,6 @@
 package tws.zcaliptium.compositegear.common;
 
-import net.minecraft.util.StatCollector;
+import net.minecraft.util.text.translation.I18n;
 
 public enum EnumItemClass
 {
@@ -25,6 +25,6 @@ public enum EnumItemClass
 	
 	public String getLocalized()
 	{
-		return StatCollector.translateToLocal(this.unlocalisedName);
+		return I18n.translateToLocal(this.unlocalisedName);
 	}
 }

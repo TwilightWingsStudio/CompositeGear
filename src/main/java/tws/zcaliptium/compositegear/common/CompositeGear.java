@@ -11,22 +11,20 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.relauncher.Side;
 import tws.zcaliptium.compositegear.common.item.crafting.RecipesDyingArmor;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
 
 import org.apache.logging.log4j.Logger;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import ic2.api.recipe.Recipes;
 
 @Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="required-after:IC2;after:hzdslib", version = ModInfo.VERSION)
@@ -45,9 +43,9 @@ public class CompositeGear
 
 	public static void getIC2Tab()
 	{
-		for (int i = 0; i < CreativeTabs.creativeTabArray.length; i++) {
-			if (CreativeTabs.creativeTabArray[i].getTabLabel().equalsIgnoreCase("IC2")) {
-				ic2Tab = CreativeTabs.creativeTabArray[i];
+		for (int i = 0; i < CreativeTabs.CREATIVE_TAB_ARRAY.length; i++) {
+			if (CreativeTabs.CREATIVE_TAB_ARRAY[i].getTabLabel().equalsIgnoreCase("IC2")) {
+				ic2Tab = CreativeTabs.CREATIVE_TAB_ARRAY[i];
 			}
 		}
 	}

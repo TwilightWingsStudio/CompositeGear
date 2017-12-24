@@ -9,9 +9,9 @@ package tws.zcaliptium.compositegear.client;
 
 import java.io.File;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import tws.zcaliptium.compositegear.common.CommonProxy;
 
 public class ClientProxy extends CommonProxy

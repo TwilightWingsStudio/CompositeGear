@@ -7,12 +7,12 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common.items;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.IClassifiedItem;
@@ -37,7 +37,7 @@ public class ItemCGSword extends ItemSword implements IClassifiedItem
     @SideOnly(Side.CLIENT)
     public EnumRarity getRarity(ItemStack var1)
     {
-    	return EnumRarity.uncommon;
+    	return EnumRarity.UNCOMMON;
     }
 
 	@Override
