@@ -73,7 +73,7 @@ public class CompositeGear
     @EventHandler
     public void afterModsLoaded(FMLPostInitializationEvent event)
     {
-    	if (Loader.isModLoaded("ic2")) {
+    	if (Loader.isModLoaded(Compats.IC2)) {
         	ItemsCG.loadRecipes();
     	}
     }

@@ -19,6 +19,7 @@ import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.IClassifiedItem;
@@ -44,10 +45,10 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 		this.minAirToStartRefil = 0;
 		this.rarity = EnumRarity.COMMON;
 		
-		GameRegistry.registerItem(this, id, ModInfo.MODID);
 		setUnlocalizedName(id);
-		setTextureName(ModInfo.MODID + ":" + id);
 		
+		GameRegistry.registerItem(this, id, ModInfo.MODID);
+
 		if (CompositeGear.ic2Tab != null) {
 			setCreativeTab(CompositeGear.ic2Tab);
 		}
@@ -88,7 +89,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 		}
 	}
 	
-	@Optional.Method(modid = "IC2")
+	@Optional.Method(modid = Compats.IC2)
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack stack)
 	{

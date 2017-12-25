@@ -14,11 +14,15 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
+import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.item.crafting.RecipesDyingArmor;
 
@@ -51,13 +55,15 @@ public class ItemsCG
 
 	public static void load()
 	{
+		Item.ToolMaterial compositeToolMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE", 2, 1800, 6.0F, 2.0F, 13);
+		Item.ToolMaterial compositeDaggerMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE_DAGGER", 2, 600, 6.0F, 0.0F, 15);
+		
 		// TODO: Solve this garbage with materials.
 		/*
 		ItemArmor.ArmorMaterial accessoryArmorMaterial = EnumHelper.addArmorMaterial("CG_ACCESSORY", 100, new int[] { 1, 2, 2, 1 }, 15);
 		ItemArmor.ArmorMaterial compositeMaskArmorMaterial = EnumHelper.addArmorMaterial("CG_MASK_COMPOSITE", 50, new int[] { 3, 9, 6, 3 }, 12);
 		ItemArmor.ArmorMaterial compositeArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE", 50, new int[] { 3, 9, 6, 3 }, 12);
-		Item.ToolMaterial compositeToolMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE", 2, 1800, 6.0F, 2.0F, 13);
-		Item.ToolMaterial compositeDaggerMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE_DAGGER", 2, 600, 6.0F, 0.0F, 15);
+
 
 		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, 0).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
 		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, 1).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
@@ -81,14 +87,16 @@ public class ItemsCG
 		
 		shemaghMask = new ItemCompositeArmor("shemagh_mask", accessoryArmorMaterial, "shemagh_mask", 0, 0).setDefaultColor(8487297)
 				.setHasOverlayIcon(true).setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true);
-
+		*/
 		// Weapons
 		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
 		compositeDagger = new ItemCGSword("composite_dagger", compositeDaggerMaterial);
-		compositeBow = new ItemCGBow("composite_bow", 2000, 15);
+		//compositeBow = new ItemCGBow("composite_bow", 2000, 15);
 
-		loadIC2Items();
-		*/
+
+    	if (Loader.isModLoaded(Compats.IC2)) {
+			loadIC2Items();
+		}
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)
@@ -98,7 +106,7 @@ public class ItemsCG
 		return result;
 	}
 
-	@Optional.Method(modid = "IC2")
+	@Optional.Method(modid = Compats.IC2)
 	public static void loadIC2Items()
 	{
 		ic2AirCell = IC2Items.getItem("airCell");
@@ -110,7 +118,7 @@ public class ItemsCG
 	}
 
 	// TODO: Find way to automate it and get rid of this ugly code.
-	@Optional.Method(modid = "IC2")
+	@Optional.Method(modid = Compats.IC2)
 	public static void loadRecipes()
 	{
 		/*
@@ -187,4 +195,14 @@ public class ItemsCG
 		}
 		*/
 	}
+	
+	   public static Item registerItem(Item item, ResourceLocation rl) {
+	      item.setRegistryName(rl);
+	      return registerItem(item);
+	   }
+
+	   public static Item registerItem(Item item) {
+	      ForgeRegistries.ITEMS.register(item);
+	      return item;
+	   }
 }

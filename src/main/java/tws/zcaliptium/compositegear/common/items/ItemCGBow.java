@@ -50,7 +50,6 @@ public class ItemCGBow extends Item implements IClassifiedItem
         this.enchantability = enchantability;
 
 		GameRegistry.registerItem(this, id, ModInfo.MODID);
-		setTextureName(ModInfo.MODID + ":" + id);
 
 		if (CompositeGear.ic2Tab != null) {
 			setCreativeTab(CompositeGear.ic2Tab);

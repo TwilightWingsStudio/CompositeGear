@@ -22,11 +22,12 @@ import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.ModInfo;
 
-@Optional.Interface(iface = "ic2.api.item.IMetalArmor", modid = "IC2")
+@Optional.Interface(iface = "ic2.api.item.IMetalArmor", modid = Compats.IC2)
 public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
 {
 	private int defaultColor;
@@ -40,7 +41,7 @@ public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
 	}
 
 	// IMetalArmor
-	@Optional.Method(modid = "IC2")
+	@Optional.Method(modid = Compats.IC2)
 	@Override
 	public boolean isMetalArmor(ItemStack itemstack, EntityPlayer player) {
 		return true;
