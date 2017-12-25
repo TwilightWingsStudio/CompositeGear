@@ -24,8 +24,9 @@ public class ItemCGSword extends ItemSword implements IClassifiedItem
 	{
 		super(material);
 		
-		GameRegistry.registerItem(this, id, ModInfo.MODID);
 		setUnlocalizedName(id);
+
+		GameRegistry.registerItem(this, id, ModInfo.MODID);
 		setTextureName(ModInfo.MODID + ":" + id);
 		
 		if (CompositeGear.ic2Tab != null) {

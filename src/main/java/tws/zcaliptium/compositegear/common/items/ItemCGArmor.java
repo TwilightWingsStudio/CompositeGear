@@ -9,11 +9,13 @@ package tws.zcaliptium.compositegear.common.items;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -32,7 +34,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 	protected int minAirToStartRefil;
 	protected EnumRarity rarity;
 
-	public ItemCGArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, int armorType)
+	public ItemCGArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, EntityEquipmentSlot armorType)
 	{
 		super(armorMaterial, renderIndex, armorType);
 
@@ -40,7 +42,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 		this.itemClass = EnumItemClass.MEDIUM_ARMOR;
 		this.isAirMask = false;
 		this.minAirToStartRefil = 0;
-		this.rarity = EnumRarity.common;
+		this.rarity = EnumRarity.COMMON;
 		
 		GameRegistry.registerItem(this, id, ModInfo.MODID);
 		setUnlocalizedName(id);
@@ -64,9 +66,9 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 	}
 
 	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
+	public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type)
 	{
-		int suffix = this.armorType == 2 ? 2 : 1;
+		int suffix = this.armorType == EntityEquipmentSlot.LEGS ? 2 : 1;
 	
 		if (type == null) {
 			return ModInfo.MODID + ":textures/armor/" + this.armorName + "_" + suffix + ".png";
@@ -77,9 +79,9 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 	
 	private static void consumeItemFromInventory(EntityPlayer player, ItemStack itemStack)
 	{
-		for (int i = 0; i < player.inventory.mainInventory.length; i++)
+		for (int i = 0; i < player.inventory.mainInventory.size(); i++)
 		{
-			if ((player.inventory.mainInventory[i] != null) && (player.inventory.mainInventory[i].isItemEqual(itemStack))) {
+			if ((player.inventory.mainInventory.get(i) != null) && (player.inventory.mainInventory.get(i).isItemEqual(itemStack))) {
 				player.inventory.decrStackSize(i, 1);
 				return;
 			}
@@ -93,7 +95,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 		boolean shouldUpdate = false;
 		
 		// If we wear some air mask on head.
-		if (this.isAirMask && this.armorType == 0)
+		if (this.isAirMask && this.armorType == EntityEquipmentSlot.HEAD)
 		{
 			// Default max value is 300
 			
@@ -121,24 +123,6 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 
 	public boolean hasColor(ItemStack stack) {
 		return false;
-	}
-
-    @SideOnly(Side.CLIENT)
-    @Override
-	public boolean requiresMultipleRenderPasses() {
-		return false;
-	}
-
-    @SideOnly(Side.CLIENT)
-    @Override
-	public void registerIcons(IIconRegister iconRegister) {
-        super.registerIcons(iconRegister);
-	}
-
-    @SideOnly(Side.CLIENT)
-	@Override
-	public IIcon getIconFromDamageForRenderPass(int damage, int renderPass) {
-		return super.getIconFromDamageForRenderPass(damage, renderPass);
 	}
     
     public ItemCGArmor setHasDescription(boolean hasDescription)

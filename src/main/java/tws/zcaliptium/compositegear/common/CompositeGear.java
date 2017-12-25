@@ -12,6 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -27,7 +28,7 @@ import org.apache.logging.log4j.Logger;
 
 import ic2.api.recipe.Recipes;
 
-@Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="required-after:IC2;after:hzdslib", version = ModInfo.VERSION)
+@Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="required-after:ic2;after:hzdslib", version = ModInfo.VERSION)
 public class CompositeGear
 {
     @Instance(ModInfo.MODID)
@@ -72,6 +73,8 @@ public class CompositeGear
     @EventHandler
     public void afterModsLoaded(FMLPostInitializationEvent event)
     {
-    	ItemsCG.loadRecipes();
+    	if (Loader.isModLoaded("ic2")) {
+        	ItemsCG.loadRecipes();
+    	}
     }
 }

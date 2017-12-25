@@ -16,6 +16,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
@@ -51,6 +52,7 @@ public class ItemsCG
 	public static void load()
 	{
 		// TODO: Solve this garbage with materials.
+		/*
 		ItemArmor.ArmorMaterial accessoryArmorMaterial = EnumHelper.addArmorMaterial("CG_ACCESSORY", 100, new int[] { 1, 2, 2, 1 }, 15);
 		ItemArmor.ArmorMaterial compositeMaskArmorMaterial = EnumHelper.addArmorMaterial("CG_MASK_COMPOSITE", 50, new int[] { 3, 9, 6, 3 }, 12);
 		ItemArmor.ArmorMaterial compositeArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE", 50, new int[] { 3, 9, 6, 3 }, 12);
@@ -86,12 +88,13 @@ public class ItemsCG
 		compositeBow = new ItemCGBow("composite_bow", 2000, 15);
 
 		loadIC2Items();
+		*/
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)
 	{
 		ItemStack result = new ItemStack(prototype);
-		Items.apple.setDamage(result, 32767);
+		Items.APPLE.setDamage(result, 32767);
 		return result;
 	}
 
@@ -110,6 +113,7 @@ public class ItemsCG
 	@Optional.Method(modid = "IC2")
 	public static void loadRecipes()
 	{
+		/*
     	GameRegistry.addRecipe(new RecipesDyingArmor());
 
     	if (ConfigurationCG.compositeHelmet) {
@@ -181,5 +185,6 @@ public class ItemsCG
 			GameRegistry.addRecipe(new ItemStack(compositeBow, 1, 0), new Object[] { "CAA", "ABC", "AC ", Character.valueOf('A'), ic2AdvancedAlloy,
 					Character.valueOf('C'), ic2CarbonPlate, Character.valueOf('B'), getStackNoMeta(Items.bow)});
 		}
+		*/
 	}
 }

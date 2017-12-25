@@ -11,6 +11,7 @@ import ic2.api.item.IMetalArmor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
@@ -18,21 +19,20 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.ISpecialArmor;
+import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
-import tws.zcaliptium.compositegear.common.IClassifiedItem;
 import tws.zcaliptium.compositegear.common.ModInfo;
 
 @Optional.Interface(iface = "ic2.api.item.IMetalArmor", modid = "IC2")
 public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
 {
 	private int defaultColor;
-	private IIcon overlayIcon;
 	private boolean hasOverlayIcon;
 
-	public ItemCompositeArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, int armorType)
+	public ItemCompositeArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, EntityEquipmentSlot armorType)
 	{
 		super(id, armorMaterial, armorName, renderIndex, armorType);
 	
@@ -75,7 +75,7 @@ public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
 
     // setColor
     @Override
-    public void func_82813_b(ItemStack stack, int newColor)
+    public void setColor(ItemStack stack, int newColor)
     {
         NBTTagCompound nbttagcompound = stack.getTagCompound();
 
@@ -92,7 +92,7 @@ public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
 
         nbttagcompound1.setInteger("color", newColor);
     }
-    
+
     @Override
     public void removeColor(ItemStack stack)
     {
@@ -108,41 +108,13 @@ public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
             }
         }
     }
-    
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void registerIcons(IIconRegister iconRegister)
-    {
-        super.registerIcons(iconRegister);
-        
-        if (hasOverlayIcon) {
-        	this.overlayIcon = iconRegister.registerIcon(this.iconString + "_overlay");
-        	return;
-        }
 
-        this.overlayIcon = iconRegister.registerIcon(ModInfo.MODID + ":empty");
-    }
-    
-    @SideOnly(Side.CLIENT)
-    @Override
-    public boolean requiresMultipleRenderPasses()
-    {
-        return true;
-    }
-    
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IIcon getIconFromDamageForRenderPass(int damage, int renderPass)
-    {
-    	return renderPass == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(damage, renderPass);
-    }
-    
     public ItemCompositeArmor setDefaultColor(int color)
     {
     	this.defaultColor = color;
     	return this;
     }
-    
+
     public ItemCompositeArmor setHasOverlayIcon(boolean hasOverlayIcon)
     {
     	this.hasOverlayIcon = hasOverlayIcon;

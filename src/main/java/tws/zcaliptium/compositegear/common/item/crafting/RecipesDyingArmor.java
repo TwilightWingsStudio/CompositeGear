@@ -15,6 +15,7 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import tws.zcaliptium.compositegear.common.items.ItemCompositeArmor;
 
@@ -44,7 +45,7 @@ public class RecipesDyingArmor implements IRecipe
 
                     itemstack = itemstack1;
                 } else {
-                    if (itemstack1.getItem() != Items.dye)
+                    if (itemstack1.getItem() != Items.DYE)
                     {
                         return false;
                     }
@@ -89,7 +90,7 @@ public class RecipesDyingArmor implements IRecipe
                     }
 
                     itemstack = itemstack1.copy();
-                    itemstack.stackSize = 1;
+                    itemstack.setCount(1);
 
                     if (itemarmor.hasColor(itemstack1))
                     {
@@ -153,4 +154,28 @@ public class RecipesDyingArmor implements IRecipe
     {
         return null;
     }
+
+	@Override
+	public IRecipe setRegistryName(ResourceLocation name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResourceLocation getRegistryName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Class<IRecipe> getRegistryType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean canFit(int width, int height) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
