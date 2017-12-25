@@ -8,6 +8,7 @@
 package tws.zcaliptium.compositegear.common.items;
 
 import ic2.api.item.IC2Items;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
@@ -15,13 +16,17 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
+import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.item.crafting.RecipesDyingArmor;
@@ -93,6 +98,8 @@ public class ItemsCG
 		compositeDagger = new ItemCGSword("composite_dagger", compositeDaggerMaterial);
 		//compositeBow = new ItemCGBow("composite_bow", 2000, 15);
 
+		registerMultiItem(compositeSword, "composite_sword", "items/tool/generic");
+		registerMultiItem(compositeDagger, "composite_dagger", "items/tool/generic");
 
     	if (Loader.isModLoaded(Compats.IC2)) {
 			loadIC2Items();
@@ -196,13 +203,19 @@ public class ItemsCG
 		*/
 	}
 	
-	   public static Item registerItem(Item item, ResourceLocation rl) {
-	      item.setRegistryName(rl);
-	      return registerItem(item);
-	   }
+	public static Item registerItem(Item item, ResourceLocation rl) {
+		item.setRegistryName(rl);
+		return registerItem(item);
+	}
 
-	   public static Item registerItem(Item item) {
-	      ForgeRegistries.ITEMS.register(item);
-	      return item;
-	   }
+	public static Item registerItem(Item item) {
+		ForgeRegistries.ITEMS.register(item);
+		return item;
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public static void registerMultiItem(Item item, String name, String path) {
+		ResourceLocation loc = new ResourceLocation(ModInfo.MODID, path);
+		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(loc, "type=" + name));
+	}
 }

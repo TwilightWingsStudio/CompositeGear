@@ -1,0 +1,21 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "builtin/generated",
+    "transform": "forge:default-tool"
+  },
+  "variants": {
+    "type": {
+      "composite_sword": {
+        "textures": {
+          "layer0": "compositegear:items/composite_sword"
+        }
+      },
+      "composite_dagger": {
+        "textures": {
+          "layer0": "compositegear:items/composite_dagger"
+        }
+      }
+    }
+  }
+}
