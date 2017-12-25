@@ -1,0 +1,6 @@
+{
+    "parent": "compositegear:item/tool/composite_bow",
+    "textures": {
+        "layer0": "compositegear:items/composite_bow_pulling_2"
+    }
+}

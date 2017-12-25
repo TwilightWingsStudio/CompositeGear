@@ -13,6 +13,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Optional;
@@ -47,7 +48,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 		
 		setUnlocalizedName(id);
 		
-		GameRegistry.registerItem(this, id, ModInfo.MODID);
+		ItemsCG.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
 
 		if (CompositeGear.ic2Tab != null) {
 			setCreativeTab(CompositeGear.ic2Tab);

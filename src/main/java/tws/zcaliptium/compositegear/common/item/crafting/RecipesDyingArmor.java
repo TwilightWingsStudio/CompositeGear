@@ -107,7 +107,7 @@ public class RecipesDyingArmor implements IRecipe
                 }
                 else
                 {
-                    if (itemstack1.getItem() != Items.dye) {
+                    if (itemstack1.getItem() != Items.DYE) {
                         return null;
                     }
 
@@ -137,7 +137,7 @@ public class RecipesDyingArmor implements IRecipe
             l = (int)((float)l * f / f1);
             l1 = (k << 8) + i1;
             l1 = (l1 << 8) + l;
-            itemarmor.func_82813_b(itemstack, l1);
+            itemarmor.setColor(itemstack, l1);
             return itemstack;
         }
     }

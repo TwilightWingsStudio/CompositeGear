@@ -28,6 +28,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.Compats;
+import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.item.crafting.RecipesDyingArmor;
 
@@ -93,13 +94,17 @@ public class ItemsCG
 		shemaghMask = new ItemCompositeArmor("shemagh_mask", accessoryArmorMaterial, "shemagh_mask", 0, 0).setDefaultColor(8487297)
 				.setHasOverlayIcon(true).setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true);
 		*/
+
 		// Weapons
 		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
 		compositeDagger = new ItemCGSword("composite_dagger", compositeDaggerMaterial);
-		//compositeBow = new ItemCGBow("composite_bow", 2000, 15);
+		compositeBow = new ItemCGBow("composite_bow", 2000, 15);
 
-		registerMultiItem(compositeSword, "composite_sword", "items/tool/generic");
-		registerMultiItem(compositeDagger, "composite_dagger", "items/tool/generic");
+		if (CompositeGear.proxy.isClient()) {
+			registerMultiItem(compositeSword, "composite_sword", "items/tool/generic");
+			registerMultiItem(compositeDagger, "composite_dagger", "items/tool/generic");
+			registerItemModel(compositeBow, "tool/composite_bow");
+		}
 
     	if (Loader.isModLoaded(Compats.IC2)) {
 			loadIC2Items();
@@ -211,6 +216,16 @@ public class ItemsCG
 	public static Item registerItem(Item item) {
 		ForgeRegistries.ITEMS.register(item);
 		return item;
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public static void registerItemModel(Item item, String name) {
+		registerItemModel(item, 0, name);
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public static void registerItemModel(Item item, int meta, String name) {
+		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(ModInfo.MODID + ":" + name, "inventory"));
 	}
 	
 	@SideOnly(Side.CLIENT)
