@@ -11,6 +11,7 @@ import ic2.api.item.IC2Items;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
@@ -65,35 +66,36 @@ public class ItemsCG
 		Item.ToolMaterial compositeDaggerMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE_DAGGER", 2, 600, 6.0F, 0.0F, 15);
 		
 		// TODO: Solve this garbage with materials.
-		/*
-		ItemArmor.ArmorMaterial accessoryArmorMaterial = EnumHelper.addArmorMaterial("CG_ACCESSORY", 100, new int[] { 1, 2, 2, 1 }, 15);
-		ItemArmor.ArmorMaterial compositeMaskArmorMaterial = EnumHelper.addArmorMaterial("CG_MASK_COMPOSITE", 50, new int[] { 3, 9, 6, 3 }, 12);
-		ItemArmor.ArmorMaterial compositeArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE", 50, new int[] { 3, 9, 6, 3 }, 12);
 
+		ItemArmor.ArmorMaterial accessoryArmorMaterial = EnumHelper.addArmorMaterial("CG_ACCESSORY", null, 100, new int[] { 1, 2, 2, 1 }, 15, null, 0);
+		ItemArmor.ArmorMaterial compositeMaskArmorMaterial = EnumHelper.addArmorMaterial("CG_MASK_COMPOSITE", null, 50, new int[] { 3, 9, 6, 3 }, 12, null, 0);
+		ItemArmor.ArmorMaterial compositeArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE", null, 50, new int[] { 3, 9, 6, 3 }, 12, null, 0);
 
-		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, 0).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
-		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, 1).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
-		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, 2).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
-		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, 3).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
+		// Armor
+		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
+		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, EntityEquipmentSlot.CHEST).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
+		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.LEGS).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
+		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.FEET).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
 
-		respiratorHalfMask = new ItemCGArmor("respirator_halfmask", accessoryArmorMaterial, "respirator_halfmask", 0, 0)
+		// Respirators
+		respiratorHalfMask = new ItemCGArmor("respirator_halfmask", accessoryArmorMaterial, "respirator_halfmask", 0, EntityEquipmentSlot.HEAD)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(80);
 
-		respiratorMask = new ItemCGArmor("respirator_mask", accessoryArmorMaterial, "respirator_mask", 0, 0)
+		respiratorMask = new ItemCGArmor("respirator_mask", accessoryArmorMaterial, "respirator_mask", 0, EntityEquipmentSlot.HEAD)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(150);
 		
-		respiratorMaskComposite = new ItemCGArmor("respirator_mask_composite", compositeMaskArmorMaterial, "respirator_mask_composite", 0, 0)
+		respiratorMaskComposite = new ItemCGArmor("respirator_mask_composite", compositeMaskArmorMaterial, "respirator_mask_composite", 0, EntityEquipmentSlot.HEAD)
 				.setItemClass(EnumItemClass.LIGHT_ARMOR).setAirMask(true).setMinAir(20).setRarity(EnumRarity.UNCOMMON).setMaxDamage(200);
 		
-		ushankaHat = new ItemCompositeArmor("ushanka_hat", accessoryArmorMaterial, "ushanka_hat", 0, 0).setDefaultColor(8487297)
+		// Decorative
+		ushankaHat = new ItemCompositeArmor("ushanka_hat", accessoryArmorMaterial, "ushanka_hat", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true).setMaxDamage(300);
 		
-		balaclavaMask = new ItemCompositeArmor("balaclava_mask", accessoryArmorMaterial, "balaclava_mask", 0, 0).setDefaultColor(8487297)
+		balaclavaMask = new ItemCompositeArmor("balaclava_mask", accessoryArmorMaterial, "balaclava_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true);
 		
-		shemaghMask = new ItemCompositeArmor("shemagh_mask", accessoryArmorMaterial, "shemagh_mask", 0, 0).setDefaultColor(8487297)
+		shemaghMask = new ItemCompositeArmor("shemagh_mask", accessoryArmorMaterial, "shemagh_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
 				.setHasOverlayIcon(true).setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true);
-		*/
 
 		// Weapons
 		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
@@ -105,10 +107,6 @@ public class ItemsCG
 			registerMultiItem(compositeDagger, "composite_dagger", "items/tool/generic");
 			registerItemModel(compositeBow, "tool/composite_bow");
 		}
-
-    	if (Loader.isModLoaded(Compats.IC2)) {
-			loadIC2Items();
-		}
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)
@@ -116,17 +114,6 @@ public class ItemsCG
 		ItemStack result = new ItemStack(prototype);
 		Items.APPLE.setDamage(result, 32767);
 		return result;
-	}
-
-	@Optional.Method(modid = Compats.IC2)
-	public static void loadIC2Items()
-	{
-		ic2AirCell = IC2Items.getItem("airCell");
-		ic2EmptyCell = IC2Items.getItem("cell");
-
-		ic2AdvancedAlloy = IC2Items.getItem("advancedAlloy");
-		ic2CarbonPlate = IC2Items.getItem("carbonPlate");
-		ic2ReinforcedGlass = IC2Items.getItem("reinforcedGlass");
 	}
 
 	// TODO: Find way to automate it and get rid of this ugly code.
@@ -188,9 +175,10 @@ public class ItemsCG
 			GameRegistry.addRecipe(new ItemStack(shemaghMask, 1, 0), new Object[] { "WWW", "S S", "SWS", Character.valueOf('W'), Blocks.wool,
 					Character.valueOf('S'), Items.string});
 		}
-
+		 */
 		// WEAPONS
 
+		/*
 		if (ConfigurationCG.compositeSword) {
 			GameRegistry.addRecipe(new ItemStack(compositeSword, 1, 0), new Object[] { "A", "A", "I", Character.valueOf('A'), ic2AdvancedAlloy,
 					Character.valueOf('I'), getStackNoMeta(Items.iron_sword)});
