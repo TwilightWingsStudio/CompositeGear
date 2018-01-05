@@ -71,7 +71,7 @@ public class ItemsCG
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(150);
 		
 		respiratorMaskComposite = new ItemCGArmor("respirator_mask_composite", compositeMaskArmorMaterial, "respirator_mask_composite", 0, 0)
-				.setItemClass(EnumItemClass.LIGHT_ARMOR).setAirMask(true).setMinAir(20).setRarity(EnumRarity.uncommon).setMaxDamage(200);
+				.setItemClass(EnumItemClass.LIGHT_ARMOR).setAirMask(true).setMinAir(20).setRarity(EnumRarity.uncommon).setMaxDamage(400);
 		
 		ushankaHat = new ItemCompositeArmor("ushanka_hat", accessoryArmorMaterial, "ushanka_hat", 0, 0).setDefaultColor(8487297)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true).setMaxDamage(300);
