@@ -19,6 +19,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
+import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.item.crafting.RecipesDyingArmor;
 
@@ -96,7 +97,7 @@ public class ItemsCG
 		return result;
 	}
 
-	@Optional.Method(modid = "IC2")
+	@Optional.Method(modid = Compats.IC2)
 	public static void loadIC2Items()
 	{
 		ic2AirCell = IC2Items.getItem("airCell");
@@ -108,7 +109,7 @@ public class ItemsCG
 	}
 
 	// TODO: Find way to automate it and get rid of this ugly code.
-	@Optional.Method(modid = "IC2")
+	@Optional.Method(modid = Compats.IC2)
 	public static void loadRecipes()
 	{
     	GameRegistry.addRecipe(new RecipesDyingArmor());

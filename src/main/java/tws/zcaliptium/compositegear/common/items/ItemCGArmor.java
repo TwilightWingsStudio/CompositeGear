@@ -20,6 +20,7 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.IClassifiedItem;
@@ -89,7 +90,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 		}
 	}
 	
-	@Optional.Method(modid = "IC2")
+	@Optional.Method(modid = Compats.IC2)
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack stack)
 	{
