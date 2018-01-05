@@ -1,4 +1,6 @@
 # Composite Gear
+[![](http://cf.way2muchnoise.eu/full_282717_downloads.svg)](https://minecraft.curseforge.com/projects/compositegear)
+
 Composite Gear is a modification (IC2 Experimental addon) for game Minecraft.
 
 This mod adds some good things like full set of composite alloy armor and some weapons.
