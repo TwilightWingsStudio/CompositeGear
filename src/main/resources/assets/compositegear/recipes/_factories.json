@@ -1,0 +1,8 @@
+{
+  "ingredients": {
+    "ic2_ingredient": "tws.zcaliptium.compositegear.common.crafting.IC2IngredientFactory"
+  },
+  "conditions": {
+    "mod_loaded": "tws.zcaliptium.compositegear.common.crafting.ModLoadedCondition"
+  }
+}
