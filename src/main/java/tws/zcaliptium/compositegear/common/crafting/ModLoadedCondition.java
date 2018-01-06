@@ -15,8 +15,6 @@ import net.minecraft.util.JsonUtils;
 import net.minecraftforge.common.crafting.IConditionFactory;
 import net.minecraftforge.common.crafting.JsonContext;
 import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.oredict.OreDictionary;
-import tws.zcaliptium.compositegear.common.CompositeGear;
 
 public class ModLoadedCondition implements IConditionFactory
 {
@@ -24,7 +22,6 @@ public class ModLoadedCondition implements IConditionFactory
 	public BooleanSupplier parse(JsonContext context, JsonObject json)
 	{
 		String modid = JsonUtils.getString(json, "modid");
-		CompositeGear.modLog.info("123 123 123: " + modid);
 
 		return () -> Loader.isModLoaded(modid);
 	}
