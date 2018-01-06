@@ -1,0 +1,25 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "A",
+    "S"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:mod_loaded",
+      "modid": "techreborn"
+    }
+  ],
+  "key": {
+    "A": {
+      "type": "forge:ore_dict",
+      "ore": "plateAdvancedAlloy"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_dagger"
+  }
+}

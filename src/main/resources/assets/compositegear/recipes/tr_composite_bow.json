@@ -1,0 +1,30 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "CAA",
+    "ABC",
+    "AC "
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:mod_loaded",
+      "modid": "techreborn"
+    }
+  ],
+  "key": {
+    "C": {
+      "type": "forge:ore_dict",
+      "ore": "plateCarbon"
+    },
+    "A": {
+      "type": "forge:ore_dict",
+      "ore": "plateAdvancedAlloy"
+    },
+    "B": {
+      "item": "minecraft:bow"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_bow"
+  }
+}

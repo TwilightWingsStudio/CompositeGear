@@ -1,0 +1,26 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "A",
+    "A",
+    "S"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:mod_loaded",
+      "modid": "techreborn"
+    }
+  ],
+  "key": {
+    "A": {
+      "type": "forge:ore_dict",
+      "ore": "plateAdvancedAlloy"
+    },
+    "S": {
+      "item": "minecraft:iron_sword"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_sword"
+  }
+}

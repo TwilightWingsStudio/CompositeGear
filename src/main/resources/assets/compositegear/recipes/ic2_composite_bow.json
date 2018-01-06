@@ -1,0 +1,30 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "CAA",
+    "ABC",
+    "AC "
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:mod_loaded",
+      "modid": "ic2"
+    }
+  ],
+  "key": {
+    "C": {
+      "type": "compositegear:ic2_ingredient",
+      "name": "crafting#carbon_plate"
+    },
+    "A": {
+      "type": "compositegear:ic2_ingredient",
+      "name": "crafting#alloy"
+    },
+    "B": {
+      "item": "minecraft:bow"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_bow"
+  }
+}

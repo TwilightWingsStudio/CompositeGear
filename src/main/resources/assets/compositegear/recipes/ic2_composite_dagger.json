@@ -1,0 +1,25 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "A",
+    "S"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:mod_loaded",
+      "modid": "ic2"
+    }
+  ],
+  "key": {
+    "A": {
+      "type": "compositegear:ic2_ingredient",
+      "name": "crafting#alloy"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_dagger"
+  }
+}
