@@ -7,6 +7,17 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common.items;
 
+import java.util.Collection;
+import java.util.Optional;
+import java.util.UUID;
+
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttribute;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
@@ -23,6 +34,9 @@ import tws.zcaliptium.compositegear.common.ModInfo;
 
 public class ItemCGSword extends ItemSword implements IClassifiedItem, IItemModelProvider
 {
+	private static double SWORD_SPEED_MODIFIER = -2.4000000953674316D;
+	private static double DAGGER_SPEED_MODIFIER = -0.8D;
+	
 	public ItemCGSword(String id, ToolMaterial material)
 	{
 		super(material);
@@ -53,4 +67,25 @@ public class ItemCGSword extends ItemSword implements IClassifiedItem, IItemMode
 	public void registerModels(String var1)
 	{
 	}
+	
+    @Override
+    public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot equipmentSlot, ItemStack stack)
+    {
+        Multimap<String, AttributeModifier> multimap = HashMultimap.<String, AttributeModifier>create();
+
+        if (equipmentSlot == EntityEquipmentSlot.MAINHAND)
+        {
+        	double speedModifier = SWORD_SPEED_MODIFIER;
+        	
+        	// TODO: Fix this stupid check in future.
+        	if (stack.getItem() == ItemsCG.compositeDagger) {
+        		speedModifier = DAGGER_SPEED_MODIFIER;
+        	}
+        	
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", 3.0D + (double)this.getAttackDamage(), 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", speedModifier, 0));
+        }
+
+        return multimap;
+    }
 }
