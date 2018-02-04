@@ -1,0 +1,28 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "ALA",
+    "AIA"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:mod_loaded",
+      "modid": "ic2"
+    }
+  ],
+  "key": {
+    "A": {
+      "type": "compositegear:ic2_ingredient",
+      "name": "crafting#alloy"
+    },
+    "I": {
+      "item": "minecraft:iron_boots"
+    },
+    "L": {
+      "item": "minecraft:leather_boots"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_boots"
+  }
+}

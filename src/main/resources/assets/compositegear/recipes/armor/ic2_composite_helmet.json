@@ -1,0 +1,28 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "AIA",
+    "ALA"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:mod_loaded",
+      "modid": "ic2"
+    }
+  ],
+  "key": {
+    "A": {
+      "type": "compositegear:ic2_ingredient",
+      "name": "crafting#alloy"
+    },
+    "I": {
+      "item": "minecraft:iron_helmet"
+    },
+    "L": {
+      "item": "minecraft:leather_helmet"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_helmet"
+  }
+}

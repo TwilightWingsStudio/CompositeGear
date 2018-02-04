@@ -1,0 +1,29 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "AIA",
+    "ALA",
+    "AAA"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:mod_loaded",
+      "modid": "techreborn"
+    }
+  ],
+  "key": {
+    "A": {
+      "type": "forge:ore_dict",
+      "ore": "plateAdvancedAlloy"
+    },
+    "I": {
+      "item": "minecraft:iron_chestplate"
+    },
+    "L": {
+      "item": "minecraft:leather_chestplate"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_chestplate"
+  }
+}

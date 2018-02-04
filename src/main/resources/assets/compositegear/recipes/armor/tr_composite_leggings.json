@@ -1,0 +1,29 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "AAA",
+    "ALA",
+    "AIA"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:mod_loaded",
+      "modid": "techreborn"
+    }
+  ],
+  "key": {
+    "A": {
+      "type": "forge:ore_dict",
+      "ore": "plateAdvancedAlloy"
+    },
+    "I": {
+      "item": "minecraft:iron_leggings"
+    },
+    "L": {
+      "item": "minecraft:leather_leggings"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_leggings"
+  }
+}

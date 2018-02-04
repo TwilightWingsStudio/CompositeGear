@@ -1,0 +1,29 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "AIA",
+    "ALA",
+    "AAA"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:mod_loaded",
+      "modid": "ic2"
+    }
+  ],
+  "key": {
+    "A": {
+      "type": "compositegear:ic2_ingredient",
+      "name": "crafting#alloy"
+    },
+    "I": {
+      "item": "minecraft:iron_chestplate"
+    },
+    "L": {
+      "item": "minecraft:leather_chestplate"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_chestplate"
+  }
+}
