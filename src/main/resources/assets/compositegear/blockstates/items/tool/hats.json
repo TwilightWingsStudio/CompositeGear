@@ -1,0 +1,27 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "builtin/generated",
+    "transform": "forge:default-tool"
+  },
+  "variants": {
+    "type": {
+      "ushanka_hat": {
+        "textures": {
+          "layer0": "compositegear:items/ushanka_hat"
+        }
+      },
+      "balaclava_mask": {
+        "textures": {
+          "layer0": "compositegear:items/balaclava_mask"
+        }
+      },
+      "shemagh_mask": {
+        "textures": {
+          "layer0": "compositegear:items/shemagh_mask",
+          "layer1": "compositegear:items/shemagh_mask_overlay"
+        }
+      }
+    }
+  }
+}

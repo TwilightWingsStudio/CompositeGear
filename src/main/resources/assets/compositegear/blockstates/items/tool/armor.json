@@ -1,0 +1,31 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "builtin/generated",
+    "transform": "forge:default-item"
+  },
+  "variants": {
+    "type": {
+      "composite_helmet": {
+        "textures": {
+          "layer0": "compositegear:items/composite_helmet"
+        }
+      },
+      "composite_chestplate": {
+        "textures": {
+          "layer0": "compositegear:items/composite_chestplate"
+        }
+      },
+      "composite_leggings": {
+        "textures": {
+          "layer0": "compositegear:items/composite_leggings"
+        }
+      },
+      "composite_boots": {
+        "textures": {
+          "layer0": "compositegear:items/composite_boots"
+        }
+      }
+    }
+  }
+}
