@@ -5,6 +5,12 @@
     "S S",
     "SWS"
   ],
+  "conditions": [
+    {
+      "type": "compositegear:crafting_allowed",
+      "key": "shemagh_mask"
+    }
+  ],
   "key": {
     "W": [
       {

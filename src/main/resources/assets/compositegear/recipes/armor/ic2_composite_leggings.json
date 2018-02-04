@@ -9,6 +9,10 @@
     {
       "type": "compositegear:mod_loaded",
       "modid": "ic2"
+    },
+    {
+      "type": "compositegear:crafting_allowed",
+      "key": "composite_leggings"
     }
   ],
   "key": {

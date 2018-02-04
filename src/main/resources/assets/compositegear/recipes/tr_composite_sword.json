@@ -9,6 +9,10 @@
     {
       "type": "compositegear:mod_loaded",
       "modid": "techreborn"
+    },
+    {
+      "type": "compositegear:crafting_allowed",
+      "key": "composite_sword"
     }
   ],
   "key": {
