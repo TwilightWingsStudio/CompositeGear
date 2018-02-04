@@ -16,6 +16,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.IClassifiedItem;
+import tws.zcaliptium.compositegear.common.IDescriptableItem;
 import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
 import tws.zcaliptium.compositegear.common.items.ItemCGBow;
 import tws.zcaliptium.compositegear.common.items.ItemCGSword;
@@ -36,26 +37,30 @@ public class ClientEventHandler
 			String transItemClass = I18n.translateToLocal("compositegear.itemclass");
 
 			ev.getToolTip().add(1, transItemClass + ": " + classifiedItem.getItemClass().getLocalized());
+		}
+		
+		// Text description.
+		if (itemStack.getItem() instanceof IDescriptableItem)
+		{
+			String transItemDesc = I18n.translateToLocal("compositegear.itemdesc");
 			
-			if (itemStack.getItem() instanceof ItemCGArmor)
+			if (((IDescriptableItem)itemStack.getItem()).hasDescription()) {
+				String descriptionString = I18n.translateToLocal(itemStack.getItem().getUnlocalizedName() + ".description");
+				ev.getToolTip().add(2, transItemDesc + ": " + descriptionString);
+			}
+		}
+		
+		// Visual attributes.
+		if (itemStack.getItem() instanceof ItemCGArmor)
+		{
+			if (((ItemCGArmor)itemStack.getItem()).hasVisualAttributes())
 			{
-				String transItemDesc = I18n.translateToLocal("compositegear.itemdesc");
+				String visualAttributes = I18n.translateToLocal(itemStack.getItem().getUnlocalizedName() + ".va");
 				
-				
-				if (((ItemCGArmor)itemStack.getItem()).hasDescription()) {
-					String descriptionString = I18n.translateToLocal(itemStack.getItem().getUnlocalizedName() + ".description");
-					ev.getToolTip().add(2, transItemDesc + ": " + descriptionString);
+				String attributes[] = visualAttributes.split("\\^");
 
-					if (((ItemCGArmor)itemStack.getItem()).hasVisualAttributes())
-					{
-						String visualAttributes = I18n.translateToLocal(itemStack.getItem().getUnlocalizedName() + ".va");
-						
-						String attributes[] = visualAttributes.split("\\^");
-
-						for (String attributeString : attributes) {
-							ev.getToolTip().add(attributeString);
-						}
-					}	
+				for (String attributeString : attributes) {
+					ev.getToolTip().add(attributeString);
 				}
 			}
 		}

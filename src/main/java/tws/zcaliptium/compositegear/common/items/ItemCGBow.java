@@ -40,11 +40,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.IClassifiedItem;
+import tws.zcaliptium.compositegear.common.IDescriptableItem;
 import tws.zcaliptium.compositegear.common.ModInfo;
 
-public class ItemCGBow extends Item implements IClassifiedItem
+public class ItemCGBow extends Item implements IClassifiedItem, IDescriptableItem
 {
     private int enchantability;
+    protected boolean hasDescription;
 
     public ItemCGBow(String id, int maxDamage, int enchantability)
     {
@@ -52,6 +54,7 @@ public class ItemCGBow extends Item implements IClassifiedItem
         this.maxStackSize = 1; // Because item have durability.
         this.setMaxDamage(maxDamage);
         this.enchantability = enchantability;
+        this.hasDescription = false;
         
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
         {
@@ -280,5 +283,17 @@ public class ItemCGBow extends Item implements IClassifiedItem
 	public boolean isFull3D() 
 	{
 		return true;
+	}
+
+	@Override
+	public boolean hasDescription()
+	{
+		return this.hasDescription;
+	}
+	
+	public ItemCGBow setHasDescription(boolean hasDescription)
+	{
+		this.hasDescription = hasDescription;
+		return this;
 	}
 }
