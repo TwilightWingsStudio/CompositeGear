@@ -1,0 +1,27 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "RIR",
+    "IGI",
+    "RHR"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "R": {
+      "type": "forge:ore_dict",
+      "ore": "itemRubber"
+    },
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "plateIron"
+    },
+    "H": {
+      "item": "compositegear:respirator_halfmask"
+    }
+  },
+  "result": {
+    "item": "compositegear:respirator_mask"
+  }
+}

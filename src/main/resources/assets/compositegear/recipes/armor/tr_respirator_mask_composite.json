@@ -1,0 +1,33 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "CAC",
+    "AGA",
+    "CMC"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:mod_loaded",
+      "modid": "techreborn"
+    }
+  ],
+  "key": {
+    "G": {
+      "item": "techreborn:reinforced_glass"
+    },
+    "C": {
+      "type": "forge:ore_dict",
+      "ore": "plateCarbon"
+    },
+    "A": {
+      "type": "forge:ore_dict",
+      "ore": "plateAdvancedAlloy"
+    },
+    "M": {
+      "item": "compositegear:respirator_mask"
+    }
+  },
+  "result": {
+    "item": "compositegear:respirator_mask_composite"
+  }
+}
