@@ -6,6 +6,7 @@ item.composite_boots.name=Composite Boots
 item.composite_sword.name=Composite Sword
 item.composite_dagger.name=Composite Dagger
 item.composite_bow.name=Composite Bow
+item.composite_bow.description=Try to break it!
 
 item.respirator_halfmask.name=Respirator Half-Mask
 item.respirator_mask.name=Respirator Mask
@@ -13,12 +14,15 @@ item.respirator_mask_composite.name=Composite Respirator Mask
 
 item.ushanka_hat.name=Ushanka Hat
 item.ushanka_hat.description=Only true slavs wear ushanka!
+item.ushanka_hat.va=§a +20% Slavness^§3 -20% Capitalism
 
 item.balaclava_mask.name=Balaclava Mask
 item.balaclava_mask.description=Oppa ninja style!
+item.balaclava_mask.va=§a +10 Stealth
 
 item.shemagh_mask.name=Shemagh Mask
 item.shemagh_mask.description=Bomb has been planted!
+item.shemagh_mask.va=§4 +75% Chance to be confused with terrorist
 
 compositegear.itemdesc=Description
 

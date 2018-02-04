@@ -6,6 +6,7 @@ item.composite_boots.name=Композитные ботинки
 item.composite_sword.name=Композитный меч
 item.composite_dagger.name=Композитный кинжал
 item.composite_bow.name=Композитный лук
+item.composite_bow.description=Попробуй сломать его!
 
 item.respirator_halfmask.name=Респиратор-полумаска
 item.respirator_mask.name=Респиратор-маска
@@ -13,12 +14,15 @@ item.respirator_mask_composite.name=Композитная респиратор-
 
 item.ushanka_hat.name=Ушанка
 item.ushanka_hat.description=Только настоящие славяне носят ушанку!
+item.ushanka_hat.va=§a +20% к Славянству^§3 -20% Капитализма
 
 item.balaclava_mask.name=Балаклава
 item.balaclava_mask.description=Стиль ниндзя!
+item.balaclava_mask.va=§a +10 к Скрытности
 
 item.shemagh_mask.name=Шемаг
 item.shemagh_mask.description=Аллах-бабах!
+item.shemagh_mask.va=§4 +75% к Шансу быть принятым за террориста
 
 compositegear.itemdesc=Описание
 
