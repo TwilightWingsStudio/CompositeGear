@@ -61,14 +61,10 @@ public class ItemsCG
 
 	public static ItemStack ic2AirCell;
 	public static ItemStack ic2EmptyCell;
-	public static ItemStack ic2AdvancedAlloy;
-	public static ItemStack ic2CarbonPlate;
-	public static ItemStack ic2ReinforcedGlass;
 
 	public static void load()
 	{
 		Item.ToolMaterial compositeToolMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE", 2, 1800, 6.0F, 2.0F, 13);
-		Item.ToolMaterial compositeDaggerMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE_DAGGER", 2, 600, 6.0F, 0.0F, 15);
 		
 		// TODO: Solve this garbage with materials.
 
@@ -94,37 +90,42 @@ public class ItemsCG
 		
 		// Decorative
 		ushankaHat = new ItemCompositeArmor("ushanka_hat", accessoryArmorMaterial, "ushanka_hat", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
-				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true).setMaxDamage(300);
+				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true).setHasVisualAttributes(true).setMaxDamage(300);
 		
 		balaclavaMask = new ItemCompositeArmor("balaclava_mask", accessoryArmorMaterial, "balaclava_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
-				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true);
+				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasVisualAttributes(true).setHasDescription(true);
 		
 		shemaghMask = new ItemCompositeArmor("shemagh_mask", accessoryArmorMaterial, "shemagh_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
-				.setHasOverlayIcon(true).setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true);
+				.setHasOverlayIcon(true).setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasVisualAttributes(true).setHasDescription(true);
 
 		// Weapons
 		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
-		compositeDagger = new ItemCGSword("composite_dagger", compositeDaggerMaterial);
-		compositeBow = new ItemCGBow("composite_bow", 2000, 15);
+		compositeDagger = new ItemCGSword("composite_dagger", compositeToolMaterial).setMaxDamage(600);
+		compositeBow = new ItemCGBow("composite_bow", 2000, 15).setHasDescription(true);
 
 		if (CompositeGear.proxy.isClient()) {
-			registerMultiItem(compositeHelmet, "composite_helmet", "items/tool/armor");
-			registerMultiItem(compositeChestplate, "composite_chestplate", "items/tool/armor");
-			registerMultiItem(compositeLeggings, "composite_leggings", "items/tool/armor");
-			registerMultiItem(compositeBoots, "composite_boots", "items/tool/armor");
-			
-			registerMultiItem(compositeSword, "composite_sword", "items/tool/generic");
-			registerMultiItem(compositeDagger, "composite_dagger", "items/tool/generic");
-			registerItemModel(compositeBow, "tool/composite_bow");
-			
-			registerMultiItem(respiratorHalfMask, "respirator_halfmask", "items/tool/respirators");
-			registerMultiItem(respiratorMask, "respirator_mask", "items/tool/respirators");
-			registerMultiItem(respiratorMaskComposite, "respirator_mask_composite", "items/tool/respirators");
-			
-			registerMultiItem(ushankaHat, "ushanka_hat", "items/tool/hats");
-			registerMultiItem(balaclavaMask, "balaclava_mask", "items/tool/hats");
-			registerMultiItem(shemaghMask, "shemagh_mask", "items/tool/hats");
+			registerItemModels();
 		}
+	}
+	
+	private static void registerItemModels()
+	{
+		registerMultiItem(compositeHelmet, "composite_helmet", "items/tool/armor");
+		registerMultiItem(compositeChestplate, "composite_chestplate", "items/tool/armor");
+		registerMultiItem(compositeLeggings, "composite_leggings", "items/tool/armor");
+		registerMultiItem(compositeBoots, "composite_boots", "items/tool/armor");
+		
+		registerMultiItem(compositeSword, "composite_sword", "items/tool/generic");
+		registerMultiItem(compositeDagger, "composite_dagger", "items/tool/generic");
+		registerItemModel(compositeBow, "tool/composite_bow");
+		
+		registerMultiItem(respiratorHalfMask, "respirator_halfmask", "items/tool/respirators");
+		registerMultiItem(respiratorMask, "respirator_mask", "items/tool/respirators");
+		registerMultiItem(respiratorMaskComposite, "respirator_mask_composite", "items/tool/respirators");
+		
+		registerMultiItem(ushankaHat, "ushanka_hat", "items/tool/hats");
+		registerMultiItem(balaclavaMask, "balaclava_mask", "items/tool/hats");
+		registerMultiItem(shemaghMask, "shemagh_mask", "items/tool/hats");
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)
