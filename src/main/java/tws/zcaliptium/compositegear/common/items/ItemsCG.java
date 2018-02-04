@@ -8,7 +8,10 @@
 package tws.zcaliptium.compositegear.common.items;
 
 import ic2.api.item.IC2Items;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -16,6 +19,8 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
@@ -28,10 +33,10 @@ import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.ModInfo;
+import tws.zcaliptium.compositegear.common.crafting.RecipesDyingArmor;
 import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
-import tws.zcaliptium.compositegear.common.item.crafting.RecipesDyingArmor;
 
 public class ItemsCG
 {
@@ -67,15 +72,15 @@ public class ItemsCG
 		
 		// TODO: Solve this garbage with materials.
 
-		ItemArmor.ArmorMaterial accessoryArmorMaterial = EnumHelper.addArmorMaterial("CG_ACCESSORY", null, 100, new int[] { 1, 2, 2, 1 }, 15, null, 0);
-		ItemArmor.ArmorMaterial compositeMaskArmorMaterial = EnumHelper.addArmorMaterial("CG_MASK_COMPOSITE", null, 50, new int[] { 3, 9, 6, 3 }, 12, null, 0);
-		ItemArmor.ArmorMaterial compositeArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE", null, 50, new int[] { 3, 9, 6, 3 }, 12, null, 0);
-
+		ItemArmor.ArmorMaterial accessoryArmorMaterial = EnumHelper.addArmorMaterial("CG_ACCESSORY", ModInfo.MODID + ":composite", 100, new int[] { 1, 2, 2, 1 }, 15, null, 0);
+		ItemArmor.ArmorMaterial compositeMaskArmorMaterial = EnumHelper.addArmorMaterial("CG_MASK_COMPOSITE", ModInfo.MODID + ":composite", 50, new int[] { 3, 9, 6, 3 }, 12, null, 0);
+		ItemArmor.ArmorMaterial compositeArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE", ModInfo.MODID + ":composite", 50, new int[] { 3, 9, 6, 3 }, 12, null, 0);
+		
 		// Armor
-		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
-		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, EntityEquipmentSlot.CHEST).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
-		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.LEGS).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
-		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.FEET).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
+		compositeHelmet = new ItemCompositeArmor("composite_helmet", ItemArmor.ArmorMaterial.LEATHER, COMPOSITE_NAME, 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
+		compositeChestplate = new ItemCompositeArmor("composite_chestplate", ItemArmor.ArmorMaterial.LEATHER, COMPOSITE_NAME , 0, EntityEquipmentSlot.CHEST).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
+		compositeLeggings = new ItemCompositeArmor("composite_leggings", ItemArmor.ArmorMaterial.LEATHER, COMPOSITE_NAME, 0, EntityEquipmentSlot.LEGS).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
+		compositeBoots = new ItemCompositeArmor("composite_boots", ItemArmor.ArmorMaterial.LEATHER, COMPOSITE_NAME, 0, EntityEquipmentSlot.FEET).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
 
 		// Respirators
 		respiratorHalfMask = new ItemCGArmor("respirator_halfmask", accessoryArmorMaterial, "respirator_halfmask", 0, EntityEquipmentSlot.HEAD)
@@ -103,9 +108,22 @@ public class ItemsCG
 		compositeBow = new ItemCGBow("composite_bow", 2000, 15);
 
 		if (CompositeGear.proxy.isClient()) {
+			registerMultiItem(compositeHelmet, "composite_helmet", "items/tool/armor");
+			registerMultiItem(compositeChestplate, "composite_chestplate", "items/tool/armor");
+			registerMultiItem(compositeLeggings, "composite_leggings", "items/tool/armor");
+			registerMultiItem(compositeBoots, "composite_boots", "items/tool/armor");
+			
 			registerMultiItem(compositeSword, "composite_sword", "items/tool/generic");
 			registerMultiItem(compositeDagger, "composite_dagger", "items/tool/generic");
 			registerItemModel(compositeBow, "tool/composite_bow");
+			
+			registerMultiItem(respiratorHalfMask, "respirator_halfmask", "items/tool/respirators");
+			registerMultiItem(respiratorMask, "respirator_mask", "items/tool/respirators");
+			registerMultiItem(respiratorMaskComposite, "respirator_mask_composite", "items/tool/respirators");
+			
+			registerMultiItem(ushankaHat, "ushanka_hat", "items/tool/hats");
+			registerMultiItem(balaclavaMask, "balaclava_mask", "items/tool/hats");
+			registerMultiItem(shemaghMask, "shemagh_mask", "items/tool/hats");
 		}
 	}
 
@@ -115,85 +133,16 @@ public class ItemsCG
 		Items.APPLE.setDamage(result, 32767);
 		return result;
 	}
+	
+	private static void registerRecipe(IRecipe recipe)
+	{
+		recipe.setRegistryName(new ResourceLocation(ModInfo.MODID, "100"));
+		ForgeRegistries.RECIPES.register(recipe);
+	}
 
-	// TODO: Find way to automate it and get rid of this ugly code.
-	@Optional.Method(modid = Compats.IC2)
 	public static void loadRecipes()
 	{
-		/*
-    	GameRegistry.addRecipe(new RecipesDyingArmor());
-
-    	if (ConfigurationCG.compositeHelmet) {
-    		GameRegistry.addRecipe(new ItemStack(compositeHelmet, 1, 0), new Object[] { "AIA", "ALA", Character.valueOf('A'), ic2AdvancedAlloy,
-    				Character.valueOf('I'), getStackNoMeta(Items.iron_helmet), Character.valueOf('L'), getStackNoMeta(Items.leather_helmet)});
-    	}
-
-		if (ConfigurationCG.compositeChestplate) {
-			GameRegistry.addRecipe(new ItemStack(compositeChestplate, 1, 0), new Object[] { "AIA", "ALA", "AAA", Character.valueOf('A'), ic2AdvancedAlloy,
-					Character.valueOf('I'), getStackNoMeta(Items.iron_chestplate), Character.valueOf('L'), getStackNoMeta(Items.leather_chestplate)});
-		}
-
-		if (ConfigurationCG.compositeLeggings) {
-			GameRegistry.addRecipe(new ItemStack(compositeLeggings, 1, 0), new Object[] { "AAA", "ALA", "AIA", Character.valueOf('A'),
-					ic2AdvancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_leggings), Character.valueOf('L'), getStackNoMeta(Items.leather_leggings)});
-		}
-
-		if (ConfigurationCG.compositeBoots) {
-			GameRegistry.addRecipe(new ItemStack(compositeBoots, 1, 0), new Object[] { "ALA", "AIA", Character.valueOf('A'),
-					ic2AdvancedAlloy, Character.valueOf('I'), getStackNoMeta(Items.iron_boots), Character.valueOf('L'), getStackNoMeta(Items.leather_boots)});
-		}
-
-		if (ConfigurationCG.respiratorHalfMask) {
-			GameRegistry.addRecipe(new ShapedOreRecipe( new ItemStack(respiratorHalfMask, 1, 0), new Object[] { "RWR", "IDI", "RBR", Character.valueOf('R'), "itemRubber",
-					Character.valueOf('W'), Blocks.wool, Character.valueOf('B'), Blocks.iron_bars, Character.valueOf('I'), "plateIron", Character.valueOf('D'), "dustCoal"}));
-		}
-
-		if (ConfigurationCG.respiratorMask) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(respiratorMask, 1, 0), new Object[] { "RIR", "IGI", "RMR", Character.valueOf('R'), "itemRubber",
-					Character.valueOf('G'), Blocks.glass_pane, Character.valueOf('I'), "plateIron", Character.valueOf('M'), getStackNoMeta(respiratorHalfMask)}));
-		}
-		
-		if (ConfigurationCG.respiratorMaskComposite) {
-			GameRegistry.addRecipe(new ItemStack(respiratorMaskComposite, 1, 0), new Object[] { "CAC", "AGA", "CMC", Character.valueOf('A'), ic2AdvancedAlloy,
-					Character.valueOf('G'), ic2ReinforcedGlass, Character.valueOf('C'), ic2CarbonPlate, Character.valueOf('M'), getStackNoMeta(respiratorMask)});
-
-		}
-		
-		// DECORATIVE
-		
-		if (ConfigurationCG.ushankaHat) {
-			GameRegistry.addRecipe(new ItemStack(ushankaHat, 1, 0), new Object[] { "LWL", "LWL", "S S", Character.valueOf('L'), Items.leather,
-					Character.valueOf('W'), Blocks.wool, Character.valueOf('S'), Items.string});
-		}
-		
-		if (ConfigurationCG.balaclavaMask) {
-			GameRegistry.addRecipe(new ItemStack(balaclavaMask, 1, 0), new Object[] { "SWS", "WSW", Character.valueOf('W'), Blocks.wool,
-					Character.valueOf('S'), Items.string});
-		}
-		
-		if (ConfigurationCG.shemaghMask) {
-			GameRegistry.addRecipe(new ItemStack(shemaghMask, 1, 0), new Object[] { "WWW", "S S", "SWS", Character.valueOf('W'), Blocks.wool,
-					Character.valueOf('S'), Items.string});
-		}
-		 */
-		// WEAPONS
-
-		/*
-		if (ConfigurationCG.compositeSword) {
-			GameRegistry.addRecipe(new ItemStack(compositeSword, 1, 0), new Object[] { "A", "A", "I", Character.valueOf('A'), ic2AdvancedAlloy,
-					Character.valueOf('I'), getStackNoMeta(Items.iron_sword)});
-		}
-
-		if (ConfigurationCG.compositeDagger) {
-			GameRegistry.addRecipe(new ItemStack(compositeDagger, 1, 0), new Object[] { "A", "I", Character.valueOf('A'), ic2AdvancedAlloy,
-					Character.valueOf('I'), Items.stick});
-		}
-
-		if (ConfigurationCG.compositeBow) {
-			GameRegistry.addRecipe(new ItemStack(compositeBow, 1, 0), new Object[] { "CAA", "ABC", "AC ", Character.valueOf('A'), ic2AdvancedAlloy,
-					Character.valueOf('C'), ic2CarbonPlate, Character.valueOf('B'), getStackNoMeta(Items.bow)});
-		}
-		*/
+		registerRecipe(new RecipesDyingArmor());
 	}
 	
 	public static Item registerItem(Item item, ResourceLocation rl) {

@@ -53,51 +53,43 @@ public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
     {
     	return this.rarity;
     }
-
-    @Override
+    
+    /**
+     * Return whether the specified armor ItemStack has a color.
+     */
     public boolean hasColor(ItemStack stack)
     {
-        return !stack.hasTagCompound() ? false : (!stack.getTagCompound().hasKey("display", 10) ? false : stack.getTagCompound().getCompoundTag("display").hasKey("color", 3));
+        NBTTagCompound nbttagcompound = stack.getTagCompound();
+        return nbttagcompound != null && nbttagcompound.hasKey("display", 10) ? nbttagcompound.getCompoundTag("display").hasKey("color", 3) : false;
     }
-    
-    @Override
+
+    /**
+     * Return the color for the specified armor ItemStack.
+     */
     public int getColor(ItemStack stack)
     {
         NBTTagCompound nbttagcompound = stack.getTagCompound();
-        
-        if (nbttagcompound == null) {
-            return defaultColor;
-        } else {
-        	//System.out.println("DA KURWA!");
+
+        if (nbttagcompound != null)
+        {
             NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("display");
-            return nbttagcompound1 == null ? defaultColor : (nbttagcompound1.hasKey("color", 3) ? nbttagcompound1.getInteger("color") : defaultColor);
+
+            if (nbttagcompound1 != null && nbttagcompound1.hasKey("color", 3))
+            {
+                return nbttagcompound1.getInteger("color");
+            }
         }
+
+        return defaultColor;
     }
 
-    // setColor
-    @Override
-    public void setColor(ItemStack stack, int newColor)
-    {
-        NBTTagCompound nbttagcompound = stack.getTagCompound();
-
-        if (nbttagcompound == null){
-            nbttagcompound = new NBTTagCompound();
-            stack.setTagCompound(nbttagcompound);
-        }
-
-        NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("display");
-
-        if (!nbttagcompound.hasKey("display", 10)) {
-            nbttagcompound.setTag("display", nbttagcompound1);
-        }
-
-        nbttagcompound1.setInteger("color", newColor);
-    }
-
-    @Override
+    /**
+     * Remove the color from the specified armor ItemStack.
+     */
     public void removeColor(ItemStack stack)
     {
-    	NBTTagCompound nbttagcompound = stack.getTagCompound();
+
+        NBTTagCompound nbttagcompound = stack.getTagCompound();
 
         if (nbttagcompound != null)
         {
@@ -108,6 +100,35 @@ public class ItemCompositeArmor extends ItemCGArmor implements IMetalArmor
                 nbttagcompound1.removeTag("color");
             }
         }
+    }
+
+    /**
+     * Sets the color of the specified armor ItemStack
+     */
+    public void setColor(ItemStack stack, int color)
+    {
+        NBTTagCompound nbttagcompound = stack.getTagCompound();
+
+        if (nbttagcompound == null)
+        {
+            nbttagcompound = new NBTTagCompound();
+            stack.setTagCompound(nbttagcompound);
+        }
+
+        NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("display");
+
+        if (!nbttagcompound.hasKey("display", 10))
+        {
+            nbttagcompound.setTag("display", nbttagcompound1);
+        }
+
+        nbttagcompound1.setInteger("color", color);
+    }
+    
+    @Override
+    public boolean hasOverlay(ItemStack stack)
+    {
+        return true;
     }
 
     public ItemCompositeArmor setDefaultColor(int color)

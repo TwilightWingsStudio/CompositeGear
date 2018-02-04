@@ -68,6 +68,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type)
 	{
 		int suffix = this.armorType == EntityEquipmentSlot.LEGS ? 2 : 1;
@@ -122,10 +123,6 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
     {
     	return rarity;
     }
-
-	public boolean hasColor(ItemStack stack) {
-		return false;
-	}
     
     public ItemCGArmor setHasDescription(boolean hasDescription)
     {

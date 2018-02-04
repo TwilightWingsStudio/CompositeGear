@@ -7,9 +7,13 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
@@ -21,7 +25,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import tws.zcaliptium.compositegear.common.item.crafting.RecipesDyingArmor;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
 
 import org.apache.logging.log4j.Logger;
@@ -73,8 +76,19 @@ public class CompositeGear
     @EventHandler
     public void afterModsLoaded(FMLPostInitializationEvent event)
     {
-    	if (Loader.isModLoaded(Compats.IC2)) {
-        	ItemsCG.loadRecipes();
-    	}
+        ItemsCG.loadRecipes();
+        
+        // Item icon coloring won't work without it.
+        if (proxy.isClient())
+        {
+    		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor()
+            {
+                public int colorMultiplier(ItemStack stack, int tintIndex)
+                {
+                    return tintIndex > 0 ? -1 : ((ItemArmor)stack.getItem()).getColor(stack);
+                }
+            }, ItemsCG.compositeHelmet, ItemsCG.compositeChestplate, ItemsCG.compositeLeggings, ItemsCG.compositeBoots,
+            		ItemsCG.ushankaHat, ItemsCG.balaclavaMask, ItemsCG.shemaghMask);
+        }
     }
 }
