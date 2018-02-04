@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 ZCaliptium.
+ * Copyright (c) 2018 ZCaliptium.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the GNU Lesser Public License v3
  * which accompanies this distribution, and is available at
@@ -14,6 +14,7 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.IClassifiedItem;
 import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
 import tws.zcaliptium.compositegear.common.items.ItemCGBow;
@@ -36,13 +37,25 @@ public class ClientEventHandler
 
 			ev.getToolTip().add(1, transItemClass + ": " + classifiedItem.getItemClass().getLocalized());
 			
-			if (itemStack.getItem() instanceof ItemCGArmor) {
+			if (itemStack.getItem() instanceof ItemCGArmor)
+			{
 				String transItemDesc = I18n.translateToLocal("compositegear.itemdesc");
 				
 				
 				if (((ItemCGArmor)itemStack.getItem()).hasDescription()) {
 					String descriptionString = I18n.translateToLocal(itemStack.getItem().getUnlocalizedName() + ".description");
 					ev.getToolTip().add(2, transItemDesc + ": " + descriptionString);
+
+					if (((ItemCGArmor)itemStack.getItem()).hasVisualAttributes())
+					{
+						String visualAttributes = I18n.translateToLocal(itemStack.getItem().getUnlocalizedName() + ".va");
+						
+						String attributes[] = visualAttributes.split("\\^");
+
+						for (String attributeString : attributes) {
+							ev.getToolTip().add(attributeString);
+						}
+					}	
 				}
 			}
 		}

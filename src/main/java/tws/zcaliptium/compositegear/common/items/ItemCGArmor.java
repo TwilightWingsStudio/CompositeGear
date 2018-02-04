@@ -24,9 +24,10 @@ import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.IClassifiedItem;
+import tws.zcaliptium.compositegear.common.IDescriptableItem;
 import tws.zcaliptium.compositegear.common.ModInfo;
 
-public class ItemCGArmor extends ItemArmor implements IClassifiedItem
+public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescriptableItem
 {
 	protected final String armorName;
 	protected EnumItemClass itemClass;
@@ -35,6 +36,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 	protected boolean hasDescription;
 	protected int minAirToStartRefil;
 	protected EnumRarity rarity;
+	protected boolean hasVisualAttributes;
 
 	public ItemCGArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, EntityEquipmentSlot armorType)
 	{
@@ -130,9 +132,21 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem
 		return this;
     }
     
+    public ItemCGArmor setHasVisualAttributes(boolean hasVisualAttributes)
+    {
+    	this.hasVisualAttributes = hasVisualAttributes;
+    	return this;
+    }
+    
+    @Override
     public boolean hasDescription() 
     {
     	return hasDescription;
+    }
+    
+    public boolean hasVisualAttributes() 
+    {
+    	return hasVisualAttributes;
     }
     
     public ItemCGArmor setAirMask(boolean isAirMask)
