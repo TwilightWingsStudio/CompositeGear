@@ -63,6 +63,7 @@ public class ItemsCG
 	public static Item shemaghMask;
 	
 	public static Item rubberBall;
+	public static Item rubberizedStrap;
 
 	public static ItemStack ic2AirCell;
 	public static ItemStack ic2EmptyCell;
@@ -113,6 +114,7 @@ public class ItemsCG
 		
 		//
 		rubberBall = new ItemCG("rubber_ball");
+		rubberizedStrap = new ItemCG("rubberized_strap");
 		OreDictionary.registerOre("itemRubber", rubberBall);
 
 		if (CompositeGear.proxy.isClient()) {
@@ -148,6 +150,7 @@ public class ItemsCG
 		registerMultiItem(shemaghMask, "shemagh_mask", "items/tool/hats");
 		
 		registerMultiItem(rubberBall, "rubber_ball", "items/materials");
+		registerMultiItem(rubberizedStrap, "rubberized_strap", "items/materials");
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)
