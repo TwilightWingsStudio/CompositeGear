@@ -104,13 +104,17 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 		{
 			// Default max value is 300
 			
-			if ((player.getAir() <= minAirToStartRefil) && (player.inventory.hasItemStack(ItemsCG.ic2AirCell)))
+			// TODO: Here need a lot of code changes. Do it later.
+			
+			player.setAir(300);
+			
+			/*if ((player.getAir() <= minAirToStartRefil) && (player.inventory.hasItemStack(ItemsCG.ic2AirCell)))
 			{
 				consumeItemFromInventory(player, ItemsCG.ic2AirCell);
 		        player.inventory.addItemStackToInventory(new ItemStack(ItemsCG.ic2EmptyCell.getItem()));
 		        player.setAir(300);
 		        shouldUpdate = true;
-			}
+			}*/
 		}
 		
 		// If we have changed inventory contents then we should sync it on client.
