@@ -30,6 +30,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.ModInfo;
@@ -58,6 +59,8 @@ public class ItemsCG
 	public static Item ushankaHat;
 	public static Item balaclavaMask;
 	public static Item shemaghMask;
+	
+	public static Item rubberBall;
 
 	public static ItemStack ic2AirCell;
 	public static ItemStack ic2EmptyCell;
@@ -102,6 +105,10 @@ public class ItemsCG
 		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
 		compositeDagger = new ItemCGSword("composite_dagger", compositeToolMaterial).setMaxDamage(600);
 		compositeBow = new ItemCGBow("composite_bow", 2000, 15).setHasDescription(true);
+		
+		//
+		rubberBall = new ItemCG("rubber_ball");
+		OreDictionary.registerOre("itemRubber", rubberBall);
 
 		if (CompositeGear.proxy.isClient()) {
 			registerItemModels();
@@ -132,6 +139,8 @@ public class ItemsCG
 		registerMultiItem(ushankaHat, "ushanka_hat", "items/tool/hats");
 		registerMultiItem(balaclavaMask, "balaclava_mask", "items/tool/hats");
 		registerMultiItem(shemaghMask, "shemagh_mask", "items/tool/hats");
+		
+		registerMultiItem(rubberBall, "rubber_ball", "items/materials");
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)
