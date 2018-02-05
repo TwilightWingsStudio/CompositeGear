@@ -24,6 +24,8 @@ item.shemagh_mask.name=Palestina
 item.shemagh_mask.description=Bomba byla nastražena!
 item.shemagh_mask.va=§4 +75% Šance být mylně označen za teroristu
 
+item.rubber_ball.name=Guma
+
 compositegear.itemdesc=Popis
 
 compositegear.itemclass=Třída

@@ -56,6 +56,8 @@ public class ItemsCG
 	public static Item respiratorMask;
 	public static Item respiratorMaskComposite;
 	
+	public static Item rubberGasmask;
+	
 	public static Item ushankaHat;
 	public static Item balaclavaMask;
 	public static Item shemaghMask;
@@ -101,6 +103,9 @@ public class ItemsCG
 		shemaghMask = new ItemCompositeArmor("shemagh_mask", accessoryArmorMaterial, "shemagh_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
 				.setHasOverlayIcon(true).setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasVisualAttributes(true).setHasDescription(true);
 
+		rubberGasmask = new ItemCompositeArmor("rubber_gasmask", accessoryArmorMaterial, "rubber_gasmask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
+				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setMaxDamage(150);
+		
 		// Weapons
 		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
 		compositeDagger = new ItemCGSword("composite_dagger", compositeToolMaterial).setMaxDamage(600);
@@ -135,6 +140,8 @@ public class ItemsCG
 		registerMultiItem(respiratorHalfMask, "respirator_halfmask", "items/tool/respirators");
 		registerMultiItem(respiratorMask, "respirator_mask", "items/tool/respirators");
 		registerMultiItem(respiratorMaskComposite, "respirator_mask_composite", "items/tool/respirators");
+		
+		registerMultiItem(rubberGasmask, "rubber_gasmask", "items/tool/hats");
 		
 		registerMultiItem(ushankaHat, "ushanka_hat", "items/tool/hats");
 		registerMultiItem(balaclavaMask, "balaclava_mask", "items/tool/hats");

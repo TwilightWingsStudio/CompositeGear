@@ -1,0 +1,29 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "RRR",
+    "GRG",
+    "RMR"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:crafting_allowed",
+      "key": "rubber_gasmask"
+    }
+  ],
+  "key": {
+    "M": {
+      "item": "compositegear:respirator_halfmask"
+    },
+    "R": {
+      "type": "forge:ore_dict",
+      "ore": "itemRubber"
+    },
+    "G": {
+      "item": "minecraft:glass_pane"
+    }
+  },
+  "result": {
+    "item": "compositegear:rubber_gasmask"
+  }
+}

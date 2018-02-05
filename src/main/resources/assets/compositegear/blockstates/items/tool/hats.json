@@ -21,6 +21,12 @@
           "layer0": "compositegear:items/shemagh_mask",
           "layer1": "compositegear:items/shemagh_mask_overlay"
         }
+      },
+      "rubber_gasmask": {
+        "textures": {
+          "layer0": "compositegear:items/rubber_gasmask",
+          "layer1": "compositegear:items/rubber_gasmask_overlay"
+        }
       }
     }
   }

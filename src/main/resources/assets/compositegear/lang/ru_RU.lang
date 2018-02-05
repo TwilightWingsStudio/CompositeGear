@@ -24,6 +24,9 @@ item.shemagh_mask.name=Шемаг
 item.shemagh_mask.description=Аллах-бабах!
 item.shemagh_mask.va=§4 +75% к Шансу быть принятым за террориста
 
+item.rubber_ball.name=Резина
+item.rubber_gasmask.name=Резиновый противогаз
+
 compositegear.itemdesc=Описание
 
 compositegear.itemclass=Класс

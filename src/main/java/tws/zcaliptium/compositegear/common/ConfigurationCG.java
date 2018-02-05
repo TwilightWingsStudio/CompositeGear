@@ -34,6 +34,8 @@ public class ConfigurationCG
 		"respirator_mask",
 		"respirator_mask_composite",
 		
+		"rubber_gasmask",
+		
 		"ushanka_hat",
 		"balaclava_mask",
 		"shemagh_mask",
