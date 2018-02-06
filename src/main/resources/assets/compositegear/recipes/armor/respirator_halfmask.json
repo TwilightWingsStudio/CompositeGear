@@ -1,9 +1,9 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "RWR",
-    "ICI",
-    "RBR"
+    "RSR",
+    "WCW",
+    "IBI"
   ],
   "conditions": [
     {
@@ -92,6 +92,9 @@
     },
     "B": {
       "item": "minecraft:iron_bars"
+    },
+    "S": {
+      "item": "compositegear:rubberized_strap"
     }
   },
   "result": {

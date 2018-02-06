@@ -10,4 +10,5 @@ package tws.zcaliptium.compositegear.common;
 public class Compats
 {
 	public static final String IC2 = "ic2";
+	public static final String TR = "techreborn";
 }

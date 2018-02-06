@@ -1,0 +1,24 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "RRR",
+    "LIL",
+    "RRR"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "R": {
+      "type": "forge:ore_dict",
+      "ore": "itemRubber"
+    },
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "plateIron"
+    }
+  },
+  "result": {
+    "item": "compositegear:rubberized_strap"
+  }
+}

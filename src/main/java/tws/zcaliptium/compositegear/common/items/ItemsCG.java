@@ -163,6 +163,11 @@ public class ItemsCG
 	private static void registerRecipe(IRecipe recipe)
 	{
 		recipe.setRegistryName(new ResourceLocation(ModInfo.MODID, "100"));
+
+		if (!Loader.isModLoaded(Compats.IC2) && !Loader.isModLoaded(Compats.TR)) {
+			GameRegistry.addSmelting(Items.SLIME_BALL, new ItemStack(rubberBall), 0);
+		}
+
 		ForgeRegistries.RECIPES.register(recipe);
 	}
 
