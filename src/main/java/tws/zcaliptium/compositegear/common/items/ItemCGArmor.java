@@ -125,10 +125,11 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 						player.inventory.addItemStackToInventory(ItemsCG.trEmptyCell.copy());
 						refilled = true;
 					}
+
 				}
 				
-				if (Loader.isModLoaded(Compats.IC2))
-				{
+				if (!refilled && Loader.isModLoaded(Compats.IC2)) { // Use TR or IC2 cells.
+
 					if (consumeItemFromInventory(player, ItemsCG.ic2CompressedAirCell))
 					{
 						player.inventory.addItemStackToInventory(ItemsCG.ic2EmptyCell.copy());
