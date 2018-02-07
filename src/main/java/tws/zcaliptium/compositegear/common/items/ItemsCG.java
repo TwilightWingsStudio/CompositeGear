@@ -32,6 +32,7 @@ import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import techreborn.api.TechRebornAPI;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.crafting.RecipesDyingArmor;
@@ -67,8 +68,11 @@ public class ItemsCG
 	public static Item rubberizedStrap;
 	public static Item compositePauldron;
 	
-	public static ItemStack ic2AirCell;
+	public static ItemStack ic2CompressedAirCell;
 	public static ItemStack ic2EmptyCell;
+	
+	public static ItemStack trCompressedAirCell;
+	public static ItemStack trEmptyCell;
 
 	public static void load()
 	{
@@ -124,11 +128,17 @@ public class ItemsCG
 			registerItemModels();
 		}
 		
-		/*if (Loader.isModLoaded(Compats.IC2))
+		if (Loader.isModLoaded(Compats.TR))
 		{
-			ic2AirCell = IC2Items.getItem("fluid_cell", "ic2air");
+			trCompressedAirCell = TechRebornAPI.subItemRetriever.getCellByName("compressedair", 1, false);
+			trEmptyCell = TechRebornAPI.subItemRetriever.getCellByName("cell");
+		}
+		
+		if (Loader.isModLoaded(Compats.IC2))
+		{
+			ic2CompressedAirCell = IC2Items.getItem("fluid_cell", "ic2air");
 			ic2EmptyCell = IC2Items.getItem("fluid_cell");
-		}*/
+		}
 	}
 	
 	private static void registerItemModels()

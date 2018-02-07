@@ -16,6 +16,7 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -82,39 +83,64 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 		return ModInfo.MODID + ":textures/armor/" + this.armorName + "_" + suffix + "_overlay.png";
 	}
 	
-	private static void consumeItemFromInventory(EntityPlayer player, ItemStack itemStack)
+	private static boolean consumeItemFromInventory(EntityPlayer player, ItemStack itemStack)
 	{
 		for (int i = 0; i < player.inventory.mainInventory.size(); i++)
 		{
-			if ((player.inventory.mainInventory.get(i) != null) && (player.inventory.mainInventory.get(i).isItemEqual(itemStack))) {
+			if ((player.inventory.mainInventory.get(i) != null)) {
+				if (!ItemStack.areItemStackTagsEqual(player.inventory.mainInventory.get(i), itemStack)) {
+					continue;
+				}
+				
 				player.inventory.decrStackSize(i, 1);
-				return;
+				return true;
 			}
 		}
+		
+		return false;
 	}
 	
 	@Optional.Method(modid = Compats.IC2)
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack stack)
 	{
+		if (world.isRemote) {
+			return;
+		}
+		
 		boolean shouldUpdate = false;
 		
 		// If we wear some air mask on head.
 		if (this.isAirMask && this.armorType == EntityEquipmentSlot.HEAD)
 		{
 			// Default max value is 300
-			
-			// TODO: Here need a lot of code changes. Do it later.
-			
-			player.setAir(300);
-			
-			/*if ((player.getAir() <= minAirToStartRefil) && (player.inventory.hasItemStack(ItemsCG.ic2AirCell)))
+			if (player.getAir() <= minAirToStartRefil)
 			{
-				consumeItemFromInventory(player, ItemsCG.ic2AirCell);
-		        player.inventory.addItemStackToInventory(new ItemStack(ItemsCG.ic2EmptyCell.getItem()));
-		        player.setAir(300);
-		        shouldUpdate = true;
-			}*/
+				boolean refilled = false;
+				
+				if (Loader.isModLoaded(Compats.TR))
+				{
+					if (consumeItemFromInventory(player, ItemsCG.trCompressedAirCell))
+					{
+						player.inventory.addItemStackToInventory(ItemsCG.trEmptyCell.copy());
+						refilled = true;
+					}
+				}
+				
+				if (Loader.isModLoaded(Compats.IC2))
+				{
+					if (consumeItemFromInventory(player, ItemsCG.ic2CompressedAirCell))
+					{
+						player.inventory.addItemStackToInventory(ItemsCG.ic2EmptyCell.copy());
+						refilled = true;
+					}
+				}
+				
+				if (refilled) {
+					player.setAir(300);
+			        shouldUpdate = true; // Sync player inventory.
+				}
+			}
 		}
 		
 		// If we have changed inventory contents then we should sync it on client.
