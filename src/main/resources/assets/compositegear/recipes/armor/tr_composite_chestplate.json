@@ -1,7 +1,7 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "AIA",
+    "PIP",
     "ALA",
     "AAA"
   ],
@@ -25,6 +25,9 @@
     },
     "L": {
       "item": "minecraft:leather_chestplate"
+    },
+    "P": {
+      "item": "compositegear:composite_pauldron"
     }
   },
   "result": {
