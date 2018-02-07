@@ -1,0 +1,41 @@
+item.composite_helmet.name=Съставен Шлем
+item.composite_chestplate.name=Съставен Гръден Щит
+item.composite_leggings.name=Съставни Гамаши
+item.composite_boots.name=Съставни Ботуши
+
+item.composite_sword.name=Съставен Меч
+item.composite_dagger.name=Съставна Кама
+item.composite_bow.name=Съставен Лък
+item.composite_bow.description=Try to break it!
+
+item.respirator_halfmask.name=Респираторска Полу-Маска
+item.respirator_mask.name=Респираторска Маска
+item.respirator_mask_composite.name=Съставна Респираторска Маска
+
+item.ushanka_hat.name=Ушанка
+item.ushanka_hat.description=Only true slavs wear ushanka!
+item.ushanka_hat.va=§a +20% Slavness^§3 -20% Capitalism
+
+item.balaclava_mask.name=Балаклава Маска
+item.balaclava_mask.description=Oppa ninja style!
+item.balaclava_mask.va=§a +10 Stealth
+
+item.shemagh_mask.name=Shemagh Mask
+item.shemagh_mask.description=Bomb has been planted!
+item.shemagh_mask.va=§4 +75% Chance to be confused with terrorist
+
+item.rubber_ball.name=Гума
+item.rubberized_strap.name=Гумена Каишка
+item.composite_pauldron.name=Composite Pauldron
+
+item.rubber_gasmask.name=Гумена Газова Маска
+
+compositegear.itemdesc=Description
+
+compositegear.itemclass=Class
+compositegear.itemclass.accessoryarmor=Accessory Gear
+compositegear.itemclass.lightarmor=Light Armor
+compositegear.itemclass.mediumarmor=Medium Armor
+compositegear.itemclass.heavyarmor=Heavy Armor
+compositegear.itemclass.meleeweapon=Melee
+compositegear.itemclass.rangedweapon=Ranged
