@@ -130,8 +130,12 @@ public class ItemsCG
 		
 		if (Loader.isModLoaded(Compats.TR))
 		{
-			trCompressedAirCell = TechRebornAPI.subItemRetriever.getCellByName("compressedair", 1, false);
+			trCompressedAirCell = TechRebornAPI.subItemRetriever.getCellByName("compressedair", 1);
 			trEmptyCell = TechRebornAPI.subItemRetriever.getCellByName("cell");
+			
+			if (trCompressedAirCell == null || trEmptyCell == null) {
+				CompositeGear.modLog.error("One of TechReborn cells is null! Respirators may not work!");
+			}
 		}
 		
 		if (Loader.isModLoaded(Compats.IC2))

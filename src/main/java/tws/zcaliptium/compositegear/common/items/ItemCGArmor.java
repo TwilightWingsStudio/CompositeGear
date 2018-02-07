@@ -99,8 +99,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 		
 		return false;
 	}
-	
-	@Optional.Method(modid = Compats.IC2)
+
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack stack)
 	{
@@ -118,7 +117,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 			{
 				boolean refilled = false;
 				
-				if (Loader.isModLoaded(Compats.TR))
+				if (!refilled && Loader.isModLoaded(Compats.TR))
 				{
 					if (consumeItemFromInventory(player, ItemsCG.trCompressedAirCell))
 					{
