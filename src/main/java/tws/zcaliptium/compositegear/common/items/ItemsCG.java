@@ -62,9 +62,11 @@ public class ItemsCG
 	public static Item balaclavaMask;
 	public static Item shemaghMask;
 	
+	// Materials
 	public static Item rubberBall;
 	public static Item rubberizedStrap;
-
+	public static Item compositePauldron;
+	
 	public static ItemStack ic2AirCell;
 	public static ItemStack ic2EmptyCell;
 
@@ -77,7 +79,7 @@ public class ItemsCG
 		ItemArmor.ArmorMaterial accessoryArmorMaterial = EnumHelper.addArmorMaterial("CG_ACCESSORY", ModInfo.MODID + ":composite", 100, new int[] { 1, 2, 2, 1 }, 15, null, 0);
 		ItemArmor.ArmorMaterial compositeMaskArmorMaterial = EnumHelper.addArmorMaterial("CG_MASK_COMPOSITE", ModInfo.MODID + ":composite", 50, new int[] { 3, 9, 6, 3 }, 12, null, 0);
 		ItemArmor.ArmorMaterial compositeArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE", ModInfo.MODID + ":composite", 50, new int[] { 3, 6, 9, 3 }, 12, null, 0);
-		
+
 		// Armor
 		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
 		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, EntityEquipmentSlot.CHEST).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
@@ -115,6 +117,7 @@ public class ItemsCG
 		//
 		rubberBall = new ItemCG("rubber_ball");
 		rubberizedStrap = new ItemCG("rubberized_strap");
+		compositePauldron = new ItemCG("composite_pauldron");
 		OreDictionary.registerOre("itemRubber", rubberBall);
 
 		if (CompositeGear.proxy.isClient()) {
@@ -151,6 +154,7 @@ public class ItemsCG
 		
 		registerMultiItem(rubberBall, "rubber_ball", "items/materials");
 		registerMultiItem(rubberizedStrap, "rubberized_strap", "items/materials");
+		registerMultiItem(compositePauldron, "composite_pauldron", "items/materials");
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)
