@@ -2,6 +2,7 @@
   "type": "forge:ore_shaped",
   "pattern": [
     "A",
+    "I",
     "S"
   ],
   "conditions": [
@@ -21,6 +22,10 @@
     },
     "S": {
       "item": "minecraft:stick"
+    },
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "plateIron"
     }
   },
   "result": {
