@@ -3,6 +3,11 @@ item.composite_chestplate.name=Композитный доспех
 item.composite_leggings.name=Композитные поножи
 item.composite_boots.name=Композитные ботинки
 
+item.composite_light_helmet.name=Лёгкий композитный шлем
+item.composite_light_vest.name=Лёгкий композитный жилет
+item.composite_light_leggings.name=Лёгкие композитные поножи
+item.composite_light_boots.name=Лёгкие композитные ботинки
+
 item.composite_sword.name=Композитный меч
 item.composite_dagger.name=Композитный кинжал
 item.composite_bow.name=Композитный лук
@@ -27,6 +32,7 @@ item.shemagh_mask.va=§4 +75% к Шансу быть принятым за те�
 item.rubber_ball.name=Резина
 item.rubberized_strap.name=Прорезиненный ремешок
 item.composite_pauldron.name=Композитный наплечник
+item.composite_poleyn.name=Композитный наколенник
 
 item.rubber_gasmask.name=Резиновый противогаз
 

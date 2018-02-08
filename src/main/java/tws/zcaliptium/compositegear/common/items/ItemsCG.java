@@ -75,6 +75,7 @@ public class ItemsCG
 	public static Item rubberBall;
 	public static Item rubberizedStrap;
 	public static Item compositePauldron;
+	public static Item compositePoleyn;
 	
 	public static ItemStack ic2CompressedAirCell;
 	public static ItemStack ic2EmptyCell;
@@ -83,6 +84,7 @@ public class ItemsCG
 	public static ItemStack trEmptyCell;
 	
 	public static EnumRarity CG_UNCOMMON = EnumHelper.addRarity("CG_UNCOMMON", TextFormatting.GREEN, "CgUncommon");
+	public static EnumRarity CG_RARE = EnumHelper.addRarity("CG_RARE", TextFormatting.BLUE, "CgRare");
 
 	public static void load()
 	{
@@ -96,10 +98,10 @@ public class ItemsCG
 		ItemArmor.ArmorMaterial compositeLightArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE_LIGHT", ModInfo.MODID + ":composite", 50, new int[] { 2, 4, 6, 2 }, 12, null, 0);
 		
 		// Armor
-		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
-		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, EntityEquipmentSlot.CHEST).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
-		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.LEGS).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
-		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.FEET).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
+		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987).setRarity(CG_RARE);
+		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, EntityEquipmentSlot.CHEST).setDefaultColor(8815987).setRarity(CG_RARE);
+		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.LEGS).setDefaultColor(8815987).setRarity(CG_RARE);
+		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.FEET).setDefaultColor(8815987).setRarity(CG_RARE);
 
 		compositeLightHelmet = new ItemCompositeArmor("composite_light_helmet", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.HEAD)
 				.setDefaultColor(8815987).setRarity(CG_UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
@@ -142,6 +144,7 @@ public class ItemsCG
 		rubberBall = new ItemCG("rubber_ball");
 		rubberizedStrap = new ItemCG("rubberized_strap");
 		compositePauldron = new ItemCG("composite_pauldron");
+		compositePoleyn = new ItemCG("composite_poleyn");
 		OreDictionary.registerOre("itemRubber", rubberBall);
 
 		if (CompositeGear.proxy.isClient()) {
@@ -194,6 +197,7 @@ public class ItemsCG
 		registerMultiItem(rubberBall, "rubber_ball", "items/materials");
 		registerMultiItem(rubberizedStrap, "rubberized_strap", "items/materials");
 		registerMultiItem(compositePauldron, "composite_pauldron", "items/materials");
+		registerMultiItem(compositePoleyn, "composite_poleyn", "items/materials");
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)

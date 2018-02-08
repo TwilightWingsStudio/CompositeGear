@@ -20,6 +20,11 @@
         "textures": {
           "layer0": "compositegear:items/composite_pauldron"
         }
+      },
+      "composite_poleyn": {
+        "textures": {
+          "layer0": "compositegear:items/composite_poleyn"
+        }
       }
     }
   }
