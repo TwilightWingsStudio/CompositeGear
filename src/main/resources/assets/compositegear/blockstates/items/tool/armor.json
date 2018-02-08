@@ -25,6 +25,26 @@
         "textures": {
           "layer0": "compositegear:items/composite_boots"
         }
+      },
+      "composite_light_helmet": {
+        "textures": {
+          "layer0": "compositegear:items/composite_light_helmet"
+        }
+      },
+      "composite_light_vest": {
+        "textures": {
+          "layer0": "compositegear:items/composite_light_vest"
+        }
+      },
+      "composite_light_leggings": {
+        "textures": {
+          "layer0": "compositegear:items/composite_light_leggings"
+        }
+      },
+      "composite_light_boots": {
+        "textures": {
+          "layer0": "compositegear:items/composite_light_boots"
+        }
       }
     }
   }
