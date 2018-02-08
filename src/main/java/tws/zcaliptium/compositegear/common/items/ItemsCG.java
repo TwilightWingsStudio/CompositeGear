@@ -22,6 +22,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -80,6 +81,8 @@ public class ItemsCG
 	
 	public static ItemStack trCompressedAirCell;
 	public static ItemStack trEmptyCell;
+	
+	public static EnumRarity CG_UNCOMMON = EnumHelper.addRarity("CG_UNCOMMON", TextFormatting.GREEN, "CgUncommon");
 
 	public static void load()
 	{
@@ -88,9 +91,9 @@ public class ItemsCG
 		// TODO: Solve this garbage with materials.
 
 		ItemArmor.ArmorMaterial accessoryArmorMaterial = EnumHelper.addArmorMaterial("CG_ACCESSORY", ModInfo.MODID + ":composite", 100, new int[] { 1, 2, 2, 1 }, 15, null, 0);
-		ItemArmor.ArmorMaterial compositeMaskArmorMaterial = EnumHelper.addArmorMaterial("CG_MASK_COMPOSITE", ModInfo.MODID + ":composite", 50, new int[] { 3, 9, 6, 3 }, 12, null, 0);
+		ItemArmor.ArmorMaterial compositeMaskArmorMaterial = EnumHelper.addArmorMaterial("CG_MASK_COMPOSITE", ModInfo.MODID + ":composite", 50, new int[] { 3, 6, 9, 3 }, 12, null, 0);
 		ItemArmor.ArmorMaterial compositeArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE", ModInfo.MODID + ":composite", 50, new int[] { 3, 6, 9, 3 }, 12, null, 0);
-		ItemArmor.ArmorMaterial compositeLightArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE_LIGHT", ModInfo.MODID + ":composite", 50, new int[] { 2, 4, 6, 3 }, 12, null, 0);
+		ItemArmor.ArmorMaterial compositeLightArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE_LIGHT", ModInfo.MODID + ":composite", 50, new int[] { 2, 4, 6, 2 }, 12, null, 0);
 		
 		// Armor
 		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
@@ -99,13 +102,13 @@ public class ItemsCG
 		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.FEET).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
 
 		compositeLightHelmet = new ItemCompositeArmor("composite_light_helmet", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.HEAD)
-				.setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
+				.setDefaultColor(8815987).setRarity(CG_UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
 		compositeLightVest = new ItemCompositeArmor("composite_light_vest", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.CHEST)
-				.setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
+				.setDefaultColor(8815987).setRarity(CG_UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
 		compositeLightLeggings = new ItemCompositeArmor("composite_light_leggings", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.LEGS)
-				.setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
+				.setDefaultColor(8815987).setRarity(CG_UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
 		compositeLightBoots = new ItemCompositeArmor("composite_light_boots", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.FEET)
-				.setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
+				.setDefaultColor(8815987).setRarity(CG_UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
 
 		// Respirators
 		respiratorHalfMask = new ItemCGArmor("respirator_halfmask", accessoryArmorMaterial, "respirator_halfmask", 0, EntityEquipmentSlot.HEAD)
@@ -169,7 +172,10 @@ public class ItemsCG
 		registerMultiItem(compositeLeggings, "composite_leggings", "items/tool/armor");
 		registerMultiItem(compositeBoots, "composite_boots", "items/tool/armor");
 		
-		registerMultiItem(compositeLightVest, "composite_vest", "items/tool/armor");
+		registerMultiItem(compositeLightHelmet, "composite_light_helmet", "items/tool/armor");
+		registerMultiItem(compositeLightVest, "composite_light_vest", "items/tool/armor");
+		registerMultiItem(compositeLightLeggings, "composite_light_leggings", "items/tool/armor");
+		registerMultiItem(compositeLightBoots, "composite_light_boots", "items/tool/armor");
 		
 		registerMultiItem(compositeSword, "composite_sword", "items/tool/generic");
 		registerMultiItem(compositeDagger, "composite_dagger", "items/tool/generic");
