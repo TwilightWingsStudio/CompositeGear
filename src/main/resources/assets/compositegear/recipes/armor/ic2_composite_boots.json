@@ -1,8 +1,9 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
+    "SLS",
     "ALA",
-    "AIA"
+    "ACA"
   ],
   "conditions": [
     {
@@ -19,11 +20,14 @@
       "type": "compositegear:ic2_ingredient",
       "name": "crafting#alloy"
     },
-    "I": {
-      "item": "minecraft:iron_boots"
+    "S": {
+      "item": "minecraft:string"
     },
     "L": {
-      "item": "minecraft:leather_boots"
+      "item": "minecraft:leather"
+    },
+    "C": {
+      "item": "compositegear:composite_light_boots"
     }
   },
   "result": {

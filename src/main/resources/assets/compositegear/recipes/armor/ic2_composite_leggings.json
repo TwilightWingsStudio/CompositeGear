@@ -1,9 +1,9 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "AAA",
+    "SCS",
     "ALA",
-    "AIA"
+    "ALA"
   ],
   "conditions": [
     {
@@ -20,11 +20,14 @@
       "type": "compositegear:ic2_ingredient",
       "name": "crafting#alloy"
     },
-    "I": {
-      "item": "minecraft:iron_leggings"
+    "C": {
+      "item": "compositegear:composite_light_leggings"
+    },
+    "S": {
+      "item": "minecraft:string"
     },
     "L": {
-      "item": "minecraft:leather_leggings"
+      "item": "minecraft:leather"
     }
   },
   "result": {

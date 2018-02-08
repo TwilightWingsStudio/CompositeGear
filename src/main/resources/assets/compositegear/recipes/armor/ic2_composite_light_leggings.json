@@ -1,9 +1,9 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
+    "ALA",
     "AAA",
-    "ACA",
-    "SSS"
+    "P P"
   ],
   "conditions": [
     {
@@ -12,7 +12,7 @@
     },
     {
       "type": "compositegear:crafting_allowed",
-      "key": "composite_helmet"
+      "key": "composite_light_leggings"
     }
   ],
   "key": {
@@ -20,14 +20,14 @@
       "type": "compositegear:ic2_ingredient",
       "name": "crafting#alloy"
     },
-    "C": {
-      "item": "compositegear:composite_light_helmet"
+    "L": {
+      "item": "minecraft:leather_leggings"
     },
-    "S": {
-      "item": "minecraft:string"
+    "P": {
+      "item": "compositegear:composite_poleyn"
     }
   },
   "result": {
-    "item": "compositegear:composite_helmet"
+    "item": "compositegear:composite_light_leggings"
   }
 }

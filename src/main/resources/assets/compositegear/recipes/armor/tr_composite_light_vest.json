@@ -1,9 +1,9 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "SLS",
+    "AIA",
     "ALA",
-    "ACA"
+    "AAA"
   ],
   "conditions": [
     {
@@ -12,7 +12,7 @@
     },
     {
       "type": "compositegear:crafting_allowed",
-      "key": "composite_boots"
+      "key": "composite_light_vest"
     }
   ],
   "key": {
@@ -20,17 +20,14 @@
       "type": "forge:ore_dict",
       "ore": "plateAdvancedAlloy"
     },
-    "S": {
-      "item": "minecraft:string"
+    "I": {
+      "item": "minecraft:iron_chestplate"
     },
     "L": {
-      "item": "minecraft:leather"
-    },
-    "C": {
-      "item": "compositegear:composite_light_boots"
+      "item": "minecraft:leather_chestplate"
     }
   },
   "result": {
-    "item": "compositegear:composite_boots"
+    "item": "compositegear:composite_light_vest"
   }
 }

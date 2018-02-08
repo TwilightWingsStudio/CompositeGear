@@ -1,0 +1,24 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "P P",
+    " C "
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:crafting_allowed",
+      "key": "composite_chestplate"
+    }
+  ],
+  "key": {
+    "C": {
+      "item": "compositegear:composite_light_vest"
+    },
+    "P": {
+      "item": "compositegear:composite_pauldron"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_chestplate"
+  }
+}

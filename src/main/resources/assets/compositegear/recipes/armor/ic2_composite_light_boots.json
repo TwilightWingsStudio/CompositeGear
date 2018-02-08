@@ -1,36 +1,33 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "SLS",
+    "SAS",
     "ALA",
-    "ACA"
+    "SAS"
   ],
   "conditions": [
     {
       "type": "compositegear:mod_loaded",
-      "modid": "techreborn"
+      "modid": "ic2"
     },
     {
       "type": "compositegear:crafting_allowed",
-      "key": "composite_boots"
+      "key": "composite_light_boots"
     }
   ],
   "key": {
     "A": {
-      "type": "forge:ore_dict",
-      "ore": "plateAdvancedAlloy"
+      "type": "compositegear:ic2_ingredient",
+      "name": "crafting#alloy"
     },
     "S": {
       "item": "minecraft:string"
     },
     "L": {
-      "item": "minecraft:leather"
-    },
-    "C": {
-      "item": "compositegear:composite_light_boots"
+      "item": "minecraft:leather_boots"
     }
   },
   "result": {
-    "item": "compositegear:composite_boots"
+    "item": "compositegear:composite_light_boots"
   }
 }

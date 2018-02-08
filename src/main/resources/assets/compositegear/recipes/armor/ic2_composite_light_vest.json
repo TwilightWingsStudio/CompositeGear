@@ -1,7 +1,7 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "PIP",
+    "AIA",
     "ALA",
     "AAA"
   ],
@@ -12,7 +12,7 @@
     },
     {
       "type": "compositegear:crafting_allowed",
-      "key": "composite_chestplate"
+      "key": "composite_light_vest"
     }
   ],
   "key": {
@@ -25,12 +25,9 @@
     },
     "L": {
       "item": "minecraft:leather_chestplate"
-    },
-    "P": {
-      "item": "compositegear:composite_pauldron"
     }
   },
   "result": {
-    "item": "compositegear:composite_chestplate"
+    "item": "compositegear:composite_light_vest"
   }
 }

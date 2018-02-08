@@ -1,8 +1,9 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "ALA",
-    "AIA"
+    "AAA",
+    "ACA",
+    "SSS"
   ],
   "conditions": [
     {
@@ -19,11 +20,11 @@
       "type": "forge:ore_dict",
       "ore": "plateAdvancedAlloy"
     },
-    "I": {
-      "item": "minecraft:iron_helmet"
+    "C": {
+      "item": "compositegear:composite_light_helmet"
     },
-    "L": {
-      "item": "minecraft:leather_helmet"
+    "S": {
+      "item": "minecraft:string"
     }
   },
   "result": {
