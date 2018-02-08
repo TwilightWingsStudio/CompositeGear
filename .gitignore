@@ -5,6 +5,7 @@
 eclipse/
 repo/
 .settings/
+*.launch
 
 #Intermediate
 bin/
