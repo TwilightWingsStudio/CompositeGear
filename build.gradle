@@ -11,7 +11,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
-version = "1.1"
+version = "1.2"
 group= "tws.zcaliptium.compositegear" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "CompositeGear-" + mcversion
 
@@ -34,14 +34,39 @@ minecraft {
 }
 
 repositories {
+  flatDir {
+    dirs 'libs'
+  }
+
   maven {
     name = "ic2"
     url = "http://maven.ic2.player.to/"
   }
+  
+  maven {
+    name = "Modmuss50"
+    url = "http://maven.modmuss50.me/"
+  }
+  
+  // JEI.
+  maven {
+    name = "Progwml6 maven"
+    url = "http://dvs1.progwml6.com/files/maven"
+  }
+  
+  // JEI mirror.
+  maven {
+    name = "ModMaven"
+    url = "modmaven.k-4u.nl"
+  }
 }
 
 dependencies {
-    compile 'net.industrial-craft:industrialcraft-2:2.8.35-ex112:api'
+  compile 'net.industrial-craft:industrialcraft-2:2.8.35-ex112:api'
+  compile "TechReborn:TechReborn-${mcversion}:2.12.2.470:api"
+
+  deobfProvided "mezz.jei:jei_${mcversion}:${jei_version}:api"
+  runtime "mezz.jei:jei_${mcversion}:${jei_version}"
 }
 
 processResources
