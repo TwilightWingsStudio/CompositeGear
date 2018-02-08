@@ -44,11 +44,18 @@ public class ItemsCG
 {
 	private static final String COMPOSITE_NAME = "composite";
 
+	// Standart Armor
 	public static Item compositeHelmet;
 	public static Item compositeChestplate;
 	public static Item compositeLeggings;
 	public static Item compositeBoots;
 	
+	// Light Armor
+	public static Item compositeLightHelmet;
+	public static Item compositeLightVest;
+	public static Item compositeLightLeggings;
+	public static Item compositeLightBoots;
+
 	public static Item compositeSword;
 	public static Item compositeBow;
 	public static Item compositeDagger;
@@ -83,12 +90,22 @@ public class ItemsCG
 		ItemArmor.ArmorMaterial accessoryArmorMaterial = EnumHelper.addArmorMaterial("CG_ACCESSORY", ModInfo.MODID + ":composite", 100, new int[] { 1, 2, 2, 1 }, 15, null, 0);
 		ItemArmor.ArmorMaterial compositeMaskArmorMaterial = EnumHelper.addArmorMaterial("CG_MASK_COMPOSITE", ModInfo.MODID + ":composite", 50, new int[] { 3, 9, 6, 3 }, 12, null, 0);
 		ItemArmor.ArmorMaterial compositeArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE", ModInfo.MODID + ":composite", 50, new int[] { 3, 6, 9, 3 }, 12, null, 0);
-
+		ItemArmor.ArmorMaterial compositeLightArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE_LIGHT", ModInfo.MODID + ":composite", 50, new int[] { 2, 4, 6, 3 }, 12, null, 0);
+		
 		// Armor
 		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
 		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, EntityEquipmentSlot.CHEST).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
 		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.LEGS).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
 		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.FEET).setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON);
+
+		compositeLightHelmet = new ItemCompositeArmor("composite_light_helmet", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.HEAD)
+				.setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
+		compositeLightVest = new ItemCompositeArmor("composite_light_vest", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.CHEST)
+				.setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
+		compositeLightLeggings = new ItemCompositeArmor("composite_light_leggings", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.LEGS)
+				.setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
+		compositeLightBoots = new ItemCompositeArmor("composite_light_boots", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.FEET)
+				.setDefaultColor(8815987).setRarity(EnumRarity.UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
 
 		// Respirators
 		respiratorHalfMask = new ItemCGArmor("respirator_halfmask", accessoryArmorMaterial, "respirator_halfmask", 0, EntityEquipmentSlot.HEAD)
@@ -151,6 +168,8 @@ public class ItemsCG
 		registerMultiItem(compositeChestplate, "composite_chestplate", "items/tool/armor");
 		registerMultiItem(compositeLeggings, "composite_leggings", "items/tool/armor");
 		registerMultiItem(compositeBoots, "composite_boots", "items/tool/armor");
+		
+		registerMultiItem(compositeLightVest, "composite_vest", "items/tool/armor");
 		
 		registerMultiItem(compositeSword, "composite_sword", "items/tool/generic");
 		registerMultiItem(compositeDagger, "composite_dagger", "items/tool/generic");
