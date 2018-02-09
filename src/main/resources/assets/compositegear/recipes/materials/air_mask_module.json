@@ -1,0 +1,32 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "RRR",
+    "WCW",
+    "IBI"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:wool",
+      "data": 32767
+    },
+    "C": {
+      "type": "forge:ore_dict",
+      "ore": "dustCoal"
+    },
+    "R": {
+      "type": "forge:ore_dict",
+      "ore": "itemRubber"
+    },
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "plateIron"
+    },
+    "B": {
+      "item": "minecraft:iron_bars"
+    }
+  },
+  "result": {
+    "item": "compositegear:air_mask_module"
+  }
+}

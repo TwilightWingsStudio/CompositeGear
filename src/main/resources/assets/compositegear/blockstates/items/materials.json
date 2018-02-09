@@ -11,6 +11,11 @@
           "layer0": "compositegear:items/rubber_ball"
         }
       },
+      "fabric_sheet": {
+        "textures": {
+          "layer0": "compositegear:items/fabric_sheet"
+        }
+      },
       "rubberized_strap": {
         "textures": {
           "layer0": "compositegear:items/rubberized_strap"
@@ -24,6 +29,11 @@
       "composite_poleyn": {
         "textures": {
           "layer0": "compositegear:items/composite_poleyn"
+        }
+      },
+      "air_mask_module": {
+        "textures": {
+          "layer0": "compositegear:items/air_mask_module"
         }
       }
     }

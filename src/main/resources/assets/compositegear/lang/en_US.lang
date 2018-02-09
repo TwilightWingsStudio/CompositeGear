@@ -3,6 +3,8 @@ item.composite_chestplate.name=Composite Chestplate
 item.composite_leggings.name=Composite Leggings
 item.composite_boots.name=Composite Boots
 
+item.composite_faceplate.name=Composite Faceplate
+
 item.composite_light_helmet.name=Composite Light Helmet
 item.composite_light_vest.name=Composite Light Vest
 item.composite_light_leggings.name=Composite Light Leggings
@@ -33,6 +35,7 @@ item.rubber_ball.name=Rubber
 item.rubberized_strap.name=Rubberized Strap
 item.composite_pauldron.name=Composite Pauldron
 item.composite_poleyn.name=Composite Poleyn
+item.air_mask_module.name=Air Mask Module
 
 item.rubber_gasmask.name=Rubber Gasmask
 

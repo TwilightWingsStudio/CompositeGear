@@ -79,6 +79,7 @@ public class ItemsCG
 	public static Item rubberizedStrap;
 	public static Item compositePauldron;
 	public static Item compositePoleyn;
+	public static Item airMaskModule;
 	
 	public static ItemStack ic2CompressedAirCell;
 	public static ItemStack ic2EmptyCell;
@@ -105,7 +106,7 @@ public class ItemsCG
 		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.LEGS).setDefaultColor(8815987).setRarity(CG_RARE);
 		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.FEET).setDefaultColor(8815987).setRarity(CG_RARE);
 
-		compositeFaceplate = new ItemCGArmor("composite_faceplate", compositeArmorMaterial, "composite_faceplate", 0, EntityEquipmentSlot.HEAD).setRarity(CG_RARE);
+		compositeFaceplate = new ItemCGArmor("composite_faceplate", compositeLightArmorMaterial, "composite_faceplate", 0, EntityEquipmentSlot.HEAD).setRarity(CG_UNCOMMON);
 		
 		// Light Armor.
 		compositeLightHelmet = new ItemCompositeArmor("composite_light_helmet", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.HEAD)
@@ -125,7 +126,7 @@ public class ItemsCG
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(150);
 		
 		respiratorMaskComposite = new ItemCGArmor("respirator_mask_composite", compositeArmorMaterial, "respirator_mask_composite", 0, EntityEquipmentSlot.HEAD)
-				.setItemClass(EnumItemClass.LIGHT_ARMOR).setAirMask(true).setMinAir(20).setRarity(EnumRarity.UNCOMMON).setMaxDamage(200);
+				.setItemClass(EnumItemClass.LIGHT_ARMOR).setAirMask(true).setMinAir(20).setRarity(CG_RARE).setMaxDamage(800);
 		
 		// Decorative
 		ushankaHat = new ItemCompositeArmor("ushanka_hat", accessoryArmorMaterial, "ushanka_hat", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
@@ -152,6 +153,7 @@ public class ItemsCG
 		rubberizedStrap = new ItemCG("rubberized_strap");
 		compositePauldron = new ItemCG("composite_pauldron");
 		compositePoleyn = new ItemCG("composite_poleyn");
+		airMaskModule = new ItemCG("air_mask_module");
 		OreDictionary.registerOre("itemRubber", rubberBall);
 
 		if (CompositeGear.proxy.isClient()) {
@@ -209,6 +211,7 @@ public class ItemsCG
 		registerMultiItem(rubberizedStrap, "rubberized_strap", "items/materials");
 		registerMultiItem(compositePauldron, "composite_pauldron", "items/materials");
 		registerMultiItem(compositePoleyn, "composite_poleyn", "items/materials");
+		registerMultiItem(airMaskModule, "air_mask_module", "items/materials");
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)
