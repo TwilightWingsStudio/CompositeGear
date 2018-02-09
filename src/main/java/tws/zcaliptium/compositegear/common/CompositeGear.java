@@ -88,7 +88,7 @@ public class CompositeGear
                     return tintIndex > 0 ? -1 : ((ItemArmor)stack.getItem()).getColor(stack);
                 }
             }, ItemsCG.compositeHelmet, ItemsCG.compositeChestplate, ItemsCG.compositeLeggings, ItemsCG.compositeBoots,
-            		ItemsCG.ushankaHat, ItemsCG.balaclavaMask, ItemsCG.shemaghMask, ItemsCG.rubberGasmask,
+            		ItemsCG.ushankaHat, ItemsCG.balaclavaMask, ItemsCG.shemaghMask, ItemsCG.rubberGasmask, ItemsCG.respiratorMask,
             		ItemsCG.compositeLightHelmet, ItemsCG.compositeLightVest, ItemsCG.compositeLightLeggings, ItemsCG.compositeLightBoots);
         }
     }

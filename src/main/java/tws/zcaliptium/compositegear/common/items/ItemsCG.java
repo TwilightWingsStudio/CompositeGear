@@ -106,7 +106,8 @@ public class ItemsCG
 		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.LEGS).setDefaultColor(8815987).setRarity(CG_RARE);
 		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.FEET).setDefaultColor(8815987).setRarity(CG_RARE);
 
-		compositeFaceplate = new ItemCGArmor("composite_faceplate", compositeLightArmorMaterial, "composite_faceplate", 0, EntityEquipmentSlot.HEAD).setRarity(CG_UNCOMMON);
+		compositeFaceplate = new ItemCGArmor("composite_faceplate", compositeLightArmorMaterial, "composite_faceplate", 0, EntityEquipmentSlot.HEAD).setRarity(CG_UNCOMMON)
+				.setItemClass(EnumItemClass.LIGHT_ARMOR);
 		
 		// Light Armor.
 		compositeLightHelmet = new ItemCompositeArmor("composite_light_helmet", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.HEAD)
@@ -122,7 +123,7 @@ public class ItemsCG
 		respiratorHalfMask = new ItemCGArmor("respirator_halfmask", accessoryArmorMaterial, "respirator_halfmask", 0, EntityEquipmentSlot.HEAD)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(80);
 
-		respiratorMask = new ItemCGArmor("respirator_mask", accessoryArmorMaterial, "respirator_mask", 0, EntityEquipmentSlot.HEAD)
+		respiratorMask = new ItemCompositeArmor("respirator_mask", accessoryArmorMaterial, "respirator_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(150);
 		
 		respiratorMaskComposite = new ItemCGArmor("respirator_mask_composite", compositeArmorMaterial, "respirator_mask_composite", 0, EntityEquipmentSlot.HEAD)
