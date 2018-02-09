@@ -32,12 +32,12 @@ import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.IClassifiedItem;
 import tws.zcaliptium.compositegear.common.ModInfo;
 
-public class ItemCGSword extends ItemSword implements IClassifiedItem, IItemModelProvider
+public class ItemCGMelee extends ItemSword implements IClassifiedItem, IItemModelProvider
 {
 	private static double SWORD_SPEED_MODIFIER = -2.4000000953674316D;
 	private static double DAGGER_SPEED_MODIFIER = -0.8D;
 	
-	public ItemCGSword(String id, ToolMaterial material)
+	public ItemCGMelee(String id, ToolMaterial material)
 	{
 		super(material);
 		

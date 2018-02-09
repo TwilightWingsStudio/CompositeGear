@@ -60,6 +60,7 @@ public class ItemsCG
 	public static Item compositeSword;
 	public static Item compositeBow;
 	public static Item compositeDagger;
+	public static Item compositeMace;
 	
 	public static Item respiratorHalfMask;
 	public static Item respiratorMask;
@@ -136,8 +137,9 @@ public class ItemsCG
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(150);
 		
 		// Weapons
-		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
-		compositeDagger = new ItemCGSword("composite_dagger", compositeToolMaterial).setMaxDamage(600);
+		compositeSword = new ItemCGMelee("composite_sword", compositeToolMaterial);
+		compositeMace = new ItemCGMelee("composite_mace", compositeToolMaterial);
+		compositeDagger = new ItemCGMelee("composite_dagger", compositeToolMaterial).setMaxDamage(600);
 		compositeBow = new ItemCGBow("composite_bow", 2000, 15).setHasDescription(true);
 		
 		//
@@ -182,6 +184,7 @@ public class ItemsCG
 		
 		registerMultiItem(compositeSword, "composite_sword", "items/tool/generic");
 		registerMultiItem(compositeDagger, "composite_dagger", "items/tool/generic");
+		registerMultiItem(compositeMace, "composite_mace", "items/tool/generic");
 		registerItemModel(compositeBow, "tool/composite_bow");
 		
 		registerMultiItem(respiratorHalfMask, "respirator_halfmask", "items/tool/respirators");
