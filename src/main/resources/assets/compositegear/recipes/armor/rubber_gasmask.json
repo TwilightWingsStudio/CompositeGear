@@ -13,7 +13,7 @@
   ],
   "key": {
     "M": {
-      "item": "compositegear:respirator_halfmask"
+      "item": "compositegear:air_mask_module"
     },
     "R": {
       "type": "forge:ore_dict",
