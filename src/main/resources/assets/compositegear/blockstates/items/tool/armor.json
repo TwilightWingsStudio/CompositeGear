@@ -45,6 +45,11 @@
         "textures": {
           "layer0": "compositegear:items/composite_light_boots"
         }
+      },
+      "composite_faceplate": {
+        "textures": {
+          "layer0": "compositegear:items/composite_faceplate"
+        }
       }
     }
   }

@@ -51,6 +51,8 @@ public class ItemsCG
 	public static Item compositeLeggings;
 	public static Item compositeBoots;
 	
+	public static Item compositeFaceplate;
+	
 	// Light Armor
 	public static Item compositeLightHelmet;
 	public static Item compositeLightVest;
@@ -65,7 +67,6 @@ public class ItemsCG
 	public static Item respiratorHalfMask;
 	public static Item respiratorMask;
 	public static Item respiratorMaskComposite;
-	
 	public static Item rubberGasmask;
 	
 	public static Item ushankaHat;
@@ -74,6 +75,7 @@ public class ItemsCG
 	
 	// Materials
 	public static Item rubberBall;
+	public static Item fabricSheet;
 	public static Item rubberizedStrap;
 	public static Item compositePauldron;
 	public static Item compositePoleyn;
@@ -103,6 +105,8 @@ public class ItemsCG
 		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.LEGS).setDefaultColor(8815987).setRarity(CG_RARE);
 		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.FEET).setDefaultColor(8815987).setRarity(CG_RARE);
 
+		compositeFaceplate = new ItemCGArmor("composite_faceplate", compositeArmorMaterial, "composite_faceplate", 0, EntityEquipmentSlot.HEAD).setRarity(CG_RARE);
+		
 		// Light Armor.
 		compositeLightHelmet = new ItemCompositeArmor("composite_light_helmet", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.HEAD)
 				.setDefaultColor(8815987).setRarity(CG_UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
@@ -144,6 +148,7 @@ public class ItemsCG
 		
 		//
 		rubberBall = new ItemCG("rubber_ball");
+		fabricSheet = new ItemCG("fabric_sheet");
 		rubberizedStrap = new ItemCG("rubberized_strap");
 		compositePauldron = new ItemCG("composite_pauldron");
 		compositePoleyn = new ItemCG("composite_poleyn");
@@ -177,6 +182,8 @@ public class ItemsCG
 		registerMultiItem(compositeLeggings, "composite_leggings", "items/tool/armor");
 		registerMultiItem(compositeBoots, "composite_boots", "items/tool/armor");
 		
+		registerMultiItem(compositeFaceplate, "composite_faceplate", "items/tool/armor");
+		
 		registerMultiItem(compositeLightHelmet, "composite_light_helmet", "items/tool/armor");
 		registerMultiItem(compositeLightVest, "composite_light_vest", "items/tool/armor");
 		registerMultiItem(compositeLightLeggings, "composite_light_leggings", "items/tool/armor");
@@ -198,6 +205,7 @@ public class ItemsCG
 		registerMultiItem(shemaghMask, "shemagh_mask", "items/tool/hats");
 		
 		registerMultiItem(rubberBall, "rubber_ball", "items/materials");
+		registerMultiItem(fabricSheet, "fabric_sheet", "items/materials");
 		registerMultiItem(rubberizedStrap, "rubberized_strap", "items/materials");
 		registerMultiItem(compositePauldron, "composite_pauldron", "items/materials");
 		registerMultiItem(compositePoleyn, "composite_poleyn", "items/materials");
