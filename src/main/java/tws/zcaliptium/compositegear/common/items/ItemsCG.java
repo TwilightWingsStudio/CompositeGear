@@ -106,7 +106,7 @@ public class ItemsCG
 		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.LEGS).setDefaultColor(8815987).setRarity(CG_RARE);
 		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.FEET).setDefaultColor(8815987).setRarity(CG_RARE);
 
-		compositeFaceplate = new ItemCGArmor("composite_faceplate", compositeLightArmorMaterial, "composite_faceplate", 0, EntityEquipmentSlot.HEAD).setRarity(CG_UNCOMMON)
+		compositeFaceplate = new ItemCompositeArmor("composite_faceplate", compositeLightArmorMaterial, "composite_faceplate", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987).setRarity(CG_UNCOMMON)
 				.setItemClass(EnumItemClass.LIGHT_ARMOR);
 		
 		// Light Armor.

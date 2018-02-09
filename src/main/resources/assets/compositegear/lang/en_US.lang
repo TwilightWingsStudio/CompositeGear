@@ -32,6 +32,7 @@ item.shemagh_mask.description=Bomb has been planted!
 item.shemagh_mask.va=§4 +75% Chance to be confused with terrorist
 
 item.rubber_ball.name=Rubber
+item.fabric_sheet.name=Fabric Sheet
 item.rubberized_strap.name=Rubberized Strap
 item.composite_pauldron.name=Composite Pauldron
 item.composite_poleyn.name=Composite Poleyn
