@@ -19,7 +19,8 @@
       },
       "respirator_mask_composite": {
         "textures": {
-          "layer0": "compositegear:items/respirator_mask_composite"
+          "layer0": "compositegear:items/respirator_mask_composite",
+          "layer1": "compositegear:items/respirator_mask_composite_overlay"
         }
       }
     }

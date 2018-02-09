@@ -26,6 +26,8 @@ public class ConfigurationCG
 		"composite_leggings",
 		"composite_boots",
 		
+		"composite_faceplate",
+		
 		"composite_light_helmet",
 		"composite_light_vest",
 		"composite_light_leggings",

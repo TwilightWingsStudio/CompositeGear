@@ -126,7 +126,7 @@ public class ItemsCG
 		respiratorMask = new ItemCompositeArmor("respirator_mask", accessoryArmorMaterial, "respirator_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(150);
 		
-		respiratorMaskComposite = new ItemCGArmor("respirator_mask_composite", compositeArmorMaterial, "respirator_mask_composite", 0, EntityEquipmentSlot.HEAD)
+		respiratorMaskComposite = new ItemCompositeArmor("respirator_mask_composite", compositeArmorMaterial, "respirator_mask_composite", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987)
 				.setItemClass(EnumItemClass.LIGHT_ARMOR).setAirMask(true).setMinAir(20).setRarity(CG_RARE).setMaxDamage(800);
 		
 		// Decorative
