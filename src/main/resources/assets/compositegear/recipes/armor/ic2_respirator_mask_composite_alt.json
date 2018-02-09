@@ -1,9 +1,9 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    " F ",
+    "RFR",
     "SGS",
-    " M "
+    "RMR"
   ],
   "conditions": [
     {
@@ -24,7 +24,11 @@
       "item": "compositegear:composite_faceplate"
     },
     "M": {
-      "item": "compositegear:respirator_mask"
+      "item": "compositegear:air_mask_module"
+    },
+    "R": {
+      "type": "forge:ore_dict",
+      "ore": "itemRubber"
     },
     "S": {
       "item": "minecraft:string"

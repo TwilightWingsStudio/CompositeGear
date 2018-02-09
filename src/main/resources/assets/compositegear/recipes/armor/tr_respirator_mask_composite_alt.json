@@ -1,14 +1,14 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    " F ",
+    "RFR",
     "SGS",
-    " M "
+    "RMR"
   ],
   "conditions": [
     {
       "type": "compositegear:mod_loaded",
-      "modid": "ic2"
+      "modid": "techreborn"
     },
     {
       "type": "compositegear:crafting_allowed",
@@ -17,14 +17,17 @@
   ],
   "key": {
     "G": {
-      "type": "compositegear:ic2_ingredient",
-      "name": "glass#reinforced"
+      "item": "techreborn:reinforced_glass"
     },
     "F": {
       "item": "compositegear:composite_faceplate"
     },
     "M": {
-      "item": "compositegear:respirator_mask"
+      "item": "compositegear:air_mask_module"
+    },
+    "R": {
+      "type": "forge:ore_dict",
+      "ore": "itemRubber"
     },
     "S": {
       "item": "minecraft:string"

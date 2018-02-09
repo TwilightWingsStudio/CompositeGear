@@ -1,9 +1,9 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "CAC",
-    "AGA",
-    "CMC"
+    " F ",
+    "SGS",
+    " M "
   ],
   "conditions": [
     {
@@ -19,16 +19,14 @@
     "G": {
       "item": "techreborn:reinforced_glass"
     },
-    "C": {
-      "type": "forge:ore_dict",
-      "ore": "plateCarbon"
-    },
-    "A": {
-      "type": "forge:ore_dict",
-      "ore": "plateAdvancedAlloy"
+    "F": {
+      "item": "compositegear:composite_faceplate"
     },
     "M": {
       "item": "compositegear:respirator_mask"
+    },
+    "S": {
+      "item": "minecraft:string"
     }
   },
   "result": {
