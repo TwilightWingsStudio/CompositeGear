@@ -1,0 +1,29 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "FWF",
+    "FWF",
+    "S S"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:crafting_allowed",
+      "key": "ushanka_hat"
+    }
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:wool",
+      "data": 32767
+    },
+    "F": {
+      "item": "compositegear:fabric_sheet"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "compositegear:ushanka_hat"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "SFS",
+    "FSF"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:crafting_allowed",
+      "key": "balaclava_mask"
+    }
+  ],
+  "key": {
+    "F": {
+      "item": "compositegear:fabric_sheet"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "compositegear:balaclava_mask"
+  }
+}
