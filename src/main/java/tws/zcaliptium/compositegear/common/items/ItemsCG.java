@@ -177,7 +177,7 @@ public class ItemsCG
 			ic2EmptyCell = IC2Items.getItem("fluid_cell");
 		}
 	}
-	
+
 	private static void registerItemModels()
 	{
 		registerMultiItem(compositeHelmet, "composite_helmet", "items/tool/armor");

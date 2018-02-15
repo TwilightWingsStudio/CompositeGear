@@ -68,6 +68,17 @@ public class ItemCGMelee extends ItemSword implements IClassifiedItem, IItemMode
 	{
 	}
 	
+	@Override
+    public float getAttackDamage()
+    {
+    	// TODO: Fix this stupid check in future.
+		if (this == ItemsCG.compositeDagger) {
+			return super.getAttackDamage() - 2;
+		}
+		
+        return super.getAttackDamage();
+    }
+	
     @Override
     public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot equipmentSlot, ItemStack stack)
     {
