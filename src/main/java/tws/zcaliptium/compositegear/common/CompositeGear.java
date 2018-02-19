@@ -25,6 +25,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
 
 import org.apache.logging.log4j.Logger;
@@ -81,15 +82,23 @@ public class CompositeGear
         // Item icon coloring won't work without it.
         if (proxy.isClient())
         {
-    		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor()
-            {
-                public int colorMultiplier(ItemStack stack, int tintIndex)
-                {
-                    return tintIndex > 0 ? -1 : ((ItemArmor)stack.getItem()).getColor(stack);
-                }
-            }, ItemsCG.compositeHelmet, ItemsCG.compositeChestplate, ItemsCG.compositeLeggings, ItemsCG.compositeBoots, ItemsCG.compositeFaceplate,
-            		ItemsCG.ushankaHat, ItemsCG.balaclavaMask, ItemsCG.shemaghMask, ItemsCG.rubberGasmask, ItemsCG.respiratorMask, ItemsCG.respiratorMaskComposite,
-            		ItemsCG.compositeLightHelmet, ItemsCG.compositeLightVest, ItemsCG.compositeLightLeggings, ItemsCG.compositeLightBoots);
+        	registerItemColorHandler();
         }
+    }
+        
+    @SideOnly(Side.CLIENT)
+    public void registerItemColorHandler()
+    {
+    	modLog.info("Registering IItemColor handler for mod items.");
+    	
+		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor()
+        {
+            public int colorMultiplier(ItemStack stack, int tintIndex)
+            {
+                return tintIndex > 0 ? -1 : ((ItemArmor)stack.getItem()).getColor(stack);
+            }
+        }, ItemsCG.compositeHelmet, ItemsCG.compositeChestplate, ItemsCG.compositeLeggings, ItemsCG.compositeBoots, ItemsCG.compositeFaceplate,
+        		ItemsCG.ushankaHat, ItemsCG.balaclavaMask, ItemsCG.shemaghMask, ItemsCG.rubberGasmask, ItemsCG.respiratorMask, ItemsCG.respiratorMaskComposite,
+        		ItemsCG.compositeLightHelmet, ItemsCG.compositeLightVest, ItemsCG.compositeLightLeggings, ItemsCG.compositeLightBoots);
     }
 }
