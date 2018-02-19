@@ -19,6 +19,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.ResourceLocation;
@@ -30,18 +31,23 @@ import tws.zcaliptium.compositegear.client.IItemModelProvider;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.IClassifiedItem;
+import tws.zcaliptium.compositegear.common.IDescriptableItem;
 import tws.zcaliptium.compositegear.common.ModInfo;
 
-public class ItemCGMelee extends ItemSword implements IClassifiedItem, IItemModelProvider
+public class ItemCGMelee extends ItemSword implements IClassifiedItem, IDescriptableItem, IItemModelProvider
 {
 	private static double SWORD_SPEED_MODIFIER = -2.4000000953674316D;
 	private static double DAGGER_SPEED_MODIFIER = -0.8D;
+	private static double MACE_SPEED_MODIFIER = -2.8D;
+	
+    protected boolean hasDescription;
 	
 	public ItemCGMelee(String id, ToolMaterial material)
 	{
 		super(material);
 		
 		setUnlocalizedName(id);
+		hasDescription = false;
 
 		ItemsCG.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
 		
@@ -76,6 +82,10 @@ public class ItemCGMelee extends ItemSword implements IClassifiedItem, IItemMode
 			return super.getAttackDamage() - 2;
 		}
 		
+		if (this == ItemsCG.compositeMace) {
+			return super.getAttackDamage() + 3;
+		}
+		
         return super.getAttackDamage();
     }
 	
@@ -93,10 +103,26 @@ public class ItemCGMelee extends ItemSword implements IClassifiedItem, IItemMode
         		speedModifier = DAGGER_SPEED_MODIFIER;
         	}
         	
+        	if (stack.getItem() == ItemsCG.compositeMace) {
+        		speedModifier = MACE_SPEED_MODIFIER;
+        	}
+
             multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", 3.0D + (double)this.getAttackDamage(), 0));
             multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", speedModifier, 0));
         }
 
         return multimap;
     }
+
+	@Override
+	public boolean hasDescription()
+	{
+		return this.hasDescription;
+	}
+
+	public ItemCGMelee setHasDescription(boolean hasDescription)
+	{
+		this.hasDescription = hasDescription;
+		return this;
+	}
 }

@@ -142,7 +142,7 @@ public class ItemsCG
 		
 		// Weapons
 		compositeSword = new ItemCGMelee("composite_sword", compositeToolMaterial);
-		compositeMace = new ItemCGMelee("composite_mace", compositeToolMaterial);
+		compositeMace = new ItemCGMelee("composite_mace", compositeToolMaterial).setHasDescription(true);
 		compositeDagger = new ItemCGMelee("composite_dagger", compositeToolMaterial).setMaxDamage(600);
 		compositeBow = new ItemCGBow("composite_bow", 2000, 15).setHasDescription(true);
 		

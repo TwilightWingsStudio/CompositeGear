@@ -35,6 +35,7 @@ public class ConfigurationCG
 		
 		"composite_sword",
 		"composite_dagger",
+		"composite_mace",
 		"composite_bow",
 
 		"respirator_halfmask",
