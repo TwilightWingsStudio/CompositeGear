@@ -129,13 +129,13 @@ public class ItemsCG
 		
 		// Decorative
 		ushankaHat = new ItemCompositeArmor("ushanka_hat", accessoryArmorMaterial, "ushanka_hat", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
-				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true).setHasVisualAttributes(true).setMaxDamage(300);
+				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true).setHasVisualAttributes(true).setRarity(CG_UNCOMMON).setMaxDamage(300);
 		
 		balaclavaMask = new ItemCompositeArmor("balaclava_mask", accessoryArmorMaterial, "balaclava_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
-				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasVisualAttributes(true).setHasDescription(true);
+				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasVisualAttributes(true).setHasDescription(true).setRarity(CG_UNCOMMON);
 		
 		shemaghMask = new ItemCompositeArmor("shemagh_mask", accessoryArmorMaterial, "shemagh_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
-				.setHasOverlayIcon(true).setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasVisualAttributes(true).setHasDescription(true);
+				.setHasOverlayIcon(true).setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasVisualAttributes(true).setHasDescription(true).setRarity(CG_UNCOMMON);
 
 		rubberGasmask = new ItemCompositeArmor("rubber_gasmask", accessoryArmorMaterial, "rubber_gasmask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(150);
