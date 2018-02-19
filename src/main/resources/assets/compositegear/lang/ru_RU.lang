@@ -11,6 +11,7 @@ item.composite_light_boots.name=Лёгкие композитные ботинк
 item.composite_sword.name=Композитный меч
 item.composite_dagger.name=Композитный кинжал
 item.composite_mace.name=Композитная булава
+item.composite_mace.description=Собери ЕЁ, чтобы стать по-настоящему БЕЗБАШЕННЫМ!!!
 item.composite_bow.name=Композитный лук
 item.composite_bow.description=Попробуй сломать его!
 

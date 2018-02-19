@@ -1,0 +1,34 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " A ",
+    "AIA",
+    "CA "
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:mod_loaded",
+      "modid": "techreborn"
+    },
+    {
+      "type": "compositegear:crafting_allowed",
+      "key": "composite_mace"
+    }
+  ],
+  "key": {
+    "C": {
+      "type": "forge:ore_dict",
+      "ore": "plateCarbon"
+    },
+    "A": {
+      "type": "forge:ore_dict",
+      "ore": "plateAdvancedAlloy"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_mace"
+  }
+}
