@@ -5,12 +5,6 @@
     "LWL",
     "SAS"
   ],
-  "conditions": [
-    {
-      "type": "compositegear:mod_loaded",
-      "modid": "techreborn"
-    }
-  ],
   "key": {
     "W": {
       "item": "minecraft:wool",

@@ -7,18 +7,14 @@
   ],
   "conditions": [
     {
-      "type": "compositegear:mod_loaded",
-      "modid": "ic2"
-    },
-    {
       "type": "compositegear:crafting_allowed",
       "key": "composite_dagger"
     }
   ],
   "key": {
     "A": {
-      "type": "compositegear:ic2_ingredient",
-      "name": "crafting#alloy"
+      "type": "forge:ore_dict",
+      "ore": "plateAdvancedAlloy"
     },
     "S": {
       "item": "minecraft:stick"

@@ -1,36 +1,36 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "SLS",
-    "ALA",
-    "ACA"
+    "AAA",
+    "LWL",
+    "SHS"
   ],
   "conditions": [
     {
-      "type": "compositegear:mod_loaded",
-      "modid": "techreborn"
-    },
-    {
       "type": "compositegear:crafting_allowed",
-      "key": "composite_boots"
+      "key": "composite_light_helmet"
     }
   ],
   "key": {
+    "W": {
+      "item": "minecraft:wool",
+      "data": 32767
+    },
     "A": {
       "type": "forge:ore_dict",
       "ore": "plateAdvancedAlloy"
     },
-    "S": {
-      "item": "minecraft:string"
-    },
     "L": {
       "item": "minecraft:leather"
     },
-    "C": {
-      "item": "compositegear:composite_light_boots"
+    "S": {
+      "item": "minecraft:string"
+    },
+    "H": {
+      "item": "minecraft:leather_helmet"
     }
   },
   "result": {
-    "item": "compositegear:composite_boots"
+    "item": "compositegear:composite_light_helmet"
   }
 }

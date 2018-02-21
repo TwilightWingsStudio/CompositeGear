@@ -1,18 +1,14 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "SCS",
+    "SLS",
     "ALA",
-    "ALA"
+    "ACA"
   ],
   "conditions": [
     {
-      "type": "compositegear:mod_loaded",
-      "modid": "techreborn"
-    },
-    {
       "type": "compositegear:crafting_allowed",
-      "key": "composite_leggings"
+      "key": "composite_boots"
     }
   ],
   "key": {
@@ -20,17 +16,17 @@
       "type": "forge:ore_dict",
       "ore": "plateAdvancedAlloy"
     },
-    "C": {
-      "item": "compositegear:composite_light_leggings"
-    },
     "S": {
       "item": "minecraft:string"
     },
     "L": {
       "item": "minecraft:leather"
+    },
+    "C": {
+      "item": "compositegear:composite_light_boots"
     }
   },
   "result": {
-    "item": "compositegear:composite_leggings"
+    "item": "compositegear:composite_boots"
   }
 }

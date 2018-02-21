@@ -5,16 +5,10 @@
     "ALS",
     "SRW"
   ],
-  "conditions": [
-    {
-      "type": "compositegear:mod_loaded",
-      "modid": "ic2"
-    }
-  ],
   "key": {
     "A": {
-      "type": "compositegear:ic2_ingredient",
-      "name": "crafting#alloy"
+      "type": "forge:ore_dict",
+      "ore": "plateAdvancedAlloy"
     },
     "L": {
       "item": "minecraft:leather"

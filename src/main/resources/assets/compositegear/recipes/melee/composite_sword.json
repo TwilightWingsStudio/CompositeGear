@@ -2,17 +2,13 @@
   "type": "forge:ore_shaped",
   "pattern": [
     "A",
-    "I",
+    "A",
     "S"
   ],
   "conditions": [
     {
-      "type": "compositegear:mod_loaded",
-      "modid": "techreborn"
-    },
-    {
       "type": "compositegear:crafting_allowed",
-      "key": "composite_dagger"
+      "key": "composite_sword"
     }
   ],
   "key": {
@@ -21,14 +17,10 @@
       "ore": "plateAdvancedAlloy"
     },
     "S": {
-      "item": "minecraft:stick"
-    },
-    "I": {
-      "type": "forge:ore_dict",
-      "ore": "plateIron"
+      "item": "minecraft:iron_sword"
     }
   },
   "result": {
-    "item": "compositegear:composite_dagger"
+    "item": "compositegear:composite_sword"
   }
 }

@@ -1,18 +1,14 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "A",
-    "A",
-    "S"
+    "AIA",
+    "ALA",
+    "AAA"
   ],
   "conditions": [
     {
-      "type": "compositegear:mod_loaded",
-      "modid": "techreborn"
-    },
-    {
       "type": "compositegear:crafting_allowed",
-      "key": "composite_sword"
+      "key": "composite_light_vest"
     }
   ],
   "key": {
@@ -20,11 +16,14 @@
       "type": "forge:ore_dict",
       "ore": "plateAdvancedAlloy"
     },
-    "S": {
-      "item": "minecraft:iron_sword"
+    "I": {
+      "item": "minecraft:iron_chestplate"
+    },
+    "L": {
+      "item": "minecraft:leather_chestplate"
     }
   },
   "result": {
-    "item": "compositegear:composite_sword"
+    "item": "compositegear:composite_light_vest"
   }
 }
