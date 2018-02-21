@@ -75,6 +75,7 @@ public class ItemsCG
 	public static Item rubberBall;
 	public static Item fabricSheet;
 	public static Item rubberizedStrap;
+	public static Item advAlloyPlate;
 	public static Item compositePauldron;
 	public static Item compositePoleyn;
 	public static Item airMaskModule;
@@ -145,15 +146,18 @@ public class ItemsCG
 		compositeMace = new ItemCGMelee("composite_mace", compositeToolMaterial).setHasDescription(true);
 		compositeDagger = new ItemCGMelee("composite_dagger", compositeToolMaterial).setMaxDamage(600);
 		compositeBow = new ItemCGBow("composite_bow", 2000, 15).setHasDescription(true);
-		
-		//
+
+		// Materials.
 		rubberBall = new ItemCG("rubber_ball");
 		fabricSheet = new ItemCG("fabric_sheet");
 		rubberizedStrap = new ItemCG("rubberized_strap");
+		advAlloyPlate = new ItemCG("advanced_alloy_plate");
 		compositePauldron = new ItemCG("composite_pauldron");
 		compositePoleyn = new ItemCG("composite_poleyn");
 		airMaskModule = new ItemCG("air_mask_module");
+
 		OreDictionary.registerOre("itemRubber", rubberBall);
+		OreDictionary.registerOre("plateAdvancedAlloy", advAlloyPlate);
 
 		if (CompositeGear.proxy.isClient()) {
 			registerItemModels();
@@ -208,6 +212,7 @@ public class ItemsCG
 		registerMultiItem(rubberBall, "rubber_ball", "items/materials");
 		registerMultiItem(fabricSheet, "fabric_sheet", "items/materials");
 		registerMultiItem(rubberizedStrap, "rubberized_strap", "items/materials");
+		registerMultiItem(advAlloyPlate, "advanced_alloy_plate", "items/materials");
 		registerMultiItem(compositePauldron, "composite_pauldron", "items/materials");
 		registerMultiItem(compositePoleyn, "composite_poleyn", "items/materials");
 		registerMultiItem(airMaskModule, "air_mask_module", "items/materials");

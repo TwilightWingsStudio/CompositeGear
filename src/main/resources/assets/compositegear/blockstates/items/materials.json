@@ -21,6 +21,11 @@
           "layer0": "compositegear:items/rubberized_strap"
         }
       },
+      "advanced_alloy_plate": {
+        "textures": {
+          "layer0": "compositegear:items/advanced_alloy_plate"
+        }
+      },
       "composite_pauldron": {
         "textures": {
           "layer0": "compositegear:items/composite_pauldron"
