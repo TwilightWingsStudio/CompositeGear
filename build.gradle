@@ -34,10 +34,6 @@ minecraft {
 }
 
 repositories {
-  flatDir {
-    dirs 'libs'
-  }
-
   maven {
     name = "ic2"
     url = "http://maven.ic2.player.to/"
@@ -63,7 +59,7 @@ repositories {
 
 dependencies {
   compile 'net.industrial-craft:industrialcraft-2:2.8.35-ex112:api'
-  compile "TechReborn:TechReborn-${mcversion}:2.12.2.470:api"
+  compile "TechReborn:TechReborn-${mcversion}:2.12.3.486:api"
 
   deobfProvided "mezz.jei:jei_${mcversion}:${jei_version}:api"
   runtime "mezz.jei:jei_${mcversion}:${jei_version}"
