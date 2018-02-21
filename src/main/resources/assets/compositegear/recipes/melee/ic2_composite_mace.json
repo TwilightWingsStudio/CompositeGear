@@ -21,8 +21,8 @@
       "name": "crafting#carbon_plate"
     },
     "A": {
-      "type": "compositegear:ic2_ingredient",
-      "name": "crafting#alloy"
+      "type": "forge:ore_dict",
+      "ore": "plateAdvancedAlloy"
     },
     "I": {
       "item": "minecraft:iron_block"
