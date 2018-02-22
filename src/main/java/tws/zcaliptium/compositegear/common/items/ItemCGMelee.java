@@ -41,6 +41,7 @@ public class ItemCGMelee extends ItemSword implements IClassifiedItem, IDescript
 	private static double MACE_SPEED_MODIFIER = -2.8D;
 	
     protected boolean hasDescription;
+	protected EnumRarity rarity;
 	
 	public ItemCGMelee(String id, ToolMaterial material)
 	{
@@ -48,6 +49,7 @@ public class ItemCGMelee extends ItemSword implements IClassifiedItem, IDescript
 		
 		setUnlocalizedName(id);
 		hasDescription = false;
+		this.rarity = EnumRarity.COMMON;
 
 		ItemsCG.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
 		
@@ -60,7 +62,7 @@ public class ItemCGMelee extends ItemSword implements IClassifiedItem, IDescript
     @SideOnly(Side.CLIENT)
     public EnumRarity getRarity(ItemStack var1)
     {
-    	return EnumRarity.UNCOMMON;
+    	return rarity;
     }
 
 	@Override
@@ -83,7 +85,7 @@ public class ItemCGMelee extends ItemSword implements IClassifiedItem, IDescript
 		}
 		
 		if (this == ItemsCG.compositeMace) {
-			return super.getAttackDamage() + 3;
+			return super.getAttackDamage() + 4;
 		}
 		
         return super.getAttackDamage();
@@ -112,6 +114,12 @@ public class ItemCGMelee extends ItemSword implements IClassifiedItem, IDescript
         }
 
         return multimap;
+    }
+    
+    public ItemCGMelee setRarity(EnumRarity rarity)
+    {
+    	this.rarity = rarity;
+		return this;
     }
 
 	@Override
