@@ -1,0 +1,21 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " R ",
+    "RWR",
+    " R "
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:wool",
+      "data": 32767
+    },
+    "R": {
+      "item": "compositegear:wooden_reel"
+    }
+  },
+  "result": {
+    "item": "compositegear:string_reel",
+    "count": 4
+  }
+}

@@ -73,6 +73,8 @@ public class ItemsCG
 	
 	// Materials
 	public static Item rubberBall;
+	public static Item woodenReel;
+	public static Item stringReel;
 	public static Item fabricSheet;
 	public static Item rubberizedStrap;
 	public static Item advAlloyPlate;
@@ -142,13 +144,15 @@ public class ItemsCG
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(150);
 		
 		// Weapons
-		compositeSword = new ItemCGMelee("composite_sword", compositeToolMaterial);
-		compositeMace = new ItemCGMelee("composite_mace", compositeToolMaterial).setHasDescription(true);
-		compositeDagger = new ItemCGMelee("composite_dagger", compositeToolMaterial).setMaxDamage(600);
+		compositeSword = new ItemCGMelee("composite_sword", compositeToolMaterial).setRarity(CG_RARE);
+		compositeMace = new ItemCGMelee("composite_mace", compositeToolMaterial).setRarity(CG_RARE).setHasDescription(true);
+		compositeDagger = new ItemCGMelee("composite_dagger", compositeToolMaterial).setRarity(CG_RARE).setMaxDamage(600);
 		compositeBow = new ItemCGBow("composite_bow", 2000, 15).setHasDescription(true);
 
 		// Materials.
 		rubberBall = new ItemCG("rubber_ball");
+		woodenReel = new ItemCG("wooden_reel");
+		stringReel = new ItemCG("string_reel");
 		fabricSheet = new ItemCG("fabric_sheet");
 		rubberizedStrap = new ItemCG("rubberized_strap");
 		advAlloyPlate = new ItemCG("advanced_alloy_plate");
@@ -162,7 +166,7 @@ public class ItemsCG
 		if (CompositeGear.proxy.isClient()) {
 			registerItemModels();
 		}
-		
+
 		if (Loader.isModLoaded(Compats.TR))
 		{
 			trCompressedAirCell = TechRebornAPI.subItemRetriever.getCellByName("compressedair", 1);
@@ -172,7 +176,7 @@ public class ItemsCG
 				CompositeGear.modLog.error("One of TechReborn cells is null! Respirators may not work!");
 			}
 		}
-		
+
 		if (Loader.isModLoaded(Compats.IC2))
 		{
 			ic2CompressedAirCell = IC2Items.getItem("fluid_cell", "ic2air");
@@ -210,6 +214,8 @@ public class ItemsCG
 		registerMultiItem(shemaghMask, "shemagh_mask", "items/tool/hats");
 		
 		registerMultiItem(rubberBall, "rubber_ball", "items/materials");
+		registerMultiItem(woodenReel, "wooden_reel", "items/materials");
+		registerMultiItem(stringReel, "string_reel", "items/materials");
 		registerMultiItem(fabricSheet, "fabric_sheet", "items/materials");
 		registerMultiItem(rubberizedStrap, "rubberized_strap", "items/materials");
 		registerMultiItem(advAlloyPlate, "advanced_alloy_plate", "items/materials");

@@ -11,6 +11,16 @@
           "layer0": "compositegear:items/rubber_ball"
         }
       },
+      "wooden_reel": {
+        "textures": {
+          "layer0": "compositegear:items/wooden_reel"
+        }
+      },
+      "string_reel": {
+        "textures": {
+          "layer0": "compositegear:items/string_reel"
+        }
+      },
       "fabric_sheet": {
         "textures": {
           "layer0": "compositegear:items/fabric_sheet"

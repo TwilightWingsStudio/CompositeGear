@@ -1,21 +1,16 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "SWS",
-    "WSW",
-    "SWS"
+    "RR",
+    "RR"
   ],
   "key": {
-    "W": {
-      "item": "minecraft:wool",
-      "data": 32767
-    },
-    "S": {
-      "item": "minecraft:string"
+    "R": {
+      "item": "compositegear:string_reel"
     }
   },
   "result": {
     "item": "compositegear:fabric_sheet",
-    "count": 4
+    "count": 1
   }
 }

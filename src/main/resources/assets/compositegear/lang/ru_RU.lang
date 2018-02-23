@@ -32,6 +32,8 @@ item.shemagh_mask.description=Аллах-бабах!
 item.shemagh_mask.va=§4 +75% к Шансу быть принятым за террориста
 
 item.rubber_ball.name=Резина
+item.wooden_reel.name=Деревянная катушка
+item.string_reel.name=Катушка ниток
 item.rubberized_strap.name=Прорезиненный ремешок
 item.advanced_alloy_plate.name=Пластина из улучшенного сплава
 item.composite_pauldron.name=Композитный наплечник
