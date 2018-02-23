@@ -24,7 +24,7 @@
       "item": "minecraft:leather"
     },
     "S": {
-      "item": "minecraft:string"
+      "item": "compositegear:string_reel"
     },
     "H": {
       "item": "minecraft:leather_helmet"

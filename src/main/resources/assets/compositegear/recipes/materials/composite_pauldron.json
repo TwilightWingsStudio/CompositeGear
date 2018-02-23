@@ -21,7 +21,7 @@
       "ore": "itemRubber"
     },
     "W": {
-      "item": "minecraft:string"
+      "item": "compositegear:string_reel"
     }
   },
   "result": {

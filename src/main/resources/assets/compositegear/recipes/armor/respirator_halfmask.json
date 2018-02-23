@@ -12,7 +12,7 @@
   ],
   "key": {
     "W": {
-      "item": "minecraft:string"
+      "item": "compositegear:string_reel"
     },
     "M": {
       "item": "compositegear:air_mask_module"
