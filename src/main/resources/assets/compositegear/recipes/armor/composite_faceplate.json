@@ -1,18 +1,14 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    " A ",
-    "AIA",
-    "CA "
+    "SRS",
+    "AWA",
+    "CAC"
   ],
   "conditions": [
     {
-      "type": "compositegear:mod_loaded",
-      "modid": "techreborn"
-    },
-    {
       "type": "compositegear:crafting_allowed",
-      "key": "composite_mace"
+      "key": "composite_faceplate"
     }
   ],
   "key": {
@@ -24,11 +20,18 @@
       "type": "forge:ore_dict",
       "ore": "plateAdvancedAlloy"
     },
-    "I": {
-      "item": "minecraft:iron_block"
+    "W": {
+      "item": "minecraft:wool",
+      "data": 32767
+    },
+    "S": {
+      "item": "compositegear:string_reel"
+    },
+    "R": {
+      "item": "compositegear:rubberized_strap"
     }
   },
   "result": {
-    "item": "compositegear:composite_mace"
+    "item": "compositegear:composite_faceplate"
   }
 }

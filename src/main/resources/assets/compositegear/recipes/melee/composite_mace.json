@@ -1,18 +1,14 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "CAA",
-    "ABC",
-    "AC "
+    " A ",
+    "AIA",
+    "CA "
   ],
   "conditions": [
     {
-      "type": "compositegear:mod_loaded",
-      "modid": "techreborn"
-    },
-    {
       "type": "compositegear:crafting_allowed",
-      "key": "composite_bow"
+      "key": "composite_mace"
     }
   ],
   "key": {
@@ -24,11 +20,11 @@
       "type": "forge:ore_dict",
       "ore": "plateAdvancedAlloy"
     },
-    "B": {
-      "item": "minecraft:bow"
+    "I": {
+      "item": "minecraft:iron_block"
     }
   },
   "result": {
-    "item": "compositegear:composite_bow"
+    "item": "compositegear:composite_mace"
   }
 }
