@@ -132,11 +132,17 @@ public class ItemCGMelee extends ItemSword implements IClassifiedItem, IDescript
 	@Override
 	public int getItemEnchantability(ItemStack stack)
 	{
-		if (!ConfigurationCG.allowWeaponsEnchanting) {
+		if (!ConfigurationCG.allowMeleeEnchanting) {
 			return 0;
 		}
 
 		return super.getItemEnchantability(stack);
+	}
+
+	@Override
+	public boolean isBookEnchantable(ItemStack stack, ItemStack book)
+	{
+		return ConfigurationCG.allowMeleeEnchanting;
 	}
 
 	public ItemCGMelee setHasDescription(boolean hasDescription)

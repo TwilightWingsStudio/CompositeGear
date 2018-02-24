@@ -200,7 +200,13 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 
 		return super.getItemEnchantability(stack);
 	}
-    
+
+	@Override
+	public boolean isBookEnchantable(ItemStack stack, ItemStack book)
+	{
+		return ConfigurationCG.allowArmorEnchanting;
+	}
+
     public ItemCGArmor setRarity(EnumRarity rarity)
     {
     	this.rarity = rarity;

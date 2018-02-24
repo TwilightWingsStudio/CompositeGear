@@ -184,6 +184,10 @@ public class ItemsCG
 		{
 			ic2CompressedAirCell = IC2Items.getItem("fluid_cell", "ic2air");
 			ic2EmptyCell = IC2Items.getItem("fluid_cell");
+			
+			if (ic2CompressedAirCell == null || ic2EmptyCell == null) {
+				CompositeGear.modLog.error("One of IC2 cells is null! Respirators may not work!");
+			}
 		}
 	}
 
