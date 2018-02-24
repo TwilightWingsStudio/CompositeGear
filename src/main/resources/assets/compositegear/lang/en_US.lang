@@ -39,6 +39,7 @@ item.string_reel.name=String Reel
 item.fabric_sheet.name=Fabric Sheet
 item.rubberized_strap.name=Rubberized Strap
 item.advanced_alloy_plate.name=Advanced Alloy Plate
+item.carbon_plate.name=Carbon Plate
 item.composite_pauldron.name=Composite Pauldron
 item.composite_poleyn.name=Composite Poleyn
 item.air_mask_module.name=Air Mask Module
