@@ -21,7 +21,8 @@ public class ConfigurationCG
 	public static Configuration config;
 	
 	public static boolean allowArmorEnchanting = true;
-	public static boolean allowWeaponsEnchanting = true;
+	public static boolean allowMeleeEnchanting = true;
+	public static boolean allowRangedEnchanting = true;
 	
 	public static Map<String, Boolean> CRAFTING_RECIPES = new HashMap<String, Boolean>();
 	private static String DISABLEABLE_NAMES[] = new String[] {
@@ -66,7 +67,8 @@ public class ConfigurationCG
 		    }
 		    
 		    allowArmorEnchanting = config.getBoolean("allowArmorEnchanting", SECTION_ENCHANTING, true, "");
-		    allowWeaponsEnchanting = config.getBoolean("allowWeaponsEnchanting", SECTION_ENCHANTING, true, "");
+		    allowMeleeEnchanting = config.getBoolean("allowMeleeEnchanting", SECTION_ENCHANTING, true, "");
+		    allowRangedEnchanting = config.getBoolean("allowRangedEnchanting", SECTION_ENCHANTING, true, "");
     	
 	    } catch (Exception e) {
 	      CompositeGear.modLog.error("Unable to load log file!");
