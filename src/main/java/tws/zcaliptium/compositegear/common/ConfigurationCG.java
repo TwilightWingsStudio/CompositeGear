@@ -16,8 +16,12 @@ import net.minecraftforge.common.config.Configuration;
 public class ConfigurationCG
 {
 	public static final String SECTION_CRAFTING = "crafting";
+	public static final String SECTION_ENCHANTING = "enchanting";
 	
 	public static Configuration config;
+	
+	public static boolean allowArmorEnchanting = true;
+	public static boolean allowWeaponsEnchanting = true;
 	
 	public static Map<String, Boolean> CRAFTING_RECIPES = new HashMap<String, Boolean>();
 	private static String DISABLEABLE_NAMES[] = new String[] {
@@ -60,6 +64,9 @@ public class ConfigurationCG
 		    	boolean isAllowed = config.getBoolean(name, SECTION_CRAFTING, true, allowCraftingNote);
 		    	CRAFTING_RECIPES.put(name, isAllowed);
 		    }
+		    
+		    allowArmorEnchanting = config.getBoolean("allowArmorEnchanting", SECTION_ENCHANTING, true, "");
+		    allowWeaponsEnchanting = config.getBoolean("allowWeaponsEnchanting", SECTION_ENCHANTING, true, "");
     	
 	    } catch (Exception e) {
 	      CompositeGear.modLog.error("Unable to load log file!");

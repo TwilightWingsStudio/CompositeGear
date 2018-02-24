@@ -213,6 +213,7 @@ public class ItemsCG
 		registerMultiItem(balaclavaMask, "balaclava_mask", "items/tool/hats");
 		registerMultiItem(shemaghMask, "shemagh_mask", "items/tool/hats");
 		
+		// Materials.
 		registerMultiItem(rubberBall, "rubber_ball", "items/materials");
 		registerMultiItem(woodenReel, "wooden_reel", "items/materials");
 		registerMultiItem(stringReel, "string_reel", "items/materials");
@@ -230,7 +231,7 @@ public class ItemsCG
 		Items.APPLE.setDamage(result, 32767);
 		return result;
 	}
-	
+
 	private static void registerRecipe(IRecipe recipe)
 	{
 		recipe.setRegistryName(new ResourceLocation(ModInfo.MODID, "100"));
@@ -246,7 +247,7 @@ public class ItemsCG
 	{
 		registerRecipe(new RecipesDyingArmor());
 	}
-	
+
 	public static Item registerItem(Item item, ResourceLocation rl) {
 		item.setRegistryName(rl);
 		return registerItem(item);
@@ -256,7 +257,7 @@ public class ItemsCG
 		ForgeRegistries.ITEMS.register(item);
 		return item;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public static void registerItemModel(Item item, String name) {
 		registerItemModel(item, 0, name);
@@ -266,7 +267,7 @@ public class ItemsCG
 	public static void registerItemModel(Item item, int meta, String name) {
 		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(ModInfo.MODID + ":" + name, "inventory"));
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public static void registerMultiItem(Item item, String name, String path) {
 		ResourceLocation loc = new ResourceLocation(ModInfo.MODID, path);

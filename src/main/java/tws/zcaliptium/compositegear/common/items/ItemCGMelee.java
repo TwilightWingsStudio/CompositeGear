@@ -29,6 +29,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tws.zcaliptium.compositegear.client.IItemModelProvider;
 import tws.zcaliptium.compositegear.common.CompositeGear;
+import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.IClassifiedItem;
 import tws.zcaliptium.compositegear.common.IDescriptableItem;
@@ -126,6 +127,16 @@ public class ItemCGMelee extends ItemSword implements IClassifiedItem, IDescript
 	public boolean hasDescription()
 	{
 		return this.hasDescription;
+	}
+	
+	@Override
+	public int getItemEnchantability(ItemStack stack)
+	{
+		if (!ConfigurationCG.allowWeaponsEnchanting) {
+			return 0;
+		}
+
+		return super.getItemEnchantability(stack);
 	}
 
 	public ItemCGMelee setHasDescription(boolean hasDescription)
