@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 ZCaliptium.
+ * Copyright (c) 2018 ZCaliptium.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the GNU Lesser Public License v3
  * which accompanies this distribution, and is available at
@@ -32,7 +32,7 @@ import org.apache.logging.log4j.Logger;
 
 import ic2.api.recipe.Recipes;
 
-@Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="after:ic2;after:techreborn;after:hzdslib", version = ModInfo.VERSION)
+@Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="after:ic2;after:techreborn;after:hzdslib;after:immersiveengineering", version = ModInfo.VERSION)
 public class CompositeGear
 {
     @Instance(ModInfo.MODID)
