@@ -36,6 +36,11 @@
           "layer0": "compositegear:items/advanced_alloy_plate"
         }
       },
+      "carbon_plate": {
+        "textures": {
+          "layer0": "compositegear:items/carbon_plate"
+        }
+      },
       "composite_pauldron": {
         "textures": {
           "layer0": "compositegear:items/composite_pauldron"

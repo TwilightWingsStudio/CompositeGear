@@ -1,0 +1,23 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "A A",
+    " A ",
+    "A A"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:mod_loaded",
+      "modid": "ic2"
+    }
+  ],
+  "key": {
+    "A": {
+      "type": "compositegear:ic2_ingredient",
+      "name": "crafting#carbon_plate"
+    }
+  },
+  "result": {
+    "item": "compositegear:carbon_plate"
+  }
+}
