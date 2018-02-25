@@ -10,11 +10,17 @@ package tws.zcaliptium.compositegear.common;
 import java.io.File;
 
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import tws.zcaliptium.compositegear.client.ClientEventHandler;
 
 public class CommonProxy
 {
 	public void registerEventHandlers()
 	{
+		CommonEventHandler eventhandler = new CommonEventHandler();
+		FMLCommonHandler.instance().bus().register(eventhandler);
+		MinecraftForge.EVENT_BUS.register(eventhandler);
 	}
 	
 	public File getGameDir() {
