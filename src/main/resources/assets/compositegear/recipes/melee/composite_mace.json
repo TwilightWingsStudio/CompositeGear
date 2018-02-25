@@ -3,7 +3,7 @@
   "pattern": [
     " A ",
     "AIA",
-    "CA "
+    "SA "
   ],
   "conditions": [
     {
@@ -12,9 +12,8 @@
     }
   ],
   "key": {
-    "C": {
-      "type": "forge:ore_dict",
-      "ore": "plateCarbon"
+    "S": {
+      "item": "compositegear:rubberized_handle_rod"
     },
     "A": {
       "type": "forge:ore_dict",

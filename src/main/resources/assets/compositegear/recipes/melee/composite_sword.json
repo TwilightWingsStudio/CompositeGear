@@ -1,9 +1,9 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "A",
-    "A",
-    "S"
+    " A ",
+    "AIA",
+    " S "
   ],
   "conditions": [
     {
@@ -16,8 +16,11 @@
       "type": "forge:ore_dict",
       "ore": "plateAdvancedAlloy"
     },
-    "S": {
+    "I": {
       "item": "minecraft:iron_sword"
+    },
+    "S": {
+      "item": "compositegear:rubberized_handle_rod"
     }
   },
   "result": {

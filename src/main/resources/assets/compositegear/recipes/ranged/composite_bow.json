@@ -1,7 +1,7 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "CAA",
+    "SAA",
     "ABC",
     "AC "
   ],
@@ -19,6 +19,9 @@
     "A": {
       "type": "forge:ore_dict",
       "ore": "plateAdvancedAlloy"
+    },
+    "S": {
+      "item": "compositegear:rubberized_handle_rod"
     },
     "B": {
       "item": "minecraft:bow"

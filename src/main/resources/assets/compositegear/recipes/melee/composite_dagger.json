@@ -17,7 +17,7 @@
       "ore": "plateAdvancedAlloy"
     },
     "S": {
-      "item": "minecraft:stick"
+      "item": "compositegear:rubberized_handle_rod"
     },
     "I": {
       "type": "forge:ore_dict",
