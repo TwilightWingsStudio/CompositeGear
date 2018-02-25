@@ -1,0 +1,24 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " RI",
+    "RBR",
+    "IR "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "R": {
+      "type": "forge:ore_dict",
+      "ore": "itemRubber"
+    },
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "plateIron"
+    }
+  },
+  "result": {
+    "item": "compositegear:rubberized_handle_rod"
+  }
+}

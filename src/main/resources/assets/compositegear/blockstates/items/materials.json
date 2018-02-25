@@ -26,6 +26,11 @@
           "layer0": "compositegear:items/fabric_sheet"
         }
       },
+      "rubberized_handle_rod": {
+        "textures": {
+          "layer0": "compositegear:items/rubberized_handle_rod"
+        }
+      },
       "rubberized_strap": {
         "textures": {
           "layer0": "compositegear:items/rubberized_strap"

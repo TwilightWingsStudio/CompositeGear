@@ -76,6 +76,7 @@ public class ItemsCG
 	public static Item woodenReel;
 	public static Item stringReel;
 	public static Item fabricSheet;
+	public static Item rubberizedHandleRod;
 	public static Item rubberizedStrap;
 	public static Item advAlloyPlate;
 	public static Item carbonPlate;
@@ -155,6 +156,7 @@ public class ItemsCG
 		woodenReel = new ItemCG("wooden_reel");
 		stringReel = new ItemCG("string_reel");
 		fabricSheet = new ItemCG("fabric_sheet");
+		rubberizedHandleRod = new ItemCG("rubberized_handle_rod");
 		rubberizedStrap = new ItemCG("rubberized_strap");
 		advAlloyPlate = new ItemCG("advanced_alloy_plate");
 		carbonPlate = new ItemCG("carbon_plate");
@@ -225,6 +227,7 @@ public class ItemsCG
 		registerMultiItem(woodenReel, "wooden_reel", "items/materials");
 		registerMultiItem(stringReel, "string_reel", "items/materials");
 		registerMultiItem(fabricSheet, "fabric_sheet", "items/materials");
+		registerMultiItem(rubberizedHandleRod, "rubberized_handle_rod", "items/materials");
 		registerMultiItem(rubberizedStrap, "rubberized_strap", "items/materials");
 		registerMultiItem(carbonPlate, "carbon_plate", "items/materials");
 		registerMultiItem(advAlloyPlate, "advanced_alloy_plate", "items/materials");
