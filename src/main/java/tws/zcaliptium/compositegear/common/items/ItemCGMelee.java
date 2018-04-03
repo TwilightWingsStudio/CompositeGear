@@ -93,6 +93,10 @@ public class ItemCGMelee extends ItemSword implements IClassifiedItem, IDescript
 			return super.getAttackDamage() - 2;
 		}
 		
+		if (this == ItemsCG.compositeClub) {
+			return super.getAttackDamage() + 2;
+		}
+		
 		if (this == ItemsCG.compositeMace) {
 			return super.getAttackDamage() + 4;
 		}
