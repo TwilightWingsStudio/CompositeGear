@@ -17,12 +17,15 @@ public class ConfigurationCG
 {
 	public static final String SECTION_CRAFTING = "crafting";
 	public static final String SECTION_ENCHANTING = "enchanting";
+	public static final String SECTION_GAMEPLAY = "gameplay";
 	
 	public static Configuration config;
 	
 	public static boolean allowArmorEnchanting = true;
 	public static boolean allowMeleeEnchanting = true;
 	public static boolean allowRangedEnchanting = true;
+	
+	public static boolean hateGemArmor = true;
 	
 	public static Map<String, Boolean> CRAFTING_RECIPES = new HashMap<String, Boolean>();
 	private static String DISABLEABLE_NAMES[] = new String[] {
@@ -41,6 +44,7 @@ public class ConfigurationCG
 		"composite_sword",
 		"composite_dagger",
 		"composite_mace",
+		"composite_club",
 		"composite_bow",
 
 		"respirator_halfmask",
@@ -69,6 +73,8 @@ public class ConfigurationCG
 		    allowArmorEnchanting = config.getBoolean("allowArmorEnchanting", SECTION_ENCHANTING, true, "");
 		    allowMeleeEnchanting = config.getBoolean("allowMeleeEnchanting", SECTION_ENCHANTING, true, "");
 		    allowRangedEnchanting = config.getBoolean("allowRangedEnchanting", SECTION_ENCHANTING, true, "");
+		    
+		    hateGemArmor = config.getBoolean("hateGemArmor", SECTION_GAMEPLAY, true, "Mace & Club will break that primive gem armor (e.g. Diamond/Ruby) very fast.");
     	
 	    } catch (Exception e) {
 	      CompositeGear.modLog.error("Unable to load log file!");
