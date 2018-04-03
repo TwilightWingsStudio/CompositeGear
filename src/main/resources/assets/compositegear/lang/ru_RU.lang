@@ -14,6 +14,9 @@ item.composite_sword.name=Композитный меч
 item.composite_dagger.name=Композитный кинжал
 item.composite_mace.name=Композитная булава
 item.composite_mace.description=Собери ЕЁ, чтобы стать по-настоящему БЕЗБАШЕННЫМ!!!
+item.composite_club.name=Композитная бита
+item.composite_club.description=Хороший выбор! Отлично подходит для разбивания голов.
+
 item.composite_bow.name=Композитный лук
 item.composite_bow.description=Попробуй сломать его!
 
@@ -37,6 +40,7 @@ item.rubber_ball.name=Резина
 item.wooden_reel.name=Деревянная катушка
 item.string_reel.name=Катушка ниток
 item.fabric_sheet.name=Ткань
+item.rubberized_handle_rod.name=Прорезиненная рукоять
 item.rubberized_strap.name=Прорезиненный ремешок
 item.advanced_alloy_plate.name=Пластина из продвинутого сплава
 item.carbon_plate.name=Карбоновая пластина

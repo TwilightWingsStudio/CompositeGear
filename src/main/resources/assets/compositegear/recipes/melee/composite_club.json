@@ -1,0 +1,30 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " AI",
+    "AIA",
+    "SA "
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:crafting_allowed",
+      "key": "composite_club"
+    }
+  ],
+  "key": {
+    "S": {
+      "item": "compositegear:rubberized_handle_rod"
+    },
+    "A": {
+      "type": "forge:ore_dict",
+      "ore": "plateAdvancedAlloy"
+    },
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "ingotIron"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_club"
+  }
+}

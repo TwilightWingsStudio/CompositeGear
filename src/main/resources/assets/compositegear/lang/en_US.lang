@@ -14,6 +14,9 @@ item.composite_sword.name=Composite Sword
 item.composite_dagger.name=Composite Dagger
 item.composite_mace.name=Composite Mace
 item.composite_mace.description=Craft THIS ONE to be really BADASS!!!
+item.composite_club.name=Composite Club
+item.composite_club.description=Good choice, especially for smashing heads.
+
 item.composite_bow.name=Composite Bow
 item.composite_bow.description=Try to break it!
 
