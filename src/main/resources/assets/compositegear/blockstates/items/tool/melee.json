@@ -20,6 +20,11 @@
         "textures": {
           "layer0": "compositegear:items/composite_mace"
         }
+      },
+      "composite_club": {
+        "textures": {
+          "layer0": "compositegear:items/composite_club"
+        }
       }
     }
   }
