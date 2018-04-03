@@ -9,6 +9,7 @@ package tws.zcaliptium.compositegear.common;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
@@ -18,5 +19,66 @@ import tws.zcaliptium.compositegear.common.items.ItemsCG;
 
 public class CommonEventHandler
 {
-	// TODO: For future changes.
+	private static String GEMS[] = new String[] {
+		"emerald",
+		"ruby",
+		"sapphire",
+		"topaz",
+		"peridot"
+	};
+	
+	@SubscribeEvent
+	public boolean onPlayerAttackTarget(AttackEntityEvent event)
+	{
+		if (event.getEntityPlayer().getEntityWorld().isRemote) {
+			return true;
+		}
+		
+		// If we don't hate gem armor then don't execute following code.
+		if (!ConfigurationCG.hateGemArmor) {
+			return true;
+		}
+		
+		Item itemHeld = event.getEntityPlayer().getHeldItemMainhand().getItem();
+		
+		int constantGemDmg = 0;
+		
+		if (itemHeld == ItemsCG.compositeMace) {
+			constantGemDmg = 100;
+		} else if (itemHeld == ItemsCG.compositeClub) {
+			constantGemDmg = 50;
+		} else {
+			return true;
+		}
+
+		if (event.getTarget() instanceof EntityPlayer)
+		{
+			EntityPlayer targetPlayer = (EntityPlayer)event.getTarget();
+			
+	        for (ItemStack itemstack : targetPlayer.getArmorInventoryList())
+	        {
+	            if (itemstack != null && itemstack.getItem() instanceof ItemArmor)
+	            {
+	            	ItemArmor armorPiece = (ItemArmor)itemstack.getItem();
+	            	ItemArmor.ArmorMaterial material = armorPiece.getArmorMaterial();
+	            	
+	            	if (material == ArmorMaterial.DIAMOND) {
+	            		itemstack.damageItem(constantGemDmg, targetPlayer);	            		
+	            	} else {
+	            		String name = material.toString().toLowerCase();
+
+	            		for (String gem : GEMS)
+	            		{
+	            			if (name.contains(gem)) {
+	            				itemstack.damageItem(constantGemDmg, targetPlayer);
+	            				break;
+	            			}
+	            		}
+	            	}
+	            }
+	        }
+		}
+
+		return true;
+	}
 }
