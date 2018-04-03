@@ -62,6 +62,7 @@ public class ItemsCG
 	public static Item compositeBow;
 	public static Item compositeDagger;
 	public static Item compositeMace;
+	public static Item compositeClub;
 	
 	public static Item respiratorHalfMask;
 	public static Item respiratorMask;
@@ -149,6 +150,7 @@ public class ItemsCG
 		// Weapons
 		compositeSword = new ItemCGMelee("composite_sword", compositeToolMaterial).setRarity(CG_RARE);
 		compositeMace = new ItemCGMelee("composite_mace", compositeToolMaterial).setRarity(CG_RARE).setHasDescription(true);
+		compositeClub = new ItemCGMelee("composite_club", compositeToolMaterial).setRarity(CG_RARE).setHasDescription(true);
 		compositeDagger = new ItemCGMelee("composite_dagger", compositeToolMaterial).setRarity(CG_RARE).setMaxDamage(600);
 		compositeBow = new ItemCGBow("composite_bow", 2000, 15).setHasDescription(true);
 
@@ -208,9 +210,10 @@ public class ItemsCG
 		registerMultiItem(compositeLightLeggings, "composite_light_leggings", "items/tool/armor");
 		registerMultiItem(compositeLightBoots, "composite_light_boots", "items/tool/armor");
 		
-		registerMultiItem(compositeSword, "composite_sword", "items/tool/generic");
-		registerMultiItem(compositeDagger, "composite_dagger", "items/tool/generic");
-		registerMultiItem(compositeMace, "composite_mace", "items/tool/generic");
+		registerMultiItem(compositeSword, "composite_sword", "items/tool/melee");
+		registerMultiItem(compositeDagger, "composite_dagger", "items/tool/melee");
+		registerMultiItem(compositeMace, "composite_mace", "items/tool/melee");
+		registerMultiItem(compositeClub, "composite_club", "items/tool/melee");
 		registerItemModel(compositeBow, "tool/composite_bow");
 		
 		registerMultiItem(respiratorHalfMask, "respirator_halfmask", "items/tool/respirators");
