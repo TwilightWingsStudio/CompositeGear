@@ -11,7 +11,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
-version = "1.3"
+version = "1.4"
 group= "tws.zcaliptium.compositegear" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "CompositeGear-" + mcversion
 
@@ -59,7 +59,7 @@ repositories {
 
 dependencies {
   compile 'net.industrial-craft:industrialcraft-2:2.8.35-ex112:api'
-  compile "TechReborn:TechReborn-${mcversion}:2.12.3.486:api"
+  compile "TechReborn:TechReborn-${mcversion}:${tr_version}:api"
 
   deobfProvided "mezz.jei:jei_${mcversion}:${jei_version}:api"
   runtime "mezz.jei:jei_${mcversion}:${jei_version}"
