@@ -3,8 +3,20 @@ item.composite_chestplate.name=Kompozitní Brnění
 item.composite_leggings.name=Kompozitní Kalhoty
 item.composite_boots.name=Kompozitní Boty
 
+item.composite_faceplate.name=Composite Faceplate
+
+item.composite_light_helmet.name=Kompozitní Lehká Helma
+item.composite_light_vest.name=Kompozitní Vesta
+item.composite_light_leggings.name=Kompozitní Lehké Kalhoty
+item.composite_light_boots.name=Kompozitní Lehké Boty
+
 item.composite_sword.name=Kompozitní Meč
 item.composite_dagger.name=Kompozitní Dýka
+item.composite_mace.name=Kompozitní Ostnatá Koule
+item.composite_mace.description=S tímhle JSI velký BOREC!!!
+item.composite_club.name=Kompozitní Palice
+item.composite_club.description=Dobrý výběr, speciálně pro pohlavky.
+
 item.composite_bow.name=Kompozitní Luk
 item.composite_bow.description=Skus ho rozbít!
 
@@ -14,7 +26,7 @@ item.respirator_mask_composite.name=Kompozitní Dýchací Maska
 
 item.ushanka_hat.name=Ušanka
 item.ushanka_hat.description=Jen praví slované nosí ušanku!
-item.ushanka_hat.va=§a +20% Slavness^§3 -20% Capitalism
+item.ushanka_hat.va=§a +20% Slovanství^§3 -20% Kapitalizmu
 
 item.balaclava_mask.name=Kukla
 item.balaclava_mask.description=Oppa ninja style!
@@ -25,8 +37,16 @@ item.shemagh_mask.description=Bomba byla nastražena!
 item.shemagh_mask.va=§4 +75% Šance být mylně označen za teroristu
 
 item.rubber_ball.name=Guma
-item.rubberized_strap.name=Gumový Popruh
+item.wooden_reel.name=Dřevěná Špulka
+item.string_reel.name=Špulka s Provázkem
+item.fabric_sheet.name=Tkanina
+item.rubberized_handle_rod.name=Pogumovaná Rukojeť
+item.rubberized_strap.name=Pogumovaný Popruh
+item.advanced_alloy_plate.name=Lepší Slitinový Plát
+item.carbon_plate.name=Uhlíkový Plát
 item.composite_pauldron.name=Kompozitní Nárameník
+item.composite_poleyn.name=Kompozitní Nákoleník
+item.air_mask_module.name=Modul Vzduchové Masky
 
 item.rubber_gasmask.name=Gumová Plynová Maska
 
