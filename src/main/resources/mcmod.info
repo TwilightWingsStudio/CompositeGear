@@ -2,13 +2,13 @@
 {
   "modid": "compositegear",
   "name": "Composite Gear Addon",
-  "description": "Addon for IC2 Experimental",
+  "description": "Addon for IC2 Experimental & TechReborn",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://github.com/TwilightWingsStudio/CompositeGear",
   "updateUrl": "",
   "authorList": ["ZCaliptium"],
-  "credits": "Here is no any credits! All credits was stolen by me! Mwahahahahahaha!",
+  "credits": "Karel \"Nekorelka\"",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
