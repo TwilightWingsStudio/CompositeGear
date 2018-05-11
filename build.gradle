@@ -36,6 +36,10 @@ repositories {
     url = "http://maven.modmuss50.me/"
   }
   
+  maven {
+    url "http://www.ryanliptak.com/maven/"
+  }
+  
   // JEI.
   maven {
     name = "Progwml6 maven"
@@ -52,6 +56,8 @@ repositories {
 dependencies {
   compile 'net.industrial-craft:industrialcraft-2:2.8.35-ex112:api'
   compile "TechReborn:TechReborn-${mcversion}:${tr_version}:api"
+
+  deobfCompile "applecore:AppleCore:1.12.2-3.1.1:deobf"
 
   deobfProvided "mezz.jei:jei_${mcversion}:${jei_version}:api"
   runtime "mezz.jei:jei_${mcversion}:${jei_version}"
