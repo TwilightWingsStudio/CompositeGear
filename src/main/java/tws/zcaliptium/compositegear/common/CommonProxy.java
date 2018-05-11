@@ -12,7 +12,9 @@ import java.io.File;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.Loader;
 import tws.zcaliptium.compositegear.client.ClientEventHandler;
+import tws.zcaliptium.compositegear.common.compat.ACHungerHandler;
 
 public class CommonProxy
 {
@@ -21,6 +23,10 @@ public class CommonProxy
 		CommonEventHandler eventhandler = new CommonEventHandler();
 		FMLCommonHandler.instance().bus().register(eventhandler);
 		MinecraftForge.EVENT_BUS.register(eventhandler);
+		
+		if (Loader.isModLoaded(Compats.APPLECORE)) {		
+			MinecraftForge.EVENT_BUS.register(new ACHungerHandler());
+		}
 	}
 	
 	public File getGameDir() {

@@ -49,9 +49,9 @@ public class ItemsCG
 	public static Item compositeChestplate;
 	public static Item compositeLeggings;
 	public static Item compositeBoots;
-	
+
 	public static Item compositeFaceplate;
-	
+
 	// Light Armor
 	public static Item compositeLightHelmet;
 	public static Item compositeLightVest;
@@ -63,12 +63,12 @@ public class ItemsCG
 	public static Item compositeDagger;
 	public static Item compositeMace;
 	public static Item compositeClub;
-	
+
 	public static Item respiratorHalfMask;
 	public static Item respiratorMask;
 	public static Item respiratorMaskComposite;
 	public static Item rubberGasmask;
-	
+
 	public static Item ushankaHat;
 	public static Item balaclavaMask;
 	public static Item shemaghMask;
