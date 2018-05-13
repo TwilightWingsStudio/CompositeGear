@@ -45,7 +45,7 @@ public class ClientEventHandler
 			String transItemDesc = I18n.translateToLocal("compositegear.itemdesc");
 
 			if (((IDescriptableItem)itemStack.getItem()).hasDescription()) {
-				String descriptionString = I18n.translateToLocal(itemStack.getItem().getUnlocalizedName() + ".description");
+				String descriptionString = I18n.translateToLocal(itemStack.getItem().getUnlocalizedName() + ".desc");
 				String descriptionLines[] = descriptionString.split("\\^");
 				int line = 2;
 
