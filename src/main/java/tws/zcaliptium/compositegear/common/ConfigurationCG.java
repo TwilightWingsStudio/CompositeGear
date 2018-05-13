@@ -26,6 +26,7 @@ public class ConfigurationCG
 	public static boolean allowRangedEnchanting = true;
 	
 	public static boolean hateGemArmor = true;
+	public static boolean hatsBonuses = true;
 	
 	public static Map<String, Boolean> CRAFTING_RECIPES = new HashMap<String, Boolean>();
 	private static String DISABLEABLE_NAMES[] = new String[] {
@@ -75,6 +76,7 @@ public class ConfigurationCG
 		    allowRangedEnchanting = config.getBoolean("allowRangedEnchanting", SECTION_ENCHANTING, true, "");
 		    
 		    hateGemArmor = config.getBoolean("hateGemArmor", SECTION_GAMEPLAY, true, "Mace & Club will break that primive gem armor (e.g. Diamond/Ruby) very fast.");
+		    hatsBonuses = config.getBoolean("hatsBonuses", SECTION_GAMEPLAY, true, "Hats will give small bonuses when you wear it.");
     	
 	    } catch (Exception e) {
 	      CompositeGear.modLog.error("Unable to load log file!");

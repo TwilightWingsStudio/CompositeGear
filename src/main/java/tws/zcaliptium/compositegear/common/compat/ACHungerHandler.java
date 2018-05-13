@@ -16,6 +16,7 @@ import squeek.applecore.api.AppleCoreAPI;
 import squeek.applecore.api.hunger.ExhaustionEvent;
 import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.CompositeGear;
+import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
 
 public class ACHungerHandler
@@ -24,6 +25,11 @@ public class ACHungerHandler
 	@Optional.Method(modid = Compats.APPLECORE)
     public void getMaxExhaustion(ExhaustionEvent.GetMaxExhaustion event)
     {
+    	// If bonuses disabled then do nothing!
+    	if (!ConfigurationCG.hatsBonuses) {
+    		return;
+    	}
+
     	EntityPlayer player = event.player;
     	
     	if (player == null) {
@@ -32,7 +38,7 @@ public class ACHungerHandler
 
     	Biome biome = player.world.getBiome(player.getPosition());
     	ItemStack headStack = player.inventory.armorInventory.get(3);
-    	
+
     	if (headStack.getItem() == ItemsCG.ushankaHat || headStack.getItem() == ItemsCG.balaclavaMask) {
         	if (biome.getTempCategory() == Biome.TempCategory.COLD) {   
         		event.maxExhaustionLevel *= 1.25F;
