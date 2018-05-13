@@ -152,7 +152,7 @@ public class ItemsCG
 				.setHasOverlayIcon(true).setItemClass(EnumItemClass.CLOTHING).setHasVisualAttributes(true).setHasDescription(true).setRarity(CG_UNCOMMON);
 		
 		feltBoots = new ItemCompositeArmor("felt_boots", accessoryArmorMaterial, "felt_boots", 0, EntityEquipmentSlot.FEET).setDefaultColor(8487297)
-				.setItemClass(EnumItemClass.CLOTHING).setHasDescription(true).setMaxDamage(300);
+				.setItemClass(EnumItemClass.CLOTHING).setHasDescription(true).setMaxDamage(64);
 
 		// Weapons
 		compositeSword = new ItemCGMelee("composite_sword", compositeToolMaterial).setRarity(CG_RARE);
