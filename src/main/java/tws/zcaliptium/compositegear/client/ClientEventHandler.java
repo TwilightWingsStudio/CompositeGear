@@ -38,25 +38,36 @@ public class ClientEventHandler
 
 			ev.getToolTip().add(1, transItemClass + ": " + classifiedItem.getItemClass().getLocalized());
 		}
-		
+
 		// Text description.
 		if (itemStack.getItem() instanceof IDescriptableItem)
 		{
 			String transItemDesc = I18n.translateToLocal("compositegear.itemdesc");
-			
+
 			if (((IDescriptableItem)itemStack.getItem()).hasDescription()) {
 				String descriptionString = I18n.translateToLocal(itemStack.getItem().getUnlocalizedName() + ".description");
-				ev.getToolTip().add(2, transItemDesc + ": " + descriptionString);
+				String descriptionLines[] = descriptionString.split("\\^");
+				int line = 2;
+
+				for (String descLine : descriptionLines) {
+					
+					if (line == 2) {
+						ev.getToolTip().add(line, transItemDesc + ": " + descLine);
+					} else {
+						ev.getToolTip().add(line, descLine);
+					}
+
+					line++;
+				}
 			}
 		}
-		
+
 		// Visual attributes.
 		if (itemStack.getItem() instanceof ItemCGArmor)
 		{
 			if (((ItemCGArmor)itemStack.getItem()).hasVisualAttributes())
 			{
 				String visualAttributes = I18n.translateToLocal(itemStack.getItem().getUnlocalizedName() + ".va");
-				
 				String attributes[] = visualAttributes.split("\\^");
 
 				for (String attributeString : attributes) {
