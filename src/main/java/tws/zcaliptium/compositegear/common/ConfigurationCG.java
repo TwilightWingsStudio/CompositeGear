@@ -41,6 +41,7 @@ public class ConfigurationCG
 		"composite_light_vest",
 		"composite_light_leggings",
 		"composite_light_boots",
+
 		
 		"composite_sword",
 		"composite_dagger",
@@ -57,6 +58,8 @@ public class ConfigurationCG
 		"ushanka_hat",
 		"balaclava_mask",
 		"shemagh_mask",
+
+		"felt_boots",
 	};
 	
 	public static void init(File configFile)
@@ -70,11 +73,11 @@ public class ConfigurationCG
 		    	boolean isAllowed = config.getBoolean(name, SECTION_CRAFTING, true, allowCraftingNote);
 		    	CRAFTING_RECIPES.put(name, isAllowed);
 		    }
-		    
+
 		    allowArmorEnchanting = config.getBoolean("allowArmorEnchanting", SECTION_ENCHANTING, true, "");
 		    allowMeleeEnchanting = config.getBoolean("allowMeleeEnchanting", SECTION_ENCHANTING, true, "");
 		    allowRangedEnchanting = config.getBoolean("allowRangedEnchanting", SECTION_ENCHANTING, true, "");
-		    
+
 		    hateGemArmor = config.getBoolean("hateGemArmor", SECTION_GAMEPLAY, true, "Mace & Club will break that primive gem armor (e.g. Diamond/Ruby) very fast.");
 		    hatsBonuses = config.getBoolean("hatsBonuses", SECTION_GAMEPLAY, true, "Hats will give small bonuses when you wear it.");
     	

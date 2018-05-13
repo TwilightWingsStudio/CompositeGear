@@ -12,12 +12,13 @@ import net.minecraft.util.text.translation.I18n;
 public enum EnumItemClass
 {
 	ACCESSORY_ARMOR("compositegear.itemclass.accessoryarmor"),
+	CLOTHING("compositegear.itemclass.clothing"),
 	LIGHT_ARMOR("compositegear.itemclass.lightarmor"),
 	MEDIUM_ARMOR("compositegear.itemclass.mediumarmor"),
 	HEAVY_ARMOR("compositegear.itemclass.heavyarmor"),
 	MELEE_WEAPON("compositegear.itemclass.meleeweapon"),
 	RANGED_WEAPON("compositegear.itemclass.rangedweapon");
-	
+
 	private String unlocalisedName;
 
 	EnumItemClass(String unlocalisedName)

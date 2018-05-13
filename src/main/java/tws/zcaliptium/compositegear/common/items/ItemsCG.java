@@ -58,21 +58,25 @@ public class ItemsCG
 	public static Item compositeLightLeggings;
 	public static Item compositeLightBoots;
 
+	public static Item respiratorHalfMask;
+	public static Item respiratorMask;
+	public static Item respiratorMaskComposite;
+	public static Item rubberGasmask;
+
+	// Clothing
+	public static Item ushankaHat;
+	public static Item balaclavaMask;
+	public static Item shemaghMask;
+
+	public static Item feltBoots;
+
+	// Weapons
 	public static Item compositeSword;
 	public static Item compositeBow;
 	public static Item compositeDagger;
 	public static Item compositeMace;
 	public static Item compositeClub;
 
-	public static Item respiratorHalfMask;
-	public static Item respiratorMask;
-	public static Item respiratorMaskComposite;
-	public static Item rubberGasmask;
-
-	public static Item ushankaHat;
-	public static Item balaclavaMask;
-	public static Item shemaghMask;
-	
 	// Materials
 	public static Item rubberBall;
 	public static Item woodenReel;
@@ -85,26 +89,26 @@ public class ItemsCG
 	public static Item compositePauldron;
 	public static Item compositePoleyn;
 	public static Item airMaskModule;
-	
+
 	public static ItemStack ic2CompressedAirCell;
 	public static ItemStack ic2EmptyCell;
-	
+
 	public static ItemStack trCompressedAirCell;
 	public static ItemStack trEmptyCell;
-	
+
 	public static EnumRarity CG_UNCOMMON = EnumHelper.addRarity("CG_UNCOMMON", TextFormatting.GREEN, "CgUncommon");
 	public static EnumRarity CG_RARE = EnumHelper.addRarity("CG_RARE", TextFormatting.BLUE, "CgRare");
 
 	public static void load()
 	{
 		Item.ToolMaterial compositeToolMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE", 2, 1800, 6.0F, 2.0F, 13);
-		
+
 		// TODO: Solve this garbage with materials.
 
 		ItemArmor.ArmorMaterial accessoryArmorMaterial = EnumHelper.addArmorMaterial("CG_ACCESSORY", ModInfo.MODID + ":composite", 100, new int[] { 1, 2, 2, 1 }, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0);
 		ItemArmor.ArmorMaterial compositeArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE", ModInfo.MODID + ":composite", 50, new int[] { 3, 6, 9, 3 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2.0F);
 		ItemArmor.ArmorMaterial compositeLightArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE_LIGHT", ModInfo.MODID + ":composite", 50, new int[] { 2, 4, 6, 2 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
-		
+
 		// Standart Armor.
 		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987).setRarity(CG_RARE);
 		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, EntityEquipmentSlot.CHEST).setDefaultColor(8815987).setRarity(CG_RARE);
@@ -113,7 +117,7 @@ public class ItemsCG
 
 		compositeFaceplate = new ItemCompositeArmor("composite_faceplate", compositeLightArmorMaterial, "composite_faceplate", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987).setRarity(CG_UNCOMMON)
 				.setItemClass(EnumItemClass.LIGHT_ARMOR);
-		
+
 		// Light Armor.
 		compositeLightHelmet = new ItemCompositeArmor("composite_light_helmet", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.HEAD)
 				.setDefaultColor(8815987).setRarity(CG_UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
@@ -134,19 +138,22 @@ public class ItemsCG
 		respiratorMaskComposite = new ItemCompositeArmor("respirator_mask_composite", compositeArmorMaterial, "respirator_mask_composite", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987)
 				.setItemClass(EnumItemClass.LIGHT_ARMOR).setAirMask(true).setMinAir(20).setRarity(CG_RARE).setMaxDamage(800);
 		
-		// Decorative
-		ushankaHat = new ItemCompositeArmor("ushanka_hat", accessoryArmorMaterial, "ushanka_hat", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
-				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true).setHasVisualAttributes(true).setRarity(CG_UNCOMMON).setMaxDamage(300);
-		
-		balaclavaMask = new ItemCompositeArmor("balaclava_mask", accessoryArmorMaterial, "balaclava_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
-				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasVisualAttributes(true).setHasDescription(true).setRarity(CG_UNCOMMON);
-		
-		shemaghMask = new ItemCompositeArmor("shemagh_mask", accessoryArmorMaterial, "shemagh_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
-				.setHasOverlayIcon(true).setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasVisualAttributes(true).setHasDescription(true).setRarity(CG_UNCOMMON);
-
 		rubberGasmask = new ItemCompositeArmor("rubber_gasmask", accessoryArmorMaterial, "rubber_gasmask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(150);
+
+		// Clothing
+		ushankaHat = new ItemCompositeArmor("ushanka_hat", accessoryArmorMaterial, "ushanka_hat", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
+				.setItemClass(EnumItemClass.CLOTHING).setHasDescription(true).setHasVisualAttributes(true).setRarity(CG_UNCOMMON).setMaxDamage(300);
 		
+		balaclavaMask = new ItemCompositeArmor("balaclava_mask", accessoryArmorMaterial, "balaclava_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
+				.setItemClass(EnumItemClass.CLOTHING).setHasVisualAttributes(true).setHasDescription(true).setRarity(CG_UNCOMMON);
+
+		shemaghMask = new ItemCompositeArmor("shemagh_mask", accessoryArmorMaterial, "shemagh_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
+				.setHasOverlayIcon(true).setItemClass(EnumItemClass.CLOTHING).setHasVisualAttributes(true).setHasDescription(true).setRarity(CG_UNCOMMON);
+		
+		feltBoots = new ItemCompositeArmor("felt_boots", accessoryArmorMaterial, "felt_boots", 0, EntityEquipmentSlot.FEET).setDefaultColor(8487297)
+				.setItemClass(EnumItemClass.CLOTHING).setHasDescription(true).setMaxDamage(300);
+
 		// Weapons
 		compositeSword = new ItemCGMelee("composite_sword", compositeToolMaterial).setRarity(CG_RARE);
 		compositeMace = new ItemCGMelee("composite_mace", compositeToolMaterial).setRarity(CG_RARE).setHasDescription(true);
@@ -209,12 +216,8 @@ public class ItemsCG
 		registerMultiItem(compositeLightVest, "composite_light_vest", "items/tool/armor");
 		registerMultiItem(compositeLightLeggings, "composite_light_leggings", "items/tool/armor");
 		registerMultiItem(compositeLightBoots, "composite_light_boots", "items/tool/armor");
-		
-		registerMultiItem(compositeSword, "composite_sword", "items/tool/melee");
-		registerMultiItem(compositeDagger, "composite_dagger", "items/tool/melee");
-		registerMultiItem(compositeMace, "composite_mace", "items/tool/melee");
-		registerMultiItem(compositeClub, "composite_club", "items/tool/melee");
-		registerItemModel(compositeBow, "tool/composite_bow");
+
+		registerMultiItem(feltBoots, "felt_boots", "items/tool/armor");
 		
 		registerMultiItem(respiratorHalfMask, "respirator_halfmask", "items/tool/respirators");
 		registerMultiItem(respiratorMask, "respirator_mask", "items/tool/respirators");
@@ -226,6 +229,13 @@ public class ItemsCG
 		registerMultiItem(balaclavaMask, "balaclava_mask", "items/tool/hats");
 		registerMultiItem(shemaghMask, "shemagh_mask", "items/tool/hats");
 		
+		// Weapons
+		registerMultiItem(compositeSword, "composite_sword", "items/tool/melee");
+		registerMultiItem(compositeDagger, "composite_dagger", "items/tool/melee");
+		registerMultiItem(compositeMace, "composite_mace", "items/tool/melee");
+		registerMultiItem(compositeClub, "composite_club", "items/tool/melee");
+		registerItemModel(compositeBow, "tool/composite_bow");
+
 		// Materials.
 		registerMultiItem(rubberBall, "rubber_ball", "items/materials");
 		registerMultiItem(woodenReel, "wooden_reel", "items/materials");
