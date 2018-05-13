@@ -6,22 +6,22 @@ item.composite_boots.name=Съставни Ботуши
 item.composite_sword.name=Съставен Меч
 item.composite_dagger.name=Съставна Кама
 item.composite_bow.name=Съставен Лък
-item.composite_bow.description=Try to break it!
+item.composite_bow.desc=Try to break it!
 
 item.respirator_halfmask.name=Респираторска Полу-Маска
 item.respirator_mask.name=Респираторска Маска
 item.respirator_mask_composite.name=Съставна Респираторска Маска
 
 item.ushanka_hat.name=Ушанка
-item.ushanka_hat.description=Only true slavs wear ushanka!
+item.ushanka_hat.desc=Only true slavs wear ushanka!
 item.ushanka_hat.va=§a +20% Slavness^§3 -20% Capitalism
 
 item.balaclava_mask.name=Балаклава Маска
-item.balaclava_mask.description=Oppa ninja style!
+item.balaclava_mask.desc=Oppa ninja style!
 item.balaclava_mask.va=§a +10 Stealth
 
 item.shemagh_mask.name=Shemagh Mask
-item.shemagh_mask.description=Bomb has been planted!
+item.shemagh_mask.desc=Bomb has been planted!
 item.shemagh_mask.va=§4 +75% Chance to be confused with terrorist
 
 item.rubber_ball.name=Гума

@@ -13,28 +13,31 @@ item.composite_light_boots.name=Лёгкие композитные ботинк
 item.composite_sword.name=Композитный меч
 item.composite_dagger.name=Композитный кинжал
 item.composite_mace.name=Композитная булава
-item.composite_mace.description=Собери ЕЁ, чтобы стать по-настоящему БЕЗБАШЕННЫМ!!!
+item.composite_mace.desc=Собери ЕЁ, чтобы стать по-настоящему БЕЗБАШЕННЫМ!!!
 item.composite_club.name=Композитная бита
-item.composite_club.description=Хороший выбор! Отлично подходит для разбивания голов.
+item.composite_club.desc=Хороший выбор! Отлично подходит для разбивания голов.
 
 item.composite_bow.name=Композитный лук
-item.composite_bow.description=Попробуй сломать его!
+item.composite_bow.desc=Попробуй сломать его!
 
 item.respirator_halfmask.name=Респиратор-полумаска
 item.respirator_mask.name=Респиратор-маска
 item.respirator_mask_composite.name=Композитная респиратор-маска
 
 item.ushanka_hat.name=Ушанка
-item.ushanka_hat.description=Только настоящие славяне носят ушанку!
+item.ushanka_hat.desc=Только настоящие славяне носят ушанку!
 item.ushanka_hat.va=§a +20% к Славянству^§3 -20% Капитализма
 
 item.balaclava_mask.name=Балаклава
-item.balaclava_mask.description=Стиль ниндзя!
+item.balaclava_mask.desc=Стиль ниндзя!
 item.balaclava_mask.va=§a +10 к Скрытности
 
 item.shemagh_mask.name=Шемаг
-item.shemagh_mask.description=Аллах-бабах!
+item.shemagh_mask.desc=Аллах-бабах!
 item.shemagh_mask.va=§4 +75% к Шансу быть принятым за террориста
+
+item.felt_boots.name=Валенки
+item.felt_boots.desc=Обувь из шерсти.^Замечательно сохраняет ноги в тепле.
 
 item.rubber_ball.name=Резина
 item.wooden_reel.name=Деревянная катушка
@@ -54,6 +57,7 @@ compositegear.itemdesc=Описание
 
 compositegear.itemclass=Класс
 compositegear.itemclass.accessoryarmor=Снаряжение
+compositegear.itemclass.clothing=Одежда
 compositegear.itemclass.lightarmor=Лёгкая броня
 compositegear.itemclass.mediumarmor=Средняя броня
 compositegear.itemclass.heavyarmor=Тяжёлая броня
