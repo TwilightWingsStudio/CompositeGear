@@ -29,6 +29,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tws.zcaliptium.compositegear.common.items.GenericItemFactory;
+import tws.zcaliptium.compositegear.common.items.ItemHelper;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
 
 import java.util.Iterator;

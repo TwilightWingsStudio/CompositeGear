@@ -1,4 +1,11 @@
-package tws.zcaliptium.compositegear.common;
+/*******************************************************************************
+ * Copyright (c) 2018 ZCaliptium.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the GNU Lesser Public License v3
+ * which accompanies this distribution, and is available at
+ * http://www.gnu.org/licenses/lgpl-3.0.txt
+ ******************************************************************************/
+package tws.zcaliptium.compositegear.common.items;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,8 +30,7 @@ import net.minecraftforge.common.crafting.JsonContext;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import tws.zcaliptium.compositegear.common.items.ItemCG;
-import tws.zcaliptium.compositegear.common.items.ItemsCG;
+import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.lib.IItemFactory;
 
 public class ItemHelper
@@ -38,11 +44,11 @@ public class ItemHelper
             throw new JsonSyntaxException("Json cannot be null");
 
         if (context == null)
-            throw new IllegalArgumentException("getRecipe Context cannot be null");
+            throw new IllegalArgumentException("getItem Context cannot be null");
 
         String type = context.appendModId(JsonUtils.getString(json, "type"));
         if (type.isEmpty())
-            throw new JsonSyntaxException("Recipe type can not be an empty string");
+            throw new JsonSyntaxException("Item type can not be an empty string");
 
         
         IItemFactory factory = factories.get(new ResourceLocation(type));
