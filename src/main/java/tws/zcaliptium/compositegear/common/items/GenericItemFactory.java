@@ -54,7 +54,6 @@ public class GenericItemFactory implements IItemFactory
 			while (it.hasNext())
 			{
 				String name = it.next().getAsString();
-				CompositeGear.modLog.info("QQQ " + name);
 				OreDictionary.registerOre(name, item);
 			}
 		}
