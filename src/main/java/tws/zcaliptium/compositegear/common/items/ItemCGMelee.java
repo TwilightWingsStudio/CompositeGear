@@ -33,9 +33,9 @@ import tws.zcaliptium.compositegear.client.IItemModelProvider;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
-import tws.zcaliptium.compositegear.common.IClassifiedItem;
-import tws.zcaliptium.compositegear.common.IDescriptableItem;
 import tws.zcaliptium.compositegear.common.ModInfo;
+import tws.zcaliptium.compositegear.lib.IClassifiedItem;
+import tws.zcaliptium.compositegear.lib.IDescriptableItem;
 
 public class ItemCGMelee extends ItemSword implements IClassifiedItem, IDescriptableItem, IItemModelProvider
 {

@@ -11,12 +11,17 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ModInfo;
+import tws.zcaliptium.compositegear.lib.IDescriptableItem;
 
-public class ItemCG extends Item
+public class ItemCG extends Item implements IDescriptableItem
 {
+	protected boolean hasDescription;
+
     public ItemCG(String id)
     {
 		setUnlocalizedName(id);
+		
+		hasDescription = false;
     	
 		ItemsCG.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
 
@@ -24,4 +29,15 @@ public class ItemCG extends Item
 			setCreativeTab(CompositeGear.ic2Tab);
 		}
     }
+
+	@Override
+	public boolean hasDescription()
+	{
+		return hasDescription;
+	}
+	
+	public void setHasDescription(boolean hasDescription)
+	{
+		this.hasDescription = hasDescription;
+	}
 }

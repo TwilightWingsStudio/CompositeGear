@@ -1,0 +1,9 @@
+{
+  "type": "compositegear:generic",
+  "id": "composite_poleyn",
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/materials",
+    "variant": "composite_poleyn"
+  }
+}

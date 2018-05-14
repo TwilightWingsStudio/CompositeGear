@@ -15,12 +15,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import tws.zcaliptium.compositegear.common.CompositeGear;
-import tws.zcaliptium.compositegear.common.IClassifiedItem;
-import tws.zcaliptium.compositegear.common.IDescriptableItem;
 import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
 import tws.zcaliptium.compositegear.common.items.ItemCGBow;
 import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
 import tws.zcaliptium.compositegear.common.items.ItemCompositeArmor;
+import tws.zcaliptium.compositegear.lib.IClassifiedItem;
+import tws.zcaliptium.compositegear.lib.IDescriptableItem;
 
 @SideOnly(Side.CLIENT)
 public class ClientEventHandler
@@ -30,13 +30,16 @@ public class ClientEventHandler
 	public void onItemTooltip(ItemTooltipEvent ev)
 	{
 		ItemStack itemStack = ev.getItemStack();
+		
+		int line = 1;
 
 		if (itemStack.getItem() instanceof IClassifiedItem)
 		{
 			IClassifiedItem classifiedItem = (IClassifiedItem)itemStack.getItem();
 			String transItemClass = I18n.translateToLocal("compositegear.itemclass");
 
-			ev.getToolTip().add(1, transItemClass + ": " + classifiedItem.getItemClass().getLocalized());
+			ev.getToolTip().add(line, transItemClass + ": " + classifiedItem.getItemClass().getLocalized());
+			line++;
 		}
 
 		// Text description.
@@ -47,12 +50,13 @@ public class ClientEventHandler
 			if (((IDescriptableItem)itemStack.getItem()).hasDescription()) {
 				String descriptionString = I18n.translateToLocal(itemStack.getItem().getUnlocalizedName() + ".desc");
 				String descriptionLines[] = descriptionString.split("\\^");
-				int line = 2;
+				
+				boolean firstDescriptionLine = true;
 
 				for (String descLine : descriptionLines) {
-					
-					if (line == 2) {
+					if (firstDescriptionLine) {
 						ev.getToolTip().add(line, transItemDesc + ": " + descLine);
+						firstDescriptionLine = false;
 					} else {
 						ev.getToolTip().add(line, descLine);
 					}

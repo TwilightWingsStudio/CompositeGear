@@ -1,0 +1,9 @@
+{
+  "type": "compositegear:generic",
+  "id": "string_reel",
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/materials",
+    "variant": "string_reel"
+  }
+}

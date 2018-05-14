@@ -1,0 +1,9 @@
+{
+  "type": "compositegear:generic",
+  "id": "fabric_sheet",
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/materials",
+    "variant": "fabric_sheet"
+  }
+}

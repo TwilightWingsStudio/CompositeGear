@@ -15,9 +15,11 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -26,7 +28,11 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import tws.zcaliptium.compositegear.common.items.GenericItemFactory;
+import tws.zcaliptium.compositegear.common.items.ItemHelper;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
+
+import java.util.Iterator;
 
 import org.apache.logging.log4j.Logger;
 
@@ -45,6 +51,7 @@ public class CompositeGear
     
     public static CreativeTabs ic2Tab;
 	public static Logger modLog;
+	public static ModContainer container;
 
 	public static void getIC2Tab()
 	{
@@ -54,17 +61,36 @@ public class CompositeGear
 			}
 		}
 	}
+
+	public static ModContainer getModContainer(String modid)
+	{
+		Iterator <ModContainer> it = Loader.instance().getModList().iterator();
+
+		while (it.hasNext()) {
+			ModContainer container = it.next();
+			
+			if (container.getModId().equalsIgnoreCase(modid)) {
+				return container;
+			}
+		}
+
+		return null;
+	}
     
     @EventHandler
     public void load(FMLPreInitializationEvent event)
     {
     	modLog = event.getModLog();
+    	container = getModContainer(ModInfo.MODID);
+
     	ConfigurationCG.init(event.getSuggestedConfigurationFile());
 
     	if (proxy.isClient()) {
         	getIC2Tab();
     	}
-
+    	
+    	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "generic"), new GenericItemFactory());
+    	ItemHelper.loadItems(container);
     	ItemsCG.load();
     }
     
