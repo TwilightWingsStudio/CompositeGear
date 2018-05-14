@@ -18,7 +18,6 @@ import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
 import tws.zcaliptium.compositegear.common.items.ItemCGBow;
 import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
-import tws.zcaliptium.compositegear.common.items.ItemCompositeArmor;
 import tws.zcaliptium.compositegear.lib.IClassifiedItem;
 import tws.zcaliptium.compositegear.lib.IDescriptableItem;
 

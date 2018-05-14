@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
-import tws.zcaliptium.compositegear.common.items.ItemCompositeArmor;
+import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
 
 public class RecipesDyingArmor extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe
 {
@@ -39,7 +39,7 @@ public class RecipesDyingArmor extends net.minecraftforge.registries.IForgeRegis
                 {
                     ItemArmor itemarmor = (ItemArmor)itemstack1.getItem();
 
-                    if (!(itemarmor instanceof ItemCompositeArmor) || !itemstack.isEmpty())
+                    if (!(itemarmor instanceof ItemCGArmor) || !itemstack.isEmpty())
                     {
                         return false;
                     }
@@ -82,7 +82,7 @@ public class RecipesDyingArmor extends net.minecraftforge.registries.IForgeRegis
                 {
                     itemarmor = (ItemArmor)itemstack1.getItem();
 
-                    if (!(itemarmor instanceof ItemCompositeArmor) || !itemstack.isEmpty())
+                    if (!(itemarmor instanceof ItemCGArmor) || !itemstack.isEmpty())
                     {
                         return ItemStack.EMPTY;
                     }

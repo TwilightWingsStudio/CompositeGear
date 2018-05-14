@@ -97,48 +97,52 @@ public class ItemsCG
 		ItemArmor.ArmorMaterial compositeLightArmorMaterial = EnumHelper.addArmorMaterial("CG_COMPOSITE_LIGHT", ModInfo.MODID + ":composite", 50, new int[] { 2, 4, 6, 2 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
 
 		// Standart Armor.
-		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987).setRarity(CG_RARE);
-		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, EntityEquipmentSlot.CHEST).setDefaultColor(8815987).setRarity(CG_RARE);
-		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.LEGS).setDefaultColor(8815987).setRarity(CG_RARE);
-		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.FEET).setDefaultColor(8815987).setRarity(CG_RARE);
+		compositeHelmet = new ItemCGArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987)
+				.setRarity(CG_RARE).setItemClass(EnumItemClass.MEDIUM_ARMOR).setHasOverlay(true);
+		compositeChestplate = new ItemCGArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, EntityEquipmentSlot.CHEST).setDefaultColor(8815987)
+				.setRarity(CG_RARE).setItemClass(EnumItemClass.MEDIUM_ARMOR).setHasOverlay(true);
+		compositeLeggings = new ItemCGArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.LEGS).setDefaultColor(8815987)
+				.setRarity(CG_RARE).setItemClass(EnumItemClass.MEDIUM_ARMOR).setHasOverlay(true);
+		compositeBoots = new ItemCGArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, EntityEquipmentSlot.FEET).setDefaultColor(8815987)
+				.setRarity(CG_RARE).setItemClass(EnumItemClass.MEDIUM_ARMOR).setHasOverlay(true);
 
-		compositeFaceplate = new ItemCompositeArmor("composite_faceplate", compositeLightArmorMaterial, "composite_faceplate", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987).setRarity(CG_UNCOMMON)
-				.setItemClass(EnumItemClass.LIGHT_ARMOR);
+		compositeFaceplate = new ItemCGArmor("composite_faceplate", compositeLightArmorMaterial, "composite_faceplate", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987).setRarity(CG_UNCOMMON)
+				.setItemClass(EnumItemClass.LIGHT_ARMOR).setHasOverlay(true);
 
 		// Light Armor.
-		compositeLightHelmet = new ItemCompositeArmor("composite_light_helmet", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.HEAD)
-				.setDefaultColor(8815987).setRarity(CG_UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
-		compositeLightVest = new ItemCompositeArmor("composite_light_vest", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.CHEST)
-				.setDefaultColor(8815987).setRarity(CG_UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
-		compositeLightLeggings = new ItemCompositeArmor("composite_light_leggings", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.LEGS)
-				.setDefaultColor(8815987).setRarity(CG_UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
-		compositeLightBoots = new ItemCompositeArmor("composite_light_boots", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.FEET)
-				.setDefaultColor(8815987).setRarity(CG_UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR);
+		compositeLightHelmet = new ItemCGArmor("composite_light_helmet", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.HEAD)
+				.setDefaultColor(8815987).setRarity(CG_UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR).setHasOverlay(true);
+		compositeLightVest = new ItemCGArmor("composite_light_vest", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.CHEST)
+				.setDefaultColor(8815987).setRarity(CG_UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR).setHasOverlay(true);
+		compositeLightLeggings = new ItemCGArmor("composite_light_leggings", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.LEGS)
+				.setDefaultColor(8815987).setRarity(CG_UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR).setHasOverlay(true);
+		compositeLightBoots = new ItemCGArmor("composite_light_boots", compositeLightArmorMaterial, "composite_light" , 0, EntityEquipmentSlot.FEET)
+				.setDefaultColor(8815987).setRarity(CG_UNCOMMON).setItemClass(EnumItemClass.LIGHT_ARMOR).setHasOverlay(true);
 
 		// Respirators
 		respiratorHalfMask = new ItemCGArmor("respirator_halfmask", accessoryArmorMaterial, "respirator_halfmask", 0, EntityEquipmentSlot.HEAD)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(80);
 
-		respiratorMask = new ItemCompositeArmor("respirator_mask", accessoryArmorMaterial, "respirator_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
-				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(150);
+		respiratorMask = new ItemCGArmor("respirator_mask", accessoryArmorMaterial, "respirator_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
+				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setHasOverlay(true).setMaxDamage(150);
 		
-		respiratorMaskComposite = new ItemCompositeArmor("respirator_mask_composite", compositeArmorMaterial, "respirator_mask_composite", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987)
-				.setItemClass(EnumItemClass.LIGHT_ARMOR).setAirMask(true).setMinAir(20).setRarity(CG_RARE).setMaxDamage(800);
+		respiratorMaskComposite = new ItemCGArmor("respirator_mask_composite", compositeArmorMaterial, "respirator_mask_composite", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8815987)
+				.setItemClass(EnumItemClass.LIGHT_ARMOR).setAirMask(true).setMinAir(20).setRarity(CG_RARE).setHasOverlay(true).setMaxDamage(800);
 		
-		rubberGasmask = new ItemCompositeArmor("rubber_gasmask", accessoryArmorMaterial, "rubber_gasmask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
-				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(150);
+		rubberGasmask = new ItemCGArmor("rubber_gasmask", accessoryArmorMaterial, "rubber_gasmask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
+				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setHasOverlay(true).setMaxDamage(150);
 
 		// Clothing
-		ushankaHat = new ItemCompositeArmor("ushanka_hat", accessoryArmorMaterial, "ushanka_hat", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
-				.setItemClass(EnumItemClass.CLOTHING).setHasDescription(true).setHasVisualAttributes(true).setRarity(CG_UNCOMMON).setMaxDamage(300);
+		ushankaHat = new ItemCGArmor("ushanka_hat", accessoryArmorMaterial, "ushanka_hat", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
+				.setItemClass(EnumItemClass.CLOTHING).setHasDescription(true).setHasVisualAttributes(true).setRarity(CG_UNCOMMON).setHasOverlay(true).setMaxDamage(300);
 		
-		balaclavaMask = new ItemCompositeArmor("balaclava_mask", accessoryArmorMaterial, "balaclava_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
-				.setItemClass(EnumItemClass.CLOTHING).setHasVisualAttributes(true).setHasDescription(true).setRarity(CG_UNCOMMON);
+		balaclavaMask = new ItemCGArmor("balaclava_mask", accessoryArmorMaterial, "balaclava_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
+				.setItemClass(EnumItemClass.CLOTHING).setHasVisualAttributes(true).setHasDescription(true).setRarity(CG_UNCOMMON).setHasOverlay(true);
 
-		shemaghMask = new ItemCompositeArmor("shemagh_mask", accessoryArmorMaterial, "shemagh_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
-				.setHasOverlayIcon(true).setItemClass(EnumItemClass.CLOTHING).setHasVisualAttributes(true).setHasDescription(true).setRarity(CG_UNCOMMON);
+		shemaghMask = new ItemCGArmor("shemagh_mask", accessoryArmorMaterial, "shemagh_mask", 0, EntityEquipmentSlot.HEAD).setDefaultColor(8487297)
+				.setHasOverlayIcon(true).setItemClass(EnumItemClass.CLOTHING).setHasVisualAttributes(true).setHasDescription(true).setRarity(CG_UNCOMMON).setHasOverlay(true);
 		
-		feltBoots = new ItemCompositeArmor("felt_boots", accessoryArmorMaterial, "felt_boots", 0, EntityEquipmentSlot.FEET).setDefaultColor(8487297)
+		feltBoots = new ItemCGArmor("felt_boots", accessoryArmorMaterial, "felt_boots", 0, EntityEquipmentSlot.FEET).setDefaultColor(8487297)
 				.setItemClass(EnumItemClass.CLOTHING).setHasDescription(true).setMaxDamage(64);
 
 		// Weapons
