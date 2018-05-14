@@ -9,7 +9,7 @@
   "updateUrl": "",
   "authorList": ["ZCaliptium"],
   "credits": "Karel \"Nekorelka\"",
-  "logoFile": "",
+  "logoFile": "assets/compositegear/logo.png",
   "screenshots": [],
   "dependencies": []
 }
