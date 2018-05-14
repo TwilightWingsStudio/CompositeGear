@@ -25,9 +25,9 @@ import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.EnumItemClass;
-import tws.zcaliptium.compositegear.common.IClassifiedItem;
-import tws.zcaliptium.compositegear.common.IDescriptableItem;
 import tws.zcaliptium.compositegear.common.ModInfo;
+import tws.zcaliptium.compositegear.lib.IClassifiedItem;
+import tws.zcaliptium.compositegear.lib.IDescriptableItem;
 
 public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescriptableItem
 {
