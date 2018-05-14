@@ -77,19 +77,6 @@ public class ItemsCG
 	public static Item compositeMace;
 	public static Item compositeClub;
 
-	// Materials
-	public static Item rubberBall;
-	public static Item woodenReel;
-	public static Item stringReel;
-	public static Item fabricSheet;
-	public static Item rubberizedHandleRod;
-	public static Item rubberizedStrap;
-	public static Item advAlloyPlate;
-	public static Item carbonPlate;
-	public static Item compositePauldron;
-	public static Item compositePoleyn;
-	public static Item airMaskModule;
-
 	public static ItemStack ic2CompressedAirCell;
 	public static ItemStack ic2EmptyCell;
 
@@ -161,23 +148,6 @@ public class ItemsCG
 		compositeDagger = new ItemCGMelee("composite_dagger", compositeToolMaterial).setRarity(CG_RARE).setMaxDamage(600);
 		compositeBow = new ItemCGBow("composite_bow", 2000, 15).setHasDescription(true);
 
-		// Materials.
-		rubberBall = new ItemCG("rubber_ball");
-		woodenReel = new ItemCG("wooden_reel");
-		stringReel = new ItemCG("string_reel");
-		fabricSheet = new ItemCG("fabric_sheet");
-		rubberizedHandleRod = new ItemCG("rubberized_handle_rod");
-		rubberizedStrap = new ItemCG("rubberized_strap");
-		advAlloyPlate = new ItemCG("advanced_alloy_plate");
-		carbonPlate = new ItemCG("carbon_plate");
-		compositePauldron = new ItemCG("composite_pauldron");
-		compositePoleyn = new ItemCG("composite_poleyn");
-		airMaskModule = new ItemCG("air_mask_module");
-
-		OreDictionary.registerOre("itemRubber", rubberBall);
-		OreDictionary.registerOre("plateAdvancedAlloy", advAlloyPlate);
-		OreDictionary.registerOre("plateCarbon", carbonPlate);
-
 		if (CompositeGear.proxy.isClient()) {
 			registerItemModels();
 		}
@@ -235,19 +205,6 @@ public class ItemsCG
 		registerMultiItem(compositeMace, "composite_mace", "items/tool/melee");
 		registerMultiItem(compositeClub, "composite_club", "items/tool/melee");
 		registerItemModel(compositeBow, "tool/composite_bow");
-
-		// Materials.
-		registerMultiItem(rubberBall, "rubber_ball", "items/materials");
-		registerMultiItem(woodenReel, "wooden_reel", "items/materials");
-		registerMultiItem(stringReel, "string_reel", "items/materials");
-		registerMultiItem(fabricSheet, "fabric_sheet", "items/materials");
-		registerMultiItem(rubberizedHandleRod, "rubberized_handle_rod", "items/materials");
-		registerMultiItem(rubberizedStrap, "rubberized_strap", "items/materials");
-		registerMultiItem(carbonPlate, "carbon_plate", "items/materials");
-		registerMultiItem(advAlloyPlate, "advanced_alloy_plate", "items/materials");
-		registerMultiItem(compositePauldron, "composite_pauldron", "items/materials");
-		registerMultiItem(compositePoleyn, "composite_poleyn", "items/materials");
-		registerMultiItem(airMaskModule, "air_mask_module", "items/materials");
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)
@@ -261,16 +218,16 @@ public class ItemsCG
 	{
 		recipe.setRegistryName(new ResourceLocation(ModInfo.MODID, "100"));
 
-		if (!Loader.isModLoaded(Compats.IC2) && !Loader.isModLoaded(Compats.TR)) {
-			GameRegistry.addSmelting(Items.SLIME_BALL, new ItemStack(rubberBall), 0);
-		}
-
 		ForgeRegistries.RECIPES.register(recipe);
 	}
 
 	public static void loadRecipes()
 	{
 		registerRecipe(new RecipesDyingArmor());
+		
+		/*if (!Loader.isModLoaded(Compats.IC2) && !Loader.isModLoaded(Compats.TR)) {
+			GameRegistry.addSmelting(Items.SLIME_BALL, new ItemStack(rubberBall), 0);
+		}*/
 	}
 
 	public static Item registerItem(Item item, ResourceLocation rl) {

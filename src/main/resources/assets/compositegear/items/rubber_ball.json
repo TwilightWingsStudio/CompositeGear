@@ -1,0 +1,12 @@
+{
+  "type": "compositegear:generic",
+  "id": "rubber_ball",
+  "oreDictNames": [
+    "itemRubber"
+  ],
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/materials",
+    "variant": "rubber_ball"
+  }
+}
