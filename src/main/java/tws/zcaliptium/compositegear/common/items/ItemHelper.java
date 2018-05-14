@@ -37,26 +37,25 @@ public class ItemHelper
 {
     private static Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
     public static Map<ResourceLocation, IItemFactory> factories = Maps.newHashMap();
-    
-    public static Item getItem(JsonObject json, JsonContext context)
-    {
-        if (json == null || json.isJsonNull())
-            throw new JsonSyntaxException("Json cannot be null");
 
-        if (context == null)
-            throw new IllegalArgumentException("getItem Context cannot be null");
-
-        String type = context.appendModId(JsonUtils.getString(json, "type"));
-        if (type.isEmpty())
-            throw new JsonSyntaxException("Item type can not be an empty string");
-
-        
-        IItemFactory factory = factories.get(new ResourceLocation(type));
-        if (factory == null)
-            throw new JsonSyntaxException("Unknown item type: " + type);
-
-        return factory.parse(context, json);
-    }
+	public static Item getItem(JsonObject json, JsonContext context)
+	{
+		if (json == null || json.isJsonNull())
+			throw new JsonSyntaxException("Json cannot be null");
+	
+		if (context == null)
+			throw new IllegalArgumentException("getItem Context cannot be null");
+	
+		String type = context.appendModId(JsonUtils.getString(json, "type"));
+		if (type.isEmpty())
+			throw new JsonSyntaxException("Item type can not be an empty string");
+	
+		IItemFactory factory = factories.get(new ResourceLocation(type));
+		if (factory == null)
+			throw new JsonSyntaxException("Unknown item type: " + type);
+	
+		return factory.parse(context, json);
+	}
 
 	public static void loadItems(ModContainer mod)
 	{
