@@ -33,7 +33,6 @@ import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import techreborn.api.TechRebornAPI;
-import tws.zcaliptium.compositegear.common.EnumItemClass;
 import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.crafting.RecipesDyingArmor;
 import tws.zcaliptium.compositegear.common.Compats;

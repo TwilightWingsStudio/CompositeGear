@@ -15,6 +15,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import tws.zcaliptium.compositegear.common.CompositeGear;
+import tws.zcaliptium.compositegear.common.items.EnumItemClass;
 import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
 import tws.zcaliptium.compositegear.common.items.ItemCGBow;
 import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
@@ -35,10 +36,15 @@ public class ClientEventHandler
 		if (itemStack.getItem() instanceof IClassifiedItem)
 		{
 			IClassifiedItem classifiedItem = (IClassifiedItem)itemStack.getItem();
-			String transItemClass = I18n.translateToLocal("compositegear.itemclass");
+			
+			// If class selected then print it out.
+			if (classifiedItem.getItemClass() != EnumItemClass.NO_CLASS)
+			{
+				String transItemClass = I18n.translateToLocal("compositegear.itemclass");
 
-			ev.getToolTip().add(line, transItemClass + ": " + classifiedItem.getItemClass().getLocalized());
-			line++;
+				ev.getToolTip().add(line, transItemClass + ": " + classifiedItem.getItemClass().getLocalized());
+				line++;
+			}
 		}
 
 		// Text description.

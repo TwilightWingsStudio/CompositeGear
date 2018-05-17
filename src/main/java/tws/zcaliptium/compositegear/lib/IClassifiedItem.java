@@ -7,7 +7,7 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.lib;
 
-import tws.zcaliptium.compositegear.common.EnumItemClass;
+import tws.zcaliptium.compositegear.common.items.EnumItemClass;
 
 public interface IClassifiedItem {
 	public EnumItemClass getItemClass();

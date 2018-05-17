@@ -5,12 +5,13 @@
  * which accompanies this distribution, and is available at
  * http://www.gnu.org/licenses/lgpl-3.0.txt
  ******************************************************************************/
-package tws.zcaliptium.compositegear.common;
+package tws.zcaliptium.compositegear.common.items;
 
 import net.minecraft.util.text.translation.I18n;
 
 public enum EnumItemClass
 {
+	NO_CLASS(""),
 	ACCESSORY_ARMOR("compositegear.itemclass.accessoryarmor"),
 	CLOTHING("compositegear.itemclass.clothing"),
 	LIGHT_ARMOR("compositegear.itemclass.lightarmor"),
