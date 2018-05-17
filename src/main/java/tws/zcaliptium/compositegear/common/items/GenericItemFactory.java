@@ -18,12 +18,14 @@ import net.minecraft.item.Item;
 import net.minecraft.util.JsonUtils;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.crafting.JsonContext;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.lib.IItemFactory;
 
 public class GenericItemFactory implements IItemFactory
-{
+{	
 	@Override
 	public Item parse(JsonContext context, JsonObject json)
 	{
@@ -61,31 +63,36 @@ public class GenericItemFactory implements IItemFactory
 				OreDictionary.registerOre(name, item);
 			}
 		}
-		
+
 		// Only client need model info.
-		if (CompositeGear.proxy.isClient())
-		{
+		if (CompositeGear.proxy.isClient()) {
 			JsonObject modelObj = JsonUtils.getJsonObject(json, "model");
-			String type = JsonUtils.getString(modelObj, "type");
-
-	        if (type.isEmpty())
-	            throw new JsonSyntaxException("Item model type can not be an empty string");
-	        
-	        if (type.equalsIgnoreCase("single_item")) {
-	        	String path = JsonUtils.getString(modelObj, "path");
-	        	
-	        	ItemsCG.registerItemModel(item, path);
-
-	        } else if (type.equalsIgnoreCase("multiple_items")) {
-	        	String variant = JsonUtils.getString(modelObj, "variant");
-	        	String path = JsonUtils.getString(modelObj, "path");
-	        	
-	        	ItemsCG.registerMultiItem(item, variant, path);
-	        } else {
-	        	throw new JsonSyntaxException("Unknown item model type.");        	
-	        }
+			parseModel(modelObj, item);
 		}
 
 		return item;
+	}
+	
+	@SideOnly(Side.CLIENT)
+	protected void parseModel(JsonObject json, Item item)
+	{
+		String type = JsonUtils.getString(json, "type");
+
+        if (type.isEmpty())
+            throw new JsonSyntaxException("Item model type can not be an empty string");
+        
+        if (type.equalsIgnoreCase("single_item")) {
+        	String path = JsonUtils.getString(json, "path");
+        	
+        	ItemsCG.registerItemModel(item, path);
+
+        } else if (type.equalsIgnoreCase("multiple_items")) {
+        	String variant = JsonUtils.getString(json, "variant");
+        	String path = JsonUtils.getString(json, "path");
+        	
+        	ItemsCG.registerMultiItem(item, variant, path);
+        } else {
+        	throw new JsonSyntaxException("Unknown item model type.");        	
+        }
 	}
 }

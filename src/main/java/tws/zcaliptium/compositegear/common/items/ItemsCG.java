@@ -182,26 +182,26 @@ public class ItemsCG
 		registerMultiItem(compositeChestplate, "composite_chestplate", "items/tool/armor");
 		registerMultiItem(compositeLeggings, "composite_leggings", "items/tool/armor");
 		registerMultiItem(compositeBoots, "composite_boots", "items/tool/armor");
-		
+
 		registerMultiItem(compositeFaceplate, "composite_faceplate", "items/tool/armor");
-		
+
 		registerMultiItem(compositeLightHelmet, "composite_light_helmet", "items/tool/armor");
 		registerMultiItem(compositeLightVest, "composite_light_vest", "items/tool/armor");
 		registerMultiItem(compositeLightLeggings, "composite_light_leggings", "items/tool/armor");
 		registerMultiItem(compositeLightBoots, "composite_light_boots", "items/tool/armor");
 
 		registerMultiItem(feltBoots, "felt_boots", "items/tool/armor");
-		
+
 		registerMultiItem(respiratorHalfMask, "respirator_halfmask", "items/tool/respirators");
 		registerMultiItem(respiratorMask, "respirator_mask", "items/tool/respirators");
 		registerMultiItem(respiratorMaskComposite, "respirator_mask_composite", "items/tool/respirators");
-		
+
 		registerMultiItem(rubberGasmask, "rubber_gasmask", "items/tool/hats");
-		
+
 		registerMultiItem(ushankaHat, "ushanka_hat", "items/tool/hats");
 		registerMultiItem(balaclavaMask, "balaclava_mask", "items/tool/hats");
 		registerMultiItem(shemaghMask, "shemagh_mask", "items/tool/hats");
-		
+
 		// Weapons
 		registerMultiItem(compositeSword, "composite_sword", "items/tool/melee");
 		registerMultiItem(compositeDagger, "composite_dagger", "items/tool/melee");
@@ -247,7 +247,7 @@ public class ItemsCG
 	public static void registerItemModel(Item item, String name) {
 		registerItemModel(item, 0, name);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public static void registerItemModel(Item item, int meta, String name) {
 		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(ModInfo.MODID + ":" + name, "inventory"));

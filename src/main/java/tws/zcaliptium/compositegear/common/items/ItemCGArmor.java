@@ -33,7 +33,7 @@ import tws.zcaliptium.compositegear.lib.IDescriptableItem;
 @Optional.Interface(iface = "ic2.api.item.IMetalArmor", modid = Compats.IC2)
 public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescriptableItem, IMetalArmor
 {
-	protected final String armorName;
+	protected String armorName;
 	protected EnumItemClass itemClass;
 
 	protected boolean isAirMask;
@@ -44,27 +44,34 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 	protected int defaultColor;
 	protected boolean hasOverlayIcon;
 	protected boolean hasOverlay;
+	
+
 
 	public ItemCGArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, EntityEquipmentSlot armorType)
 	{
 		super(armorMaterial, renderIndex, armorType);
 
 		this.armorName = armorName;
-		this.itemClass = EnumItemClass.LIGHT_ARMOR;
+		this.itemClass = EnumItemClass.NO_CLASS;
 		this.isAirMask = false;
 		this.minAirToStartRefil = 0;
 		this.rarity = EnumRarity.COMMON;
-		
+
 		this.defaultColor = 0;
 		this.hasOverlay = false;
-		
+
 		setUnlocalizedName(id);
-		
+
 		ItemsCG.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
 
 		if (CompositeGear.ic2Tab != null) {
 			setCreativeTab(CompositeGear.ic2Tab);
 		}
+	}
+	
+	public ItemCGArmor(String id, ArmorMaterial armorMaterial, int renderIndex, EntityEquipmentSlot armorType)
+	{
+		this(id, armorMaterial, "", renderIndex, armorType);
 	}
 
 	@Override
@@ -257,6 +264,11 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 		return this;
     }
     
+    public void setArmorName(String armorName)
+    {
+    	this.armorName = armorName;
+    }
+
     /**
      * Return whether the specified armor ItemStack has a color.
      */

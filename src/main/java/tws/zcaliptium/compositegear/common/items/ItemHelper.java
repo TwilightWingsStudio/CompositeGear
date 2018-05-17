@@ -59,44 +59,44 @@ public class ItemHelper
 
 	public static void loadItems(ModContainer mod)
 	{
-        JsonContext ctx = new JsonContext(mod.getModId());
+		JsonContext ctx = new JsonContext(mod.getModId());
 
 		CraftingHelper.findFiles(CompositeGear.container, "assets/" + mod.getModId() + "/items", null,
 				(root, file) ->
 				{
-	                String relative = root.relativize(file).toString();
-	                if (!"json".equals(FilenameUtils.getExtension(file.toString())) || relative.startsWith("_"))
-	                    return true;
-
-	                String name = FilenameUtils.removeExtension(relative).replaceAll("\\\\", "/");
-	                ResourceLocation key = new ResourceLocation(ctx.getModId(), name);
-	                
-	                BufferedReader reader = null;
-
-	                try
-	                {
-	                    reader = Files.newBufferedReader(file);
-
-	                    JsonObject json = JsonUtils.fromJson(GSON, reader, JsonObject.class);
-	                    
-	                    Item item = ItemHelper.getItem(json, ctx);
-	                }
-	                catch (JsonParseException e)
-	                {
-	                    FMLLog.log.error("Parsing error loading item {}", key, e);
-	                    System.exit(1);
-	                    return false;
-	                }
-	                catch (IOException e)
-	                {
-	                    FMLLog.log.error("Couldn't read item {} from {}", key, file, e);
-	                    System.exit(1);
-	                    return false;
-	                }
-	                finally
-	                {
-	                	org.apache.commons.io.IOUtils.closeQuietly(reader);
-	                }
+					String relative = root.relativize(file).toString();
+					if (!"json".equals(FilenameUtils.getExtension(file.toString())) || relative.startsWith("_"))
+						return true;
+					
+					String name = FilenameUtils.removeExtension(relative).replaceAll("\\\\", "/");
+					ResourceLocation key = new ResourceLocation(ctx.getModId(), name);
+					
+					BufferedReader reader = null;
+					
+					try
+					{
+						reader = Files.newBufferedReader(file);
+						
+						JsonObject json = JsonUtils.fromJson(GSON, reader, JsonObject.class);
+						    
+						Item item = ItemHelper.getItem(json, ctx);
+					}
+					catch (JsonParseException e)
+					{
+						FMLLog.log.error("Parsing error loading item {}", key, e);
+						System.exit(1);
+						return false;
+					}
+					catch (IOException e)
+					{
+						FMLLog.log.error("Couldn't read item {} from {}", key, file, e);
+						System.exit(1);
+						return false;
+					}
+					finally
+					{
+						org.apache.commons.io.IOUtils.closeQuietly(reader);
+					}
 
 					return true;
 				}, true, true
