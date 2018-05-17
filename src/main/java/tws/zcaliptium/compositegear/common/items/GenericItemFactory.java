@@ -16,6 +16,7 @@ import com.google.gson.JsonSyntaxException;
 
 import net.minecraft.item.Item;
 import net.minecraft.util.JsonUtils;
+import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.crafting.JsonContext;
 import net.minecraftforge.oredict.OreDictionary;
 import tws.zcaliptium.compositegear.common.CompositeGear;
@@ -26,9 +27,12 @@ public class GenericItemFactory implements IItemFactory
 	@Override
 	public Item parse(JsonContext context, JsonObject json)
 	{
+		// Main stuff.
 		String id = JsonUtils.getString(json, "id");
+		int maxStackSize = MathHelper.clamp(JsonUtils.getInt(json, "maxStackSize", 64), 1, Integer.MAX_VALUE);
 
 		ItemCG item = new ItemCG(id);
+		item.setMaxStackSize(maxStackSize);
 
 		JsonObject intelligenceObj = JsonUtils.getJsonObject(json, "intelligence", null);
 		
