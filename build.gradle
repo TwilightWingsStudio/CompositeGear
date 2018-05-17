@@ -56,8 +56,9 @@ repositories {
 dependencies {
   compile 'net.industrial-craft:industrialcraft-2:2.8.35-ex112:api'
   compile "TechReborn:TechReborn-${mcversion}:${tr_version}:api"
+  compile "com.github.glitchfiend.biomesoplenty:ToughAsNails:${mcversion}-${tan_version}:api"
 
-  deobfCompile "applecore:AppleCore:1.12.2-3.1.1:deobf"
+  deobfCompile "applecore:AppleCore:${mcversion}-${applecore_version}:deobf"
 
   deobfProvided "mezz.jei:jei_${mcversion}:${jei_version}:api"
   runtime "mezz.jei:jei_${mcversion}:${jei_version}"
