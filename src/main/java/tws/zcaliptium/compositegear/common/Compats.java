@@ -12,4 +12,5 @@ public class Compats
 	public static final String IC2 = "ic2";
 	public static final String TR = "techreborn";
 	public static final String APPLECORE = "applecore";
+	public static final String TAN = "toughasnails";
 }

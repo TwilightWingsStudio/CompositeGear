@@ -20,6 +20,7 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ModContainer;
+import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -28,6 +29,9 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import toughasnails.api.temperature.TemperatureHelper;
+import tws.zcaliptium.compositegear.common.compat.TANTemperatureModifier;
+import tws.zcaliptium.compositegear.common.items.ArmorItemFactory;
 import tws.zcaliptium.compositegear.common.items.GenericItemFactory;
 import tws.zcaliptium.compositegear.common.items.ItemHelper;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
@@ -38,7 +42,7 @@ import org.apache.logging.log4j.Logger;
 
 import ic2.api.recipe.Recipes;
 
-@Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="after:ic2;after:techreborn;after:hzdslib;after:immersiveengineering;after:applecore", version = ModInfo.VERSION)
+@Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="after:ic2;after:techreborn;after:hzdslib;after:immersiveengineering;after:applecore;after:toughasnails", version = ModInfo.VERSION)
 public class CompositeGear
 {
     @Instance(ModInfo.MODID)
@@ -60,6 +64,12 @@ public class CompositeGear
 				ic2Tab = CreativeTabs.CREATIVE_TAB_ARRAY[i];
 			}
 		}
+	}
+	
+	@Optional.Method(modid = Compats.TAN)
+	public static void registerTANModifier()
+	{
+		TemperatureHelper.registerTemperatureModifier(new TANTemperatureModifier());
 	}
 
 	public static ModContainer getModContainer(String modid)
@@ -90,6 +100,7 @@ public class CompositeGear
     	}
     	
     	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "generic"), new GenericItemFactory());
+    	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "armor"), new ArmorItemFactory());
     	ItemHelper.loadItems(container);
     	ItemsCG.load();
     }
@@ -98,6 +109,10 @@ public class CompositeGear
     public void init(FMLInitializationEvent event)
     {
 		proxy.registerEventHandlers();
+		
+		if (Loader.isModLoaded(Compats.TAN)) {
+			registerTANModifier();
+		}
     }
     
     @EventHandler
