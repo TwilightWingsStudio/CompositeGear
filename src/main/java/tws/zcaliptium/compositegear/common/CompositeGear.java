@@ -110,7 +110,7 @@ public class CompositeGear
     {
 		proxy.registerEventHandlers();
 		
-		if (Loader.isModLoaded(Compats.TAN)) {
+		if (ConfigurationCG.tanCompat && Loader.isModLoaded(Compats.TAN)) {
 			registerTANModifier();
 		}
     }

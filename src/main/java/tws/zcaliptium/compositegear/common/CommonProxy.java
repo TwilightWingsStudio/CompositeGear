@@ -24,7 +24,7 @@ public class CommonProxy
 		FMLCommonHandler.instance().bus().register(eventhandler);
 		MinecraftForge.EVENT_BUS.register(eventhandler);
 		
-		if (Loader.isModLoaded(Compats.APPLECORE)) {		
+		if (ConfigurationCG.acCompat && Loader.isModLoaded(Compats.APPLECORE)) {		
 			MinecraftForge.EVENT_BUS.register(new ACHungerHandler());
 		}
 	}
