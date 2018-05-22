@@ -1,6 +1,7 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
+    "S S",
     "W W",
     "W W"
   ],
@@ -14,6 +15,9 @@
     "W": {
       "item": "minecraft:wool",
       "data": 32767
+    },
+    "S": {
+      "item":"minecraft:string"
     }
   },
   "result": {
