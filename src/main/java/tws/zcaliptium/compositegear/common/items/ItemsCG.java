@@ -84,6 +84,7 @@ public class ItemsCG
 
 	public static EnumRarity CG_UNCOMMON = EnumHelper.addRarity("CG_UNCOMMON", TextFormatting.GREEN, "CgUncommon");
 	public static EnumRarity CG_RARE = EnumHelper.addRarity("CG_RARE", TextFormatting.BLUE, "CgRare");
+	public static ItemArmor.ArmorMaterial GENERIC_MATERIAL = EnumHelper.addArmorMaterial("CG_GENERIC", ModInfo.MODID + ":composite", 1, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0);
 
 	public static void load()
 	{

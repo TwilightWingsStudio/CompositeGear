@@ -7,6 +7,8 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common.items;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -20,6 +22,7 @@ import tws.zcaliptium.compositegear.lib.IItemFactory;
 
 import static com.google.common.collect.Lists.newArrayList;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -39,7 +42,7 @@ public class ArmorItemFactory extends GenericItemFactory
 			throw new IllegalArgumentException("Invalid slot '" + slotIn + "'. It is not armor slot!");
 		}
 
-		ItemCGArmor item = new ItemCGArmor(id, ItemArmor.ArmorMaterial.LEATHER, 0, slot);
+		ItemCGArmor item = new ItemCGArmor(id, ItemsCG.GENERIC_MATERIAL, 0, slot);
 
 		// Durability.
 		int durability = MathHelper.clamp(JsonUtils.getInt(json, "durability", 64), 0, Integer.MAX_VALUE);
@@ -47,12 +50,45 @@ public class ArmorItemFactory extends GenericItemFactory
 			item.setMaxDamage(durability);			
 		}
 
-		// Enchantability.
-		int enchantability = JsonUtils.getInt(json, "enchantability", 0);
-		if (enchantability > 0) {
-			// TODO: Expand item class to apply this setting.
+		// Material
+		JsonObject materialObj = JsonUtils.getJsonObject(json, "material");
+		String materialType = JsonUtils.getString(materialObj, "type");
+
+		if (materialType.equalsIgnoreCase("generic")) {
+			item.setProtection(JsonUtils.getInt(materialObj, "protection", 0));
+			item.setToughness(JsonUtils.getInt(materialObj, "toughness", 0));
+			item.setEnchantability(JsonUtils.getInt(materialObj, "enchantability", 0));
+		} else {
+			throw new IllegalArgumentException("Invalid armor material type '" + materialType + "'.");
 		}
+
+		// Features
+		JsonArray features = JsonUtils.getJsonArray(json, "features", null);
 		
+		if (features != null)
+		{
+			Iterator<JsonElement> featuresIt = features.iterator();
+			while (featuresIt.hasNext())
+			{
+				JsonObject featureObj = featuresIt.next().getAsJsonObject();
+				
+				String featureType = JsonUtils.getString(featureObj, "type");
+				
+				if (featureType.equals("air_mask")) {
+					item.setAirMask(true);
+					item.setMinAir(JsonUtils.getInt(featureObj, "minAir", 0));
+				} else if (featureType.equals("warm")) {
+					// TODO:
+				} else if (featureType.equals("satiety_save_cold")) {
+					// TODO:
+				} else if (featureType.equals("satiety_save_hot")) {
+					// TODO:
+				} else {
+					throw new IllegalArgumentException("Invalid armor feature type '" + featureType + "'.");
+				}
+			}
+		}
+
 		JsonObject intelligenceObj = JsonUtils.getJsonObject(json, "intelligence", null);
 		
 		// Localized name & Description.

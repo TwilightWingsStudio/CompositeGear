@@ -7,8 +7,15 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common.items;
 
+import java.util.UUID;
+
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+
 import ic2.api.item.IMetalArmor;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
@@ -36,16 +43,21 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 	protected String armorName;
 	protected EnumItemClass itemClass;
 
-	protected boolean isAirMask;
 	protected boolean hasDescription;
-	protected int minAirToStartRefil;
 	protected EnumRarity rarity;
 	protected boolean hasVisualAttributes;
 	protected int defaultColor;
 	protected boolean hasOverlayIcon;
 	protected boolean hasOverlay;
 	
-
+	// Features
+	protected boolean isAirMask;
+	protected int minAirToStartRefil;
+	
+	// Material
+	protected int protection;
+	protected int toughness;
+	protected int enchantability;
 
 	public ItemCGArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, EntityEquipmentSlot armorType)
 	{
@@ -56,6 +68,11 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 		this.isAirMask = false;
 		this.minAirToStartRefil = 0;
 		this.rarity = EnumRarity.COMMON;
+		
+		// Material
+		this.protection = 0;
+		this.toughness = 0;
+		this.enchantability = 0;
 
 		this.defaultColor = 0;
 		this.hasOverlay = false;
@@ -68,7 +85,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 			setCreativeTab(CompositeGear.ic2Tab);
 		}
 	}
-	
+
 	public ItemCGArmor(String id, ArmorMaterial armorMaterial, int renderIndex, EntityEquipmentSlot armorType)
 	{
 		this(id, armorMaterial, "", renderIndex, armorType);
@@ -79,7 +96,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 	{
 		return itemClass;
 	}
-	
+
 	public ItemCGArmor setItemClass(EnumItemClass itemClass)
 	{
 		this.itemClass = itemClass;
@@ -98,7 +115,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 		
 		return ModInfo.MODID + ":textures/armor/" + this.armorName + "_" + suffix + "_overlay.png";
 	}
-	
+
 	private static boolean consumeItemFromInventory(EntityPlayer player, ItemStack itemStack)
 	{
 		for (int i = 0; i < player.inventory.mainInventory.size(); i++)
@@ -171,46 +188,50 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
     {
     	return rarity;
     }
-    
+
     public ItemCGArmor setHasDescription(boolean hasDescription)
     {
     	this.hasDescription = hasDescription;
 		return this;
     }
-    
+
     public ItemCGArmor setHasVisualAttributes(boolean hasVisualAttributes)
     {
     	this.hasVisualAttributes = hasVisualAttributes;
     	return this;
     }
-    
+
     @Override
     public boolean hasDescription() 
     {
     	return hasDescription;
     }
-    
+
     public boolean hasVisualAttributes() 
     {
     	return hasVisualAttributes;
     }
-    
+
     public ItemCGArmor setAirMask(boolean isAirMask)
     {
     	this.isAirMask = isAirMask;
     	return this;
     }
-    
+
     public boolean isAirMask()
     {
     	return isAirMask;
     }
-    
+
 	@Override
 	public int getItemEnchantability(ItemStack stack)
 	{
 		if (!ConfigurationCG.allowArmorEnchanting) {
 			return 0;
+		}
+		
+		if (this.getArmorMaterial() == ItemsCG.GENERIC_MATERIAL) {
+			return this.enchantability;
 		}
 
 		return super.getItemEnchantability(stack);
@@ -227,7 +248,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
     	this.rarity = rarity;
 		return this;
     }
-    
+
 	public ItemCGArmor setMinAir(int minAir) {
 		this.minAirToStartRefil = minAir;
 		return this;
@@ -245,7 +266,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
     {
         return hasOverlay;
     }
-    
+
     public ItemCGArmor setHasOverlay(boolean hasOverlay)
     {
     	this.hasOverlay = hasOverlay;
@@ -263,7 +284,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
     	this.hasOverlayIcon = hasOverlayIcon;
 		return this;
     }
-    
+
     public void setArmorName(String armorName)
     {
     	this.armorName = armorName;
@@ -339,4 +360,38 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 
         nbttagcompound1.setInteger("color", color);
     }
+	
+    private static final UUID[] ARMOR_MODIFIERS = new UUID[] {UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150")};
+	
+    @Override
+    public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot equipmentSlot, ItemStack stack)
+    {
+    	if (this.getArmorMaterial() == ItemsCG.GENERIC_MATERIAL) {
+    		Multimap<String, AttributeModifier> multimap = HashMultimap.<String, AttributeModifier>create();
+
+    		if (equipmentSlot == this.armorType) {
+    			multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(ARMOR_MODIFIERS[equipmentSlot.getIndex()], "Armor modifier", (double)this.protection, 0));
+    			multimap.put(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName(), new AttributeModifier(ARMOR_MODIFIERS[equipmentSlot.getIndex()], "Armor toughness", (double)this.toughness, 0));    			
+    		}
+
+    		return multimap;
+    	}
+    	
+		return super.getAttributeModifiers(equipmentSlot, stack);
+	}
+
+	public void setProtection(int protection)
+	{
+		this.protection = protection;
+	}
+
+	public void setToughness(int toughness)
+	{
+		this.toughness = toughness;
+	}
+	
+	public void setEnchantability(int enchantability)
+	{
+		this.enchantability = enchantability;
+	}
 }
