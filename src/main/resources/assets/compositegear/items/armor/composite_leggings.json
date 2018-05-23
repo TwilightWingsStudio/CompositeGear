@@ -1,0 +1,27 @@
+{
+  "type": "compositegear:armor",
+  "slot": "legs",
+  "id": "composite_leggings",
+  "durability": 768,
+  "material" : {
+    "type": "generic",
+    "protection": 6,
+    "toughness": 2,
+    "enchantability": 12
+  },
+  "features": [
+    {
+      "type": "colorable",
+      "defaultColor": 8815987
+    }
+  ],
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/tool/armor",
+    "variant": "composite_leggings"
+  },
+  "armorModel" : {
+    "armorName": "composite",
+    "hasOverlay": true
+  }
+}

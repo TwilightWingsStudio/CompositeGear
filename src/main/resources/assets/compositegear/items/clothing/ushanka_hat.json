@@ -1,0 +1,36 @@
+{
+  "type": "compositegear:armor",
+  "slot": "head",
+  "id": "ushanka_hat",
+  "durability": 256,
+  "intelligence": {
+    "hasDescription": true,
+    "hasVisualAttributes": true
+  },
+  "material" : {
+    "type": "generic",
+    "protection": 1,
+    "enchantability": 15
+  },
+  "features": [
+    {
+      "type": "colorable",
+      "defaultColor": 8487297
+    },
+    {
+      "type": "warm"
+    },
+    {
+      "type": "satiety_save_cold"
+    }
+  ],
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/clothing",
+    "variant": "ushanka_hat"
+  },
+  "armorModel" : {
+    "armorName": "ushanka_hat",
+    "hasOverlay": true
+  }
+}

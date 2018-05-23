@@ -22,6 +22,12 @@
           "layer0": "compositegear:items/respirator_mask_composite",
           "layer1": "compositegear:items/respirator_mask_composite_overlay"
         }
+      },
+      "rubber_gasmask": {
+        "textures": {
+          "layer0": "compositegear:items/rubber_gasmask",
+          "layer1": "compositegear:items/rubber_gasmask_overlay"
+        }
       }
     }
   }

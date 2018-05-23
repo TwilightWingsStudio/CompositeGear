@@ -1,0 +1,30 @@
+{
+  "type": "compositegear:armor",
+  "slot": "head",
+  "id": "respirator_mask",
+  "durability": 128,
+  "material" : {
+    "type": "generic",
+    "protection": 1,
+    "enchantability": 15
+  },
+  "features": [
+    {
+      "type": "colorable",
+      "defaultColor": 8487297
+    },
+    {
+      "type": "air_mask",
+      "minAir": 20
+    }
+  ],
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/tool/respirators",
+    "variant": "respirator_mask"
+  },
+  "armorModel" : {
+    "armorName": "respirator_mask",
+    "hasOverlay": true
+  }
+}

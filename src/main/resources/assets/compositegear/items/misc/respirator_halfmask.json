@@ -1,0 +1,25 @@
+{
+  "type": "compositegear:armor",
+  "slot": "head",
+  "id": "respirator_halfmask",
+  "durability": 64,
+  "material" : {
+    "type": "generic",
+    "protection": 1,
+    "enchantability": 15
+  },
+  "features": [
+    {
+      "type": "air_mask",
+      "minAir": 80
+    }
+  ],
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/tool/respirators",
+    "variant": "respirator_halfmask"
+  },
+  "armorModel" : {
+    "armorName": "respirator_halfmask"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "type": "compositegear:armor",
+  "slot": "feet",
+  "id": "felt_boots",
+  "durability": 64,
+  "intelligence": {
+    "hasDescription": true
+  },
+  "material" : {
+    "type": "generic",
+    "protection": 10,
+    "toughness": 5,
+    "enchantability": 0
+  },
+  "features": [
+    {
+      "type": "colorable",
+      "defaultColor": 8487297
+    },
+    {
+      "type": "warm"
+    },
+    {
+      "type": "satiety_save_cold"
+    }
+  ],
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/clothing",
+    "variant": "felt_boots"
+  },
+  "armorModel" : {
+    "armorName": "felt_boots"
+  }
+}

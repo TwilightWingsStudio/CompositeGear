@@ -22,10 +22,9 @@
           "layer1": "compositegear:items/shemagh_mask_overlay"
         }
       },
-      "rubber_gasmask": {
+      "felt_boots": {
         "textures": {
-          "layer0": "compositegear:items/rubber_gasmask",
-          "layer1": "compositegear:items/rubber_gasmask_overlay"
+          "layer0": "compositegear:items/felt_boots"
         }
       }
     }

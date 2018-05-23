@@ -1,0 +1,27 @@
+{
+  "type": "compositegear:armor",
+  "slot": "feet",
+  "id": "composite_boots",
+  "durability": 768,
+  "material" : {
+    "type": "generic",
+    "protection": 3,
+    "toughness": 2,
+    "enchantability": 12
+  },
+  "features": [
+    {
+      "type": "colorable",
+      "defaultColor": 8815987
+    }
+  ],
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/tool/armor",
+    "variant": "composite_boots"
+  },
+  "armorModel" : {
+    "armorName": "composite",
+    "hasOverlay": true
+  }
+}

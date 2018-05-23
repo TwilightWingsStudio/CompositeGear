@@ -1,0 +1,27 @@
+{
+  "type": "compositegear:armor",
+  "slot": "head",
+  "id": "composite_helmet",
+  "durability": 768,
+  "material" : {
+    "type": "generic",
+    "protection": 3,
+    "toughness": 2,
+    "enchantability": 12
+  },
+  "features": [
+    {
+      "type": "colorable",
+      "defaultColor": 8815987
+    }
+  ],
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/tool/armor",
+    "variant": "composite_helmet"
+  },
+  "armorModel" : {
+    "armorName": "composite",
+    "hasOverlay": true
+  }
+}

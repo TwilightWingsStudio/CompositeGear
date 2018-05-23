@@ -50,11 +50,6 @@
         "textures": {
           "layer0": "compositegear:items/composite_faceplate"
         }
-      },
-      "felt_boots": {
-        "textures": {
-          "layer0": "compositegear:items/felt_boots"
-        }
       }
     }
   }
