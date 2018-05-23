@@ -12,6 +12,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.util.JsonUtils;
@@ -104,6 +105,17 @@ public class ArmorItemFactory extends GenericItemFactory
 			
 			if (unlocalized != null) {
 				item.setUnlocalizedName(unlocalized);
+			}
+			
+			String rarityName = JsonUtils.getString(intelligenceObj, "rarity", null);
+			if (rarityName != null)
+			{
+				for (EnumRarity rarity : EnumRarity.values()) {
+					if (rarity.rarityName.equals(rarityName)) {
+						item.setRarity(rarity);
+						break;
+					}
+				}
 			}
 			
 			boolean hasDescription = JsonUtils.getBoolean(intelligenceObj, "hasDescription", false);
