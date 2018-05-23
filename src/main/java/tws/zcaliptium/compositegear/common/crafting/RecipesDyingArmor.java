@@ -39,7 +39,7 @@ public class RecipesDyingArmor extends net.minecraftforge.registries.IForgeRegis
                 {
                     ItemArmor itemarmor = (ItemArmor)itemstack1.getItem();
 
-                    if (!(itemarmor instanceof ItemCGArmor) || !itemstack.isEmpty())
+                    if (!(itemarmor instanceof ItemCGArmor) || !itemstack.isEmpty() || !((ItemCGArmor)itemarmor).isColorable())
                     {
                         return false;
                     }
