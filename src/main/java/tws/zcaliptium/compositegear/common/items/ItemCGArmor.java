@@ -160,8 +160,9 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 			if (player.getAir() <= minAirToStartRefil)
 			{
 				boolean refilled = false;
-				
-				if (!refilled && Loader.isModLoaded(Compats.TR))
+
+				// TR cells.
+				if (!refilled && Loader.isModLoaded(Compats.TR) && ConfigurationCG.trCompat)
 				{
 					if (consumeItemFromInventory(player, ItemsCG.trCompressedAirCell))
 					{
@@ -170,8 +171,9 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 					}
 
 				}
-				
-				if (!refilled && Loader.isModLoaded(Compats.IC2)) { // Use TR or IC2 cells.
+
+				// IC2 cells.
+				if (!refilled && Loader.isModLoaded(Compats.IC2) && ConfigurationCG.ic2Compat) {
 
 					if (consumeItemFromInventory(player, ItemsCG.ic2CompressedAirCell))
 					{
@@ -269,7 +271,12 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 	// IMetalArmor
 	@Optional.Method(modid = Compats.IC2)
 	@Override
-	public boolean isMetalArmor(ItemStack itemstack, EntityPlayer player) {
+	public boolean isMetalArmor(ItemStack itemstack, EntityPlayer player)
+	{
+		if (!ConfigurationCG.ic2Compat) {
+			return false;
+		}
+		
 		return true;
 	}
 
