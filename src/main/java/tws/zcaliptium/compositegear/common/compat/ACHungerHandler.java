@@ -8,6 +8,8 @@
 package tws.zcaliptium.compositegear.common.compat;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.Optional;
@@ -18,6 +20,7 @@ import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
+import tws.zcaliptium.compositegear.lib.ISpecialArmor;
 
 public class ACHungerHandler
 {
@@ -37,16 +40,30 @@ public class ACHungerHandler
     	}
 
     	Biome biome = player.world.getBiome(player.getPosition());
-    	ItemStack headStack = player.inventory.armorInventory.get(3);
+		InventoryPlayer inventory = player.inventory;
+    	float multiplier = 1.0F;
 
-    	if (headStack.getItem() == ItemsCG.ushankaHat || headStack.getItem() == ItemsCG.balaclavaMask) {
-        	if (biome.getTempCategory() == Biome.TempCategory.COLD) {   
-        		event.maxExhaustionLevel *= 1.25F;
-        	}
-    	} else if (headStack.getItem() == ItemsCG.shemaghMask) {
-        	if (biome.getTempCategory() == Biome.TempCategory.WARM) {
-        		event.maxExhaustionLevel *= 1.25F;
-        	}
-    	}
+		for (int i = 0; i < 4; i++)
+		{
+			ItemStack stack = inventory.armorInventory.get(i);
+
+			Item item = stack.getItem();
+
+			if (item instanceof ISpecialArmor) {
+				ISpecialArmor tempItem = (ISpecialArmor)item;
+				
+				if (tempItem.isSaveSatietyCold() && biome.getTempCategory() == Biome.TempCategory.COLD) {
+					multiplier += 0.15F;
+				}
+				
+				if (tempItem.isSaveSatietyHot() && biome.getTempCategory() == Biome.TempCategory.WARM) {					
+					multiplier += 0.15F;
+				}
+			}
+		}
+		
+		//CompositeGear.modLog.info("Mul " + multiplier);
+
+		event.maxExhaustionLevel *= multiplier;
     }
 }

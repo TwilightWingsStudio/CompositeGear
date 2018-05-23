@@ -36,28 +36,36 @@ import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.lib.IClassifiedItem;
 import tws.zcaliptium.compositegear.lib.IDescriptableItem;
+import tws.zcaliptium.compositegear.lib.ISpecialArmor;
 
 @Optional.Interface(iface = "ic2.api.item.IMetalArmor", modid = Compats.IC2)
-public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescriptableItem, IMetalArmor
+public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescriptableItem, IMetalArmor, ISpecialArmor
 {
 	protected String armorName;
 	protected EnumItemClass itemClass;
-
-	protected boolean hasDescription;
 	protected EnumRarity rarity;
+
+	// Intelligence
+	protected boolean hasDescription;
 	protected boolean hasVisualAttributes;
+	
+	// Model
+	protected boolean isColorable;
 	protected int defaultColor;
-	protected boolean hasOverlayIcon;
 	protected boolean hasOverlay;
-	
-	// Features
-	protected boolean isAirMask;
-	protected int minAirToStartRefil;
-	
+
 	// Material
 	protected int protection;
 	protected int toughness;
 	protected int enchantability;
+
+	// Features
+	protected boolean isAirMask;
+	protected int minAirToStartRefil;
+	protected boolean isWarm;
+	protected boolean isCold;
+	protected boolean isSaveSatietyHot;
+	protected boolean isSaveSatietyCold;
 
 	public ItemCGArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, EntityEquipmentSlot armorType)
 	{
@@ -65,19 +73,22 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 
 		this.armorName = armorName;
 		this.itemClass = EnumItemClass.NO_CLASS;
+		this.rarity = EnumRarity.COMMON;
+		setUnlocalizedName(id);
+
+		// Features
 		this.isAirMask = false;
 		this.minAirToStartRefil = 0;
-		this.rarity = EnumRarity.COMMON;
-		
+
 		// Material
 		this.protection = 0;
 		this.toughness = 0;
 		this.enchantability = 0;
 
+		// Model
 		this.defaultColor = 0;
 		this.hasOverlay = false;
-
-		setUnlocalizedName(id);
+		this.isColorable = false;
 
 		ItemsCG.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
 
@@ -218,6 +229,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
     	return this;
     }
 
+    @Override
     public boolean isAirMask()
     {
     	return isAirMask;
@@ -277,12 +289,6 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
     {
     	this.defaultColor = color;
     	return this;
-    }
-
-    public ItemCGArmor setHasOverlayIcon(boolean hasOverlayIcon)
-    {
-    	this.hasOverlayIcon = hasOverlayIcon;
-		return this;
     }
 
     public void setArmorName(String armorName)
@@ -360,7 +366,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 
         nbttagcompound1.setInteger("color", color);
     }
-	
+
     private static final UUID[] ARMOR_MODIFIERS = new UUID[] {UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150")};
 	
     @Override
@@ -393,5 +399,59 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 	public void setEnchantability(int enchantability)
 	{
 		this.enchantability = enchantability;
+	}
+	
+	@Override
+	public boolean isWarm()
+	{
+		return isWarm;
+	}
+
+	@Override
+	public boolean isCold()
+	{
+		return isCold;
+	}
+
+	@Override
+	public boolean isSaveSatietyHot()
+	{
+		return isSaveSatietyHot;
+	}
+
+	@Override
+	public boolean isSaveSatietyCold()
+	{
+		return isSaveSatietyCold;
+	}
+
+	public void setWarm(boolean isWarm)
+	{
+		this.isWarm = isWarm;
+	}
+
+	public void setCold(boolean isCold)
+	{
+		this.isCold = isCold;
+	}
+
+	public void setSaveSatietyHot(boolean isSaveSatietyHot)
+	{
+		this.isSaveSatietyHot = isSaveSatietyHot;
+	}
+
+	public void setSaveSatietyCold(boolean isSaveSatietyCold)
+	{
+		this.isSaveSatietyCold = isSaveSatietyCold;
+	}
+
+	public boolean isColorable()
+	{
+		return isColorable;
+	}
+
+	public void setColorable(boolean isColorable)
+	{
+		this.isColorable = isColorable;
 	}
 }

@@ -11,6 +11,7 @@ import java.util.stream.IntStream;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -20,6 +21,7 @@ import toughasnails.api.temperature.ITemperatureModifier;
 import toughasnails.api.temperature.Temperature;
 import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
+import tws.zcaliptium.compositegear.lib.ISpecialArmor;
 
 @Optional.Interface(iface = "toughasnails.api.temperature.ITemperatureModifier", modid = Compats.IC2)
 public class TANTemperatureModifier implements ITemperatureModifier
@@ -39,20 +41,31 @@ public class TANTemperatureModifier implements ITemperatureModifier
 			IModifierMonitor monitor)
 	{
 		int newTemperatureLevel = initialTemperature.getRawValue();
-		
+
 		InventoryPlayer inventory = player.inventory;
-		
+
 		ItemStack headStack = inventory.armorInventory.get(3);
-	
+
 		int modifier = 0;
 
-		if (headStack.getItem() == ItemsCG.ushankaHat || headStack.getItem() == ItemsCG.balaclavaMask) {
-			modifier += 1;
+		for (int i = 0; i < 4; i++)
+		{
+			ItemStack stack = inventory.armorInventory.get(i);
+
+			Item item = stack.getItem();
+
+			if (item instanceof ISpecialArmor) {
+				ISpecialArmor tempItem = (ISpecialArmor)item;
+				
+				if (tempItem.isWarm()) {
+					modifier += 1;
+				}
+			}
 		}
 
 		newTemperatureLevel += modifier;
 		monitor.addEntry(new IModifierMonitor.Context(this.getId(), "CG_Armor", initialTemperature, new Temperature(newTemperatureLevel)));
-		
+
 		return new Temperature(newTemperatureLevel);
 	}
 
@@ -69,5 +82,4 @@ public class TANTemperatureModifier implements ITemperatureModifier
 	{
 		return "cg_armor";
 	}
-	
 }

@@ -45,7 +45,7 @@ public class ArmorItemFactory extends GenericItemFactory
 		ItemCGArmor item = new ItemCGArmor(id, ItemsCG.GENERIC_MATERIAL, 0, slot);
 
 		// Durability.
-		int durability = MathHelper.clamp(JsonUtils.getInt(json, "durability", 64), 0, Integer.MAX_VALUE);
+		int durability = MathHelper.clamp(JsonUtils.getInt(json, "durability", 	1), 0, Integer.MAX_VALUE);
 		if (durability > 0) {
 			item.setMaxDamage(durability);			
 		}
@@ -77,12 +77,18 @@ public class ArmorItemFactory extends GenericItemFactory
 				if (featureType.equals("air_mask")) {
 					item.setAirMask(true);
 					item.setMinAir(JsonUtils.getInt(featureObj, "minAir", 0));
+
+				} else if (featureType.equals("colorable")) {
+					item.setColorable(true);
+					item.setDefaultColor(JsonUtils.getInt(featureObj, "defaultColor", 16777215));
+					ItemsCG.COLORABLE_REGISTRY.add(item);
+
 				} else if (featureType.equals("warm")) {
-					// TODO:
+					item.setWarm(true);
 				} else if (featureType.equals("satiety_save_cold")) {
-					// TODO:
+					item.setSaveSatietyCold(true);
 				} else if (featureType.equals("satiety_save_hot")) {
-					// TODO:
+					item.setSaveSatietyHot(true);
 				} else {
 					throw new IllegalArgumentException("Invalid armor feature type '" + featureType + "'.");
 				}
@@ -103,6 +109,7 @@ public class ArmorItemFactory extends GenericItemFactory
 			boolean hasDescription = JsonUtils.getBoolean(intelligenceObj, "hasDescription", false);
 			
 			item.setHasDescription(hasDescription); // Description.
+			item.setHasVisualAttributes(JsonUtils.getBoolean(intelligenceObj, "hasVisualAttributes", false));
 		}
 
 		// Only client need model info.
@@ -112,8 +119,9 @@ public class ArmorItemFactory extends GenericItemFactory
 		
 			// Armor model.
 			JsonObject armorModel = JsonUtils.getJsonObject(json, "armorModel");
-			String armorName = JsonUtils.getString(armorModel, "armorName");
-			item.setArmorName(armorName);
+
+			item.setArmorName(JsonUtils.getString(armorModel, "armorName"));
+			item.setHasOverlay(JsonUtils.getBoolean(armorModel, "hasOverlay", false));
 		}
 
 		return item;

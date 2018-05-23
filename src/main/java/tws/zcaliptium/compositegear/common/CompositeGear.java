@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
@@ -132,14 +133,14 @@ public class CompositeGear
     {
     	modLog.info("Registering IItemColor handler for mod items.");
     	
+    	Item[] items = ItemsCG.COLORABLE_REGISTRY.toArray(new Item[0]);
+    	
 		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor()
         {
             public int colorMultiplier(ItemStack stack, int tintIndex)
             {
                 return tintIndex > 0 ? -1 : ((ItemArmor)stack.getItem()).getColor(stack);
             }
-        }, ItemsCG.compositeHelmet, ItemsCG.compositeChestplate, ItemsCG.compositeLeggings, ItemsCG.compositeBoots, ItemsCG.compositeFaceplate,
-        		ItemsCG.ushankaHat, ItemsCG.balaclavaMask, ItemsCG.shemaghMask, ItemsCG.rubberGasmask, ItemsCG.respiratorMask, ItemsCG.respiratorMaskComposite,
-        		ItemsCG.compositeLightHelmet, ItemsCG.compositeLightVest, ItemsCG.compositeLightLeggings, ItemsCG.compositeLightBoots, ItemsCG.feltBoots);
+        }, items);
     }
 }
