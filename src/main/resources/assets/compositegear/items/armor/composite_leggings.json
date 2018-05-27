@@ -2,6 +2,10 @@
   "type": "compositegear:armor",
   "slot": "legs",
   "id": "composite_leggings",
+  "intelligence": {
+    "class": "MEDIUM_ARMOR",
+    "rarity": "CgRare"
+  },
   "durability": 768,
   "material" : {
     "type": "generic",

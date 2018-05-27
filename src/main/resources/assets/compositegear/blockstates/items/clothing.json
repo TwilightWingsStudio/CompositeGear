@@ -22,6 +22,16 @@
           "layer1": "compositegear:items/shemagh_mask_overlay"
         }
       },
+      "wool_jersey": {
+        "textures": {
+          "layer0": "compositegear:items/wool_jersey"
+        }
+      },
+      "wool_pants": {
+        "textures": {
+          "layer0": "compositegear:items/wool_pants"
+        }
+      },
       "felt_boots": {
         "textures": {
           "layer0": "compositegear:items/felt_boots"

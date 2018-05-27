@@ -4,6 +4,7 @@
   "id": "shemagh_mask",
   "durability": 256,
   "intelligence": {
+    "class": "CLOTHING",
     "hasDescription": true,
     "hasVisualAttributes": true
   },

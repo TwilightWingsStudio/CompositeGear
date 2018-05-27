@@ -2,11 +2,15 @@
   "type": "compositegear:armor",
   "slot": "head",
   "id": "composite_faceplate",
+  "intelligence": {
+    "class": "LIGHT_ARMOR",
+    "rarity": "CgRare"
+  },
   "durability": 768,
   "material" : {
     "type": "generic",
-    "protection": 3,
-    "toughness": 2,
+    "protection": 2,
+    "toughness": 1,
     "enchantability": 12
   },
   "features": [

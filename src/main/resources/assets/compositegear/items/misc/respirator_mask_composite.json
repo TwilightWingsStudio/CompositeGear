@@ -2,10 +2,15 @@
   "type": "compositegear:armor",
   "slot": "head",
   "id": "respirator_mask_composite",
+  "intelligence": {
+    "class": "LIGHT_ARMOR",
+    "rarity": "CgRare"
+  },
   "durability": 768,
   "material" : {
     "type": "generic",
     "protection": 2,
+    "toughness": 1,
     "enchantability": 12
   },
   "features": [

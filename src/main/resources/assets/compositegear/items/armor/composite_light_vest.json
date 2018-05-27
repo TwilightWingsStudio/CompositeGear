@@ -2,6 +2,10 @@
   "type": "compositegear:armor",
   "slot": "chest",
   "id": "composite_light_vest",
+  "intelligence": {
+    "class": "LIGHT_ARMOR",
+    "rarity": "CgUncommon"
+  },
   "durability": 768,
   "material" : {
     "type": "generic",

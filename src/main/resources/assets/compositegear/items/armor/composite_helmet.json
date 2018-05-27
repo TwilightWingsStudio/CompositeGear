@@ -3,6 +3,10 @@
   "slot": "head",
   "id": "composite_helmet",
   "durability": 768,
+  "intelligence": {
+    "class": "MEDIUM_ARMOR",
+    "rarity": "CgRare"
+  },
   "material" : {
     "type": "generic",
     "protection": 3,

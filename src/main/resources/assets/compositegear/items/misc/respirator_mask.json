@@ -2,6 +2,10 @@
   "type": "compositegear:armor",
   "slot": "head",
   "id": "respirator_mask",
+  "intelligence": {
+    "class": "ACCESSORY_ARMOR",
+    "rarity": "CgUncommon"
+  },
   "durability": 128,
   "material" : {
     "type": "generic",

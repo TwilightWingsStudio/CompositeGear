@@ -2,6 +2,10 @@
   "type": "compositegear:armor",
   "slot": "feet",
   "id": "composite_boots",
+  "intelligence": {
+    "class": "MEDIUM_ARMOR",
+    "rarity": "CgRare"
+  },
   "durability": 768,
   "material" : {
     "type": "generic",

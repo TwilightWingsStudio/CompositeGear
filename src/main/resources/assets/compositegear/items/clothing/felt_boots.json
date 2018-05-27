@@ -4,13 +4,13 @@
   "id": "felt_boots",
   "durability": 64,
   "intelligence": {
+    "class": "CLOTHING",
     "hasDescription": true
   },
   "material" : {
     "type": "generic",
-    "protection": 10,
-    "toughness": 5,
-    "enchantability": 0
+    "protection": 1,
+    "enchantability": 15
   },
   "features": [
     {
@@ -30,6 +30,7 @@
     "variant": "felt_boots"
   },
   "armorModel" : {
-    "armorName": "felt_boots"
+    "armorName": "felt_boots",
+    "hasOverlay": true
   }
 }

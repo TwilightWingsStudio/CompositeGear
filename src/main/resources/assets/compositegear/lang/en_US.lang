@@ -36,6 +36,8 @@ item.shemagh_mask.name=Shemagh Mask
 item.shemagh_mask.desc=Bomb has been planted!
 item.shemagh_mask.va=§4 +75% Chance to be confused with terrorist
 
+item.wool_jersey.name=Wool Jersey
+item.wool_pants.name= Wool Pants
 item.felt_boots.name=Felt Boots
 item.felt_boots.desc=Boots made out of wool.^Will keep your feet warm.
 

@@ -2,6 +2,10 @@
   "type": "compositegear:armor",
   "slot": "chest",
   "id": "composite_chestplate",
+  "intelligence": {
+    "class": "MEDIUM_ARMOR",
+    "rarity": "CgRare"
+  },
   "durability": 1024,
   "material" : {
     "type": "generic",

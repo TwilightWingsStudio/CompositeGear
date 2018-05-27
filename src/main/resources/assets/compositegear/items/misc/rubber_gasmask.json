@@ -3,6 +3,9 @@
   "slot": "head",
   "id": "rubber_gasmask",
   "durability": 128,
+  "intelligence": {
+    "class": "ACCESSORY_ARMOR"
+  },
   "material" : {
     "type": "generic",
     "protection": 1,
