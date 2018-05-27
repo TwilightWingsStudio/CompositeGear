@@ -39,7 +39,7 @@ public class ArmorItemFactory extends GenericItemFactory
 		EntityEquipmentSlot slot = EntityEquipmentSlot.fromString(slotIn);
 		
 		// Filter non-armor slots.
-		if (slot == EntityEquipmentSlot.MAINHAND || slot == EntityEquipmentSlot.OFFHAND) {
+		if (slot.getSlotType() != EntityEquipmentSlot.Type.ARMOR) {
 			throw new IllegalArgumentException("Invalid slot '" + slotIn + "'. It is not armor slot!");
 		}
 
