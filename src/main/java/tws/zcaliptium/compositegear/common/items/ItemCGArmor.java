@@ -34,6 +34,8 @@ import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.ModInfo;
+import tws.zcaliptium.compositegear.common.compat.IC2Compat;
+import tws.zcaliptium.compositegear.common.compat.TRCompat;
 import tws.zcaliptium.compositegear.lib.IClassifiedItem;
 import tws.zcaliptium.compositegear.lib.IDescriptableItem;
 import tws.zcaliptium.compositegear.lib.ISpecialArmor;
@@ -164,9 +166,9 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 				// TR cells.
 				if (!refilled && Loader.isModLoaded(Compats.TR) && ConfigurationCG.trCompat)
 				{
-					if (consumeItemFromInventory(player, ItemsCG.trCompressedAirCell))
+					if (consumeItemFromInventory(player, TRCompat.trCompressedAirCell))
 					{
-						player.inventory.addItemStackToInventory(ItemsCG.trEmptyCell.copy());
+						player.inventory.addItemStackToInventory(TRCompat.trEmptyCell.copy());
 						refilled = true;
 					}
 
@@ -175,9 +177,9 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 				// IC2 cells.
 				if (!refilled && Loader.isModLoaded(Compats.IC2) && ConfigurationCG.ic2Compat) {
 
-					if (consumeItemFromInventory(player, ItemsCG.ic2CompressedAirCell))
+					if (consumeItemFromInventory(player, IC2Compat.ic2CompressedAirCell))
 					{
-						player.inventory.addItemStackToInventory(ItemsCG.ic2EmptyCell.copy());
+						player.inventory.addItemStackToInventory(IC2Compat.ic2EmptyCell.copy());
 						refilled = true;
 					}
 				}

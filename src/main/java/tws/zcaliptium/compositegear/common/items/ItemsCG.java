@@ -38,6 +38,8 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import techreborn.api.TechRebornAPI;
 import tws.zcaliptium.compositegear.common.ModInfo;
+import tws.zcaliptium.compositegear.common.compat.IC2Compat;
+import tws.zcaliptium.compositegear.common.compat.TRCompat;
 import tws.zcaliptium.compositegear.common.crafting.RecipesDyingArmor;
 import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.CompositeGear;
@@ -54,12 +56,6 @@ public class ItemsCG
 	public static Item compositeMace;
 	public static Item compositeClub;
 
-	public static ItemStack ic2CompressedAirCell;
-	public static ItemStack ic2EmptyCell;
-
-	public static ItemStack trCompressedAirCell;
-	public static ItemStack trEmptyCell;
-	
     public static List<Item> COLORABLE_REGISTRY = Lists.<Item>newArrayList();
 
 	public static EnumRarity CG_UNCOMMON = EnumHelper.addRarity("CG_UNCOMMON", TextFormatting.GREEN, "CgUncommon");
@@ -83,22 +79,12 @@ public class ItemsCG
 
 		if (Loader.isModLoaded(Compats.TR))
 		{
-			trCompressedAirCell = TechRebornAPI.subItemRetriever.getCellByName("compressedair", 1);
-			trEmptyCell = TechRebornAPI.subItemRetriever.getCellByName("cell");
-			
-			if (trCompressedAirCell == null || trEmptyCell == null) {
-				CompositeGear.modLog.error("One of TechReborn cells is null! Respirators may not work!");
-			}
+			TRCompat.load();
 		}
 
 		if (Loader.isModLoaded(Compats.IC2))
 		{
-			ic2CompressedAirCell = IC2Items.getItem("fluid_cell", "ic2air");
-			ic2EmptyCell = IC2Items.getItem("fluid_cell");
-			
-			if (ic2CompressedAirCell == null || ic2EmptyCell == null) {
-				CompositeGear.modLog.error("One of IC2 cells is null! Respirators may not work!");
-			}
+			IC2Compat.load();
 		}
 	}
 
