@@ -44,12 +44,12 @@ import tws.zcaliptium.compositegear.lib.ISpecialArmor;
 public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescriptableItem, IMetalArmor, ISpecialArmor
 {
 	protected String armorName;
-	protected EnumItemClass itemClass;
-	protected EnumRarity rarity;
 
 	// Intelligence
 	protected boolean hasDescription;
 	protected boolean hasVisualAttributes;
+	protected EnumItemClass itemClass;
+	protected EnumRarity rarity;
 	
 	// Model
 	protected boolean isColorable;

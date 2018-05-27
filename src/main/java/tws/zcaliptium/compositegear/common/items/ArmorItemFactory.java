@@ -118,6 +118,12 @@ public class ArmorItemFactory extends GenericItemFactory
 				}
 			}
 			
+			String className = JsonUtils.getString(intelligenceObj, "class", null);
+			if (className != null)
+			{
+				item.setItemClass(EnumItemClass.valueOf(className));
+			}
+			
 			boolean hasDescription = JsonUtils.getBoolean(intelligenceObj, "hasDescription", false);
 			
 			item.setHasDescription(hasDescription); // Description.
