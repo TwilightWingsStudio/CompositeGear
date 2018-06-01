@@ -101,37 +101,12 @@ public class ArmorItemFactory extends GenericItemFactory
 		// Localized name & Description.
 		if (intelligenceObj != null)
 		{
-			String unlocalized = JsonUtils.getString(intelligenceObj, "unlocalizedName", null);
-			
-			if (unlocalized != null) {
-				item.setUnlocalizedName(unlocalized);
-			}
-			
-			String rarityName = JsonUtils.getString(intelligenceObj, "rarity", null);
-			if (rarityName != null)
-			{
-				for (EnumRarity rarity : EnumRarity.values()) {
-					if (rarity.rarityName.equals(rarityName)) {
-						item.setRarity(rarity);
-						break;
-					}
-				}
-			}
-			
-			String className = JsonUtils.getString(intelligenceObj, "class", null);
-			if (className != null)
-			{
-				item.setItemClass(EnumItemClass.valueOf(className));
-			}
-			
-			boolean hasDescription = JsonUtils.getBoolean(intelligenceObj, "hasDescription", false);
-			
-			item.setHasDescription(hasDescription); // Description.
-			item.setHasVisualAttributes(JsonUtils.getBoolean(intelligenceObj, "hasVisualAttributes", false));
+			parseIntelligence(intelligenceObj, item);
 		}
 
 		// Only client need model info.
-		if (CompositeGear.proxy.isClient()) {
+		if (CompositeGear.proxy.isClient())
+		{
 			JsonObject modelObj = JsonUtils.getJsonObject(json, "model");
 			parseModel(modelObj, item);
 		

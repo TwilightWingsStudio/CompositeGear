@@ -33,10 +33,9 @@ import tws.zcaliptium.compositegear.client.IItemModelProvider;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.ModInfo;
-import tws.zcaliptium.compositegear.lib.IClassifiedItem;
-import tws.zcaliptium.compositegear.lib.IDescriptableItem;
+import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
-public class ItemCGMelee extends ItemSword implements IClassifiedItem, IDescriptableItem, IItemModelProvider
+public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemModelProvider
 {
 	private static double SWORD_SPEED_MODIFIER = -2.4000000953674316D;
 	private static double DAGGER_SPEED_MODIFIER = -0.8D;
@@ -58,18 +57,6 @@ public class ItemCGMelee extends ItemSword implements IClassifiedItem, IDescript
 		if (CompositeGear.ic2Tab != null) {
 			setCreativeTab(CompositeGear.ic2Tab);
 		}
-	}
-	
-    @Override
-    @SideOnly(Side.CLIENT)
-    public EnumRarity getRarity(ItemStack var1)
-    {
-    	return rarity;
-    }
-
-	@Override
-	public EnumItemClass getItemClass() {
-		return EnumItemClass.MELEE_WEAPON;
 	}
 
 	@Override
@@ -127,19 +114,7 @@ public class ItemCGMelee extends ItemSword implements IClassifiedItem, IDescript
 
         return multimap;
     }
-    
-    public ItemCGMelee setRarity(EnumRarity rarity)
-    {
-    	this.rarity = rarity;
-		return this;
-    }
 
-	@Override
-	public boolean hasDescription()
-	{
-		return this.hasDescription;
-	}
-	
 	@Override
 	public int getItemEnchantability(ItemStack stack)
 	{
@@ -156,9 +131,46 @@ public class ItemCGMelee extends ItemSword implements IClassifiedItem, IDescript
 		return ConfigurationCG.allowMeleeEnchanting;
 	}
 
-	public ItemCGMelee setHasDescription(boolean hasDescription)
+    @Override
+    @SideOnly(Side.CLIENT)
+    public EnumRarity getRarity(ItemStack var1)
+    {
+    	return rarity;
+    }
+
+	@Override
+	public EnumItemClass getItemClass()
+	{
+		return EnumItemClass.MELEE_WEAPON;
+	}
+
+	@Override
+	public boolean hasDescription()
+	{
+		return this.hasDescription;
+	}
+
+	@Override
+	public boolean hasVisualAttributes()
+	{
+		return false;
+	}
+
+	@Override
+	public void setRarity(EnumRarity rarity)
+	{
+		this.rarity = rarity;
+	}
+
+	@Override
+	public void setItemClass(EnumItemClass itemClass) {}
+
+	@Override
+	public void setHasDescription(boolean hasDescription)
 	{
 		this.hasDescription = hasDescription;
-		return this;
 	}
+
+	@Override
+	public void setHasVisualAttributes(boolean hasVisualAttributes) {}
 }

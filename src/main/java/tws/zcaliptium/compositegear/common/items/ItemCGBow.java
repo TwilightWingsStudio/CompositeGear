@@ -40,10 +40,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.ModInfo;
-import tws.zcaliptium.compositegear.lib.IClassifiedItem;
-import tws.zcaliptium.compositegear.lib.IDescriptableItem;
+import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
-public class ItemCGBow extends Item implements IClassifiedItem, IDescriptableItem
+public class ItemCGBow extends Item implements IItemIntelligence
 {
     private int enchantability;
     protected boolean hasDescription;
@@ -266,29 +265,11 @@ public class ItemCGBow extends Item implements IClassifiedItem, IDescriptableIte
     {
         return enchantability;
     }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public EnumRarity getRarity(ItemStack var1)
-    {
-    	return EnumRarity.UNCOMMON;
-    }
-
-	@Override
-	public EnumItemClass getItemClass() {
-		return EnumItemClass.RANGED_WEAPON;
-	}
 
 	@Override
 	public boolean isFull3D() 
 	{
 		return true;
-	}
-
-	@Override
-	public boolean hasDescription()
-	{
-		return this.hasDescription;
 	}
 	
 	@Override
@@ -306,10 +287,43 @@ public class ItemCGBow extends Item implements IClassifiedItem, IDescriptableIte
 	{
 		return ConfigurationCG.allowRangedEnchanting;
 	}
+	
+    @Override
+    @SideOnly(Side.CLIENT)
+    public EnumRarity getRarity(ItemStack var1)
+    {
+    	return EnumRarity.UNCOMMON;
+    }
 
-	public ItemCGBow setHasDescription(boolean hasDescription)
+	@Override
+	public EnumItemClass getItemClass() {
+		return EnumItemClass.RANGED_WEAPON;
+	}
+
+	@Override
+	public boolean hasDescription()
+	{
+		return this.hasDescription;
+	}
+
+	@Override
+	public boolean hasVisualAttributes()
+	{
+		return false;
+	}
+
+	@Override
+	public void setRarity(EnumRarity rarity) {}
+
+	@Override
+	public void setItemClass(EnumItemClass itemClass) {}
+
+	@Override
+	public void setHasDescription(boolean hasDescription)
 	{
 		this.hasDescription = hasDescription;
-		return this;
 	}
+
+	@Override
+	public void setHasVisualAttributes(boolean hasVisualAttributes) {}
 }

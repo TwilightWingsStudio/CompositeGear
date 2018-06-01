@@ -67,11 +67,11 @@ public class ItemsCG
 		Item.ToolMaterial compositeToolMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE", 2, 1800, 6.0F, 2.0F, 13);
 
 		// Weapons
-		compositeSword = new ItemCGMelee("composite_sword", compositeToolMaterial).setRarity(CG_RARE);
-		compositeMace = new ItemCGMelee("composite_mace", compositeToolMaterial).setRarity(CG_RARE).setHasDescription(true);
-		compositeClub = new ItemCGMelee("composite_club", compositeToolMaterial).setRarity(CG_RARE).setHasDescription(true);
-		compositeDagger = new ItemCGMelee("composite_dagger", compositeToolMaterial).setRarity(CG_RARE).setMaxDamage(600);
-		compositeBow = new ItemCGBow("composite_bow", 2000, 15).setHasDescription(true);
+		compositeSword = new ItemCGMelee("composite_sword", compositeToolMaterial);
+		compositeMace = new ItemCGMelee("composite_mace", compositeToolMaterial);
+		compositeClub = new ItemCGMelee("composite_club", compositeToolMaterial);
+		compositeDagger = new ItemCGMelee("composite_dagger", compositeToolMaterial).setMaxDamage(600);
+		compositeBow = new ItemCGBow("composite_bow", 2000, 15);
 
 		if (CompositeGear.proxy.isClient()) {
 			registerItemModels();

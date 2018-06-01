@@ -19,8 +19,7 @@ import tws.zcaliptium.compositegear.common.items.EnumItemClass;
 import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
 import tws.zcaliptium.compositegear.common.items.ItemCGBow;
 import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
-import tws.zcaliptium.compositegear.lib.IClassifiedItem;
-import tws.zcaliptium.compositegear.lib.IDescriptableItem;
+import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
 @SideOnly(Side.CLIENT)
 public class ClientEventHandler
@@ -32,27 +31,25 @@ public class ClientEventHandler
 		ItemStack itemStack = ev.getItemStack();
 		
 		int line = 1;
-
-		if (itemStack.getItem() instanceof IClassifiedItem)
+		
+		if (itemStack.getItem() instanceof IItemIntelligence)
 		{
-			IClassifiedItem classifiedItem = (IClassifiedItem)itemStack.getItem();
+			IItemIntelligence itemIntelligence = (IItemIntelligence)itemStack.getItem();
 			
 			// If class selected then print it out.
-			if (classifiedItem.getItemClass() != EnumItemClass.NO_CLASS)
+			if (itemIntelligence.getItemClass() != EnumItemClass.NO_CLASS)
 			{
 				String transItemClass = I18n.translateToLocal("compositegear.itemclass");
 
-				ev.getToolTip().add(line, transItemClass + ": " + classifiedItem.getItemClass().getLocalized());
+				ev.getToolTip().add(line, transItemClass + ": " + itemIntelligence.getItemClass().getLocalized());
 				line++;
 			}
-		}
 
-		// Text description.
-		if (itemStack.getItem() instanceof IDescriptableItem)
-		{
-			String transItemDesc = I18n.translateToLocal("compositegear.itemdesc");
+			// Item Description.
+			if (itemIntelligence.hasDescription())
+			{
+				String transItemDesc = I18n.translateToLocal("compositegear.itemdesc");
 
-			if (((IDescriptableItem)itemStack.getItem()).hasDescription()) {
 				String descriptionString = I18n.translateToLocal(itemStack.getItem().getUnlocalizedName() + ".desc");
 				String descriptionLines[] = descriptionString.split("\\^");
 				
@@ -69,12 +66,9 @@ public class ClientEventHandler
 					line++;
 				}
 			}
-		}
 
-		// Visual attributes.
-		if (itemStack.getItem() instanceof ItemCGArmor)
-		{
-			if (((ItemCGArmor)itemStack.getItem()).hasVisualAttributes())
+			// Visual Attributes.
+			if (itemIntelligence.hasVisualAttributes())
 			{
 				String visualAttributes = I18n.translateToLocal(itemStack.getItem().getUnlocalizedName() + ".va");
 				String attributes[] = visualAttributes.split("\\^");

@@ -7,7 +7,19 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.lib;
 
-public interface IDescriptableItem
+import net.minecraft.item.EnumRarity;
+import tws.zcaliptium.compositegear.common.items.EnumItemClass;
+
+public interface IItemIntelligence
 {
+	// Getters
+	public EnumItemClass getItemClass();
 	public boolean hasDescription();
+	public boolean hasVisualAttributes();
+	
+	// Setters
+	public void setRarity(EnumRarity rarity);
+	public void setItemClass(EnumItemClass itemClass);
+	public void setHasDescription(boolean hasDescription);
+	public void setHasVisualAttributes(boolean hasVisualAttributes);
 }

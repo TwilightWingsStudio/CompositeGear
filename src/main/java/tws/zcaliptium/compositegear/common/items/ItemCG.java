@@ -7,13 +7,14 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common.items;
 
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ModInfo;
-import tws.zcaliptium.compositegear.lib.IDescriptableItem;
+import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
-public class ItemCG extends Item implements IDescriptableItem
+public class ItemCG extends Item implements IItemIntelligence
 {
 	protected boolean hasDescription;
 
@@ -31,13 +32,35 @@ public class ItemCG extends Item implements IDescriptableItem
     }
 
 	@Override
+	public EnumItemClass getItemClass()
+	{
+		return EnumItemClass.NO_CLASS;
+	}
+
+	@Override
 	public boolean hasDescription()
 	{
-		return hasDescription;
+		return this.hasDescription;
+	}
+
+	@Override
+	public boolean hasVisualAttributes()
+	{
+		return false;
 	}
 	
+	@Override
+	public void setRarity(EnumRarity rarity) {}
+	
+	@Override
+	public void setItemClass(EnumItemClass itemClass) {}
+
+	@Override
 	public void setHasDescription(boolean hasDescription)
 	{
 		this.hasDescription = hasDescription;
 	}
+
+	@Override
+	public void setHasVisualAttributes(boolean hasVisualAttributes) {}
 }

@@ -14,6 +14,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.util.JsonUtils;
 import net.minecraft.util.math.MathHelper;
@@ -23,6 +24,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.lib.IItemFactory;
+import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
 public class GenericItemFactory implements IItemFactory
 {	
@@ -37,19 +39,10 @@ public class GenericItemFactory implements IItemFactory
 		item.setMaxStackSize(maxStackSize);
 
 		JsonObject intelligenceObj = JsonUtils.getJsonObject(json, "intelligence", null);
-		
+
 		// Localized name & Description.
-		if (intelligenceObj != null)
-		{
-			String unlocalized = JsonUtils.getString(intelligenceObj, "unlocalizedName", null);
-			
-			if (unlocalized != null) {
-				item.setUnlocalizedName(unlocalized);
-			}
-			
-			boolean hasDescription = JsonUtils.getBoolean(intelligenceObj, "hasDescription", false);
-			
-			item.setHasDescription(hasDescription); // Description.
+		if (intelligenceObj != null) {
+			parseIntelligence(intelligenceObj, item);
 		}
 		
 		JsonArray oreDictNamesObj = JsonUtils.getJsonArray(json, "oreDictNames", null);
@@ -94,5 +87,39 @@ public class GenericItemFactory implements IItemFactory
         } else {
         	throw new JsonSyntaxException("Unknown item model type.");        	
         }
+	}
+	
+	protected void parseIntelligence(JsonObject json, Item item)
+	{
+		IItemIntelligence intelligence = (IItemIntelligence)item;
+		
+		String unlocalized = JsonUtils.getString(json, "unlocalizedName", null);
+		
+		if (unlocalized != null) {
+			item.setUnlocalizedName(unlocalized);
+		}
+
+		String rarityName = JsonUtils.getString(json, "rarity", null);
+		if (rarityName != null)
+		{
+			for (EnumRarity rarity : EnumRarity.values()) {
+				if (rarity.rarityName.equals(rarityName)) {
+					intelligence.setRarity(rarity);
+					break;
+				}
+			}
+		}
+
+		String className = JsonUtils.getString(json, "class", null);
+		if (className != null)
+		{
+			intelligence.setItemClass(EnumItemClass.valueOf(className));
+		}
+
+		boolean hasDescription = JsonUtils.getBoolean(json, "hasDescription", false);
+		boolean hasVisualAttributes = JsonUtils.getBoolean(json, "hasVisualAttributes", false);
+
+		intelligence.setHasDescription(hasDescription); // Description.
+		intelligence.setHasVisualAttributes(hasVisualAttributes);
 	}
 }

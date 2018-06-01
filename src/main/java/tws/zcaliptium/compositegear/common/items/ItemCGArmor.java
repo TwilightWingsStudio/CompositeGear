@@ -36,12 +36,11 @@ import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.compat.IC2Compat;
 import tws.zcaliptium.compositegear.common.compat.TRCompat;
-import tws.zcaliptium.compositegear.lib.IClassifiedItem;
-import tws.zcaliptium.compositegear.lib.IDescriptableItem;
+import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 import tws.zcaliptium.compositegear.lib.ISpecialArmor;
 
 @Optional.Interface(iface = "ic2.api.item.IMetalArmor", modid = Compats.IC2)
-public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescriptableItem, IMetalArmor, ISpecialArmor
+public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalArmor, ISpecialArmor
 {
 	protected String armorName;
 
@@ -50,7 +49,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 	protected boolean hasVisualAttributes;
 	protected EnumItemClass itemClass;
 	protected EnumRarity rarity;
-	
+
 	// Model
 	protected boolean isColorable;
 	protected int defaultColor;
@@ -105,27 +104,15 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 	}
 
 	@Override
-	public EnumItemClass getItemClass()
-	{
-		return itemClass;
-	}
-
-	public ItemCGArmor setItemClass(EnumItemClass itemClass)
-	{
-		this.itemClass = itemClass;
-		return this;
-	}
-
-	@Override
 	@SideOnly(Side.CLIENT)
 	public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type)
 	{
 		int suffix = this.armorType == EntityEquipmentSlot.LEGS ? 2 : 1;
-	
+
 		if (type == null) {
 			return ModInfo.MODID + ":textures/armor/" + this.armorName + "_" + suffix + ".png";
 		}
-		
+
 		return ModInfo.MODID + ":textures/armor/" + this.armorName + "_" + suffix + "_overlay.png";
 	}
 
@@ -137,12 +124,12 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 				if (!ItemStack.areItemStackTagsEqual(player.inventory.mainInventory.get(i), itemStack)) {
 					continue;
 				}
-				
+
 				player.inventory.decrStackSize(i, 1);
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -152,9 +139,9 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 		if (world.isRemote) {
 			return;
 		}
-		
+
 		boolean shouldUpdate = false;
-		
+
 		// If we wear some air mask on head.
 		if (this.isAirMask && this.armorType == EntityEquipmentSlot.HEAD)
 		{
@@ -183,7 +170,7 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 						refilled = true;
 					}
 				}
-				
+
 				if (refilled) {
 					player.setAir(300);
 			        shouldUpdate = true; // Sync player inventory.
@@ -196,36 +183,6 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 			player.inventoryContainer.detectAndSendChanges();
 		}
 	}
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public EnumRarity getRarity(ItemStack var1)
-    {
-    	return rarity;
-    }
-
-    public ItemCGArmor setHasDescription(boolean hasDescription)
-    {
-    	this.hasDescription = hasDescription;
-		return this;
-    }
-
-    public ItemCGArmor setHasVisualAttributes(boolean hasVisualAttributes)
-    {
-    	this.hasVisualAttributes = hasVisualAttributes;
-    	return this;
-    }
-
-    @Override
-    public boolean hasDescription() 
-    {
-    	return hasDescription;
-    }
-
-    public boolean hasVisualAttributes() 
-    {
-    	return hasVisualAttributes;
-    }
 
     public ItemCGArmor setAirMask(boolean isAirMask)
     {
@@ -258,12 +215,6 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 	{
 		return ConfigurationCG.allowArmorEnchanting;
 	}
-
-    public ItemCGArmor setRarity(EnumRarity rarity)
-    {
-    	this.rarity = rarity;
-		return this;
-    }
 
 	public ItemCGArmor setMinAir(int minAir) {
 		this.minAirToStartRefil = minAir;
@@ -462,5 +413,54 @@ public class ItemCGArmor extends ItemArmor implements IClassifiedItem, IDescript
 	public void setColorable(boolean isColorable)
 	{
 		this.isColorable = isColorable;
+	}
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public EnumRarity getRarity(ItemStack var1)
+    {
+    	return rarity;
+    }
+
+	@Override
+	public EnumItemClass getItemClass()
+	{
+		return itemClass;
+	}
+
+    @Override
+    public boolean hasDescription() 
+    {
+    	return hasDescription;
+    }
+
+    @Override
+    public boolean hasVisualAttributes() 
+    {
+    	return hasVisualAttributes;
+    }
+
+	@Override
+	public void setRarity(EnumRarity rarity)
+	{
+		this.rarity = rarity;
+	}
+
+	@Override
+	public void setItemClass(EnumItemClass itemClass)
+	{
+		this.itemClass = itemClass;
+	}
+
+	@Override
+	public void setHasDescription(boolean hasDescription)
+	{
+		this.hasDescription = hasDescription;
+	}
+
+	@Override
+	public void setHasVisualAttributes(boolean hasVisualAttributes)
+	{
+		this.hasVisualAttributes = hasVisualAttributes;
 	}
 }
