@@ -68,32 +68,7 @@ public class ArmorItemFactory extends GenericItemFactory
 		
 		if (features != null)
 		{
-			Iterator<JsonElement> featuresIt = features.iterator();
-			while (featuresIt.hasNext())
-			{
-				JsonObject featureObj = featuresIt.next().getAsJsonObject();
-				
-				String featureType = JsonUtils.getString(featureObj, "type");
-				
-				if (featureType.equals("air_mask")) {
-					item.setAirMask(true);
-					item.setMinAir(JsonUtils.getInt(featureObj, "minAir", 0));
-
-				} else if (featureType.equals("colorable")) {
-					item.setColorable(true);
-					item.setDefaultColor(JsonUtils.getInt(featureObj, "defaultColor", 16777215));
-					ItemsCG.COLORABLE_REGISTRY.add(item);
-
-				} else if (featureType.equals("warm")) {
-					item.setWarm(true);
-				} else if (featureType.equals("satiety_save_cold")) {
-					item.setSaveSatietyCold(true);
-				} else if (featureType.equals("satiety_save_hot")) {
-					item.setSaveSatietyHot(true);
-				} else {
-					throw new IllegalArgumentException("Invalid armor feature type '" + featureType + "'.");
-				}
-			}
+			parseFeatures(features, item);
 		}
 
 		JsonObject intelligenceObj = JsonUtils.getJsonObject(json, "intelligence", null);
@@ -107,16 +82,46 @@ public class ArmorItemFactory extends GenericItemFactory
 		// Only client need model info.
 		if (CompositeGear.proxy.isClient())
 		{
-			JsonObject modelObj = JsonUtils.getJsonObject(json, "model");
-			parseModel(modelObj, item);
-		
-			// Armor model.
-			JsonObject armorModel = JsonUtils.getJsonObject(json, "armorModel");
-
-			item.setArmorName(JsonUtils.getString(armorModel, "armorName"));
-			item.setHasOverlay(JsonUtils.getBoolean(armorModel, "hasOverlay", false));
+			parseModel(JsonUtils.getJsonObject(json, "model"), item); // Item model.
+			parseArmorModel(JsonUtils.getJsonObject(json, "armorModel"), item); // Armor model.
 		}
 
 		return item;
+	}
+
+	protected void parseArmorModel(JsonObject json, ItemCGArmor item)
+	{
+		item.setArmorName(JsonUtils.getString(json, "armorName"));
+		item.setHasOverlay(JsonUtils.getBoolean(json, "hasOverlay", false));
+	}
+
+	protected void parseFeatures(JsonArray json, ItemCGArmor item)
+	{
+		Iterator<JsonElement> featuresIt = json.iterator();
+		while (featuresIt.hasNext())
+		{
+			JsonObject featureObj = featuresIt.next().getAsJsonObject();
+			
+			String featureType = JsonUtils.getString(featureObj, "type");
+			
+			if (featureType.equals("air_mask")) {
+				item.setAirMask(true);
+				item.setMinAir(JsonUtils.getInt(featureObj, "minAir", 0));
+
+			} else if (featureType.equals("colorable")) {
+				item.setColorable(true);
+				item.setDefaultColor(JsonUtils.getInt(featureObj, "defaultColor", 16777215));
+				ItemsCG.COLORABLE_REGISTRY.add(item);
+
+			} else if (featureType.equals("warm")) {
+				item.setWarm(true);
+			} else if (featureType.equals("satiety_save_cold")) {
+				item.setSaveSatietyCold(true);
+			} else if (featureType.equals("satiety_save_hot")) {
+				item.setSaveSatietyHot(true);
+			} else {
+				throw new IllegalArgumentException("Invalid armor feature type '" + featureType + "'.");
+			}
+		}
 	}
 }
