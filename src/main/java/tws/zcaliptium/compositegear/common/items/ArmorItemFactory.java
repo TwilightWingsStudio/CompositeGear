@@ -52,20 +52,11 @@ public class ArmorItemFactory extends GenericItemFactory
 		}
 
 		// Material
-		JsonObject materialObj = JsonUtils.getJsonObject(json, "material");
-		String materialType = JsonUtils.getString(materialObj, "type");
-
-		if (materialType.equalsIgnoreCase("generic")) {
-			item.setProtection(JsonUtils.getInt(materialObj, "protection", 0));
-			item.setToughness(JsonUtils.getInt(materialObj, "toughness", 0));
-			item.setEnchantability(JsonUtils.getInt(materialObj, "enchantability", 0));
-		} else {
-			throw new IllegalArgumentException("Invalid armor material type '" + materialType + "'.");
-		}
+		parseMaterial(JsonUtils.getJsonObject(json, "material"), item);
 
 		// Features
 		JsonArray features = JsonUtils.getJsonArray(json, "features", null);
-		
+
 		if (features != null)
 		{
 			parseFeatures(features, item);
@@ -89,39 +80,47 @@ public class ArmorItemFactory extends GenericItemFactory
 		return item;
 	}
 
+	protected void parseMaterial(JsonObject json, ItemCGArmor item)
+	{
+		String materialType = JsonUtils.getString(json, "type");
+
+		if (materialType.equalsIgnoreCase("generic")) {
+			item.setProtection(JsonUtils.getInt(json, "protection", 0));
+			item.setToughness(JsonUtils.getInt(json, "toughness", 0));
+			item.setEnchantability(JsonUtils.getInt(json, "enchantability", 0));
+		} else {
+			throw new IllegalArgumentException("Invalid armor material type '" + materialType + "'.");
+		}
+	}
+
+	@Override
+	protected void parseFeature(JsonObject json, Item item, String type)
+	{
+		ItemCGArmor armorItem = (ItemCGArmor)item;
+		
+		if (type.equals("air_mask")) {
+			armorItem.setAirMask(true);
+			armorItem.setMinAir(JsonUtils.getInt(json, "minAir", 0));
+
+		} else if (type.equals("colorable")) {
+			armorItem.setColorable(true);
+			armorItem.setDefaultColor(JsonUtils.getInt(json, "defaultColor", 16777215));
+			ItemsCG.COLORABLE_REGISTRY.add(armorItem);
+
+		} else if (type.equals("warm")) {
+			armorItem.setWarm(true);
+		} else if (type.equals("satiety_save_cold")) {
+			armorItem.setSaveSatietyCold(true);
+		} else if (type.equals("satiety_save_hot")) {
+			armorItem.setSaveSatietyHot(true);
+		} else {
+			throw new IllegalArgumentException("Invalid armor feature type '" + type + "'.");
+		}
+	}
+
 	protected void parseArmorModel(JsonObject json, ItemCGArmor item)
 	{
 		item.setArmorName(JsonUtils.getString(json, "armorName"));
 		item.setHasOverlay(JsonUtils.getBoolean(json, "hasOverlay", false));
-	}
-
-	protected void parseFeatures(JsonArray json, ItemCGArmor item)
-	{
-		Iterator<JsonElement> featuresIt = json.iterator();
-		while (featuresIt.hasNext())
-		{
-			JsonObject featureObj = featuresIt.next().getAsJsonObject();
-			
-			String featureType = JsonUtils.getString(featureObj, "type");
-			
-			if (featureType.equals("air_mask")) {
-				item.setAirMask(true);
-				item.setMinAir(JsonUtils.getInt(featureObj, "minAir", 0));
-
-			} else if (featureType.equals("colorable")) {
-				item.setColorable(true);
-				item.setDefaultColor(JsonUtils.getInt(featureObj, "defaultColor", 16777215));
-				ItemsCG.COLORABLE_REGISTRY.add(item);
-
-			} else if (featureType.equals("warm")) {
-				item.setWarm(true);
-			} else if (featureType.equals("satiety_save_cold")) {
-				item.setSaveSatietyCold(true);
-			} else if (featureType.equals("satiety_save_hot")) {
-				item.setSaveSatietyHot(true);
-			} else {
-				throw new IllegalArgumentException("Invalid armor feature type '" + featureType + "'.");
-			}
-		}
 	}
 }
