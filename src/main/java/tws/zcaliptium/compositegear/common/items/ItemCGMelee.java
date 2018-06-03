@@ -37,14 +37,17 @@ import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
 public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemModelProvider
 {
-	// Intelligence
+	// Intelligence.
     protected boolean hasDescription;
 	protected EnumRarity rarity;
 
-	// Material
+	// Material.
 	protected int enchantability;
 	protected float attackDamage;
 	protected float attackSpeed;
+	
+	// Features.
+	protected int constantGemDamage;
 	
 	public ItemCGMelee(String id, ToolMaterial material)
 	{
@@ -55,9 +58,12 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 		hasDescription = false;
 		this.rarity = EnumRarity.COMMON;
 		
-		// Material
+		// Material.
 		this.attackDamage = 0.0F;
 		this.attackSpeed = 0.0F;
+		
+		// Features.
+		this.setConstantGemDamage(0);
 
 		ItemsCG.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
 		
@@ -175,5 +181,15 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 	public void setEnchantability(int enchantability)
 	{
 		this.enchantability = enchantability;
+	}
+
+	public int getConstantGemDamage()
+	{
+		return constantGemDamage;
+	}
+
+	public void setConstantGemDamage(int constantGemDamage)
+	{
+		this.constantGemDamage = constantGemDamage;
 	}
 }

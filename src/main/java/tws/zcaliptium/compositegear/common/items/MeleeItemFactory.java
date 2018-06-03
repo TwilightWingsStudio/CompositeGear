@@ -1,5 +1,6 @@
 package tws.zcaliptium.compositegear.common.items;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import net.minecraft.item.Item;
@@ -23,9 +24,18 @@ public class MeleeItemFactory extends GenericItemFactory
 			item.setMaxDamage(durability);			
 		}
 
-		// Material
+		// Material.
 		parseMaterial(JsonUtils.getJsonObject(json, "material"), item);
 
+		// Features.
+		JsonArray features = JsonUtils.getJsonArray(json, "features", null);
+
+		if (features != null)
+		{
+			parseFeatures(features, item);
+		}
+
+		// Intelligence.
 		JsonObject intelligenceObj = JsonUtils.getJsonObject(json, "intelligence", null);
 
 		// Localized name & Description.
@@ -41,6 +51,18 @@ public class MeleeItemFactory extends GenericItemFactory
 		}
 
 		return item;
+	}
+
+	@Override
+	protected void parseFeature(JsonObject json, Item item, String type)
+	{
+		ItemCGMelee meleeItem = (ItemCGMelee)item;
+
+		if (type.equals("constant_gem_damage")) {
+			meleeItem.setConstantGemDamage(JsonUtils.getInt(json, "damage"));
+		} else {
+			throw new IllegalArgumentException("Invalid melee feature type '" + type + "'.");	
+		}
 	}
 
 	protected void parseMaterial(JsonObject json, ItemCGMelee item)

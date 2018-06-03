@@ -128,7 +128,7 @@ public class GenericItemFactory implements IItemFactory
 		throw new IllegalArgumentException("Invalid item feature type '" + type + "'.");
 	}
 
-	protected void parseFeatures(JsonArray json, ItemCGArmor item)
+	protected void parseFeatures(JsonArray json, Item item)
 	{
 		Iterator<JsonElement> featuresIt = json.iterator();
 		while (featuresIt.hasNext())

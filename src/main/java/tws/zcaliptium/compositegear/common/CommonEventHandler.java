@@ -15,18 +15,21 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
 
 public class CommonEventHandler
 {
 	private static String GEMS[] = new String[] {
+		"diamond",
+		"amethyst",
 		"emerald",
 		"ruby",
 		"sapphire",
 		"topaz",
 		"peridot"
 	};
-	
+
 	@SubscribeEvent
 	public boolean onPlayerAttackTarget(AttackEntityEvent event)
 	{
@@ -41,15 +44,12 @@ public class CommonEventHandler
 		
 		Item itemHeld = event.getEntityPlayer().getHeldItemMainhand().getItem();
 		
-		int constantGemDmg = 0;
 		
-		if (itemHeld == ItemsCG.compositeMace) {
-			constantGemDmg = 100;
-		} else if (itemHeld == ItemsCG.compositeClub) {
-			constantGemDmg = 50;
-		} else {
+		if (!(itemHeld instanceof ItemCGMelee)) {
 			return true;
 		}
+
+		int constantGemDmg = ((ItemCGMelee)itemHeld).getConstantGemDamage();
 
 		if (event.getTarget() instanceof EntityPlayer)
 		{
@@ -61,7 +61,7 @@ public class CommonEventHandler
 	            {
 	            	ItemArmor armorPiece = (ItemArmor)itemstack.getItem();
 	            	ItemArmor.ArmorMaterial material = armorPiece.getArmorMaterial();
-	            	
+
 	            	if (material == ArmorMaterial.DIAMOND) {
 	            		itemstack.damageItem(constantGemDmg, targetPlayer);	            		
 	            	} else {
