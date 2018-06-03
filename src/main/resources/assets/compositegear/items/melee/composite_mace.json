@@ -9,6 +9,9 @@
   },
   "features": [
     {
+      "type": "shield_disabler"
+    },
+    {
       "type": "constant_gem_damage",
       "damage": 100
     }
