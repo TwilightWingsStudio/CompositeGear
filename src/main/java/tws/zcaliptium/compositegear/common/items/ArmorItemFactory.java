@@ -43,7 +43,7 @@ public class ArmorItemFactory extends GenericItemFactory
 			throw new IllegalArgumentException("Invalid slot '" + slotIn + "'. It is not armor slot!");
 		}
 
-		ItemCGArmor item = new ItemCGArmor(id, ItemsCG.GENERIC_MATERIAL, 0, slot);
+		ItemCGArmor item = new ItemCGArmor(id, ItemCGArmor.GENERIC_MATERIAL, 0, slot);
 
 		// Durability.
 		int durability = MathHelper.clamp(JsonUtils.getInt(json, "durability", 	1), 0, Integer.MAX_VALUE);

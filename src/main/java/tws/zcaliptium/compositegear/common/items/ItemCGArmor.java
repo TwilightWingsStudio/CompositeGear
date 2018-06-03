@@ -17,6 +17,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemArmor;
@@ -25,6 +26,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -42,6 +44,8 @@ import tws.zcaliptium.compositegear.lib.ISpecialArmor;
 @Optional.Interface(iface = "ic2.api.item.IMetalArmor", modid = Compats.IC2)
 public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalArmor, ISpecialArmor
 {
+	public static ItemArmor.ArmorMaterial GENERIC_MATERIAL = EnumHelper.addArmorMaterial("CG_GENERIC", ModInfo.MODID + ":composite", 1, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0);
+	
 	protected String armorName;
 
 	// Intelligence
@@ -77,16 +81,16 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 		this.rarity = EnumRarity.COMMON;
 		setUnlocalizedName(id);
 
-		// Features
+		// Features.
 		this.isAirMask = false;
 		this.minAirToStartRefil = 0;
 
-		// Material
+		// Material.
 		this.protection = 0;
 		this.toughness = 0;
 		this.enchantability = 0;
 
-		// Model
+		// Model.
 		this.defaultColor = 0;
 		this.hasOverlay = false;
 		this.isColorable = false;
@@ -203,7 +207,7 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 			return 0;
 		}
 		
-		if (this.getArmorMaterial() == ItemsCG.GENERIC_MATERIAL) {
+		if (this.getArmorMaterial() == GENERIC_MATERIAL) {
 			return this.enchantability;
 		}
 
@@ -332,7 +336,7 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
     @Override
     public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot equipmentSlot, ItemStack stack)
     {
-    	if (this.getArmorMaterial() == ItemsCG.GENERIC_MATERIAL) {
+    	if (this.getArmorMaterial() == GENERIC_MATERIAL) {
     		Multimap<String, AttributeModifier> multimap = HashMultimap.<String, AttributeModifier>create();
 
     		if (equipmentSlot == this.armorType) {
