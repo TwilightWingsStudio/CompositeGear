@@ -47,6 +47,7 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 	protected float attackSpeed;
 	
 	// Features.
+	protected boolean isShieldDisabler;
 	protected int constantGemDamage;
 	
 	public ItemCGMelee(String id, ToolMaterial material)
@@ -63,7 +64,8 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 		this.attackSpeed = 0.0F;
 		
 		// Features.
-		this.setConstantGemDamage(0);
+		this.isShieldDisabler = false;
+		this.constantGemDamage = 0;
 
 		ItemsCG.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
 		
@@ -81,8 +83,7 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 	@Override
     public boolean canDisableShield(ItemStack stack, ItemStack shield, EntityLivingBase entity, EntityLivingBase attacker)
     {
-		return false;
-        //return this == ItemsCG.compositeMace; // TODO: Fix this stupid check in future.
+		return this.isShieldDisabler;
     }
 	
 	@Override
@@ -191,5 +192,10 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 	public void setConstantGemDamage(int constantGemDamage)
 	{
 		this.constantGemDamage = constantGemDamage;
+	}
+
+	protected void setShieldDisabler(boolean isShieldDisabler)
+	{
+		this.isShieldDisabler = isShieldDisabler;
 	}
 }

@@ -50,11 +50,15 @@ public class CommonEventHandler
 		}
 
 		int constantGemDmg = ((ItemCGMelee)itemHeld).getConstantGemDamage();
+		
+		if (constantGemDmg <= 0) {
+			return true;
+		}
 
 		if (event.getTarget() instanceof EntityPlayer)
 		{
 			EntityPlayer targetPlayer = (EntityPlayer)event.getTarget();
-			
+
 	        for (ItemStack itemstack : targetPlayer.getArmorInventoryList())
 	        {
 	            if (itemstack != null && itemstack.getItem() instanceof ItemArmor)

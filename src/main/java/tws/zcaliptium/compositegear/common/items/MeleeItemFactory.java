@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * Copyright (c) 2018 ZCaliptium.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the GNU Lesser Public License v3
+ * which accompanies this distribution, and is available at
+ * http://www.gnu.org/licenses/lgpl-3.0.txt
+ ******************************************************************************/
 package tws.zcaliptium.compositegear.common.items;
 
 import com.google.gson.JsonArray;
@@ -58,7 +65,9 @@ public class MeleeItemFactory extends GenericItemFactory
 	{
 		ItemCGMelee meleeItem = (ItemCGMelee)item;
 
-		if (type.equals("constant_gem_damage")) {
+		if (type.equals("shield_disabler")) {
+			meleeItem.setShieldDisabler(true);
+		} else if (type.equals("constant_gem_damage")) {
 			meleeItem.setConstantGemDamage(JsonUtils.getInt(json, "damage"));
 		} else {
 			throw new IllegalArgumentException("Invalid melee feature type '" + type + "'.");	
