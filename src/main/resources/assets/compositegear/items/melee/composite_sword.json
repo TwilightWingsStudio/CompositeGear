@@ -1,0 +1,15 @@
+{
+  "type": "compositegear:melee_weapon",
+  "id": "composite_sword",
+  "durability": 1800,
+  "material" : {
+    "type": "generic",
+    "attackDamage": 6.0,
+    "attackSpeed": 1.6
+  },
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/tool/melee",
+    "variant": "composite_sword"
+  }
+}

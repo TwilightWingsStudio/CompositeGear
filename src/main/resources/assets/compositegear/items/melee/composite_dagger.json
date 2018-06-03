@@ -1,0 +1,15 @@
+{
+  "type": "compositegear:melee_weapon",
+  "id": "composite_dagger",
+  "durability": 768,
+  "material" : {
+    "type": "generic",
+    "attackDamage": 4.0,
+    "attackSpeed": 3.2
+  },
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/tool/melee",
+    "variant": "composite_dagger"
+  }
+}

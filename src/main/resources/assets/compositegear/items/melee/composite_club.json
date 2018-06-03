@@ -1,0 +1,21 @@
+{
+  "type": "compositegear:melee_weapon",
+  "id": "composite_club",
+  "durability": 1800,
+  "material" : {
+    "type": "generic",
+    "attackDamage": 8.0,
+    "attackSpeed": 1.6
+  },
+  "features": [
+    {
+      "type": "constant_gem_damage",
+      "damage": 50
+    }
+  ],
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/tool/melee",
+    "variant": "composite_club"
+  }
+}

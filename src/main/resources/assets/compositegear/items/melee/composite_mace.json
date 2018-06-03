@@ -1,0 +1,21 @@
+{
+  "type": "compositegear:melee_weapon",
+  "id": "composite_mace",
+  "durability": 1800,
+  "material" : {
+    "type": "generic",
+    "attackDamage": 10.0,
+    "attackSpeed": 1.2
+  },
+  "features": [
+    {
+      "type": "constant_gem_damage",
+      "damage": 100
+    }
+  ],
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/tool/melee",
+    "variant": "composite_mace"
+  }
+}
