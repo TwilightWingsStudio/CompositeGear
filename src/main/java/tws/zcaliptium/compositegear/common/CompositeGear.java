@@ -36,6 +36,7 @@ import tws.zcaliptium.compositegear.common.items.ArmorItemFactory;
 import tws.zcaliptium.compositegear.common.items.GenericItemFactory;
 import tws.zcaliptium.compositegear.common.items.ItemHelper;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
+import tws.zcaliptium.compositegear.common.items.MeleeItemFactory;
 
 import java.util.Iterator;
 
@@ -99,9 +100,12 @@ public class CompositeGear
     	if (proxy.isClient()) {
         	getIC2Tab();
     	}
-    	
+
+    	// Generic factories.
     	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "generic"), new GenericItemFactory());
     	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "armor"), new ArmorItemFactory());
+    	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "melee_weapon"), new MeleeItemFactory());
+
     	ItemHelper.loadItems(container);
     	ItemsCG.load();
     }

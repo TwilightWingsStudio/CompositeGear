@@ -50,27 +50,16 @@ public class ItemsCG
 	private static final String COMPOSITE_NAME = "composite";
 
 	// Weapons
-	public static Item compositeSword;
 	public static Item compositeBow;
-	public static Item compositeDagger;
-	public static Item compositeMace;
-	public static Item compositeClub;
 
     public static List<Item> COLORABLE_REGISTRY = Lists.<Item>newArrayList();
 
 	public static EnumRarity CG_UNCOMMON = EnumHelper.addRarity("CG_UNCOMMON", TextFormatting.GREEN, "CgUncommon");
 	public static EnumRarity CG_RARE = EnumHelper.addRarity("CG_RARE", TextFormatting.BLUE, "CgRare");
-	public static ItemArmor.ArmorMaterial GENERIC_MATERIAL = EnumHelper.addArmorMaterial("CG_GENERIC", ModInfo.MODID + ":composite", 1, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0);
+	public static Item.ToolMaterial GENERIC_TOOL_MATERIAL = EnumHelper.addToolMaterial("CG_GENERIC", 0, 1, 0.0F, 0.0F, 0);
 
 	public static void load()
 	{
-		Item.ToolMaterial compositeToolMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE", 2, 1800, 6.0F, 2.0F, 13);
-
-		// Weapons
-		compositeSword = new ItemCGMelee("composite_sword", compositeToolMaterial);
-		compositeMace = new ItemCGMelee("composite_mace", compositeToolMaterial);
-		compositeClub = new ItemCGMelee("composite_club", compositeToolMaterial);
-		compositeDagger = new ItemCGMelee("composite_dagger", compositeToolMaterial).setMaxDamage(600);
 		compositeBow = new ItemCGBow("composite_bow", 2000, 15);
 
 		if (CompositeGear.proxy.isClient()) {
@@ -90,11 +79,6 @@ public class ItemsCG
 
 	private static void registerItemModels()
 	{
-		// Weapons
-		registerMultiItem(compositeSword, "composite_sword", "items/tool/melee");
-		registerMultiItem(compositeDagger, "composite_dagger", "items/tool/melee");
-		registerMultiItem(compositeMace, "composite_mace", "items/tool/melee");
-		registerMultiItem(compositeClub, "composite_club", "items/tool/melee");
 		registerItemModel(compositeBow, "tool/composite_bow");
 	}
 

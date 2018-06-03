@@ -37,20 +37,27 @@ import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
 public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemModelProvider
 {
-	private static double SWORD_SPEED_MODIFIER = -2.4000000953674316D;
-	private static double DAGGER_SPEED_MODIFIER = -0.8D;
-	private static double MACE_SPEED_MODIFIER = -2.8D;
-	
+	// Intelligence
     protected boolean hasDescription;
 	protected EnumRarity rarity;
+
+	// Material
+	protected int enchantability;
+	protected float attackDamage;
+	protected float attackSpeed;
 	
 	public ItemCGMelee(String id, ToolMaterial material)
 	{
 		super(material);
 		
+		// Intelligence.
 		setUnlocalizedName(id);
 		hasDescription = false;
 		this.rarity = EnumRarity.COMMON;
+		
+		// Material
+		this.attackDamage = 0.0F;
+		this.attackSpeed = 0.0F;
 
 		ItemsCG.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
 		
@@ -68,26 +75,14 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 	@Override
     public boolean canDisableShield(ItemStack stack, ItemStack shield, EntityLivingBase entity, EntityLivingBase attacker)
     {
-        return this == ItemsCG.compositeMace; // TODO: Fix this stupid check in future.
+		return false;
+        //return this == ItemsCG.compositeMace; // TODO: Fix this stupid check in future.
     }
 	
 	@Override
     public float getAttackDamage()
     {
-    	// TODO: Fix this stupid check in future.
-		if (this == ItemsCG.compositeDagger) {
-			return super.getAttackDamage() - 2;
-		}
-		
-		if (this == ItemsCG.compositeClub) {
-			return super.getAttackDamage() + 2;
-		}
-		
-		if (this == ItemsCG.compositeMace) {
-			return super.getAttackDamage() + 4;
-		}
-		
-        return super.getAttackDamage();
+        return this.attackDamage;
     }
 	
     @Override
@@ -97,19 +92,8 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 
         if (equipmentSlot == EntityEquipmentSlot.MAINHAND)
         {
-        	double speedModifier = SWORD_SPEED_MODIFIER;
-        	
-        	// TODO: Fix this stupid check in future.
-        	if (stack.getItem() == ItemsCG.compositeDagger) {
-        		speedModifier = DAGGER_SPEED_MODIFIER;
-        	}
-        	
-        	if (stack.getItem() == ItemsCG.compositeMace) {
-        		speedModifier = MACE_SPEED_MODIFIER;
-        	}
-
-            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", 3.0D + (double)this.getAttackDamage(), 0));
-            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", speedModifier, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)(this.getAttackDamage() - 1.0), 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)(attackSpeed - 4.0), 0));
         }
 
         return multimap;
@@ -121,8 +105,22 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 		if (!ConfigurationCG.allowMeleeEnchanting) {
 			return 0;
 		}
+		
+		if (this.getToolMaterialName().equals("CG_GENERIC")) {
+			return this.enchantability;
+		}
 
 		return super.getItemEnchantability(stack);
+	}
+	
+	public void setAttackDamage(float attackDamage)
+	{
+		this.attackDamage = attackDamage;
+	}
+
+	public void setAttackSpeed(float attackSpeed)
+	{
+		this.attackSpeed = attackSpeed;
 	}
 
 	@Override
@@ -173,4 +171,9 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 
 	@Override
 	public void setHasVisualAttributes(boolean hasVisualAttributes) {}
+
+	public void setEnchantability(int enchantability)
+	{
+		this.enchantability = enchantability;
+	}
 }
