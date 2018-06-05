@@ -23,7 +23,7 @@ import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
 import tws.zcaliptium.compositegear.lib.ISpecialArmor;
 
-@Optional.Interface(iface = "toughasnails.api.temperature.ITemperatureModifier", modid = Compats.IC2)
+@Optional.Interface(iface = "toughasnails.api.temperature.ITemperatureModifier", modid = Compats.TAN)
 public class TANTemperatureModifier implements ITemperatureModifier
 {
 	@Optional.Method(modid = Compats.TAN)
