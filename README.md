@@ -14,4 +14,4 @@ To setup project file open command line at project folder and type:
  
 ## License & Copyright
 Copyright (c) 2018 ZCaliptium.
-This project licensed under LGPL v3. See LICENSE.txt for all details or go to http://www.gnu.org/licenses/lgpl-3.0.txt
+This project is licensed under LGPL v3. See LICENSE.txt for all details or go to http://www.gnu.org/licenses/lgpl-3.0.txt
