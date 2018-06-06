@@ -3,7 +3,7 @@ item.composite_chestplate.name=Kompozitní Brnění
 item.composite_leggings.name=Kompozitní Kalhoty
 item.composite_boots.name=Kompozitní Boty
 
-item.composite_faceplate.name=Composite Faceplate
+item.composite_faceplate.name=Kompozitní Čelní Plát
 
 item.composite_light_helmet.name=Kompozitní Lehká Helma
 item.composite_light_vest.name=Kompozitní Vesta
@@ -12,13 +12,13 @@ item.composite_light_boots.name=Kompozitní Lehké Boty
 
 item.composite_sword.name=Kompozitní Meč
 item.composite_dagger.name=Kompozitní Dýka
-item.composite_mace.name=Kompozitní Ostnatá Koule
+item.composite_mace.name=Kompozitní Kropáč
 item.composite_mace.desc=S tímhle JSI velký BOREC!!!
 item.composite_club.name=Kompozitní Palice
-item.composite_club.desc=Dobrý výběr, speciálně pro pohlavky.
+item.composite_club.desc=Dobrý výběr, speciálně na pohlavky.
 
 item.composite_bow.name=Kompozitní Luk
-item.composite_bow.desc=Skus ho rozbít!
+item.composite_bow.desc=Zkus ho rozbít!
 
 item.respirator_halfmask.name=Respirátor
 item.respirator_mask.name=Dýchací Maska
@@ -56,6 +56,6 @@ compositegear.itemclass=Třída
 compositegear.itemclass.accessoryarmor=Doplňky
 compositegear.itemclass.lightarmor=Lehké Brnění
 compositegear.itemclass.mediumarmor=Střední Brnění
-compositegear.itemclass.heavyarmor=Těžká zbroj
-compositegear.itemclass.meleeweapon=Na blízko
-compositegear.itemclass.rangedweapon=Na dálku
+compositegear.itemclass.heavyarmor=Těžká Zbroj
+compositegear.itemclass.meleeweapon=Na Blízko
+compositegear.itemclass.rangedweapon=Na Dálku
