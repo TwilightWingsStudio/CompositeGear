@@ -10,6 +10,7 @@ package tws.zcaliptium.compositegear.common;
 import java.io.File;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
@@ -39,5 +40,10 @@ public class CommonProxy
 	
 	public boolean isOpenToLAN() {
 		return false;
+	}
+
+	public boolean isEnabledPVP()
+	{
+		return FMLCommonHandler.instance().getMinecraftServerInstance().isPVPEnabled();
 	}
 }

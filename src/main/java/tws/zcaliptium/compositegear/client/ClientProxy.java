@@ -44,4 +44,14 @@ public class ClientProxy extends CommonProxy
 			return false;
 		}
 	}
+	
+	@Override
+	public boolean isEnabledPVP()
+	{
+		if (isOpenToLAN()) {
+			Minecraft.getMinecraft().getIntegratedServer().isPVPEnabled();
+		}
+		
+		return true;
+	}
 }

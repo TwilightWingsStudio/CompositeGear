@@ -36,21 +36,25 @@ public class CommonEventHandler
 		if (event.getEntityPlayer().getEntityWorld().isRemote) {
 			return true;
 		}
-		
+
 		// If we don't hate gem armor then don't execute following code.
 		if (!ConfigurationCG.hateGemArmor) {
 			return true;
 		}
-		
+
+		// Don't process if PVP disabled.
+		if (!CompositeGear.proxy.isEnabledPVP()) {
+			return true;
+		}
+
 		Item itemHeld = event.getEntityPlayer().getHeldItemMainhand().getItem();
-		
-		
+
 		if (!(itemHeld instanceof ItemCGMelee)) {
 			return true;
 		}
 
 		int constantGemDmg = ((ItemCGMelee)itemHeld).getConstantGemDamage();
-		
+
 		if (constantGemDmg <= 0) {
 			return true;
 		}
