@@ -60,7 +60,7 @@ public class ItemsCG
 
 	public static void load()
 	{
-		compositeBow = new ItemCGBow("composite_bow", 2000, 15);
+		compositeBow = new ItemCGBow("composite_bow", 2048, 15);
 
 		if (CompositeGear.proxy.isClient()) {
 			registerItemModels();
