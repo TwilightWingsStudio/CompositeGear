@@ -20,6 +20,7 @@ import toughasnails.api.temperature.IModifierMonitor;
 import toughasnails.api.temperature.ITemperatureModifier;
 import toughasnails.api.temperature.Temperature;
 import tws.zcaliptium.compositegear.common.Compats;
+import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
 import tws.zcaliptium.compositegear.lib.ISpecialArmor;
 
@@ -57,7 +58,7 @@ public class TANTemperatureModifier implements ITemperatureModifier
 			if (item instanceof ISpecialArmor) {
 				ISpecialArmor tempItem = (ISpecialArmor)item;
 				
-				if (tempItem.isWarm()) {
+				if (ConfigurationCG.isFEWarm && tempItem.isWarm()) {
 					modifier += 1;
 				}
 			}

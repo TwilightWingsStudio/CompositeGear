@@ -20,21 +20,31 @@ public class ConfigurationCG
 	public static final String SECTION_COMPAT = "compat";
 	public static final String SECTION_GAMEPLAY = "gameplay";
 
+	public static final String SECTION_FEATURES_ARMOR = "features_armor";
+	public static final String SECTION_FEATURES_MELEE = "features_melee";
+
 	public static Configuration config;
 
 	public static boolean allowArmorEnchanting = true;
 	public static boolean allowMeleeEnchanting = true;
 	public static boolean allowRangedEnchanting = true;
 
-	public static boolean hateGemArmor = true;
-	public static boolean hatsBonuses = true;
-
 	// Mod compatibility.
 	public static boolean acCompat = true;
 	public static boolean ic2Compat = true;
 	public static boolean tanCompat = true;
 	public static boolean trCompat = true;
+	
+	// Armor Features
+	public static boolean isFEAirMask = true;
+	public static boolean isFEWarm = true;
+	public static boolean isFECold = true;
+	public static boolean isFESaveSatietyHot = true;
+	public static boolean isFESaveSatietyCold = true;
 
+	// Melee Features
+	public static boolean isFEConstantGemDamage = true;
+	
 	public static Map<String, Boolean> CRAFTING_RECIPES = new HashMap<String, Boolean>();
 	private static String DISABLEABLE_NAMES[] = new String[] {
 		"composite_helmet",
@@ -88,9 +98,17 @@ public class ConfigurationCG
 		    ic2Compat = config.getBoolean("ic2", SECTION_COMPAT, true, "Industrial Craft 2 Exp. integration. Enables usage of IC2 air cells by air masks. Also magnetizer support for armor.");
 		    acCompat = config.getBoolean("applecore", SECTION_COMPAT, true, "AppleCore integration. Gives way to control hunger rate by specific equipment.");
 		    tanCompat = config.getBoolean("toughasnails", SECTION_COMPAT, true, "Tough As Nails integration. Equipment will affect body temperature.");
+		    
+		    // Armor
+		    isFEAirMask = config.getBoolean("air_mask", SECTION_FEATURES_ARMOR, true, "Air mask feature. Restores oxygen level with air cells. TR or IC2 integration required.");
+		    isFEWarm = config.getBoolean("warm", SECTION_FEATURES_ARMOR, true, "Gives you warmth. TAN integration required.");
+		    isFECold = config.getBoolean("cold", SECTION_FEATURES_ARMOR, true, "Chills you down. TAN integration required.");
+		    isFESaveSatietyHot = config.getBoolean("save_satiety_hot", SECTION_FEATURES_ARMOR, true, "Saves your energy in hot places. AppleCore integration required.");
+		    isFESaveSatietyCold = config.getBoolean("save_satiety_cold", SECTION_FEATURES_ARMOR, true, "Saves your energy in cold places. AppleCore integration required.");
 
-		    hateGemArmor = config.getBoolean("hateGemArmor", SECTION_GAMEPLAY, true, "Mace & Club will break that primive gem armor (e.g. Diamond/Ruby) very fast.");
-
+		    // Melee
+		    isFEConstantGemDamage = config.getBoolean("constant_gem_damage", SECTION_FEATURES_MELEE, true, "Deals constant damage to most of gem armor. Should work for many armor materials from mods.");
+		    
 	    } catch (Exception e) {
 	      CompositeGear.modLog.error("Unable to load log file!");
 	      throw new RuntimeException(e);

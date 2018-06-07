@@ -155,7 +155,7 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 				boolean refilled = false;
 
 				// TR cells.
-				if (!refilled && Loader.isModLoaded(Compats.TR) && ConfigurationCG.trCompat)
+				if (!refilled && Loader.isModLoaded(Compats.TR) && ConfigurationCG.trCompat && ConfigurationCG.isFEAirMask)
 				{
 					if (consumeItemFromInventory(player, TRCompat.trCompressedAirCell))
 					{
@@ -166,8 +166,8 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 				}
 
 				// IC2 cells.
-				if (!refilled && Loader.isModLoaded(Compats.IC2) && ConfigurationCG.ic2Compat) {
-
+				if (!refilled && Loader.isModLoaded(Compats.IC2) && ConfigurationCG.ic2Compat && ConfigurationCG.isFEAirMask)
+				{
 					if (consumeItemFromInventory(player, IC2Compat.ic2CompressedAirCell))
 					{
 						player.inventory.addItemStackToInventory(IC2Compat.ic2EmptyCell.copy());

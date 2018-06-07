@@ -28,11 +28,6 @@ public class ACHungerHandler
 	@Optional.Method(modid = Compats.APPLECORE)
     public void getMaxExhaustion(ExhaustionEvent.GetMaxExhaustion event)
     {
-    	// If bonuses disabled then do nothing!
-    	if (!ConfigurationCG.hatsBonuses) {
-    		return;
-    	}
-
     	EntityPlayer player = event.player;
     	
     	if (player == null) {
@@ -52,11 +47,11 @@ public class ACHungerHandler
 			if (item instanceof ISpecialArmor) {
 				ISpecialArmor tempItem = (ISpecialArmor)item;
 				
-				if (tempItem.isSaveSatietyCold() && biome.getTempCategory() == Biome.TempCategory.COLD) {
+				if (ConfigurationCG.isFESaveSatietyCold && tempItem.isSaveSatietyCold() && biome.getTempCategory() == Biome.TempCategory.COLD) {
 					multiplier += 0.15F;
 				}
 				
-				if (tempItem.isSaveSatietyHot() && biome.getTempCategory() == Biome.TempCategory.WARM) {					
+				if (ConfigurationCG.isFESaveSatietyHot && tempItem.isSaveSatietyHot() && biome.getTempCategory() == Biome.TempCategory.WARM) {					
 					multiplier += 0.15F;
 				}
 			}

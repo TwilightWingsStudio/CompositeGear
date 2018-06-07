@@ -38,7 +38,7 @@ public class CommonEventHandler
 		}
 
 		// If we don't hate gem armor then don't execute following code.
-		if (!ConfigurationCG.hateGemArmor) {
+		if (!ConfigurationCG.isFEConstantGemDamage) {
 			return true;
 		}
 
