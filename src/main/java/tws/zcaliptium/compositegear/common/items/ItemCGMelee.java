@@ -26,6 +26,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -49,6 +50,8 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 	// Features.
 	protected boolean isShieldDisabler;
 	protected int constantGemDamage;
+	
+	public static Item.ToolMaterial GENERIC_MELEE_MATERIAL = EnumHelper.addToolMaterial("CG_MELEE_GENERIC", 0, 1, 0.0F, 0.0F, 0);
 	
 	public ItemCGMelee(String id, ToolMaterial material)
 	{
@@ -113,7 +116,7 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 			return 0;
 		}
 		
-		if (this.getToolMaterialName().equals("CG_GENERIC")) {
+		if (this.getToolMaterialName().equals("CG_MELEE_GENERIC")) {
 			return this.enchantability;
 		}
 

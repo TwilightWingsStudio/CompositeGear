@@ -23,7 +23,7 @@ public class MeleeItemFactory extends GenericItemFactory
 	{
 		String id = JsonUtils.getString(json, "id");
 
-		ItemCGMelee item = new ItemCGMelee(id, ItemsCG.GENERIC_TOOL_MATERIAL);
+		ItemCGMelee item = new ItemCGMelee(id, ItemCGMelee.GENERIC_MELEE_MATERIAL);
 		
 		// Durability.
 		int durability = MathHelper.clamp(JsonUtils.getInt(json, "durability", 	1), 0, Integer.MAX_VALUE);

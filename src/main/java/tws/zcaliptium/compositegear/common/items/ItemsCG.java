@@ -56,7 +56,6 @@ public class ItemsCG
 
 	public static EnumRarity CG_UNCOMMON = EnumHelper.addRarity("CG_UNCOMMON", TextFormatting.GREEN, "CgUncommon");
 	public static EnumRarity CG_RARE = EnumHelper.addRarity("CG_RARE", TextFormatting.BLUE, "CgRare");
-	public static Item.ToolMaterial GENERIC_TOOL_MATERIAL = EnumHelper.addToolMaterial("CG_GENERIC", 0, 1, 0.0F, 0.0F, 0);
 
 	public static void load()
 	{
