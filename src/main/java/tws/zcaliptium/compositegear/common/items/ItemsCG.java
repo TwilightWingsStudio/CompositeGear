@@ -7,7 +7,9 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common.items;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.common.collect.Lists;
 
@@ -53,6 +55,7 @@ public class ItemsCG
 	public static Item compositeBow;
 
     public static List<Item> COLORABLE_REGISTRY = Lists.<Item>newArrayList();
+    public static Map<Item, ResourceLocation> REPAIR_ITEMS_REGISTRY = new HashMap<Item, ResourceLocation>();
 
 	public static EnumRarity CG_UNCOMMON = EnumHelper.addRarity("CG_UNCOMMON", TextFormatting.GREEN, "CgUncommon");
 	public static EnumRarity CG_RARE = EnumHelper.addRarity("CG_RARE", TextFormatting.BLUE, "CgRare");
@@ -102,6 +105,24 @@ public class ItemsCG
 		/*if (!Loader.isModLoaded(Compats.IC2) && !Loader.isModLoaded(Compats.TR)) {
 			GameRegistry.addSmelting(Items.SLIME_BALL, new ItemStack(rubberBall), 0);
 		}*/
+	}
+	
+	public static void defineRepairMaterials()
+	{
+	    for(Map.Entry<Item, ResourceLocation> entry : ItemsCG.REPAIR_ITEMS_REGISTRY.entrySet())
+	    {
+	    	Item keyItem = entry.getKey();
+
+	    	if (keyItem instanceof ItemCGArmor) {
+	    		Item repairItem = Item.REGISTRY.getObject(entry.getValue());
+	    		
+	    		if (repairItem == null) {
+	    			CompositeGear.modLog.error("Unable to define repair material for '" + keyItem.getRegistryName() + "' - '" + entry.getValue() + "'");
+	    		}
+	    		
+	    		((ItemCGArmor)keyItem).setRepairItem(repairItem);
+	    	}
+	    }
 	}
 
 	public static Item registerItem(Item item, ResourceLocation rl) {

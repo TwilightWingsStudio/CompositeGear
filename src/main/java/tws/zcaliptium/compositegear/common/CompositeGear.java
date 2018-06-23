@@ -130,6 +130,8 @@ public class CompositeGear
         {
         	registerItemColorHandler();
         }
+        
+        ItemsCG.defineRepairMaterials();
     }
         
     @SideOnly(Side.CLIENT)

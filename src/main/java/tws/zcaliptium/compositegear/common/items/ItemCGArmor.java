@@ -20,6 +20,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.nbt.NBTTagCompound;
@@ -63,6 +64,9 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 	protected int protection;
 	protected int toughness;
 	protected int enchantability;
+	
+	protected Item repairItem;
+	protected ItemStack repairStack = ItemStack.EMPTY;
 
 	// Features
 	protected boolean isAirMask;
@@ -89,6 +93,8 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 		this.protection = 0;
 		this.toughness = 0;
 		this.enchantability = 0;
+		
+		this.repairItem = null;
 
 		// Model.
 		this.defaultColor = 0;
@@ -418,6 +424,27 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 	{
 		this.isColorable = isColorable;
 	}
+	
+    private ItemStack getRepairItemStack()
+    {
+        if (!repairStack.isEmpty()) return repairStack;
+        Item ret = this.repairItem;
+        if (ret != null) repairStack = new ItemStack(ret,1,net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE);
+        return repairStack;
+    }
+	
+    @Override
+    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
+    {
+        ItemStack mat = getRepairItemStack();
+        if (!mat.isEmpty() && net.minecraftforge.oredict.OreDictionary.itemMatches(mat, repair, false)) return true;
+        return super.getIsRepairable(toRepair, repair);
+    }
+    
+    public void setRepairItem(Item repairItem)
+    {
+    	this.repairItem = repairItem;
+    }
 
     @Override
     @SideOnly(Side.CLIENT)

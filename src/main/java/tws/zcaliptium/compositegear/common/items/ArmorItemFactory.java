@@ -16,6 +16,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.util.JsonUtils;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.crafting.JsonContext;
 import tws.zcaliptium.compositegear.common.CompositeGear;
@@ -90,6 +91,11 @@ public class ArmorItemFactory extends GenericItemFactory
 			item.setEnchantability(JsonUtils.getInt(json, "enchantability", 0));
 		} else {
 			throw new IllegalArgumentException("Invalid armor material type '" + materialType + "'.");
+		}
+		
+		String repairItemName = JsonUtils.getString(json, "repairItem", null);
+		if (repairItemName != null) {
+			ItemsCG.REPAIR_ITEMS_REGISTRY.put(item, new ResourceLocation(repairItemName));
 		}
 	}
 
