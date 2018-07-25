@@ -1,6 +1,10 @@
 {
   "type": "compositegear:melee_weapon",
   "id": "composite_mace",
+  "intelligence": {
+    "class": "MELEE_WEAPON",
+    "rarity": "CgRare"
+  },
   "durability": 1800,
   "material" : {
     "type": "generic",

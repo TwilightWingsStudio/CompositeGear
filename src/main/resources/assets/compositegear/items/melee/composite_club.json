@@ -1,6 +1,10 @@
 {
   "type": "compositegear:melee_weapon",
   "id": "composite_club",
+  "intelligence": {
+    "class": "MELEE_WEAPON",
+    "rarity": "CgUncommon"
+  },
   "durability": 1800,
   "material" : {
     "type": "generic",

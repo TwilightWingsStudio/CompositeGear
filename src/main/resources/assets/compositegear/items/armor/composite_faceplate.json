@@ -4,7 +4,7 @@
   "id": "composite_faceplate",
   "intelligence": {
     "class": "LIGHT_ARMOR",
-    "rarity": "CgRare"
+    "rarity": "CgUncommon"
   },
   "durability": 768,
   "material" : {
