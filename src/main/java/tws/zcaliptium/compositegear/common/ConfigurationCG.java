@@ -46,6 +46,8 @@ public class ConfigurationCG
 	public static boolean isFEConstantGemDamage = true;
 	
 	public static Map<String, Boolean> CRAFTING_RECIPES = new HashMap<String, Boolean>();
+	
+	// TODO: Get rid of this!
 	private static String DISABLEABLE_NAMES[] = new String[] {
 		"composite_helmet",
 		"composite_chestplate",
@@ -75,7 +77,9 @@ public class ConfigurationCG
 		"balaclava_mask",
 		"shemagh_mask",
 
-		"felt_boots",
+		"wool_jersey",
+		"wool_pants",
+		"felt_boots"
 	};
 
 	public static void init(File configFile)
