@@ -49,8 +49,6 @@ import tws.zcaliptium.compositegear.common.ConfigurationCG;
 
 public class ItemsCG
 {
-	private static final String COMPOSITE_NAME = "composite";
-
 	// Weapons
 	public static Item compositeBow;
 

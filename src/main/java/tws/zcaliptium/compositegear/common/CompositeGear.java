@@ -55,19 +55,11 @@ public class CompositeGear
     
     public static final Side side = FMLCommonHandler.instance().getEffectiveSide();
     
-    public static CreativeTabs ic2Tab;
+    public static CreativeTabs cgTab = new CreativeTabCG();
+
 	public static Logger modLog;
 	public static ModContainer container;
 
-	public static void getIC2Tab()
-	{
-		for (int i = 0; i < CreativeTabs.CREATIVE_TAB_ARRAY.length; i++) {
-			if (CreativeTabs.CREATIVE_TAB_ARRAY[i].getTabLabel().equalsIgnoreCase("IC2")) {
-				ic2Tab = CreativeTabs.CREATIVE_TAB_ARRAY[i];
-			}
-		}
-	}
-	
 	@Optional.Method(modid = Compats.TAN)
 	public static void registerTANModifier()
 	{
@@ -97,16 +89,13 @@ public class CompositeGear
 
     	ConfigurationCG.init(event.getSuggestedConfigurationFile());
 
-    	if (proxy.isClient()) {
-        	getIC2Tab();
-    	}
-
     	// Generic factories.
     	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "generic"), new GenericItemFactory());
     	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "armor"), new ArmorItemFactory());
     	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "melee_weapon"), new MeleeItemFactory());
 
     	ItemHelper.loadItems(container);
+
     	ItemsCG.load();
     }
     

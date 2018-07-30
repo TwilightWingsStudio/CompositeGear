@@ -72,8 +72,8 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 
 		ItemsCG.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
 		
-		if (CompositeGear.ic2Tab != null) {
-			setCreativeTab(CompositeGear.ic2Tab);
+		if (CompositeGear.cgTab != null) {
+			setCreativeTab(CompositeGear.cgTab);
 		}
 	}
 
