@@ -44,7 +44,7 @@ import org.apache.logging.log4j.Logger;
 
 import ic2.api.recipe.Recipes;
 
-@Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="after:ic2;after:techreborn;after:hzdslib;after:immersiveengineering;after:applecore;after:toughasnails", version = ModInfo.VERSION)
+@Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="after:baubles;after:ic2;after:techreborn;after:hzdslib;after:immersiveengineering;after:applecore;after:toughasnails", version = ModInfo.VERSION)
 public class CompositeGear
 {
     @Instance(ModInfo.MODID)
