@@ -25,7 +25,7 @@
     "variant": "composite_light_leggings"
   },
   "armorModel" : {
-    "armorName": "composite",
+    "armorName": "composite_light",
     "hasOverlay": true
   }
 }
