@@ -7,7 +7,14 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.lib;
 
+import net.minecraft.item.ItemStack;
+
 public interface IItemColorable
 {
 	public boolean isColorable();
+	public boolean hasColor(ItemStack stack);
+	public int getColor(ItemStack stack);
+	
+	public void removeColor(ItemStack stack);
+	public void setColor(ItemStack stack, int color);
 }

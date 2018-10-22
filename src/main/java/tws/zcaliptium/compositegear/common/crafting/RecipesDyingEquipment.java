@@ -18,8 +18,9 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
+import tws.zcaliptium.compositegear.lib.IItemColorable;
 
-public class RecipesDyingArmor extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe
+public class RecipesDyingEquipment extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe
 {
     /**
      * Used to check if a recipe matches current crafting inventory
@@ -35,14 +36,18 @@ public class RecipesDyingArmor extends net.minecraftforge.registries.IForgeRegis
 
             if (!itemstack1.isEmpty())
             {
-                if (itemstack1.getItem() instanceof ItemArmor)
-                {
-                    ItemArmor itemarmor = (ItemArmor)itemstack1.getItem();
-
-                    if (!(itemarmor instanceof ItemCGArmor) || !itemstack.isEmpty() || !((ItemCGArmor)itemarmor).isColorable())
-                    {
-                        return false;
-                    }
+            	if (itemstack1.getItem() instanceof IItemColorable)
+            	{
+            		IItemColorable itemColorable = (IItemColorable)itemstack1.getItem();
+            		
+            		if (!itemColorable.isColorable()) {
+            			return false;
+            		}
+            		
+            		// If we already have colorable item.
+            		if (!itemstack.isEmpty()) {
+            			return false;
+            		}
 
                     itemstack = itemstack1;
                 }
@@ -70,7 +75,7 @@ public class RecipesDyingArmor extends net.minecraftforge.registries.IForgeRegis
         int[] aint = new int[3];
         int i = 0;
         int j = 0;
-        ItemArmor itemarmor = null;
+        IItemColorable itemColorable = null;
 
         for (int k = 0; k < inv.getSizeInventory(); ++k)
         {
@@ -78,11 +83,11 @@ public class RecipesDyingArmor extends net.minecraftforge.registries.IForgeRegis
 
             if (!itemstack1.isEmpty())
             {
-                if (itemstack1.getItem() instanceof ItemArmor)
+                if (itemstack1.getItem() instanceof IItemColorable)
                 {
-                    itemarmor = (ItemArmor)itemstack1.getItem();
+                	itemColorable = (IItemColorable)itemstack1.getItem();
 
-                    if (!(itemarmor instanceof ItemCGArmor) || !itemstack.isEmpty())
+                    if (!(itemColorable instanceof IItemColorable) || !itemstack.isEmpty())
                     {
                         return ItemStack.EMPTY;
                     }
@@ -90,9 +95,9 @@ public class RecipesDyingArmor extends net.minecraftforge.registries.IForgeRegis
                     itemstack = itemstack1.copy();
                     itemstack.setCount(1);
 
-                    if (itemarmor.hasColor(itemstack1))
+                    if (itemColorable.hasColor(itemstack1))
                     {
-                        int l = itemarmor.getColor(itemstack);
+                        int l = itemColorable.getColor(itemstack);
                         float f = (float)(l >> 16 & 255) / 255.0F;
                         float f1 = (float)(l >> 8 & 255) / 255.0F;
                         float f2 = (float)(l & 255) / 255.0F;
@@ -123,7 +128,7 @@ public class RecipesDyingArmor extends net.minecraftforge.registries.IForgeRegis
             }
         }
 
-        if (itemarmor == null)
+        if (itemColorable == null)
         {
             return ItemStack.EMPTY;
         }
@@ -139,7 +144,7 @@ public class RecipesDyingArmor extends net.minecraftforge.registries.IForgeRegis
             k1 = (int)((float)k1 * f3 / f4);
             int k2 = (i1 << 8) + j1;
             k2 = (k2 << 8) + k1;
-            itemarmor.setColor(itemstack, k2);
+            itemColorable.setColor(itemstack, k2);
             return itemstack;
         }
     }

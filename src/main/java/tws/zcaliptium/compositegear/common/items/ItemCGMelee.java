@@ -177,6 +177,7 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
     /**
      * Return whether the specified melee ItemStack has a color.
      */
+    @Override
     public boolean hasColor(ItemStack stack)
     {
         NBTTagCompound nbttagcompound = stack.getTagCompound();
@@ -186,6 +187,7 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
     /**
      * Return the color for the specified melee ItemStack.
      */
+    @Override
     public int getColor(ItemStack stack)
     {
         NBTTagCompound nbttagcompound = stack.getTagCompound();
@@ -206,9 +208,9 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
     /**
      * Remove the color from the specified melee ItemStack.
      */
+    @Override
     public void removeColor(ItemStack stack)
     {
-
         NBTTagCompound nbttagcompound = stack.getTagCompound();
 
         if (nbttagcompound != null)
@@ -225,6 +227,7 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
     /**
      * Sets the color of the specified melee ItemStack
      */
+    @Override
     public void setColor(ItemStack stack, int color)
     {
         NBTTagCompound nbttagcompound = stack.getTagCompound();

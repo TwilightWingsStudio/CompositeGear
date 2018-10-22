@@ -270,6 +270,7 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
     /**
      * Return whether the specified armor ItemStack has a color.
      */
+    @Override
     public boolean hasColor(ItemStack stack)
     {
         NBTTagCompound nbttagcompound = stack.getTagCompound();
@@ -279,6 +280,7 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
     /**
      * Return the color for the specified armor ItemStack.
      */
+    @Override
     public int getColor(ItemStack stack)
     {
         NBTTagCompound nbttagcompound = stack.getTagCompound();
@@ -299,9 +301,9 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
     /**
      * Remove the color from the specified armor ItemStack.
      */
+    @Override
     public void removeColor(ItemStack stack)
     {
-
         NBTTagCompound nbttagcompound = stack.getTagCompound();
 
         if (nbttagcompound != null)
@@ -318,6 +320,7 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
     /**
      * Sets the color of the specified armor ItemStack
      */
+    @Override
     public void setColor(ItemStack stack, int color)
     {
         NBTTagCompound nbttagcompound = stack.getTagCompound();
