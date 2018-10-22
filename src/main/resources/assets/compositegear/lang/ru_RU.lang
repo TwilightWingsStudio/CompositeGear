@@ -10,6 +10,11 @@ item.composite_light_vest.name=Лёгкий композитный жилет
 item.composite_light_leggings.name=Лёгкие композитные поножи
 item.composite_light_boots.name=Лёгкие композитные ботинки
 
+item.composite_heavy_helmet.name=Тяжёлый композитный шлем
+item.composite_heavy_chestplate.name=Тяжёлый композитный доспех
+item.composite_heavy_leggings.name=Тяжёлые композитные поножи
+item.composite_heavy_boots.name=Тяжёлые композитные ботинки
+
 item.composite_sword.name=Композитный меч
 item.composite_dagger.name=Композитный кинжал
 item.composite_mace.name=Композитная булава

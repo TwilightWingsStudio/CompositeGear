@@ -10,6 +10,11 @@ item.composite_light_vest.name=Composite Light Vest
 item.composite_light_leggings.name=Composite Light Leggings
 item.composite_light_boots.name=Composite Light Boots
 
+item.composite_heavy_helmet.name=Composite Heavy Helmet
+item.composite_heavy_chestplate.name=Composite Heavy Chestplate
+item.composite_heavy_leggings.name=Composite Heavy Leggings
+item.composite_heavy_boots.name=Composite Heavy Boots
+
 item.composite_sword.name=Composite Sword
 item.composite_dagger.name=Composite Dagger
 item.composite_mace.name=Composite Mace
