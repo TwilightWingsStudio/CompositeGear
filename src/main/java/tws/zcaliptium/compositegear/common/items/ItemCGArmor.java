@@ -39,11 +39,12 @@ import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.compat.IC2Compat;
 import tws.zcaliptium.compositegear.common.compat.TRCompat;
+import tws.zcaliptium.compositegear.lib.IItemColorable;
 import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 import tws.zcaliptium.compositegear.lib.ISpecialArmor;
 
 @Optional.Interface(iface = "ic2.api.item.IMetalArmor", modid = Compats.IC2)
-public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalArmor, ISpecialArmor
+public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalArmor, ISpecialArmor, IItemColorable
 {
 	public static ItemArmor.ArmorMaterial GENERIC_MATERIAL = EnumHelper.addArmorMaterial("CG_GENERIC", ModInfo.MODID + ":composite", 1, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0);
 	
@@ -415,6 +416,7 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 		this.isSaveSatietyCold = isSaveSatietyCold;
 	}
 
+	@Override
 	public boolean isColorable()
 	{
 		return isColorable;

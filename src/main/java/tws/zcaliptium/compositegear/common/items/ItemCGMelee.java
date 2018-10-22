@@ -24,6 +24,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
@@ -34,13 +35,19 @@ import tws.zcaliptium.compositegear.client.IItemModelProvider;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.ModInfo;
+import tws.zcaliptium.compositegear.lib.IItemColorable;
 import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
-public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemModelProvider
+public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemModelProvider, IItemColorable
 {
 	// Intelligence.
     protected boolean hasDescription;
 	protected EnumRarity rarity;
+	
+	// Model.
+	protected boolean isColorable;
+	protected int defaultColor;
+	protected boolean hasOverlay;
 
 	// Material.
 	protected int enchantability;
@@ -138,6 +145,105 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 	{
 		return ConfigurationCG.allowMeleeEnchanting;
 	}
+	
+	@Override
+	public boolean isColorable()
+	{
+		return isColorable;
+	}
+
+	public void setColorable(boolean isColorable)
+	{
+		this.isColorable = isColorable;
+	}
+
+    public boolean hasOverlay(ItemStack stack)
+    {
+        return hasOverlay;
+    }
+
+    public ItemCGMelee setHasOverlay(boolean hasOverlay)
+    {
+    	this.hasOverlay = hasOverlay;
+		return this;
+    }
+
+    public ItemCGMelee setDefaultColor(int color)
+    {
+    	this.defaultColor = color;
+    	return this;
+    }
+    
+    /**
+     * Return whether the specified melee ItemStack has a color.
+     */
+    public boolean hasColor(ItemStack stack)
+    {
+        NBTTagCompound nbttagcompound = stack.getTagCompound();
+        return nbttagcompound != null && nbttagcompound.hasKey("display", 10) ? nbttagcompound.getCompoundTag("display").hasKey("color", 3) : false;
+    }
+
+    /**
+     * Return the color for the specified melee ItemStack.
+     */
+    public int getColor(ItemStack stack)
+    {
+        NBTTagCompound nbttagcompound = stack.getTagCompound();
+
+        if (nbttagcompound != null)
+        {
+            NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("display");
+
+            if (nbttagcompound1 != null && nbttagcompound1.hasKey("color", 3))
+            {
+                return nbttagcompound1.getInteger("color");
+            }
+        }
+
+        return defaultColor;
+    }
+
+    /**
+     * Remove the color from the specified melee ItemStack.
+     */
+    public void removeColor(ItemStack stack)
+    {
+
+        NBTTagCompound nbttagcompound = stack.getTagCompound();
+
+        if (nbttagcompound != null)
+        {
+            NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("display");
+
+            if (nbttagcompound1.hasKey("color"))
+            {
+                nbttagcompound1.removeTag("color");
+            }
+        }
+    }
+
+    /**
+     * Sets the color of the specified melee ItemStack
+     */
+    public void setColor(ItemStack stack, int color)
+    {
+        NBTTagCompound nbttagcompound = stack.getTagCompound();
+
+        if (nbttagcompound == null)
+        {
+            nbttagcompound = new NBTTagCompound();
+            stack.setTagCompound(nbttagcompound);
+        }
+
+        NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("display");
+
+        if (!nbttagcompound.hasKey("display", 10))
+        {
+            nbttagcompound.setTag("display", nbttagcompound1);
+        }
+
+        nbttagcompound1.setInteger("color", color);
+    }
 
     @Override
     @SideOnly(Side.CLIENT)

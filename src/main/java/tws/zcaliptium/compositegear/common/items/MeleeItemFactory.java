@@ -67,6 +67,12 @@ public class MeleeItemFactory extends GenericItemFactory
 
 		if (type.equals("shield_disabler")) {
 			meleeItem.setShieldDisabler(true);
+			
+		} else if (type.equals("colorable")) {
+			meleeItem.setColorable(true);
+			meleeItem.setDefaultColor(JsonUtils.getInt(json, "defaultColor", 16777215));
+			ItemsCG.COLORABLE_REGISTRY.add(meleeItem);
+
 		} else if (type.equals("constant_gem_damage")) {
 			meleeItem.setConstantGemDamage(JsonUtils.getInt(json, "damage"));
 		} else {

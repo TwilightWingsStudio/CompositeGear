@@ -34,6 +34,7 @@ import toughasnails.api.temperature.TemperatureHelper;
 import tws.zcaliptium.compositegear.common.compat.TANTemperatureModifier;
 import tws.zcaliptium.compositegear.common.items.ArmorItemFactory;
 import tws.zcaliptium.compositegear.common.items.GenericItemFactory;
+import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
 import tws.zcaliptium.compositegear.common.items.ItemHelper;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
 import tws.zcaliptium.compositegear.common.items.MeleeItemFactory;
@@ -134,6 +135,10 @@ public class CompositeGear
         {
             public int colorMultiplier(ItemStack stack, int tintIndex)
             {
+            	if (stack.getItem() instanceof ItemCGMelee) {
+            		return tintIndex > 0 ? -1 : ((ItemCGMelee)stack.getItem()).getColor(stack);
+            	}
+            	
                 return tintIndex > 0 ? -1 : ((ItemArmor)stack.getItem()).getColor(stack);
             }
         }, items);
