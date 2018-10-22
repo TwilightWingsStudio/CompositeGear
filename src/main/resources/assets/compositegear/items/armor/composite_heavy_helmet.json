@@ -1,0 +1,31 @@
+{
+  "type": "compositegear:armor",
+  "slot": "head",
+  "id": "composite_heavy_helmet",
+  "durability": 1024,
+  "intelligence": {
+    "class": "HEAVY_ARMOR",
+    "rarity": "Epic"
+  },
+  "material" : {
+    "type": "generic",
+    "protection": 4,
+    "toughness": 3,
+    "enchantability": 12
+  },
+  "features": [
+    {
+      "type": "colorable",
+      "defaultColor": 8815987
+    }
+  ],
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/tool/armor",
+    "variant": "composite_helmet"
+  },
+  "armorModel" : {
+    "armorName": "composite",
+    "hasOverlay": true
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "type": "compositegear:armor",
+  "slot": "chest",
+  "id": "composite_heavy_chestplate",
+  "intelligence": {
+    "class": "HEAVY_ARMOR",
+    "rarity": "Epic"
+  },
+  "durability": 1280,
+  "material" : {
+    "type": "generic",
+    "protection": 10,
+    "toughness": 3,
+    "enchantability": 12
+  },
+  "features": [
+    {
+      "type": "colorable",
+      "defaultColor": 8815987
+    }
+  ],
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/tool/armor",
+    "variant": "composite_heavy_chestplate"
+  },
+  "armorModel" : {
+    "armorName": "composite",
+    "hasOverlay": true
+  }
+}

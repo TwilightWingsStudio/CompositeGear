@@ -1,0 +1,31 @@
+{
+  "type": "compositegear:armor",
+  "slot": "legs",
+  "id": "composite_heavy_leggings",
+  "intelligence": {
+    "class": "HEAVY_ARMOR",
+    "rarity": "Epic"
+  },
+  "durability": 1024,
+  "material" : {
+    "type": "generic",
+    "protection": 7,
+    "toughness": 3,
+    "enchantability": 12
+  },
+  "features": [
+    {
+      "type": "colorable",
+      "defaultColor": 8815987
+    }
+  ],
+  "model" : {
+    "type": "multiple_items",
+    "path": "items/tool/armor",
+    "variant": "composite_leggings"
+  },
+  "armorModel" : {
+    "armorName": "composite",
+    "hasOverlay": true
+  }
+}
