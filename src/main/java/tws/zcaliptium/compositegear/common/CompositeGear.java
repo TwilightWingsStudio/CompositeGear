@@ -31,6 +31,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import toughasnails.api.temperature.TemperatureHelper;
+import tws.zcaliptium.compositegear.common.capabilities.LeveledCap;
 import tws.zcaliptium.compositegear.common.compat.TANTemperatureModifier;
 import tws.zcaliptium.compositegear.common.items.ArmorItemFactory;
 import tws.zcaliptium.compositegear.common.items.GenericItemFactory;
@@ -98,6 +99,8 @@ public class CompositeGear
     	ItemHelper.loadItems(container);
 
     	ItemsCG.load();
+    	
+    	LeveledCap.init();
     }
     
     @EventHandler
