@@ -22,7 +22,7 @@
   "model" : {
     "type": "multiple_items",
     "path": "items/tool/armor",
-    "variant": "composite_leggings"
+    "variant": "composite_heavy_leggings"
   },
   "armorModel" : {
     "armorName": "composite",

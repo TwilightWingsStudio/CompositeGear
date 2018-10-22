@@ -22,7 +22,7 @@
   "model" : {
     "type": "multiple_items",
     "path": "items/tool/armor",
-    "variant": "composite_helmet"
+    "variant": "composite_heavy_helmet"
   },
   "armorModel" : {
     "armorName": "composite",

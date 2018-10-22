@@ -50,6 +50,27 @@
         "textures": {
           "layer0": "compositegear:items/composite_faceplate"
         }
+      },
+      "composite_heavy_helmet": {
+        "textures": {
+          "layer0": "compositegear:items/composite_heavy_helmet",
+          "layer1": "compositegear:items/composite_heavy_helmet_overlay"
+        }
+      },
+      "composite_heavy_chestplate": {
+        "textures": {
+          "layer0": "compositegear:items/composite_heavy_chestplate"
+        }
+      },
+      "composite_heavy_leggings": {
+        "textures": {
+          "layer0": "compositegear:items/composite_heavy_leggings"
+        }
+      },
+      "composite_heavy_boots": {
+        "textures": {
+          "layer0": "compositegear:items/composite_heavy_boots"
+        }
       }
     }
   }

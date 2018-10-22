@@ -22,7 +22,7 @@
   "model" : {
     "type": "multiple_items",
     "path": "items/tool/armor",
-    "variant": "composite_boots"
+    "variant": "composite_heavy_boots"
   },
   "armorModel" : {
     "armorName": "composite",
