@@ -9,7 +9,8 @@
   "material" : {
     "type": "generic",
     "attackDamage": 4.0,
-    "attackSpeed": 3.2
+    "attackSpeed": 3.2,
+    "enchantability": 12
   },
   "model" : {
     "type": "multiple_items",
