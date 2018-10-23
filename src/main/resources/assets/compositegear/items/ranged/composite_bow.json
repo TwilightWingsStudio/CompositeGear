@@ -1,0 +1,16 @@
+{
+  "type": "compositegear:ranged_weapon",
+  "id": "composite_bow",
+  "durability": 2048,
+  "intelligence": {
+    "rarity": "CgRare"
+  },
+  "material" : {
+    "type": "generic",
+    "enchantability": 15
+  },
+  "model" : {
+    "type": "single_item",
+    "path": "tool/composite_bow"
+  }
+}
