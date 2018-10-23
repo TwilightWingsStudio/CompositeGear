@@ -11,6 +11,12 @@
     "attackDamage": 6.0,
     "attackSpeed": 1.6
   },
+  "features": [
+    {
+      "type": "colorable",
+      "defaultColor": 8815987
+    }
+  ],
   "model" : {
     "type": "multiple_items",
     "path": "items/tool/melee",
