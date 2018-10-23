@@ -49,23 +49,16 @@ import tws.zcaliptium.compositegear.common.ConfigurationCG;
 
 public class ItemsCG
 {
-	// Weapons
-	public static Item compositeBow;
-
     public static List<Item> COLORABLE_REGISTRY = Lists.<Item>newArrayList();
     public static Map<Item, ResourceLocation> REPAIR_ITEMS_REGISTRY = new HashMap<Item, ResourceLocation>();
 
 	public static EnumRarity CG_UNCOMMON = EnumHelper.addRarity("CG_UNCOMMON", TextFormatting.GREEN, "CgUncommon");
 	public static EnumRarity CG_RARE = EnumHelper.addRarity("CG_RARE", TextFormatting.BLUE, "CgRare");
+	public static EnumRarity CG_EPIC = EnumHelper.addRarity("CG_EPIC", TextFormatting.LIGHT_PURPLE, "CgEpic");
+	public static EnumRarity CG_LEGENDARY = EnumHelper.addRarity("CG_LEGENDARY", TextFormatting.GOLD, "CgLegendary");
 
 	public static void load()
 	{
-		compositeBow = new ItemCGBow("composite_bow", 2048, 15);
-
-		if (CompositeGear.proxy.isClient()) {
-			registerItemModels();
-		}
-
 		if (Loader.isModLoaded(Compats.TR))
 		{
 			TRCompat.load();
@@ -75,11 +68,6 @@ public class ItemsCG
 		{
 			IC2Compat.load();
 		}
-	}
-
-	private static void registerItemModels()
-	{
-		registerItemModel(compositeBow, "tool/composite_bow");
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)
