@@ -44,16 +44,21 @@ import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
 public class ItemCGBow extends Item implements IItemIntelligence
 {
-    private int enchantability;
+	// Intelligence.
     protected boolean hasDescription;
+	protected EnumRarity rarity;
 
-    public ItemCGBow(String id, int maxDamage, int enchantability)
+	// Material.
+    private int enchantability;
+
+    public ItemCGBow(String id)
     {
 		setUnlocalizedName(id);
         this.maxStackSize = 1; // Because item have durability.
-        this.setMaxDamage(maxDamage);
-        this.enchantability = enchantability;
+        this.setMaxDamage(1);
+        this.enchantability = 0;
         this.hasDescription = false;
+		this.rarity = EnumRarity.COMMON;
         
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
         {
@@ -281,6 +286,11 @@ public class ItemCGBow extends Item implements IItemIntelligence
 		
 		return super.getItemEnchantability(stack);
 	}
+	
+	public void setEnchantability(int enchantability)
+	{
+		this.enchantability = enchantability;
+	}
 
 	@Override
 	public boolean isBookEnchantable(ItemStack stack, ItemStack book)
@@ -292,7 +302,7 @@ public class ItemCGBow extends Item implements IItemIntelligence
     @SideOnly(Side.CLIENT)
     public EnumRarity getRarity(ItemStack var1)
     {
-    	return EnumRarity.UNCOMMON;
+    	return this.rarity;
     }
 
 	@Override
@@ -313,7 +323,10 @@ public class ItemCGBow extends Item implements IItemIntelligence
 	}
 
 	@Override
-	public void setRarity(EnumRarity rarity) {}
+	public void setRarity(EnumRarity rarity)
+	{
+		this.rarity = rarity;
+	}
 
 	@Override
 	public void setItemClass(EnumItemClass itemClass) {}
