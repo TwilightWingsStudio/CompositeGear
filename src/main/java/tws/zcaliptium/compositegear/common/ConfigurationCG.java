@@ -9,7 +9,9 @@ package tws.zcaliptium.compositegear.common;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import net.minecraftforge.common.config.Configuration;
 
@@ -45,54 +47,21 @@ public class ConfigurationCG
 	// Melee Features
 	public static boolean isFEConstantGemDamage = true;
 	
-	public static Map<String, Boolean> CRAFTING_RECIPES = new HashMap<String, Boolean>();
+	private static final String[] defaultCraftingBlacklist = new String[]{};
+	public static Set<String> CRAFTING_BLACKLIST = new HashSet();
 	
-	// TODO: Get rid of this!
-	private static String DISABLEABLE_NAMES[] = new String[] {
-		"composite_helmet",
-		"composite_chestplate",
-		"composite_leggings",
-		"composite_boots",
-
-		"composite_faceplate",
-
-		"composite_light_helmet",
-		"composite_light_vest",
-		"composite_light_leggings",
-		"composite_light_boots",
-
-		"composite_sword",
-		"composite_dagger",
-		"composite_mace",
-		"composite_club",
-		"composite_bow",
-
-		"respirator_halfmask",
-		"respirator_mask",
-		"respirator_mask_composite",
-
-		"rubber_gasmask",
-
-		"ushanka_hat",
-		"balaclava_mask",
-		"shemagh_mask",
-
-		"wool_jersey",
-		"wool_pants",
-		"felt_boots"
-	};
-
 	public static void init(File configFile)
 	{
 	    Configuration config = new Configuration(configFile);
-		
-	    String allowCraftingNote = "Should be TRUE to allow crafting. FALSE to remove recipe.";
 
 	    try {
-		    for (String name : DISABLEABLE_NAMES) {
-		    	boolean isAllowed = config.getBoolean(name, SECTION_CRAFTING, true, allowCraftingNote);
-		    	CRAFTING_RECIPES.put(name, isAllowed);
-		    }
+	    	String[] itemBlacklist = config.getStringList("craftingBlacklist", SECTION_CRAFTING, defaultCraftingBlacklist, "List of mod items that should be uncraftable. Put item names without mod namespace. The option works for only items from this mod. Example: composite_sword");
+
+	    	if (itemBlacklist.length > 0) {
+	    		for (String name : itemBlacklist) {	    			
+	    			CRAFTING_BLACKLIST.add(name);
+	    		}
+	    	}
 
 		    allowArmorEnchanting = config.getBoolean("allowArmorEnchanting", SECTION_ENCHANTING, true, "");
 		    allowMeleeEnchanting = config.getBoolean("allowMeleeEnchanting", SECTION_ENCHANTING, true, "");

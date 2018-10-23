@@ -26,6 +26,6 @@ public class CraftingAllowedCondition implements IConditionFactory
 		
 		// TODO: Add better check here for non-existing keys.
 
-		return () -> ConfigurationCG.CRAFTING_RECIPES.getOrDefault(key, true);
+		return () -> !ConfigurationCG.CRAFTING_BLACKLIST.contains(key);
 	}
 }
