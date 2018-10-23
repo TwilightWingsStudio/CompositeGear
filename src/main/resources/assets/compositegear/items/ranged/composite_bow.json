@@ -3,7 +3,8 @@
   "id": "composite_bow",
   "durability": 2048,
   "intelligence": {
-    "rarity": "CgRare"
+    "rarity": "CgRare",
+    "hasDescription": true
   },
   "material" : {
     "type": "generic",

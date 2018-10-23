@@ -3,7 +3,8 @@
   "id": "composite_club",
   "intelligence": {
     "class": "MELEE_WEAPON",
-    "rarity": "CgUncommon"
+    "rarity": "CgUncommon",
+    "hasDescription": true
   },
   "durability": 1800,
   "material" : {

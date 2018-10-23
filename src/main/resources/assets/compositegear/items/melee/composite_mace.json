@@ -3,7 +3,8 @@
   "id": "composite_mace",
   "intelligence": {
     "class": "MELEE_WEAPON",
-    "rarity": "CgRare"
+    "rarity": "CgRare",
+    "hasDescription": true
   },
   "durability": 1800,
   "material" : {
