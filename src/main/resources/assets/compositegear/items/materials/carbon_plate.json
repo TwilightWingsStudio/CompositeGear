@@ -5,7 +5,7 @@
     "plateCarbon"
   ],
   "model" : {
-    "type": "multiple_items",
+    "type": "variant_type",
     "path": "items/materials",
     "variant": "carbon_plate"
   }

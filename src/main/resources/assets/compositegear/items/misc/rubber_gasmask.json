@@ -22,7 +22,7 @@
     }
   ],
   "model" : {
-    "type": "multiple_items",
+    "type": "variant_type",
     "path": "items/tool/respirators",
     "variant": "rubber_gasmask"
   },

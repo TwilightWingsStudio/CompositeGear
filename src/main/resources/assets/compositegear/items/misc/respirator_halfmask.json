@@ -18,7 +18,7 @@
     }
   ],
   "model" : {
-    "type": "multiple_items",
+    "type": "variant_type",
     "path": "items/tool/respirators",
     "variant": "respirator_halfmask"
   },

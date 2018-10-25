@@ -20,7 +20,7 @@
     }
   ],
   "model" : {
-    "type": "multiple_items",
+    "type": "variant_type",
     "path": "items/tool/armor",
     "variant": "composite_light_leggings"
   },

@@ -25,7 +25,7 @@
     }
   ],
   "model" : {
-    "type": "multiple_items",
+    "type": "variant_type",
     "path": "items/clothing",
     "variant": "wool_jersey"
   },

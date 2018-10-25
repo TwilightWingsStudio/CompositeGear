@@ -26,7 +26,7 @@
     }
   ],
   "model" : {
-    "type": "multiple_items",
+    "type": "variant_type",
     "path": "items/clothing",
     "variant": "balaclava_mask"
   },

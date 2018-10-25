@@ -2,7 +2,7 @@
   "type": "compositegear:generic",
   "id": "air_mask_module",
   "model" : {
-    "type": "multiple_items",
+    "type": "variant_type",
     "path": "items/materials",
     "variant": "air_mask_module"
   }

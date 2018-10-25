@@ -23,7 +23,7 @@
     }
   ],
   "model" : {
-    "type": "multiple_items",
+    "type": "variant_type",
     "path": "items/tool/melee",
     "variant": "composite_mace"
   }

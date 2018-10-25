@@ -5,7 +5,7 @@
     "itemRubber"
   ],
   "model" : {
-    "type": "multiple_items",
+    "type": "variant_type",
     "path": "items/materials",
     "variant": "rubber_ball"
   }

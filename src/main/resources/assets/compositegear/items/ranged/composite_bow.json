@@ -11,7 +11,7 @@
     "enchantability": 15
   },
   "model" : {
-    "type": "single_item",
+    "type": "simple",
     "path": "tool/composite_bow"
   }
 }

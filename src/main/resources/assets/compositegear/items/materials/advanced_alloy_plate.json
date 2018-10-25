@@ -5,7 +5,7 @@
     "plateAdvancedAlloy"
   ],
   "model" : {
-    "type": "multiple_items",
+    "type": "variant_type",
     "path": "items/materials",
     "variant": "advanced_alloy_plate"
   }
