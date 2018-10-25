@@ -14,15 +14,20 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.util.JsonUtils;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.crafting.JsonContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import tws.zcaliptium.compositegear.common.CompositeGear;
+import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.lib.IItemFactory;
 import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
@@ -69,23 +74,50 @@ public class GenericItemFactory implements IItemFactory
 	@SideOnly(Side.CLIENT)
 	protected void parseModel(JsonObject json, Item item)
 	{
+		ModelResourceLocation model = parseModelEntry(json);
+		ModelLoader.setCustomModelResourceLocation(item, 0, model);
+		
+		// GUI-only model.
+		JsonObject modelObj = JsonUtils.getJsonObject(json, "gui", null);
+
+		if (modelObj != null)
+		{
+			ModelResourceLocation model2 = parseModelEntry(modelObj);
+			ModelBakery.registerItemVariants(item, model2);
+			
+			ItemsCG.GUI_MODELS_REGISTRY.put(model, model2);
+		}
+	}
+	
+	protected ModelResourceLocation parseModelEntry(JsonObject json)
+	{
 		String type = JsonUtils.getString(json, "type");
 
         if (type.isEmpty())
             throw new JsonSyntaxException("Item model type can not be an empty string");
         
-        if (type.equalsIgnoreCase("single_item")) {
+        // It is really simple. :)
+        if (type.equalsIgnoreCase("simple")) {
         	String path = JsonUtils.getString(json, "path");
-        	
-        	ItemsCG.registerItemModel(item, path);
 
-        } else if (type.equalsIgnoreCase("multiple_items")) {
-        	String variant = JsonUtils.getString(json, "variant");
+        	return new ModelResourceLocation(ModInfo.MODID + ":" + path, "inventory");
+
+        // A little bit harder...
+        } else if (type.equalsIgnoreCase("variant")) {
         	String path = JsonUtils.getString(json, "path");
-        	
-        	ItemsCG.registerMultiItem(item, variant, path);
+        	String variant = JsonUtils.getString(json, "variant");
+
+        	return new ModelResourceLocation(ModInfo.MODID + ":" + path, variant);
+
+        // For lazy people.
+        } else if (type.equalsIgnoreCase("variant_type")) {
+        	String path = JsonUtils.getString(json, "path");
+        	String variant = JsonUtils.getString(json, "variant");
+
+        	return new ModelResourceLocation(ModInfo.MODID + ":" + path, "type=" + variant);        	
+
         } else {
-        	throw new JsonSyntaxException("Unknown item model type.");        	
+        	throw new JsonSyntaxException("Unknown item model type '" + type + "'.");        	
         }
 	}
 	

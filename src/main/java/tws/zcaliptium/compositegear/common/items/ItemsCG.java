@@ -15,6 +15,7 @@ import com.google.common.collect.Lists;
 
 import ic2.api.item.IC2Items;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -51,6 +52,7 @@ public class ItemsCG
 {
     public static List<Item> COLORABLE_REGISTRY = Lists.<Item>newArrayList();
     public static Map<Item, ResourceLocation> REPAIR_ITEMS_REGISTRY = new HashMap<Item, ResourceLocation>();
+    public static Map<ResourceLocation, ResourceLocation> GUI_MODELS_REGISTRY = new HashMap<ResourceLocation, ResourceLocation>();
 
 	public static EnumRarity CG_UNCOMMON = EnumHelper.addRarity("CG_UNCOMMON", TextFormatting.GREEN, "CgUncommon");
 	public static EnumRarity CG_RARE = EnumHelper.addRarity("CG_RARE", TextFormatting.BLUE, "CgRare");
@@ -68,6 +70,16 @@ public class ItemsCG
 		{
 			IC2Compat.load();
 		}
+		
+		/*
+		if (CompositeGear.proxy.isClient()) {
+			
+			Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(ModInfo.MODID, "respirator_test"));
+			
+			ModelResourceLocation mrl2 = new ModelResourceLocation(new ResourceLocation(ModInfo.MODID, "respirator_test"), "2d");
+			ModelBakery.registerItemVariants(item, mrl2);
+		}
+		*/
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)
@@ -129,6 +141,12 @@ public class ItemsCG
 	@SideOnly(Side.CLIENT)
 	public static void registerItemModel(Item item, int meta, String name) {
 		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(ModInfo.MODID + ":" + name, "inventory"));
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public static void registerItemModelFull(Item item, int meta, String path, String variant) {
+		ResourceLocation loc = new ResourceLocation(ModInfo.MODID, path);
+		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(loc, variant));
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -8,6 +8,7 @@
 package tws.zcaliptium.compositegear.common;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -17,6 +18,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -31,6 +33,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import toughasnails.api.temperature.TemperatureHelper;
+import tws.zcaliptium.compositegear.client.ModelBakeHandler;
 import tws.zcaliptium.compositegear.common.capabilities.LeveledCap;
 import tws.zcaliptium.compositegear.common.compat.TANTemperatureModifier;
 import tws.zcaliptium.compositegear.common.items.ArmorItemFactory;
@@ -103,18 +106,24 @@ public class CompositeGear
     	ItemsCG.load();
     	
     	LeveledCap.init();
+
+		if (proxy.isClient()) {
+	    	MinecraftForge.EVENT_BUS.register(new ModelBakeHandler());
+		}
     }
     
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+    	modLog.info("Initializing.");
+    	
 		proxy.registerEventHandlers();
 		
 		if (ConfigurationCG.tanCompat && Loader.isModLoaded(Compats.TAN)) {
 			registerTANModifier();
 		}
     }
-    
+
     @EventHandler
     public void afterModsLoaded(FMLPostInitializationEvent event)
     {
