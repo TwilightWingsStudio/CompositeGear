@@ -14,30 +14,46 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
-import tws.zcaliptium.compositegear.client.ClientEventHandler;
+import net.minecraftforge.fml.common.Optional;
+import toughasnails.api.temperature.TemperatureHelper;
+import tws.zcaliptium.compositegear.client.ItemTooltipHandler;
 import tws.zcaliptium.compositegear.common.compat.ACHungerHandler;
+import tws.zcaliptium.compositegear.common.compat.TANTemperatureModifier;
 
 public class CommonProxy
 {
-	public void registerEventHandlers()
+	public boolean isClient()
 	{
-		CommonEventHandler eventhandler = new CommonEventHandler();
-		FMLCommonHandler.instance().bus().register(eventhandler);
-		MinecraftForge.EVENT_BUS.register(eventhandler);
+		return false;
+	}
+	
+	public void preInit()
+	{
+		
+	}
+	
+	public void init()
+	{
+		MinecraftForge.EVENT_BUS.register(new CommonEventHandler());
 		
 		if (ConfigurationCG.acCompat && Loader.isModLoaded(Compats.APPLECORE)) {		
 			MinecraftForge.EVENT_BUS.register(new ACHungerHandler());
 		}
+		
+		if (ConfigurationCG.tanCompat && Loader.isModLoaded(Compats.TAN)) {
+			registerTANModifier();
+		}
+	}
+	
+	public void postInit()
+	{
+		
 	}
 	
 	public File getGameDir() {
 	    return new File(".");
 	}
-	
-	public boolean isClient() {
-		return false;
-	}
-	
+
 	public boolean isOpenToLAN() {
 		return false;
 	}
@@ -45,5 +61,11 @@ public class CommonProxy
 	public boolean isEnabledPVP()
 	{
 		return FMLCommonHandler.instance().getMinecraftServerInstance().isPVPEnabled();
+	}
+	
+	@Optional.Method(modid = Compats.TAN)
+	public static void registerTANModifier()
+	{
+		TemperatureHelper.registerTemperatureModifier(new TANTemperatureModifier());
 	}
 }

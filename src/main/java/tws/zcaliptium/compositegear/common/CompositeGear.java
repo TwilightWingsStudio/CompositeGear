@@ -10,6 +10,7 @@ package tws.zcaliptium.compositegear.common;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumRarity;
@@ -32,8 +33,10 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 import toughasnails.api.temperature.TemperatureHelper;
 import tws.zcaliptium.compositegear.client.ModelBakeHandler;
+import tws.zcaliptium.compositegear.client.renderer.LayerBipedArmorCG;
 import tws.zcaliptium.compositegear.common.capabilities.LeveledCap;
 import tws.zcaliptium.compositegear.common.compat.TANTemperatureModifier;
 import tws.zcaliptium.compositegear.common.items.ArmorItemFactory;
@@ -65,12 +68,6 @@ public class CompositeGear
 
 	public static Logger modLog;
 	public static ModContainer container;
-
-	@Optional.Method(modid = Compats.TAN)
-	public static void registerTANModifier()
-	{
-		TemperatureHelper.registerTemperatureModifier(new TANTemperatureModifier());
-	}
 
 	public static ModContainer getModContainer(String modid)
 	{
@@ -106,10 +103,8 @@ public class CompositeGear
     	ItemsCG.load();
     	
     	LeveledCap.init();
-
-		if (proxy.isClient()) {
-	    	MinecraftForge.EVENT_BUS.register(new ModelBakeHandler());
-		}
+    	
+    	proxy.preInit();
     }
     
     @EventHandler
@@ -117,44 +112,15 @@ public class CompositeGear
     {
     	modLog.info("Initializing.");
     	
-		proxy.registerEventHandlers();
-		
-		if (ConfigurationCG.tanCompat && Loader.isModLoaded(Compats.TAN)) {
-			registerTANModifier();
-		}
+    	proxy.init();
     }
 
     @EventHandler
     public void afterModsLoaded(FMLPostInitializationEvent event)
     {
+    	proxy.postInit();
+    	
         ItemsCG.loadRecipes();
-        
-        // Item icon coloring won't work without it.
-        if (proxy.isClient())
-        {
-        	registerItemColorHandler();
-        }
-        
         ItemsCG.defineRepairMaterials();
-    }
-        
-    @SideOnly(Side.CLIENT)
-    public void registerItemColorHandler()
-    {
-    	modLog.info("Registering IItemColor handler for mod items.");
-    	
-    	Item[] items = ItemsCG.COLORABLE_REGISTRY.toArray(new Item[0]);
-    	
-		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor()
-        {
-            public int colorMultiplier(ItemStack stack, int tintIndex)
-            {
-            	if (stack.getItem() instanceof ItemCGMelee) {
-            		return tintIndex > 0 ? -1 : ((ItemCGMelee)stack.getItem()).getColor(stack);
-            	}
-            	
-                return tintIndex > 0 ? -1 : ((ItemArmor)stack.getItem()).getColor(stack);
-            }
-        }, items);
     }
 }
