@@ -70,16 +70,6 @@ public class ItemsCG
 		{
 			IC2Compat.load();
 		}
-		
-		/*
-		if (CompositeGear.proxy.isClient()) {
-			
-			Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(ModInfo.MODID, "respirator_test"));
-			
-			ModelResourceLocation mrl2 = new ModelResourceLocation(new ResourceLocation(ModInfo.MODID, "respirator_test"), "2d");
-			ModelBakery.registerItemVariants(item, mrl2);
-		}
-		*/
 	}
 
 	public static ItemStack getStackNoMeta(Item prototype)
@@ -100,9 +90,14 @@ public class ItemsCG
 	{
 		registerRecipe(new RecipesDyingEquipment());
 		
-		/*if (!Loader.isModLoaded(Compats.IC2) && !Loader.isModLoaded(Compats.TR)) {
-			GameRegistry.addSmelting(Items.SLIME_BALL, new ItemStack(rubberBall), 0);
-		}*/
+		if (!Loader.isModLoaded(Compats.IC2) && !Loader.isModLoaded(Compats.TR)) {
+			
+			Item rubberBall = ForgeRegistries.ITEMS.getValue(new ResourceLocation(ModInfo.MODID, "rubber_ball"));
+			
+			if (rubberBall != null) {
+				GameRegistry.addSmelting(Items.SLIME_BALL, new ItemStack(rubberBall), 0);				
+			}
+		}
 	}
 	
 	public static void defineRepairMaterials()

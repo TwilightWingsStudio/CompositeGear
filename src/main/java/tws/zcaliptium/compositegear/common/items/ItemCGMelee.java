@@ -53,7 +53,7 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 	protected int enchantability;
 	protected float attackDamage;
 	protected float attackSpeed;
-	
+
 	// Features.
 	protected boolean isShieldDisabler;
 	protected int constantGemDamage;
