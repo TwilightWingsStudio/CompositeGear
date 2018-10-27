@@ -17,6 +17,9 @@
     {
       "type": "colorable",
       "defaultColor": 8815987
+    },
+    {
+      "type": "metal"
     }
   ],
   "model" : {

@@ -21,6 +21,9 @@
     {
       "type": "air_mask",
       "minAir": 20
+    },
+    {
+      "type": "metal"
     }
   ],
   "model" : {
