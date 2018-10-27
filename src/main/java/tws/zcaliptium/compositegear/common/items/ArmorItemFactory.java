@@ -113,6 +113,9 @@ public class ArmorItemFactory extends GenericItemFactory
 			armorItem.setDefaultColor(JsonUtils.getInt(json, "defaultColor", 16777215));
 			ItemsCG.COLORABLE_REGISTRY.add(armorItem);
 
+		} else if (type.equals("metal")) {
+			armorItem.setMetal(true);
+
 		} else if (type.equals("warm")) {
 			armorItem.setWarm(true);
 		} else if (type.equals("satiety_save_cold")) {

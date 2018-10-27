@@ -76,6 +76,7 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 	protected boolean isCold;
 	protected boolean isSaveSatietyHot;
 	protected boolean isSaveSatietyCold;
+	protected boolean isMetal;
 
 	public ItemCGArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, EntityEquipmentSlot armorType)
 	{
@@ -89,6 +90,7 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 		// Features.
 		this.isAirMask = false;
 		this.minAirToStartRefil = 0;
+		this.isMetal = false;
 
 		// Material.
 		this.protection = 0;
@@ -241,7 +243,7 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 			return false;
 		}
 		
-		return true;
+		return isMetal;
 	}
 
     @Override
@@ -417,6 +419,11 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 	public void setSaveSatietyCold(boolean isSaveSatietyCold)
 	{
 		this.isSaveSatietyCold = isSaveSatietyCold;
+	}
+	
+	public void setMetal(boolean isMetal)
+	{
+		this.isMetal = isMetal;
 	}
 
 	@Override
