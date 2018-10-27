@@ -1,0 +1,51 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "SAA",
+    "ABC",
+    "AC "
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:crafting_allowed",
+      "key": "composite_bow"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "immersiveengineering"
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "ic2"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "techreborn"
+      }
+    }
+  ],
+  "key": {
+    "C": {
+      "type": "forge:ore_dict",
+      "ore": "plateSteel"
+    },
+    "A": {
+      "type": "forge:ore_dict",
+      "ore": "plateAdvancedAlloy"
+    },
+    "S": {
+      "item": "compositegear:rubberized_handle_rod"
+    },
+    "B": {
+      "item": "minecraft:bow"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_bow"
+  }
+}
