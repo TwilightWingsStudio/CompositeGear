@@ -35,6 +35,10 @@ import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+
+import ic2.api.item.IElectricItem;
+import reborncore.api.power.IEnergyItemInfo;
+
 import tws.zcaliptium.compositegear.client.model.BakedWrappedWithGuiModel;
 import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.CompositeGear;
@@ -189,6 +193,16 @@ public class ItemTooltipHandler
 		// If only our items then return result of checking them.
 		if (ConfigurationCG.tooltipDurabilityDisplay == 1) {
 			return b2;
+		}
+		
+		// IC2 items use durability for displaying charge level.
+		if (Loader.isModLoaded(Compats.IC2) && (item instanceof IElectricItem)) {
+			return false;
+		}
+		
+		// Ignore electric items from TechReborn and other mods based on RebornCore.
+		if (Loader.isModLoaded(Compats.REBORNCORE) && item instanceof IEnergyItemInfo) {
+			return false;
 		}
 		
 		if (item instanceof ItemTool || item instanceof ItemArmor || item instanceof ItemSword || item instanceof ItemHoe
