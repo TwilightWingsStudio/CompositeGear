@@ -5,7 +5,7 @@
     "class": "MELEE_WEAPON",
     "rarity": "CgUncommon"
   },
-  "durability": 1800,
+  "durability": 1536,
   "material" : {
     "type": "generic",
     "attackDamage": 6.0,

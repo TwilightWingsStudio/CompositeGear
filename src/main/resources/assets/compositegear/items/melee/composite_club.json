@@ -6,7 +6,7 @@
     "rarity": "CgUncommon",
     "hasDescription": true
   },
-  "durability": 1800,
+  "durability": 2048,
   "material" : {
     "type": "generic",
     "attackDamage": 8.0,

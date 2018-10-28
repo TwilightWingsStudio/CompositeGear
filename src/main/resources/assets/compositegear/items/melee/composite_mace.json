@@ -6,7 +6,7 @@
     "rarity": "CgRare",
     "hasDescription": true
   },
-  "durability": 1800,
+  "durability": 1792,
   "material" : {
     "type": "generic",
     "attackDamage": 10.0,
