@@ -1,14 +1,14 @@
 [
 {
   "modid": "compositegear",
-  "name": "Composite Gear Addon",
-  "description": "Addon for IC2 Experimental & TechReborn",
+  "name": "Composite Gear",
+  "description": "Small mod which is more like for IC2 Experimental & TechReborn. Also compatible with ImmersiveEngineering.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "https://github.com/TwilightWingsStudio/CompositeGear",
   "updateUrl": "",
   "authorList": ["ZCaliptium"],
-  "credits": "Karel \"Nekorelka\"",
+  "credits": "Karel \"Nekorelka\", ST27",
   "logoFile": "assets/compositegear/logo.png",
   "screenshots": [],
   "dependencies": []
