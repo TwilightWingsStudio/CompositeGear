@@ -53,7 +53,11 @@ import org.apache.logging.log4j.Logger;
 
 import ic2.api.recipe.Recipes;
 
-@Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="after:baubles;after:ic2;after:techreborn;after:hzdslib;after:immersiveengineering;after:applecore;after:toughasnails", version = ModInfo.VERSION)
+@Mod(	modid = ModInfo.MODID,
+		name = ModInfo.MODNAME,
+		dependencies = "after:baubles;after:ic2;after:techreborn;after:hzdslib;after:immersiveengineering;after:applecore;after:toughasnails",
+		version = ModInfo.VERSION,
+		guiFactory = "tws.zcaliptium.compositegear.client.gui.GuiFactoryCG")
 public class CompositeGear
 {
     @Instance(ModInfo.MODID)
@@ -90,7 +94,16 @@ public class CompositeGear
     	modLog = event.getModLog();
     	container = getModContainer(ModInfo.MODID);
 
-    	ConfigurationCG.init(event.getSuggestedConfigurationFile());
+	    try {
+	    	ConfigurationCG.init(event.getSuggestedConfigurationFile());
+	    } catch (Exception e) {
+	      CompositeGear.modLog.error("Unable to load configuration file!");
+	      throw new RuntimeException(e);
+	    } finally {
+	    	if (ConfigurationCG.config != null) {
+	    		ConfigurationCG.save();
+	    	}
+	    }
 
     	// Generic factories.
     	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "generic"), new GenericItemFactory());
@@ -105,6 +118,8 @@ public class CompositeGear
     	LeveledCap.init();
     	
     	proxy.preInit();
+    	
+    	ConfigurationCG.save();
     }
     
     @EventHandler

@@ -13,8 +13,11 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.ConfigCategory;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ConfigurationCG
 {
@@ -59,48 +62,64 @@ public class ConfigurationCG
 	
 	public static void init(File configFile)
 	{
-	    Configuration config = new Configuration(configFile);
+	    config = new Configuration(configFile);
+	    config.load();
 
-	    try {
-	    	String[] itemBlacklist = config.getStringList("craftingBlacklist", SECTION_CRAFTING, defaultCraftingBlacklist, "List of mod items that should be uncraftable. Put item names without mod namespace. The option works for only items from this mod. Example: composite_sword");
+	    load();
 
-	    	if (itemBlacklist.length > 0) {
-	    		for (String name : itemBlacklist) {	    			
-	    			CRAFTING_BLACKLIST.add(name);
-	    		}
-	    	}
-	    	
-	    	// Durability Display
-		    tooltipDurabilityDisplay = config.getInt("tooltipDurabilityDisplay", SECTION_CLIENT, 1, 0, 2, "Will add icon with text into tooltips of clothing/armor/tools/weapons.\nModes:\n 0 - Disable\n 1 - Only Our Mod\n 2 - All Items\n");
+	    MinecraftForge.EVENT_BUS.register(ConfigChangeListener.class);
+	}
+	
+	public static void load()
+	{
+    	String[] itemBlacklist = config.getStringList("craftingBlacklist", SECTION_CRAFTING, defaultCraftingBlacklist, "List of mod items that should be uncraftable. Put item names without mod namespace. The option works for only items from this mod. Example: composite_sword");
 
-	    	String category = SECTION_CLIENT + ".tooltipDurabilityDisplay";
-	    	tooltipDurabilityDisplay_removeEnderCoreDurability = config.getBoolean("removeEnderCoreDurability", category, true, "Will remove 'Durability: X/Y' line from all the tooltips affected by our durability display.");
-		    
-		    allowArmorEnchanting = config.getBoolean("allowArmorEnchanting", SECTION_ENCHANTING, true, "");
-		    allowMeleeEnchanting = config.getBoolean("allowMeleeEnchanting", SECTION_ENCHANTING, true, "");
-		    allowRangedEnchanting = config.getBoolean("allowRangedEnchanting", SECTION_ENCHANTING, true, "");
+    	if (itemBlacklist.length > 0) {
+    		for (String name : itemBlacklist) {	    			
+    			CRAFTING_BLACKLIST.add(name);
+    		}
+    	}
 
-		    trCompat = config.getBoolean("techreborn", SECTION_COMPAT, true, "TechReborn integration. Enables usage of TR air cells by air masks.");
-		    ic2Compat = config.getBoolean("ic2", SECTION_COMPAT, true, "Industrial Craft 2 Exp. integration. Enables usage of IC2 air cells by air masks. Also magnetizer support for armor.");
-		    acCompat = config.getBoolean("applecore", SECTION_COMPAT, true, "AppleCore integration. Gives way to control hunger rate by specific equipment.");
-		    tanCompat = config.getBoolean("toughasnails", SECTION_COMPAT, true, "Tough As Nails integration. Equipment will affect body temperature.");
+    	// Durability Display
+	    tooltipDurabilityDisplay = config.getInt("tooltipDurabilityDisplay", SECTION_CLIENT, 1, 0, 2, "Will add icon with text into tooltips of clothing/armor/tools/weapons.\nModes:\n 0 - Disable\n 1 - Only Our Mod\n 2 - All Items\n");
 
-		    // Armor
-		    isFEAirMask = config.getBoolean("air_mask", SECTION_FEATURES_ARMOR, true, "Air mask feature. Restores oxygen level with air cells. TR or IC2 integration required.");
-		    isFEWarm = config.getBoolean("warm", SECTION_FEATURES_ARMOR, true, "Gives you warmth. TAN integration required.");
-		    isFECold = config.getBoolean("cold", SECTION_FEATURES_ARMOR, true, "Chills you down. TAN integration required.");
-		    isFESaveSatietyHot = config.getBoolean("save_satiety_hot", SECTION_FEATURES_ARMOR, true, "Saves your energy in hot places. AppleCore integration required.");
-		    isFESaveSatietyCold = config.getBoolean("save_satiety_cold", SECTION_FEATURES_ARMOR, true, "Saves your energy in cold places. AppleCore integration required.");
+    	String category = SECTION_CLIENT + ".tooltipDurabilityDisplay";
+    	tooltipDurabilityDisplay_removeEnderCoreDurability = config.getBoolean("removeEnderCoreDurability", category, true, "Will remove 'Durability: X/Y' line from all the tooltips affected by our durability display.");
+	    
+	    allowArmorEnchanting = config.getBoolean("allowArmorEnchanting", SECTION_ENCHANTING, true, "");
+	    allowMeleeEnchanting = config.getBoolean("allowMeleeEnchanting", SECTION_ENCHANTING, true, "");
+	    allowRangedEnchanting = config.getBoolean("allowRangedEnchanting", SECTION_ENCHANTING, true, "");
 
-		    // Melee
-		    isFEConstantGemDamage = config.getBoolean("constant_gem_damage", SECTION_FEATURES_MELEE, true, "Deals constant damage to most of gem armor. Should work for many armor materials from mods.");
+	    trCompat = config.getBoolean("techreborn", SECTION_COMPAT, true, "TechReborn integration. Enables usage of TR air cells by air masks.");
+	    ic2Compat = config.getBoolean("ic2", SECTION_COMPAT, true, "Industrial Craft 2 Exp. integration. Enables usage of IC2 air cells by air masks. Also magnetizer support for armor.");
+	    acCompat = config.getBoolean("applecore", SECTION_COMPAT, true, "AppleCore integration. Gives way to control hunger rate by specific equipment.");
+	    tanCompat = config.getBoolean("toughasnails", SECTION_COMPAT, true, "Tough As Nails integration. Equipment will affect body temperature.");
 
-	    } catch (Exception e) {
-	      CompositeGear.modLog.error("Unable to load log file!");
-	      throw new RuntimeException(e);
+	    // Armor
+	    isFEAirMask = config.getBoolean("air_mask", SECTION_FEATURES_ARMOR, true, "Air mask feature. Restores oxygen level with air cells. TR or IC2 integration required.");
+	    isFEWarm = config.getBoolean("warm", SECTION_FEATURES_ARMOR, true, "Gives you warmth. TAN integration required.");
+	    isFECold = config.getBoolean("cold", SECTION_FEATURES_ARMOR, true, "Chills you down. TAN integration required.");
+	    isFESaveSatietyHot = config.getBoolean("save_satiety_hot", SECTION_FEATURES_ARMOR, true, "Saves your energy in hot places. AppleCore integration required.");
+	    isFESaveSatietyCold = config.getBoolean("save_satiety_cold", SECTION_FEATURES_ARMOR, true, "Saves your energy in cold places. AppleCore integration required.");
 
-	    } finally {
-	      config.save();
-	    }
+	    // Melee
+	    isFEConstantGemDamage = config.getBoolean("constant_gem_damage", SECTION_FEATURES_MELEE, true, "Deals constant damage to most of gem armor. Should work for many armor materials from mods.");
+	
+	    if (config.hasChanged()) config.save();
+	}
+	
+	public static void save()
+	{
+		config.save();
+	}
+	
+	public static class ConfigChangeListener
+	{
+		@SubscribeEvent
+		public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
+			if (eventArgs.getModID().equals(ModInfo.MODID)) {
+				load();
+			}
+		}
 	}
 }
