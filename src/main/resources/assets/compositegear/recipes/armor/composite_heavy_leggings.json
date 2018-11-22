@@ -1,0 +1,26 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " C ",
+    "A A",
+    "A A"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:crafting_allowed",
+      "key": "composite_heavy_leggings"
+    }
+  ],
+  "key": {
+    "A": {
+      "type": "forge:ore_dict",
+      "ore": "plateAdvancedAlloy"
+    },
+    "C": {
+      "item": "compositegear:composite_leggings"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_heavy_leggings"
+  }
+}

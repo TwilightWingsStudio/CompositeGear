@@ -1,0 +1,25 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "A A",
+    " C "
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:crafting_allowed",
+      "key": "composite_heavy_boots"
+    }
+  ],
+  "key": {
+    "A": {
+      "type": "forge:ore_dict",
+      "ore": "plateAdvancedAlloy"
+    },
+    "C": {
+      "item": "compositegear:composite_boots"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_heavy_boots"
+  }
+}
