@@ -73,3 +73,5 @@ compositegear.itemclass.mediumarmor=Medium Armor
 compositegear.itemclass.heavyarmor=Heavy Armor
 compositegear.itemclass.meleeweapon=Melee
 compositegear.itemclass.rangedweapon=Ranged
+
+itemGroup.compositegear=Composite Gear
