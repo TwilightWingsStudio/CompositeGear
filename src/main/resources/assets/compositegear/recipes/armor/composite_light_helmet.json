@@ -13,8 +13,7 @@
   ],
   "key": {
     "W": {
-      "item": "minecraft:wool",
-      "data": 32767
+      "item": "compositegear:fabric_sheet"
     },
     "A": {
       "type": "forge:ore_dict",
