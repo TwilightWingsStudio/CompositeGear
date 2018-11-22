@@ -36,7 +36,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import toughasnails.api.temperature.TemperatureHelper;
 import tws.zcaliptium.compositegear.client.ModelBakeHandler;
-import tws.zcaliptium.compositegear.client.renderer.LayerBipedArmorCG;
 import tws.zcaliptium.compositegear.common.capabilities.LeveledCap;
 import tws.zcaliptium.compositegear.common.compat.TANTemperatureModifier;
 import tws.zcaliptium.compositegear.common.items.ArmorItemFactory;
