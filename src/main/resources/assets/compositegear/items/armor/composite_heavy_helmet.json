@@ -19,6 +19,10 @@
       "defaultColor": 8815987
     },
     {
+      "type": "air_mask",
+      "minAir": 20
+    },
+    {
       "type": "metal"
     }
   ],
