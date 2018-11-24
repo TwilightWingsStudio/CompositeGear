@@ -59,22 +59,29 @@ public class ItemsCG
 		Item.ToolMaterial compositeToolMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE", 2, 1800, 6.0F, 2.0F, 13);
 		Item.ToolMaterial compositeDaggerMaterial = EnumHelper.addToolMaterial("CG_COMPOSITE_DAGGER", 2, 600, 6.0F, 0.0F, 15);
 
-		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, 0).setDefaultColor(8815987).setRarity(EnumRarity.uncommon);
-		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, 1).setDefaultColor(8815987).setRarity(EnumRarity.uncommon);
-		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, 2).setDefaultColor(8815987).setRarity(EnumRarity.uncommon);
-		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, 3).setDefaultColor(8815987).setRarity(EnumRarity.uncommon);
+		// Armor.
+		compositeHelmet = new ItemCompositeArmor("composite_helmet", compositeArmorMaterial, COMPOSITE_NAME, 0, 0)
+				.setDefaultColor(8815987).setRarity(EnumRarity.uncommon).setMaxDamage(768);
+		compositeChestplate = new ItemCompositeArmor("composite_chestplate", compositeArmorMaterial, COMPOSITE_NAME , 0, 1)
+				.setDefaultColor(8815987).setRarity(EnumRarity.uncommon).setMaxDamage(1024);
+		compositeLeggings = new ItemCompositeArmor("composite_leggings", compositeArmorMaterial, COMPOSITE_NAME, 0, 2)
+				.setDefaultColor(8815987).setRarity(EnumRarity.uncommon).setMaxDamage(768);
+		compositeBoots = new ItemCompositeArmor("composite_boots", compositeArmorMaterial, COMPOSITE_NAME, 0, 3)
+				.setDefaultColor(8815987).setRarity(EnumRarity.uncommon).setMaxDamage(768);
 
+		// Misc.
 		respiratorHalfMask = new ItemCGArmor("respirator_halfmask", accessoryArmorMaterial, "respirator_halfmask", 0, 0)
-				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(80);
+				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(80).setMaxDamage(64);
 
 		respiratorMask = new ItemCGArmor("respirator_mask", accessoryArmorMaterial, "respirator_mask", 0, 0)
-				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(150);
+				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setAirMask(true).setMinAir(20).setMaxDamage(128);
 		
 		respiratorMaskComposite = new ItemCGArmor("respirator_mask_composite", compositeMaskArmorMaterial, "respirator_mask_composite", 0, 0)
-				.setItemClass(EnumItemClass.LIGHT_ARMOR).setAirMask(true).setMinAir(20).setRarity(EnumRarity.uncommon).setMaxDamage(400);
+				.setItemClass(EnumItemClass.LIGHT_ARMOR).setAirMask(true).setMinAir(20).setRarity(EnumRarity.uncommon).setMaxDamage(768);
 		
+		// Clothing.
 		ushankaHat = new ItemCompositeArmor("ushanka_hat", accessoryArmorMaterial, "ushanka_hat", 0, 0).setDefaultColor(8487297)
-				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true).setMaxDamage(300);
+				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true).setMaxDamage(256);
 		
 		balaclavaMask = new ItemCompositeArmor("balaclava_mask", accessoryArmorMaterial, "balaclava_mask", 0, 0).setDefaultColor(8487297)
 				.setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true).setMaxDamage(256);
@@ -82,10 +89,10 @@ public class ItemsCG
 		shemaghMask = new ItemCompositeArmor("shemagh_mask", accessoryArmorMaterial, "shemagh_mask", 0, 0).setDefaultColor(8487297)
 				.setHasOverlayIcon(true).setItemClass(EnumItemClass.ACCESSORY_ARMOR).setHasDescription(true).setMaxDamage(256);
 
-		// Weapons
-		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial);
-		compositeDagger = new ItemCGSword("composite_dagger", compositeDaggerMaterial);
-		compositeBow = new ItemCGBow("composite_bow", 2000, 15);
+		// Weapons.
+		compositeSword = new ItemCGSword("composite_sword", compositeToolMaterial).setMaxDamage(1536);
+		compositeDagger = new ItemCGSword("composite_dagger", compositeDaggerMaterial).setMaxDamage(768);
+		compositeBow = new ItemCGBow("composite_bow", 2048, 15);
 
 		loadIC2Items();
 	}
