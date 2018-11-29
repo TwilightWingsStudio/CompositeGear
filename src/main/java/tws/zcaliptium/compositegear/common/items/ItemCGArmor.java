@@ -275,15 +275,27 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
     @Override
     public boolean hasColor(ItemStack stack)
     {
-        NBTTagCompound nbttagcompound = stack.getTagCompound();
-        return nbttagcompound != null && nbttagcompound.hasKey("display", 10) ? nbttagcompound.getCompoundTag("display").hasKey("color", 3) : false;
+		return this.hasColorData(stack);
     }
 
-    /**
-     * Return the color for the specified armor ItemStack.
-     */
+    // IItemColorable
+	@Override
+    public boolean hasColorData(ItemStack stack)
+	{
+		NBTTagCompound nbttagcompound = stack.getTagCompound();
+		return nbttagcompound != null && nbttagcompound.hasKey("display", 10) ? nbttagcompound.getCompoundTag("display").hasKey("color", 3) : false;
+	}
+
+	// Vanilla
+	@Override
+	public int getColor(ItemStack stack)
+	{
+		return this.getColorData(stack, 0);
+	}
+
+	// IItemColorable
     @Override
-    public int getColor(ItemStack stack)
+    public int getColorData(ItemStack stack, int colorId)
     {
         NBTTagCompound nbttagcompound = stack.getTagCompound();
 
@@ -300,11 +312,16 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
         return defaultColor;
     }
 
-    /**
-     * Remove the color from the specified armor ItemStack.
-     */
+    // Vanilla
     @Override
     public void removeColor(ItemStack stack)
+	{
+		this.removeColorData(stack);
+	}
+
+    // IItemColorable
+    @Override
+    public void removeColorData(ItemStack stack)
     {
         NBTTagCompound nbttagcompound = stack.getTagCompound();
 
@@ -319,11 +336,16 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
         }
     }
 
-    /**
-     * Sets the color of the specified armor ItemStack
-     */
+    // Vanilla
     @Override
     public void setColor(ItemStack stack, int color)
+	{
+		this.setColorData(stack, 0, color);
+	}
+
+    // IItemColorable
+    @Override
+    public void setColorData(ItemStack stack, int colorId, int color)
     {
         NBTTagCompound nbttagcompound = stack.getTagCompound();
 

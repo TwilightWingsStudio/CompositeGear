@@ -95,9 +95,9 @@ public class RecipesDyingEquipment extends net.minecraftforge.registries.IForgeR
                     itemstack = itemstack1.copy();
                     itemstack.setCount(1);
 
-                    if (itemColorable.hasColor(itemstack1))
+                    if (itemColorable.hasColorData(itemstack1))
                     {
-                        int l = itemColorable.getColor(itemstack);
+                        int l = itemColorable.getColorData(itemstack, 0);
                         float f = (float)(l >> 16 & 255) / 255.0F;
                         float f1 = (float)(l >> 8 & 255) / 255.0F;
                         float f2 = (float)(l & 255) / 255.0F;
@@ -144,7 +144,7 @@ public class RecipesDyingEquipment extends net.minecraftforge.registries.IForgeR
             k1 = (int)((float)k1 * f3 / f4);
             int k2 = (i1 << 8) + j1;
             k2 = (k2 << 8) + k1;
-            itemColorable.setColor(itemstack, k2);
+            itemColorable.setColorData(itemstack, 0, k2);
             return itemstack;
         }
     }

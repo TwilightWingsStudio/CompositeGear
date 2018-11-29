@@ -11,10 +11,14 @@ import net.minecraft.item.ItemStack;
 
 public interface IItemColorable
 {
+	// NOTE: Can't use 'hasColor', 'getColor', 'setColor' and 'removeColor'.
+	// These names intersect with vanilla ones from ItemArmor and cause bugs in release build.
+
+	public boolean hasColorData(ItemStack stack);
+
 	public boolean isColorable();
-	public boolean hasColor(ItemStack stack);
-	public int getColor(ItemStack stack);
-	
-	public void removeColor(ItemStack stack);
-	public void setColor(ItemStack stack, int color);
+	public int getColorData(ItemStack stack, int colorId);
+
+	public void removeColorData(ItemStack stack);
+	public void setColorData(ItemStack stack, int colorId, int color);
 }

@@ -23,6 +23,7 @@ import tws.zcaliptium.compositegear.common.CommonProxy;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
 import tws.zcaliptium.compositegear.common.items.ItemsCG;
+import tws.zcaliptium.compositegear.lib.IItemColorable;
 
 public class ClientProxy extends CommonProxy
 {	
@@ -92,11 +93,14 @@ public class ClientProxy extends CommonProxy
         {
             public int colorMultiplier(ItemStack stack, int tintIndex)
             {
-            	if (stack.getItem() instanceof ItemCGMelee) {
-            		return tintIndex > 0 ? -1 : ((ItemCGMelee)stack.getItem()).getColor(stack);
-            	}
-            	
-                return tintIndex > 0 ? -1 : ((ItemArmor)stack.getItem()).getColor(stack);
+            	Item item = stack.getItem();
+
+            	// If our interface...
+            	if (item instanceof IItemColorable) {
+            		return tintIndex > 0 ? -1 : ((IItemColorable)item).getColorData(stack, 0);
+				}
+
+                return tintIndex > 0 ? -1 : ((ItemArmor)item).getColor(stack);
             }
         }, items);
     }
