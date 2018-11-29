@@ -17,6 +17,7 @@ build/
 /*.iml
 /*.ipr
 /*.iws
+out/
 
 #GfxSources
 *.psd
