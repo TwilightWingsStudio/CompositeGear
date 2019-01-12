@@ -1,0 +1,49 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "RFR",
+    "SGS",
+    "RMR"
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "immersiveengineering"
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "ic2"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "techreborn"
+      }
+    }
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "F": {
+      "item": "compositegear:composite_faceplate"
+    },
+    "M": {
+      "item": "compositegear:air_mask_module"
+    },
+    "R": {
+      "type": "forge:ore_dict",
+      "ore": "itemRubber"
+    },
+    "S": {
+      "item": "compositegear:string_reel"
+    }
+  },
+  "result": {
+    "item": "compositegear:respirator_mask_composite"
+  }
+}
