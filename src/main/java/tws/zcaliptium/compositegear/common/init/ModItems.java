@@ -44,7 +44,12 @@ import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.compat.IC2Compat;
 import tws.zcaliptium.compositegear.common.compat.TRCompat;
 import tws.zcaliptium.compositegear.common.crafting.RecipesDyingEquipment;
+import tws.zcaliptium.compositegear.common.items.ArmorItemFactory;
+import tws.zcaliptium.compositegear.common.items.GenericItemFactory;
 import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
+import tws.zcaliptium.compositegear.common.items.ItemHelper;
+import tws.zcaliptium.compositegear.common.items.MeleeItemFactory;
+import tws.zcaliptium.compositegear.common.items.RangedItemFactory;
 import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
@@ -62,6 +67,14 @@ public class ModItems
 
 	public static void load()
 	{
+    	// Generic factories.
+    	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "generic"), new GenericItemFactory());
+    	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "armor"), new ArmorItemFactory());
+    	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "melee_weapon"), new MeleeItemFactory());
+    	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "ranged_weapon"), new RangedItemFactory());
+
+    	ItemHelper.loadItems(CompositeGear.container);
+		
 		if (Loader.isModLoaded(Compats.TR))
 		{
 			TRCompat.load();

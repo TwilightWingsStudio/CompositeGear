@@ -4,5 +4,8 @@
   },
   "conditions": {
     "crafting_allowed": "tws.zcaliptium.compositegear.common.crafting.CraftingAllowedCondition"
+  },
+  "recipes": {
+    "tool_shapeless": "tws.zcaliptium.compositegear.common.crafting.ShapelessToolRecipeFactory"
   }
 }

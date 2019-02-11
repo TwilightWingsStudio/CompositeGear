@@ -104,19 +104,11 @@ public class CompositeGear
 	    	}
 	    }
 
-    	// Generic factories.
-    	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "generic"), new GenericItemFactory());
-    	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "armor"), new ArmorItemFactory());
-    	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "melee_weapon"), new MeleeItemFactory());
-    	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "ranged_weapon"), new RangedItemFactory());
-
-    	ItemHelper.loadItems(container);
-
+    	proxy.preInit();
+	    
     	ModItems.load();
     	
     	LeveledCap.init();
-    	
-    	proxy.preInit();
     	
     	ConfigurationCG.save();
     }
