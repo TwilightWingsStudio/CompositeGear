@@ -130,30 +130,4 @@ public class ModItems
 		ForgeRegistries.ITEMS.register(item);
 		return item;
 	}
-
-	@SideOnly(Side.CLIENT)
-	public static void registerItemModel(Item item, String name)
-	{
-		registerItemModel(item, 0, name);
-	}
-
-	@SideOnly(Side.CLIENT)
-	public static void registerItemModel(Item item, int meta, String name)
-	{
-		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(ModInfo.MODID + ":" + name, "inventory"));
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public static void registerItemModelFull(Item item, int meta, String path, String variant)
-	{
-		ResourceLocation loc = new ResourceLocation(ModInfo.MODID, path);
-		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(loc, variant));
-	}
-
-	@SideOnly(Side.CLIENT)
-	public static void registerMultiItem(Item item, String name, String path)
-	{
-		ResourceLocation loc = new ResourceLocation(ModInfo.MODID, path);
-		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(loc, "type=" + name));
-	}
 }
