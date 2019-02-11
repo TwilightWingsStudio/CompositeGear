@@ -34,6 +34,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.ModInfo;
+import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
 public class ItemCGBow extends ItemBow implements IItemIntelligence
@@ -78,7 +79,7 @@ public class ItemCGBow extends ItemBow implements IItemIntelligence
             }
         });
         
-		ItemsCG.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
+		ModItems.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
 
 		if (CompositeGear.cgTab != null) {
 			setCreativeTab(CompositeGear.cgTab);

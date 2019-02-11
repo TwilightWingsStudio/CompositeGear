@@ -22,7 +22,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import tws.zcaliptium.compositegear.client.model.BakedWrappedWithGuiModel;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ModInfo;
-import tws.zcaliptium.compositegear.common.items.ItemsCG;
+import tws.zcaliptium.compositegear.common.init.ModItems;
 
 @SideOnly(Side.CLIENT)
 public class ModelBakeHandler
@@ -31,7 +31,7 @@ public class ModelBakeHandler
     @SubscribeEvent
     public void onModelBake(ModelBakeEvent e)
     {
-	    for(Map.Entry<ResourceLocation, ResourceLocation> entry : ItemsCG.GUI_MODELS_REGISTRY.entrySet())
+	    for(Map.Entry<ResourceLocation, ResourceLocation> entry : ModItems.GUI_MODELS_REGISTRY.entrySet())
 	    {
 	    	ModelResourceLocation key = (ModelResourceLocation)entry.getKey();
 	    	ModelResourceLocation value = (ModelResourceLocation)entry.getValue();

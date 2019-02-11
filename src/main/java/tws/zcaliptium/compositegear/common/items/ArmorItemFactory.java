@@ -20,6 +20,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.crafting.JsonContext;
 import tws.zcaliptium.compositegear.common.CompositeGear;
+import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.lib.IItemFactory;
 
 import static com.google.common.collect.Lists.newArrayList;
@@ -95,7 +96,7 @@ public class ArmorItemFactory extends GenericItemFactory
 		
 		String repairItemName = JsonUtils.getString(json, "repairItem", null);
 		if (repairItemName != null) {
-			ItemsCG.REPAIR_ITEMS_REGISTRY.put(item, new ResourceLocation(repairItemName));
+			ModItems.REPAIR_ITEMS_REGISTRY.put(item, new ResourceLocation(repairItemName));
 		}
 	}
 
@@ -111,7 +112,7 @@ public class ArmorItemFactory extends GenericItemFactory
 		} else if (type.equals("colorable")) {
 			armorItem.setColorable(true);
 			armorItem.setDefaultColor(JsonUtils.getInt(json, "defaultColor", 16777215));
-			ItemsCG.COLORABLE_REGISTRY.add(armorItem);
+			ModItems.COLORABLE_REGISTRY.add(armorItem);
 
 		} else if (type.equals("metal")) {
 			armorItem.setMetal(true);

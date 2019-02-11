@@ -15,6 +15,7 @@ import net.minecraft.util.JsonUtils;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.crafting.JsonContext;
 import tws.zcaliptium.compositegear.common.CompositeGear;
+import tws.zcaliptium.compositegear.common.init.ModItems;
 
 public class MeleeItemFactory extends GenericItemFactory
 {
@@ -71,7 +72,7 @@ public class MeleeItemFactory extends GenericItemFactory
 		} else if (type.equals("colorable")) {
 			meleeItem.setColorable(true);
 			meleeItem.setDefaultColor(JsonUtils.getInt(json, "defaultColor", 16777215));
-			ItemsCG.COLORABLE_REGISTRY.add(meleeItem);
+			ModItems.COLORABLE_REGISTRY.add(meleeItem);
 
 		} else if (type.equals("constant_gem_damage")) {
 			meleeItem.setConstantGemDamage(JsonUtils.getInt(json, "damage"));

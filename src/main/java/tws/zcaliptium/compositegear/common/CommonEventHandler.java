@@ -15,8 +15,8 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
-import tws.zcaliptium.compositegear.common.items.ItemsCG;
 
 public class CommonEventHandler
 {

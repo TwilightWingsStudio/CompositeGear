@@ -21,7 +21,7 @@ import toughasnails.api.temperature.ITemperatureModifier;
 import toughasnails.api.temperature.Temperature;
 import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
-import tws.zcaliptium.compositegear.common.items.ItemsCG;
+import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.lib.ISpecialArmor;
 
 @Optional.Interface(iface = "toughasnails.api.temperature.ITemperatureModifier", modid = Compats.TAN)

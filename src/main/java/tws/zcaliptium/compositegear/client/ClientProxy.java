@@ -21,8 +21,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tws.zcaliptium.compositegear.common.CommonProxy;
 import tws.zcaliptium.compositegear.common.CompositeGear;
+import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
-import tws.zcaliptium.compositegear.common.items.ItemsCG;
 import tws.zcaliptium.compositegear.lib.IItemColorable;
 
 public class ClientProxy extends CommonProxy
@@ -87,7 +87,7 @@ public class ClientProxy extends CommonProxy
     {
     	CompositeGear.modLog.info("Registering IItemColor handler for mod items.");
     	
-    	Item[] items = ItemsCG.COLORABLE_REGISTRY.toArray(new Item[0]);
+    	Item[] items = ModItems.COLORABLE_REGISTRY.toArray(new Item[0]);
     	
 		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor()
         {

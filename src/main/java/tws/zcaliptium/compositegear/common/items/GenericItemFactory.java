@@ -28,6 +28,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ModInfo;
+import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.lib.IItemFactory;
 import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
@@ -85,7 +86,7 @@ public class GenericItemFactory implements IItemFactory
 			ModelResourceLocation model2 = parseModelEntry(modelObj);
 			ModelBakery.registerItemVariants(item, model2);
 			
-			ItemsCG.GUI_MODELS_REGISTRY.put(model, model2);
+			ModItems.GUI_MODELS_REGISTRY.put(model, model2);
 		}
 	}
 	

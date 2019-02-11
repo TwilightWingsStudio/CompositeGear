@@ -39,6 +39,7 @@ import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.compat.IC2Compat;
 import tws.zcaliptium.compositegear.common.compat.TRCompat;
+import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.lib.IItemColorable;
 import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 import tws.zcaliptium.compositegear.lib.ISpecialArmor;
@@ -72,11 +73,15 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 	// Features
 	protected boolean isAirMask;
 	protected int minAirToStartRefil;
+	
+	// TAN
 	protected boolean isWarm;
 	protected boolean isCold;
+	
+	// AppleCore
 	protected boolean isSaveSatietyHot;
 	protected boolean isSaveSatietyCold;
-	protected boolean isMetal;
+	protected boolean isMetal; // IC2
 
 	public ItemCGArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, EntityEquipmentSlot armorType)
 	{
@@ -104,7 +109,7 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 		this.hasOverlay = false;
 		this.isColorable = false;
 
-		ItemsCG.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
+		ModItems.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
 
 		if (CompositeGear.cgTab != null) {
 			setCreativeTab(CompositeGear.cgTab);

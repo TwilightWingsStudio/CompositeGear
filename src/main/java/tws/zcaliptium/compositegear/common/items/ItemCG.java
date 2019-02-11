@@ -12,6 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ModInfo;
+import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
 public class ItemCG extends Item implements IItemIntelligence
@@ -24,7 +25,7 @@ public class ItemCG extends Item implements IItemIntelligence
 		
 		hasDescription = false;
     	
-		ItemsCG.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
+		ModItems.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
 
 		if (CompositeGear.cgTab != null) {
 			setCreativeTab(CompositeGear.cgTab);

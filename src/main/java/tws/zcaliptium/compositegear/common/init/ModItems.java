@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.gnu.org/licenses/lgpl-3.0.txt
  ******************************************************************************/
-package tws.zcaliptium.compositegear.common.items;
+package tws.zcaliptium.compositegear.common.init;
 
 import java.util.HashMap;
 import java.util.List;
@@ -44,11 +44,12 @@ import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.compat.IC2Compat;
 import tws.zcaliptium.compositegear.common.compat.TRCompat;
 import tws.zcaliptium.compositegear.common.crafting.RecipesDyingEquipment;
+import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
 import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 
-public class ItemsCG
+public class ModItems
 {
     public static List<Item> COLORABLE_REGISTRY = Lists.<Item>newArrayList();
     public static Map<Item, ResourceLocation> REPAIR_ITEMS_REGISTRY = new HashMap<Item, ResourceLocation>();
@@ -102,7 +103,7 @@ public class ItemsCG
 	
 	public static void defineRepairMaterials()
 	{
-	    for(Map.Entry<Item, ResourceLocation> entry : ItemsCG.REPAIR_ITEMS_REGISTRY.entrySet())
+	    for(Map.Entry<Item, ResourceLocation> entry : ModItems.REPAIR_ITEMS_REGISTRY.entrySet())
 	    {
 	    	Item keyItem = entry.getKey();
 
@@ -118,34 +119,40 @@ public class ItemsCG
 	    }
 	}
 
-	public static Item registerItem(Item item, ResourceLocation rl) {
+	public static Item registerItem(Item item, ResourceLocation rl)
+	{
 		item.setRegistryName(rl);
 		return registerItem(item);
 	}
 
-	public static Item registerItem(Item item) {
+	public static Item registerItem(Item item)
+	{
 		ForgeRegistries.ITEMS.register(item);
 		return item;
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static void registerItemModel(Item item, String name) {
+	public static void registerItemModel(Item item, String name)
+	{
 		registerItemModel(item, 0, name);
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static void registerItemModel(Item item, int meta, String name) {
+	public static void registerItemModel(Item item, int meta, String name)
+	{
 		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(ModInfo.MODID + ":" + name, "inventory"));
 	}
 	
 	@SideOnly(Side.CLIENT)
-	public static void registerItemModelFull(Item item, int meta, String path, String variant) {
+	public static void registerItemModelFull(Item item, int meta, String path, String variant)
+	{
 		ResourceLocation loc = new ResourceLocation(ModInfo.MODID, path);
 		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(loc, variant));
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static void registerMultiItem(Item item, String name, String path) {
+	public static void registerMultiItem(Item item, String name, String path)
+	{
 		ResourceLocation loc = new ResourceLocation(ModInfo.MODID, path);
 		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(loc, "type=" + name));
 	}

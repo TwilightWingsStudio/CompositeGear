@@ -38,11 +38,11 @@ import toughasnails.api.temperature.TemperatureHelper;
 import tws.zcaliptium.compositegear.client.ModelBakeHandler;
 import tws.zcaliptium.compositegear.common.capabilities.LeveledCap;
 import tws.zcaliptium.compositegear.common.compat.TANTemperatureModifier;
+import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.common.items.ArmorItemFactory;
 import tws.zcaliptium.compositegear.common.items.GenericItemFactory;
 import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
 import tws.zcaliptium.compositegear.common.items.ItemHelper;
-import tws.zcaliptium.compositegear.common.items.ItemsCG;
 import tws.zcaliptium.compositegear.common.items.MeleeItemFactory;
 import tws.zcaliptium.compositegear.common.items.RangedItemFactory;
 
@@ -112,7 +112,7 @@ public class CompositeGear
 
     	ItemHelper.loadItems(container);
 
-    	ItemsCG.load();
+    	ModItems.load();
     	
     	LeveledCap.init();
     	
@@ -134,7 +134,7 @@ public class CompositeGear
     {
     	proxy.postInit();
     	
-        ItemsCG.loadRecipes();
-        ItemsCG.defineRepairMaterials();
+        ModItems.loadRecipes();
+        ModItems.defineRepairMaterials();
     }
 }
