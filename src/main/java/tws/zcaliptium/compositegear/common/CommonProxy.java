@@ -68,4 +68,11 @@ public class CommonProxy
 	{
 		TemperatureHelper.registerTemperatureModifier(new TANTemperatureModifier());
 	}
+	
+	public void throwModLoadingException(String[] lines, Throwable causes)
+	{
+		if (causes != null) {
+			FMLCommonHandler.instance().raiseException(causes, "", true);
+		}
+	}
 }

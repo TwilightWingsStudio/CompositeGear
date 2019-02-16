@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.gnu.org/licenses/lgpl-3.0.txt
  ******************************************************************************/
-package tws.zcaliptium.compositegear.common;
+package tws.zcaliptium.compositegear.client;
 
 import javax.annotation.Nonnull;
 

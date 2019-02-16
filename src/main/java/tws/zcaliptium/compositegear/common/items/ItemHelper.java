@@ -31,8 +31,8 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import tws.zcaliptium.compositegear.client.ModLoadingException;
 import tws.zcaliptium.compositegear.common.CompositeGear;
-import tws.zcaliptium.compositegear.common.ModLoadingException;
 import tws.zcaliptium.compositegear.lib.IItemFactory;
 
 public class ItemHelper
@@ -85,11 +85,11 @@ public class ItemHelper
 					}
 					catch (JsonParseException e)
 					{
-						throw new ModLoadingException(new String("Malformed item JSON!\n\nPath: " + key).split("\n"), e);
+						CompositeGear.proxy.throwModLoadingException(new String("Malformed item JSON!\n\nPath: " + key).split("\n"), e);
 					}
 					catch (IOException e)
 					{
-						throw new ModLoadingException(new String("IOException while reading item JSON!\n\nPath: " + key).split("\n"), e);
+						CompositeGear.proxy.throwModLoadingException(new String("IOException while reading item JSON!\n\nPath: " + key).split("\n"), e);
 					}
 					finally
 					{

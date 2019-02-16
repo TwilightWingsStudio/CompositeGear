@@ -104,4 +104,10 @@ public class ClientProxy extends CommonProxy
             }
         }, items);
     }
+    
+    @Override
+    public void throwModLoadingException(String[] lines, Throwable causes)
+    {
+    	throw new ModLoadingException(lines, causes);
+    }
 }
