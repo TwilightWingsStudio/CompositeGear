@@ -27,10 +27,12 @@ import net.minecraft.util.JsonUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.JsonContext;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import tws.zcaliptium.compositegear.common.CompositeGear;
+import tws.zcaliptium.compositegear.common.ModLoadingException;
 import tws.zcaliptium.compositegear.lib.IItemFactory;
 
 public class ItemHelper
@@ -83,15 +85,11 @@ public class ItemHelper
 					}
 					catch (JsonParseException e)
 					{
-						FMLLog.log.error("Parsing error loading item {}", key, e);
-						System.exit(1);
-						return false;
+						throw new ModLoadingException(new String("Malformed item JSON!\n\nPath: " + key).split("\n"), e);
 					}
 					catch (IOException e)
 					{
-						FMLLog.log.error("Couldn't read item {} from {}", key, file, e);
-						System.exit(1);
-						return false;
+						throw new ModLoadingException(new String("IOException while reading item JSON!\n\nPath: " + key).split("\n"), e);
 					}
 					finally
 					{
