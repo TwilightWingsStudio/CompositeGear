@@ -141,6 +141,7 @@ public class ModItems
 	public static Item registerItem(Item item)
 	{
 		ForgeRegistries.ITEMS.register(item);
+
 		return item;
 	}
 }

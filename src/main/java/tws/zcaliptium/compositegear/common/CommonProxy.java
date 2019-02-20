@@ -17,8 +17,10 @@ import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
 import toughasnails.api.temperature.TemperatureHelper;
 import tws.zcaliptium.compositegear.client.ItemTooltipHandler;
+import tws.zcaliptium.compositegear.common.capabilities.LeveledCap;
 import tws.zcaliptium.compositegear.common.compat.ACHungerHandler;
 import tws.zcaliptium.compositegear.common.compat.TANTemperatureModifier;
+import tws.zcaliptium.compositegear.common.init.ModItems;
 
 public class CommonProxy
 {
@@ -29,7 +31,9 @@ public class CommonProxy
 	
 	public void preInit()
 	{
-		
+    	ModItems.load();
+    	
+    	LeveledCap.init();
 	}
 	
 	public void init()
@@ -47,7 +51,8 @@ public class CommonProxy
 	
 	public void postInit()
 	{
-		
+        ModItems.loadRecipes();
+        ModItems.defineRepairMaterials();
 	}
 	
 	public File getGameDir() {

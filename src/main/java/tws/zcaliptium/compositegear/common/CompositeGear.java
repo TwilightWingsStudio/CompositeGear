@@ -105,11 +105,7 @@ public class CompositeGear
 	    }
 
     	proxy.preInit();
-	    
-    	ModItems.load();
-    	
-    	LeveledCap.init();
-    	
+
     	ConfigurationCG.save();
     }
     
@@ -125,8 +121,5 @@ public class CompositeGear
     public void afterModsLoaded(FMLPostInitializationEvent event)
     {
     	proxy.postInit();
-    	
-        ModItems.loadRecipes();
-        ModItems.defineRepairMaterials();
     }
 }
