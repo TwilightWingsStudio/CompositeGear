@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2018 ZCaliptium.
+ * Copyright (c) 2018-2019 ZCaliptium.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the GNU Lesser Public License v3
  * which accompanies this distribution, and is available at
