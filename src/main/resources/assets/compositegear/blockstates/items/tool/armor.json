@@ -71,6 +71,26 @@
         "textures": {
           "layer0": "compositegear:items/composite_heavy_boots"
         }
+      },
+      "padded_helmet": {
+        "textures": {
+          "layer0": "compositegear:items/padded_helmet"
+        }
+      },
+      "padded_chestplate": {
+        "textures": {
+          "layer0": "compositegear:items/padded_chestplate"
+        }
+      },
+      "padded_leggings": {
+        "textures": {
+          "layer0": "compositegear:items/padded_leggings"
+        }
+      },
+      "padded_boots": {
+        "textures": {
+          "layer0": "compositegear:items/padded_boots"
+        }
       }
     }
   }
