@@ -1,0 +1,35 @@
+{
+  "type": "compositegear:armor",
+  "slot": "legs",
+  "id": "padded_leggings",
+  "durability": 128,
+  "intelligence": {
+    "class": "LIGHT_ARMOR"
+  },
+  "material" : {
+    "type": "generic",
+    "protection": 2,
+    "enchantability": 15
+  },
+  "features": [
+    {
+      "type": "colorable",
+      "defaultColor": 8487297
+    },
+    {
+      "type": "warm"
+    },
+    {
+      "type": "satiety_save_cold"
+    }
+  ],
+  "model" : {
+    "type": "variant_type",
+    "path": "items/tool/armor",
+    "variant": "padded_leggings"
+  },
+  "armorModel" : {
+    "armorName": "padded",
+    "hasOverlay": true
+  }
+}

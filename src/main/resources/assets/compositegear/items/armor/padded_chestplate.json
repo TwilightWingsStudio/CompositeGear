@@ -1,0 +1,36 @@
+{
+  "type": "compositegear:armor",
+  "slot": "chest",
+  "id": "padded_chestplate",
+  "durability": 128,
+  "intelligence": {
+    "class": "LIGHT_ARMOR"
+  },
+  "material" : {
+    "type": "generic",
+    "protection": 2,
+    "enchantability": 15,
+    "repairItem": "compositegear:string_reel"
+  },
+  "features": [
+    {
+      "type": "colorable",
+      "defaultColor": 8487297
+    },
+    {
+      "type": "warm"
+    },
+    {
+      "type": "satiety_save_cold"
+    }
+  ],
+  "model" : {
+    "type": "variant_type",
+    "path": "items/tool/armor",
+    "variant": "padded_chestplate"
+  },
+  "armorModel" : {
+    "armorName": "padded",
+    "hasOverlay": true
+  }
+}

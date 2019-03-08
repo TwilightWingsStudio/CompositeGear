@@ -1,0 +1,35 @@
+{
+  "type": "compositegear:armor",
+  "slot": "feet",
+  "id": "padded_boots",
+  "durability": 128,
+  "intelligence": {
+    "class": "LIGHT_ARMOR"
+  },
+  "material" : {
+    "type": "generic",
+    "protection": 1,
+    "enchantability": 15
+  },
+  "features": [
+    {
+      "type": "colorable",
+      "defaultColor": 8487297
+    },
+    {
+      "type": "warm"
+    },
+    {
+      "type": "satiety_save_cold"
+    }
+  ],
+  "model" : {
+    "type": "variant_type",
+    "path": "items/tool/armor",
+    "variant": "padded_boots"
+  },
+  "armorModel" : {
+    "armorName": "padded",
+    "hasOverlay": true
+  }
+}

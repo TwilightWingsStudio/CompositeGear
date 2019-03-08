@@ -1,0 +1,26 @@
+
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "FFF",
+    "FFF",
+    "FSF"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:crafting_allowed",
+      "key": "padded_leggings"
+    }
+  ],
+  "key": {
+    "F": {
+      "item":"compositegear:fabric_sheet"
+    },
+    "S": {
+      "item":"compositegear:string_reel"
+    }
+  },
+  "result": {
+    "item": "compositegear:padded_leggings"
+  }
+}
