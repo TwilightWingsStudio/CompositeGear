@@ -1,15 +1,11 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    " F ",
+    "RFR",
     "SGS",
-    " M "
+    "RMR"
   ],
   "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "immersiveengineering"
-    },
     {
       "type": "forge:not",
       "value": {
@@ -33,7 +29,11 @@
       "item": "compositegear:composite_faceplate"
     },
     "M": {
-      "item": "compositegear:respirator_mask"
+      "item": "compositegear:air_mask_module"
+    },
+    "R": {
+      "type": "forge:ore_dict",
+      "ore": "itemRubber"
     },
     "S": {
       "item": "compositegear:string_reel"
