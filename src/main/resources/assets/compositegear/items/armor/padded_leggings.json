@@ -9,7 +9,8 @@
   "material" : {
     "type": "generic",
     "protection": 2,
-    "enchantability": 15
+    "enchantability": 15,
+    "repairItem": "compositegear:fabric_sheet"
   },
   "features": [
     {
