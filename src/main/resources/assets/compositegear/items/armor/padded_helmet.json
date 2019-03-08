@@ -2,7 +2,7 @@
   "type": "compositegear:armor",
   "slot": "head",
   "id": "padded_helmet",
-  "durability": 256,
+  "durability": 96,
   "intelligence": {
     "class": "LIGHT_ARMOR"
   },

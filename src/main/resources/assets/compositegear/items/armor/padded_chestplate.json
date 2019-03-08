@@ -8,7 +8,7 @@
   },
   "material" : {
     "type": "generic",
-    "protection": 2,
+    "protection": 3,
     "enchantability": 15,
     "repairItem": "compositegear:string_reel"
   },

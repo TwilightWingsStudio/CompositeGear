@@ -2,7 +2,7 @@
   "type": "compositegear:armor",
   "slot": "feet",
   "id": "padded_boots",
-  "durability": 128,
+  "durability": 96,
   "intelligence": {
     "class": "LIGHT_ARMOR"
   },
