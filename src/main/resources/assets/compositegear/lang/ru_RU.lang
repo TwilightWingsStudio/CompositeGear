@@ -49,6 +49,13 @@ item.wool_pants.name=Шерстяные штаны
 item.felt_boots.name=Валенки
 item.felt_boots.desc=Обувь из шерсти.^Замечательно сохраняет ноги в тепле.
 
+item.padded_helmet.name=Стёганный капюшон
+item.padded_chestplate.name=Стёганная куртка
+item.padded_leggings.name=Стёганные штаны
+item.padded_boots.name=Стёганные сапоги
+
+item.raw_hide.name=Шкура
+item.leather_strip.name=Полоска кожи
 item.rubber_ball.name=Резина
 item.wooden_reel.name=Деревянная катушка
 item.string_reel.name=Катушка ниток
