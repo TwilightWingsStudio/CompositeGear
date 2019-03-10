@@ -1,0 +1,25 @@
+{
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "ic2"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "techreborn"
+      }
+    }
+  ],
+  "ingredient": {
+    "item": "minecraft:slime_ball"
+  },
+  "result": {
+    "item": "compositegear:rubber_ball"
+  },
+  "experience": 8
+}
