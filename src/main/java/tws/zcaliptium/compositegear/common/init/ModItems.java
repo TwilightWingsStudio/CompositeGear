@@ -43,6 +43,7 @@ import techreborn.api.TechRebornAPI;
 import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.compat.IC2Compat;
 import tws.zcaliptium.compositegear.common.compat.TRCompat;
+import tws.zcaliptium.compositegear.common.crafting.FurnaceRecipeHelper;
 import tws.zcaliptium.compositegear.common.crafting.RecipesDyingEquipment;
 import tws.zcaliptium.compositegear.common.items.ArmorItemFactory;
 import tws.zcaliptium.compositegear.common.items.GenericItemFactory;
@@ -104,14 +105,7 @@ public class ModItems
 	{
 		registerRecipe(new RecipesDyingEquipment());
 		
-		if (!Loader.isModLoaded(Compats.IC2) && !Loader.isModLoaded(Compats.TR)) {
-			
-			Item rubberBall = ForgeRegistries.ITEMS.getValue(new ResourceLocation(ModInfo.MODID, "rubber_ball"));
-			
-			if (rubberBall != null) {
-				GameRegistry.addSmelting(Items.SLIME_BALL, new ItemStack(rubberBall), 0);				
-			}
-		}
+		FurnaceRecipeHelper.loadItems(CompositeGear.container);
 	}
 	
 	public static void defineRepairMaterials()

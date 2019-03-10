@@ -47,7 +47,6 @@ public class ShapelessToolRecipe extends ShapelessOreRecipe
             //CompositeGear.modLog.info(i + " " + itemstack.toString());
             
             if (itemstack.getItem() instanceof ItemShears) {
-            	
             	ItemStack newStack =  itemstack.copy();
             	newStack.setCount(1);
             	newStack.setItemDamage(newStack.getItemDamage() + 1);
