@@ -53,6 +53,8 @@ public class CommonProxy
 	{
         ModItems.loadRecipes();
         ModItems.defineRepairMaterials();
+        
+        LootTableHelper.loadTables(CompositeGear.container);
 	}
 	
 	public File getGameDir() {
