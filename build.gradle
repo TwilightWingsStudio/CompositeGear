@@ -10,7 +10,7 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "1.6.2"
+version = "1.7.0"
 group= "tws.zcaliptium.compositegear" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "CompositeGear-" + mcversion
 
@@ -90,4 +90,14 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+    
+    // Move AT config into META-INF directory.
+    rename '(.+_at.cfg)', 'META-INF/$1'
+}
+
+
+jar {
+	manifest {
+		attributes 'FMLAT': 'compositegear_at.cfg'
+	}
 }
