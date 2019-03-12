@@ -61,9 +61,9 @@ repositories {
 
 dependencies {
   compile 'net.industrial-craft:industrialcraft-2:2.8.101-ex112:api'
-  compile "TechReborn:TechReborn-${mcversion}:${tr_version}:api"
-  compile "com.github.glitchfiend.biomesoplenty:ToughAsNails:${mcversion}-${tan_version}:api"
   compile "RebornCore:RebornCore-${mcversion}:+:api"
+  compile "TechReborn:TechReborn-${mcversion}:+:api"
+  compile "com.github.glitchfiend.biomesoplenty:ToughAsNails:${mcversion}-${tan_version}:api" 
 
   deobfCompile "com.azanor.baubles:Baubles:1.12-1.5.2:api"
   deobfCompile "applecore:AppleCore:${mcversion}-${applecore_version}:deobf"
