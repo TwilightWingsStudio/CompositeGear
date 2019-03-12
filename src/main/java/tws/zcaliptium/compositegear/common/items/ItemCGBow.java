@@ -91,7 +91,7 @@ public class ItemCGBow extends ItemBow implements IItemIntelligence
         return stack.getItem() instanceof ItemArrow;
     }
     
-    private ItemStack findAmmo(EntityPlayer player)
+    protected ItemStack findAmmo(EntityPlayer player)
     {
         if (this.isArrow(player.getHeldItem(EnumHand.OFF_HAND)))
         {
