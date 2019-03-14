@@ -7,15 +7,22 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common;
 
+import java.util.List;
+
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
 
 public class CommonEventHandler
@@ -88,5 +95,29 @@ public class CommonEventHandler
 		}
 
 		return true;
+	}
+	
+	@SubscribeEvent
+	public void onLivingDeath(LivingDeathEvent event)
+	{	
+		if (event.getEntityLiving().world.isRemote) {
+			return;
+		}
+		
+		// Player/Armor Stand should be filtered.
+		if (!(event.getEntityLiving() instanceof EntityLiving)) {
+			return;
+		}
+
+		EntityLiving entity = (EntityLiving)event.getEntityLiving();
+
+        ResourceLocation resourcelocation = EntityList.getKey(entity);
+		
+		if (resourcelocation != null && entity.deathLootTable == null) {
+			
+			ResourceLocation loc = LootTableHelper.LOOT_TABLE_DEFAULTS.get(resourcelocation);
+			
+			entity.deathLootTable = loc;
+		}
 	}
 }

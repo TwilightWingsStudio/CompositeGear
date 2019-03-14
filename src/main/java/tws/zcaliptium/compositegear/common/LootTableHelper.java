@@ -38,7 +38,7 @@ public class LootTableHelper
         for (Entry<String, JsonElement> entry : JsonUtils.getJsonObject(json, "tables").entrySet())
         {
             ResourceLocation key = new ResourceLocation(entry.getKey());
-            ResourceLocation value = new ResourceLocation(entry.getValue().toString());
+            ResourceLocation value = new ResourceLocation(entry.getValue().getAsString());
             
             LOOT_TABLE_DEFAULTS.put(key, value);
         }
