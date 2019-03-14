@@ -55,6 +55,7 @@ public class CommonProxy
         ModItems.defineRepairMaterials();
         
         LootTableHelper.loadTables(CompositeGear.container);
+        LootTableHelper.loadLootTableDefaults(CompositeGear.container);
 	}
 	
 	public File getGameDir() {
