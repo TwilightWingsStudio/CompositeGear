@@ -11,8 +11,17 @@
       "key": "composite_bow"
     },
     {
-      "type": "forge:mod_loaded",
-      "modid": "immersiveengineering"
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "immersiveengineering"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "thermalfoundation"
+        }
+      ]
     },
     {
       "type": "forge:not",
