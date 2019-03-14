@@ -61,6 +61,11 @@
           "layer0": "compositegear:items/air_mask_module"
         }
       },
+      "animal_hide": {
+        "textures": {
+          "layer0": "compositegear:items/animal_hide"
+        }
+      },
       "leather_strip": {
         "textures": {
           "layer0": "compositegear:items/leather_strip"

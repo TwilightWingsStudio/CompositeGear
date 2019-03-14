@@ -54,7 +54,7 @@ item.padded_chestplate.name=Padded Jacket
 item.padded_leggings.name=Padded Leggings
 item.padded_boots.name=Padded Boots
 
-item.raw_hide.name=Raw Hide
+item.animal_hide.name=Animal Hide
 item.leather_strip.name=Leather Strip
 item.rubber_ball.name=Rubber
 item.wooden_reel.name=Wooden Reel

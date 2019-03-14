@@ -54,7 +54,7 @@ item.padded_chestplate.name=Стёганная куртка
 item.padded_leggings.name=Стёганные штаны
 item.padded_boots.name=Стёганные сапоги
 
-item.raw_hide.name=Шкура
+item.animal_hide.name=Шкура животного
 item.leather_strip.name=Полоска кожи
 item.rubber_ball.name=Резина
 item.wooden_reel.name=Деревянная катушка
