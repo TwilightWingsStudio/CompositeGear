@@ -1,0 +1,9 @@
+{
+  "type": "compositegear:generic",
+  "id": "animal_hide",
+  "model" : {
+    "type": "variant_type",
+    "path": "items/materials",
+    "variant": "animal_hide"
+  }
+}
