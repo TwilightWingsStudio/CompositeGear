@@ -108,16 +108,18 @@ public class CommonEventHandler
 		if (!(event.getEntityLiving() instanceof EntityLiving)) {
 			return;
 		}
-
-		EntityLiving entity = (EntityLiving)event.getEntityLiving();
-
-        ResourceLocation resourcelocation = EntityList.getKey(entity);
 		
-		if (resourcelocation != null && entity.deathLootTable == null) {
+		if (ConfigurationCG.customLootTables) {
+			EntityLiving entity = (EntityLiving)event.getEntityLiving();
+
+	        ResourceLocation resourcelocation = EntityList.getKey(entity);
 			
-			ResourceLocation loc = LootTableHelper.LOOT_TABLE_DEFAULTS.get(resourcelocation);
-			
-			entity.deathLootTable = loc;
+			if (resourcelocation != null && entity.deathLootTable == null) {
+				
+				ResourceLocation loc = LootTableHelper.LOOT_TABLE_DEFAULTS.get(resourcelocation);
+				
+				entity.deathLootTable = loc;
+			}
 		}
 	}
 }

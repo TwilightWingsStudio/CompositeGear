@@ -32,14 +32,17 @@ public class ConfigurationCG
 
 	public static Configuration config;
 
-	// Enchanting
-	public static boolean allowArmorEnchanting = true;
-	public static boolean allowMeleeEnchanting = true;
-	public static boolean allowRangedEnchanting = true;
-	
 	// Client.
 	public static int tooltipDurabilityDisplay = 1; // 0 - Disabled, 1 - Only Our Mod, 2 - All Items
 	public static boolean tooltipDurabilityDisplay_removeEnderCoreDurability = true;
+	
+	// Enchanting.
+	public static boolean allowArmorEnchanting = true;
+	public static boolean allowMeleeEnchanting = true;
+	public static boolean allowRangedEnchanting = true;
+
+	// Gameplay.
+	public static boolean customLootTables = true;
 
 	// Mod compatibility.
 	public static boolean acCompat = true;
@@ -86,10 +89,14 @@ public class ConfigurationCG
     	String category = SECTION_CLIENT + ".tooltipDurabilityDisplay";
     	tooltipDurabilityDisplay_removeEnderCoreDurability = config.getBoolean("removeEnderCoreDurability", category, true, "Will remove 'Durability: X/Y' line from all the tooltips affected by our durability display.");
 	    
+    	// Enchanting.
 	    allowArmorEnchanting = config.getBoolean("allowArmorEnchanting", SECTION_ENCHANTING, true, "");
 	    allowMeleeEnchanting = config.getBoolean("allowMeleeEnchanting", SECTION_ENCHANTING, true, "");
 	    allowRangedEnchanting = config.getBoolean("allowRangedEnchanting", SECTION_ENCHANTING, true, "");
+	    
+	    customLootTables = config.getBoolean("customLootTables", SECTION_GAMEPLAY, true, "Enables custom loot tables. Currently affects only vanilla animals to drop animal hides instead of leather.");
 
+	    // Compat
 	    trCompat = config.getBoolean("techreborn", SECTION_COMPAT, true, "TechReborn integration. Enables usage of TR air cells by air masks.");
 	    ic2Compat = config.getBoolean("ic2", SECTION_COMPAT, true, "Industrial Craft 2 Exp. integration. Enables usage of IC2 air cells by air masks. Also magnetizer support for armor.");
 	    acCompat = config.getBoolean("applecore", SECTION_COMPAT, true, "AppleCore integration. Gives way to control hunger rate by specific equipment.");
