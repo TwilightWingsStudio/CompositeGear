@@ -50,18 +50,6 @@ public class GenericItemFactory implements IItemFactory
 		if (intelligenceObj != null) {
 			parseIntelligence(intelligenceObj, item);
 		}
-		
-		JsonArray oreDictNamesObj = JsonUtils.getJsonArray(json, "oreDictNames", null);
-		
-		if (oreDictNamesObj != null)
-		{
-			Iterator<JsonElement> it = oreDictNamesObj.iterator();
-			while (it.hasNext())
-			{
-				String name = it.next().getAsString();
-				OreDictionary.registerOre(name, item);
-			}
-		}
 
 		// Only client need model info.
 		if (CompositeGear.proxy.isClient()) {
