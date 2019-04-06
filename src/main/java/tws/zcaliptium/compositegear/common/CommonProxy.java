@@ -56,6 +56,7 @@ public class CommonProxy
         
         LootTableHelper.loadTables(CompositeGear.container);
         LootTableHelper.loadLootTableDefaults(CompositeGear.container);
+        TagHelper.loadTags(CompositeGear.container);
 	}
 	
 	public File getGameDir() {
