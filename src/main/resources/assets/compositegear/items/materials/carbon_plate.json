@@ -1,9 +1,6 @@
 {
   "type": "compositegear:generic",
   "id": "carbon_plate",
-  "oreDictNames": [
-    "plateCarbon"
-  ],
   "model" : {
     "type": "variant_type",
     "path": "items/materials",
