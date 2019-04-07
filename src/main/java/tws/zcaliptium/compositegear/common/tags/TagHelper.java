@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.gnu.org/licenses/lgpl-3.0.txt
  ******************************************************************************/
-package tws.zcaliptium.compositegear.common;
+package tws.zcaliptium.compositegear.common.tags;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,6 +33,7 @@ import net.minecraftforge.common.crafting.JsonContext;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
+import tws.zcaliptium.compositegear.common.CompositeGear;
 
 public class TagHelper
 {

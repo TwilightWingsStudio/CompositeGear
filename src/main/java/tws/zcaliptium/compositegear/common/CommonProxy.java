@@ -21,6 +21,7 @@ import tws.zcaliptium.compositegear.common.capabilities.LeveledCap;
 import tws.zcaliptium.compositegear.common.compat.ACHungerHandler;
 import tws.zcaliptium.compositegear.common.compat.TANTemperatureModifier;
 import tws.zcaliptium.compositegear.common.init.ModItems;
+import tws.zcaliptium.compositegear.common.tags.TagHelper;
 
 public class CommonProxy
 {
