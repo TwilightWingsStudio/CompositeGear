@@ -1,0 +1,17 @@
+{
+  "type": "compositegear:tool_shapeless",
+  "group": "stuff",
+  "ingredients": [
+    {
+      "item": "compositegear:fabric_sheet"
+    },
+    {
+      "item": "minecraft:shears",
+      "data": 32767
+    }
+  ],
+  "result": {
+    "item": "compositegear:fabric_strip",
+    "count": 4
+  }
+}

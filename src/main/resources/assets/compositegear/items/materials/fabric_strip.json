@@ -1,0 +1,9 @@
+{
+  "type": "compositegear:generic",
+  "id": "fabric_strip",
+  "model" : {
+    "type": "variant_type",
+    "path": "items/materials",
+    "variant": "fabric_strip"
+  }
+}
