@@ -5,7 +5,7 @@
     "minecraft:horse": "compositegear:entities/v_horse",
     "minecraft:llama": "compositegear:entities/v_llama",
     "minecraft:mule": "compositegear:entities/v_mule",
-    "minecraft:mushroom_cow": "compositegear:entities/v_mushroom_cow",
+    "minecraft:mooshroom": "compositegear:entities/v_mushroom_cow",
     "minecraft:pig": "compositegear:entities/v_pig",
     "minecraft:polar_bear": "compositegear:entities/v_polar_bear",
     "minecraft:wolf": "compositegear:entities/v_wolf"

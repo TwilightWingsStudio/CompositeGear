@@ -7,6 +7,13 @@
                 {
                     "type": "item",
                     "name": "compositegear:animal_hide",
+                    "conditions": [
+                        {
+                            "condition": "compositegear:forge_mod_loaded",
+                            "id": "leatherworks",
+                            "inverse": true
+                        }
+                    ],
                     "functions": [
                         {
                             "function": "set_count",

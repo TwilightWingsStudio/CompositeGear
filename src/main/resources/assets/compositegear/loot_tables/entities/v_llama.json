@@ -6,7 +6,41 @@
             "entries": [
                 {
                     "type": "item",
+                    "name": "minecraft:leather",
+                    "conditions": [
+                        {
+                            "condition": "compositegear:forge_mod_loaded",
+                            "id": "leatherworks",
+                            "inverse": false
+                        }
+                    ],  
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 2
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
                     "name": "compositegear:animal_hide",
+                    "conditions": [
+                        {
+                            "condition": "compositegear:forge_mod_loaded",
+                            "id": "leatherworks",
+                            "inverse": true
+                        }
+                    ],  
                     "functions": [
                         {
                             "function": "set_count",
