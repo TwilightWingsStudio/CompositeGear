@@ -23,6 +23,7 @@ import tws.zcaliptium.compositegear.common.compat.ACHungerHandler;
 import tws.zcaliptium.compositegear.common.compat.TANTemperatureModifier;
 import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.common.loot.ForgeModLoaded;
+import tws.zcaliptium.compositegear.common.loot.LootTableHelper;
 import tws.zcaliptium.compositegear.common.tags.TagHelper;
 
 public class CommonProxy

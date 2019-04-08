@@ -1,4 +1,11 @@
-package tws.zcaliptium.compositegear.common;
+/*******************************************************************************
+ * Copyright (c) 2018-2019 ZCaliptium.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the GNU Lesser Public License v3
+ * which accompanies this distribution, and is available at
+ * http://www.gnu.org/licenses/lgpl-3.0.txt
+ ******************************************************************************/
+package tws.zcaliptium.compositegear.common.loot;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,6 +33,7 @@ import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.IIngredientFactory;
 import net.minecraftforge.common.crafting.JsonContext;
 import net.minecraftforge.fml.common.ModContainer;
+import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.lib.IItemFactory;
 
 public class LootTableHelper

@@ -24,6 +24,7 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
+import tws.zcaliptium.compositegear.common.loot.LootTableHelper;
 
 public class CommonEventHandler
 {
