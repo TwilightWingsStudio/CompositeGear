@@ -72,11 +72,16 @@ public class ArmorItemFactory extends GenericItemFactory
 			parseIntelligence(intelligenceObj, item);
 		}
 
-		// Only client need model info.
+		// Only client need model info and hud overlay.
 		if (CompositeGear.proxy.isClient())
 		{
 			parseModel(JsonUtils.getJsonObject(json, "model"), item); // Item model.
 			parseArmorModel(JsonUtils.getJsonObject(json, "armorModel"), item); // Armor model.
+
+			String overlayTexturePath = JsonUtils.getString(json, "overlayTexture", null);
+			if (overlayTexturePath != null) {
+				item.setOverlayTexturePath(new ResourceLocation(overlayTexturePath));
+			}
 		}
 
 		return item;

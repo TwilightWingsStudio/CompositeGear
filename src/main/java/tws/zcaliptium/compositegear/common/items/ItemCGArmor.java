@@ -13,6 +13,11 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
 import ic2.api.item.IMetalArmor;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -69,6 +74,9 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 	
 	protected Item repairItem;
 	protected ItemStack repairStack = ItemStack.EMPTY;
+	
+	//
+    private ResourceLocation overlayTexturePath;
 
 	// Features
 	protected boolean isAirMask;
@@ -91,6 +99,8 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 		this.itemClass = EnumItemClass.NO_CLASS;
 		this.rarity = EnumRarity.COMMON;
 		setUnlocalizedName(id);
+		
+		this.setOverlayTexturePath(null);
 
 		// Features.
 		this.isAirMask = false;
@@ -532,5 +542,37 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 	public void setHasVisualAttributes(boolean hasVisualAttributes)
 	{
 		this.hasVisualAttributes = hasVisualAttributes;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+    public void renderHelmetOverlay(ItemStack stack, EntityPlayer player, net.minecraft.client.gui.ScaledResolution resolution, float partialTicks)
+	{
+		if (overlayTexturePath != null)
+		{
+	        GlStateManager.disableDepth();
+	        GlStateManager.depthMask(false);
+	        GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
+	        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+	        GlStateManager.disableAlpha();
+	        Minecraft.getMinecraft().getTextureManager().bindTexture(overlayTexturePath);
+	        Tessellator tessellator = Tessellator.getInstance();
+	        BufferBuilder bufferbuilder = tessellator.getBuffer();
+	        bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
+	        bufferbuilder.pos(0.0D, (double)resolution.getScaledHeight(), -90.0D).tex(0.0D, 1.0D).endVertex();
+	        bufferbuilder.pos((double)resolution.getScaledWidth(), (double)resolution.getScaledHeight(), -90.0D).tex(1.0D, 1.0D).endVertex();
+	        bufferbuilder.pos((double)resolution.getScaledWidth(), 0.0D, -90.0D).tex(1.0D, 0.0D).endVertex();
+	        bufferbuilder.pos(0.0D, 0.0D, -90.0D).tex(0.0D, 0.0D).endVertex();
+	        tessellator.draw();
+	        GlStateManager.depthMask(true);
+	        GlStateManager.enableDepth();
+	        GlStateManager.enableAlpha();
+	        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		}
+	}
+
+	public void setOverlayTexturePath(ResourceLocation overlayTexturePath)
+	{
+		this.overlayTexturePath = overlayTexturePath;
 	}
 }
