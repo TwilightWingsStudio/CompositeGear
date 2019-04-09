@@ -35,6 +35,7 @@ public class ConfigurationCG
 	// Client.
 	public static int tooltipDurabilityDisplay = 1; // 0 - Disabled, 1 - Only Our Mod, 2 - All Items
 	public static boolean tooltipDurabilityDisplay_removeEnderCoreDurability = true;
+	public static boolean helmetHudOverlay = true;
 	
 	// Enchanting.
 	public static boolean allowArmorEnchanting = true;
@@ -82,6 +83,8 @@ public class ConfigurationCG
     			CRAFTING_BLACKLIST.add(name);
     		}
     	}
+    	
+    	helmetHudOverlay = config.getBoolean("headHudOverlay", SECTION_CLIENT, true, "Enables overlay texture rendering when you wear some equipment on your head.");
 
     	// Durability Display
 	    tooltipDurabilityDisplay = config.getInt("tooltipDurabilityDisplay", SECTION_CLIENT, 1, 0, 2, "Will add icon with text into tooltips of clothing/armor/tools/weapons.\nModes:\n 0 - Disable\n 1 - Only Our Mod\n 2 - All Items\n");
@@ -103,7 +106,7 @@ public class ConfigurationCG
 	    tanCompat = config.getBoolean("toughasnails", SECTION_COMPAT, true, "Tough As Nails integration. Equipment will affect body temperature.");
 
 	    // Armor
-	    isFEAirMask = config.getBoolean("air_mask", SECTION_FEATURES_ARMOR, true, "Air mask feature. Restores oxygen level with air cells. TR or IC2 integration required.");
+	    isFEAirMask = config.getBoolean("air_mask", SECTION_FEATURES_ARMOR, true, "Air mask feature. Restores oxygen level with air cells.\nTR or IC2 should be installed. Also integration should be enabled for these mods.");
 	    isFEWarm = config.getBoolean("warm", SECTION_FEATURES_ARMOR, true, "Gives you warmth. TAN integration required.");
 	    isFECold = config.getBoolean("cold", SECTION_FEATURES_ARMOR, true, "Chills you down. TAN integration required.");
 	    isFESaveSatietyHot = config.getBoolean("save_satiety_hot", SECTION_FEATURES_ARMOR, true, "Saves your energy in hot places. AppleCore integration required.");

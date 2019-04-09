@@ -548,7 +548,7 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 	@SideOnly(Side.CLIENT)
     public void renderHelmetOverlay(ItemStack stack, EntityPlayer player, net.minecraft.client.gui.ScaledResolution resolution, float partialTicks)
 	{
-		if (overlayTexturePath != null)
+		if (ConfigurationCG.helmetHudOverlay && overlayTexturePath != null)
 		{
 	        GlStateManager.disableDepth();
 	        GlStateManager.depthMask(false);
