@@ -29,5 +29,6 @@
   "armorModel" : {
     "armorName": "rubber_gasmask",
     "hasOverlay": true
-  }
+  },
+  "overlayTexture": "compositegear:textures/misc/gasmask_overlay.png"
 }

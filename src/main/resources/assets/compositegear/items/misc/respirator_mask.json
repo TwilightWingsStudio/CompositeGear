@@ -30,5 +30,6 @@
   "armorModel" : {
     "armorName": "respirator_mask",
     "hasOverlay": true
-  }
+  },
+  "overlayTexture": "compositegear:textures/misc/respirator_overlay.png"
 }

@@ -30,5 +30,6 @@
   "armorModel" : {
     "armorName": "composite_faceplate",
     "hasOverlay": true
-  }
+  },
+  "overlayTexture": "compositegear:textures/misc/faceplate_overlay.png"
 }
