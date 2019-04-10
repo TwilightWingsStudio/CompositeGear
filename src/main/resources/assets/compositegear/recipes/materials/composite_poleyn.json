@@ -2,13 +2,12 @@
   "type": "forge:ore_shaped",
   "pattern": [
     "SRS",
-    "LWL",
+    "LFL",
     "SAS"
   ],
   "key": {
-    "W": {
-      "item": "minecraft:wool",
-      "data": 32767
+    "F": {
+      "item": "compositegear:fabric_sheet"
     },
     "A": {
       "type": "forge:ore_dict",

@@ -1,13 +1,13 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "SRI",
-    "RBR",
-    "IRS"
+    "RRR",
+    "PIP",
+    "RRR"
   ],
   "key": {
-    "B": {
-      "item": "minecraft:bone"
+    "P": {
+      "item": "compositegear:fabric_strip"
     },
     "R": {
       "type": "forge:ore_dict",
@@ -16,12 +16,9 @@
     "I": {
       "type": "forge:ore_dict",
       "ore": "plateIron"
-    },
-    "S": {
-      "item": "compositegear:string_reel"
     }
   },
   "result": {
-    "item": "compositegear:rubberized_handle_rod"
+    "item": "compositegear:rubberized_strap"
   }
 }
