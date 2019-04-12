@@ -1,6 +1,15 @@
 {
   "type": "compositegear:tool_shapeless",
   "group": "stuff",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "leatherworks"
+      }
+    }
+  ],
   "ingredients": [
     {
       "item": "minecraft:leather"
