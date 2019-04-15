@@ -119,7 +119,7 @@ public class ArmorItemFactory extends GenericItemFactory
 			armorItem.setDefaultColor(JsonUtils.getInt(json, "defaultColor", 16777215));
 			ModItems.COLORABLE_REGISTRY.add(armorItem);
 
-		} else if (type.equals("metal")) {
+		} else if (type.equals("ic2_metal")) {
 			armorItem.setMetal(true);
 			
 		} else if (type.equals("ic2_hazmat")) {
