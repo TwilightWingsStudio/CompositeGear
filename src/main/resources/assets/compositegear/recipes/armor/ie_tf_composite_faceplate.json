@@ -1,0 +1,60 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "SRS",
+    "AWA",
+    "AAA"
+  ],
+  "conditions": [
+    {
+      "type": "compositegear:crafting_allowed",
+      "key": "composite_faceplate"
+    },
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "immersiveengineering"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "thermalfoundation"
+        }
+      ]
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "ic2"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "techreborn"
+      }
+    }
+  ],
+  "key": {
+    "A": {
+      "type": "forge:ore_dict",
+      "ore": "plateAdvancedAlloy"
+    },
+    "W": {
+      "item": "minecraft:wool",
+      "data": 32767
+    },
+    "S": {
+      "item": "compositegear:string_reel"
+    },
+    "R": {
+      "item": "compositegear:rubberized_strap"
+    }
+  },
+  "result": {
+    "item": "compositegear:composite_faceplate"
+  }
+}
