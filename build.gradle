@@ -60,7 +60,7 @@ repositories {
 }
 
 dependencies {
-  compile 'net.industrial-craft:industrialcraft-2:2.8.101-ex112:api'
+  compile "net.industrial-craft:industrialcraft-2:${ic2_version}:api"
   compile "RebornCore:RebornCore-${mcversion}:+:api"
   compile "TechReborn:TechReborn-${mcversion}:+:api"
   compile "com.github.glitchfiend.biomesoplenty:ToughAsNails:${mcversion}-${tan_version}:api" 
