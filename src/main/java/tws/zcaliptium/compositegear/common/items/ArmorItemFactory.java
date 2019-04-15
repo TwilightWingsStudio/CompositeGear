@@ -121,6 +121,9 @@ public class ArmorItemFactory extends GenericItemFactory
 
 		} else if (type.equals("metal")) {
 			armorItem.setMetal(true);
+			
+		} else if (type.equals("ic2_hazmat")) {
+			armorItem.setHazmat(true);
 
 		} else if (type.equals("warm")) {
 			armorItem.setWarm(true);

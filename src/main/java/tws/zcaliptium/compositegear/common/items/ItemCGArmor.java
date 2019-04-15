@@ -12,6 +12,7 @@ import java.util.UUID;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
+import ic2.api.item.IHazmatLike;
 import ic2.api.item.IMetalArmor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -19,6 +20,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
@@ -50,7 +52,8 @@ import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 import tws.zcaliptium.compositegear.lib.ISpecialArmor;
 
 @Optional.Interface(iface = "ic2.api.item.IMetalArmor", modid = Compats.IC2)
-public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalArmor, ISpecialArmor, IItemColorable
+@Optional.Interface(iface = "ic2.api.item.IHazmatLike", modid = Compats.IC2)
+public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalArmor, IHazmatLike, ISpecialArmor, IItemColorable
 {
 	public static ItemArmor.ArmorMaterial GENERIC_MATERIAL = EnumHelper.addArmorMaterial("CG_GENERIC", ModInfo.MODID + ":composite", 1, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0);
 	
@@ -89,7 +92,10 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 	// AppleCore
 	protected boolean isSaveSatietyHot;
 	protected boolean isSaveSatietyCold;
-	protected boolean isMetal; // IC2
+	
+	// IC2
+	protected boolean isMetal;
+	protected boolean isHazmat;
 
 	public ItemCGArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, EntityEquipmentSlot armorType)
 	{
@@ -106,6 +112,7 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 		this.isAirMask = false;
 		this.minAirToStartRefil = 0;
 		this.isMetal = false;
+		this.isHazmat = false;
 
 		// Material.
 		this.protection = 0;
@@ -574,5 +581,17 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 	public void setOverlayTexturePath(ResourceLocation overlayTexturePath)
 	{
 		this.overlayTexturePath = overlayTexturePath;
+	}
+
+	@Optional.Method(modid = Compats.IC2)
+	@Override
+	public boolean addsProtection(EntityLivingBase entity, EntityEquipmentSlot slot, ItemStack stack)
+	{
+		return isHazmat;
+	}
+	
+	public void setHazmat(boolean isHazmat)
+	{
+		this.isHazmat = isHazmat;
 	}
 }

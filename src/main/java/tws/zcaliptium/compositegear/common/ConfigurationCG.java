@@ -84,7 +84,7 @@ public class ConfigurationCG
     		}
     	}
     	
-    	helmetHudOverlay = config.getBoolean("headHudOverlay", SECTION_CLIENT, true, "Enables overlay texture rendering when you wear some equipment on your head.");
+    	helmetHudOverlay = config.getBoolean("helmetHudOverlay", SECTION_CLIENT, true, "Enables overlay texture rendering when you wear some equipment on your head.");
 
     	// Durability Display
 	    tooltipDurabilityDisplay = config.getInt("tooltipDurabilityDisplay", SECTION_CLIENT, 1, 0, 2, "Will add icon with text into tooltips of clothing/armor/tools/weapons.\nModes:\n 0 - Disable\n 1 - Only Our Mod\n 2 - All Items\n");
