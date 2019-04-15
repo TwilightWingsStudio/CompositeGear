@@ -4,7 +4,8 @@
   "id": "rubber_gasmask",
   "durability": 128,
   "intelligence": {
-    "class": "ACCESSORY_ARMOR"
+    "class": "ACCESSORY_ARMOR",
+    "hasDescription": true
   },
   "material" : {
     "type": "generic",
@@ -19,6 +20,9 @@
     {
       "type": "air_mask",
       "minAir": 20
+    },
+    {
+      "type": "ic2_hazmat"
     }
   ],
   "model" : {

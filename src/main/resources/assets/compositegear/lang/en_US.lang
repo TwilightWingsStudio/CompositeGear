@@ -11,6 +11,7 @@ item.composite_light_leggings.name=Composite Light Leggings
 item.composite_light_boots.name=Composite Light Boots
 
 item.composite_heavy_helmet.name=Composite Heavy Helmet
+item.composite_heavy_helmet.desc=No, it is not from spacesuit.^But almost...
 item.composite_heavy_chestplate.name=Composite Heavy Chestplate
 item.composite_heavy_leggings.name=Composite Heavy Leggings
 item.composite_heavy_boots.name=Composite Heavy Boots
@@ -70,6 +71,7 @@ item.composite_poleyn.name=Composite Poleyn
 item.air_mask_module.name=Air Mask Module
 
 item.rubber_gasmask.name=Rubber Gasmask
+item.rubber_gasmask.desc=Get of here, stalker!
 
 compositegear.itemdesc=Description
 

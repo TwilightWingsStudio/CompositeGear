@@ -5,7 +5,8 @@
   "durability": 1024,
   "intelligence": {
     "class": "HEAVY_ARMOR",
-    "rarity": "Epic"
+    "rarity": "Epic",
+    "hasDescription": true
   },
   "material" : {
     "type": "generic",
@@ -24,6 +25,9 @@
     },
     {
       "type": "ic2_metal"
+    },
+    {
+      "type": "ic2_hazmat"
     }
   ],
   "model" : {

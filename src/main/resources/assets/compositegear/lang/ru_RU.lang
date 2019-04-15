@@ -11,6 +11,7 @@ item.composite_light_leggings.name=Лёгкие композитные поно�
 item.composite_light_boots.name=Лёгкие композитные ботинки
 
 item.composite_heavy_helmet.name=Тяжёлый композитный шлем
+item.composite_heavy_helmet.desc=Нет, это не часть скафандра.^Но... Почти...
 item.composite_heavy_chestplate.name=Тяжёлый композитный доспех
 item.composite_heavy_leggings.name=Тяжёлые композитные поножи
 item.composite_heavy_boots.name=Тяжёлые композитные ботинки
@@ -70,6 +71,7 @@ item.composite_poleyn.name=Композитный наколенник
 item.air_mask_module.name=Модуль дыхательной маски
 
 item.rubber_gasmask.name=Резиновый противогаз
+item.rubber_gasmask.desc=Иди своей дорогой, сталкер!
 
 compositegear.itemdesc=Описание
 

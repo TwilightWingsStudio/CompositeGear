@@ -23,7 +23,7 @@
       "minAir": 20
     },
     {
-      "type": "metal"
+      "type": "ic2_metal"
     }
   ],
   "model" : {
