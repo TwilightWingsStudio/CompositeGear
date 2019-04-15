@@ -1,0 +1,46 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "AAA",
+    "BBB",
+    "CCC"
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermalfoundation"
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "ic2"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "techreborn"
+      }
+    }
+  ],
+  "key": {
+    "A": {
+      "type": "forge:ore_dict",
+      "ore": "plateInvar"
+    },
+    "B": {
+      "type": "forge:ore_dict",
+      "ore": "plateBronze"
+    },
+    "C": {
+      "type": "forge:ore_dict",
+      "ore": "plateAluminum"
+    }
+  },
+  "result": {
+    "item": "compositegear:advanced_alloy_plate",
+    "count": 5
+  }
+}
