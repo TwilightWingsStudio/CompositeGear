@@ -75,24 +75,23 @@ public class ItemHelper
 					
 					BufferedReader reader = null;
 					
-					try
-					{
+					try {
 						reader = Files.newBufferedReader(file);
 						
 						JsonObject json = JsonUtils.fromJson(GSON, reader, JsonObject.class);
 						    
 						Item item = ItemHelper.getItem(json, ctx);
-					}
-					catch (JsonParseException e)
-					{
+						
+					} catch (IllegalArgumentException e) {
+						CompositeGear.proxy.throwModLoadingException(new String("Illegal data at item JSON!\n\nPath: " + key + "\n" + e.getMessage()).split("\n"), e);
+
+					} catch (JsonParseException e) {
 						CompositeGear.proxy.throwModLoadingException(new String("Malformed item JSON!\n\nPath: " + key).split("\n"), e);
-					}
-					catch (IOException e)
-					{
+
+					} catch (IOException e) {
 						CompositeGear.proxy.throwModLoadingException(new String("IOException while reading item JSON!\n\nPath: " + key).split("\n"), e);
-					}
-					finally
-					{
+
+					} finally {
 						org.apache.commons.io.IOUtils.closeQuietly(reader);
 					}
 
