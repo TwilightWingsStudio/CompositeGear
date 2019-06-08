@@ -23,7 +23,8 @@
       },
       "composite_club": {
         "textures": {
-          "layer0": "compositegear:items/composite_club"
+          "layer0": "compositegear:items/composite_club",
+          "layer1": "compositegear:items/composite_club_overlay"
         }
       }
     }
