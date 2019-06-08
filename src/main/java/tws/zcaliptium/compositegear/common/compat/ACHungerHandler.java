@@ -20,7 +20,7 @@ import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.init.ModItems;
-import tws.zcaliptium.compositegear.lib.ISpecialArmor;
+import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
 
 public class ACHungerHandler
 {
@@ -44,15 +44,18 @@ public class ACHungerHandler
 
 			Item item = stack.getItem();
 
-			if (item instanceof ISpecialArmor) {
-				ISpecialArmor tempItem = (ISpecialArmor)item;
+			if (item instanceof ItemCGArmor) {
+				ItemCGArmor tempItem = (ItemCGArmor)item;
 				
-				if (ConfigurationCG.isFESaveSatietyCold && tempItem.isSaveSatietyCold() && biome.getTempCategory() == Biome.TempCategory.COLD) {
-					multiplier += 0.15F;
-				}
-				
-				if (ConfigurationCG.isFESaveSatietyHot && tempItem.isSaveSatietyHot() && biome.getTempCategory() == Biome.TempCategory.WARM) {					
-					multiplier += 0.15F;
+				if (biome.getTempCategory() == Biome.TempCategory.COLD) {
+					if (ConfigurationCG.isFESaveSatietyCold && tempItem.getAttributes().containsKey("ac_satiety_save_cold")) {
+						multiplier += 0.15F;
+					}
+					
+				} else if (biome.getTempCategory() == Biome.TempCategory.WARM) {
+					if (ConfigurationCG.isFESaveSatietyHot && tempItem.getAttributes().containsKey("ac_satiety_save_hot")) {
+						multiplier += 0.15F;
+					}
 				}
 			}
 		}

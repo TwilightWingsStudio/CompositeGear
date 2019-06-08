@@ -7,6 +7,8 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common.items;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import com.google.common.collect.HashMultimap;
@@ -49,11 +51,10 @@ import tws.zcaliptium.compositegear.common.compat.TRCompat;
 import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.lib.IItemColorable;
 import tws.zcaliptium.compositegear.lib.IItemIntelligence;
-import tws.zcaliptium.compositegear.lib.ISpecialArmor;
 
 @Optional.Interface(iface = "ic2.api.item.IMetalArmor", modid = Compats.IC2)
 @Optional.Interface(iface = "ic2.api.item.IHazmatLike", modid = Compats.IC2)
-public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalArmor, IHazmatLike, ISpecialArmor, IItemColorable
+public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalArmor, IHazmatLike, IItemColorable
 {
 	public static ItemArmor.ArmorMaterial GENERIC_MATERIAL = EnumHelper.addArmorMaterial("CG_GENERIC", ModInfo.MODID + ":composite", 1, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0);
 	
@@ -85,22 +86,14 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 	protected boolean isAirMask;
 	protected int minAirToStartRefil;
 	
-	// TAN
-	protected boolean isWarm;
-	protected boolean isCold;
-	
-	// AppleCore
-	protected boolean isSaveSatietyHot;
-	protected boolean isSaveSatietyCold;
-	
-	// IC2
-	protected boolean isMetal;
-	protected boolean isHazmat;
+	protected Map<String, Object> attributes;
 
 	public ItemCGArmor(String id, ArmorMaterial armorMaterial, String armorName, int renderIndex, EntityEquipmentSlot armorType)
 	{
 		super(armorMaterial, renderIndex, armorType);
 
+		attributes = new HashMap<String, Object>();
+		
 		this.armorName = armorName;
 		this.itemClass = EnumItemClass.NO_CLASS;
 		this.rarity = EnumRarity.COMMON;
@@ -111,8 +104,6 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 		// Features.
 		this.isAirMask = false;
 		this.minAirToStartRefil = 0;
-		this.isMetal = false;
-		this.isHazmat = false;
 
 		// Material.
 		this.protection = 0;
@@ -225,12 +216,6 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
     	return this;
     }
 
-    @Override
-    public boolean isAirMask()
-    {
-    	return isAirMask;
-    }
-
 	@Override
 	public int getItemEnchantability(ItemStack stack)
 	{
@@ -254,18 +239,6 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 	public ItemCGArmor setMinAir(int minAir) {
 		this.minAirToStartRefil = minAir;
 		return this;
-	}
-
-	// IMetalArmor
-	@Optional.Method(modid = Compats.IC2)
-	@Override
-	public boolean isMetalArmor(ItemStack itemstack, EntityPlayer player)
-	{
-		if (!ConfigurationCG.ic2Compat) {
-			return false;
-		}
-		
-		return isMetal;
 	}
 
     @Override
@@ -420,55 +393,6 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 	{
 		this.enchantability = enchantability;
 	}
-	
-	@Override
-	public boolean isWarm()
-	{
-		return isWarm;
-	}
-
-	@Override
-	public boolean isCold()
-	{
-		return isCold;
-	}
-
-	@Override
-	public boolean isSaveSatietyHot()
-	{
-		return isSaveSatietyHot;
-	}
-
-	@Override
-	public boolean isSaveSatietyCold()
-	{
-		return isSaveSatietyCold;
-	}
-
-	public void setWarm(boolean isWarm)
-	{
-		this.isWarm = isWarm;
-	}
-
-	public void setCold(boolean isCold)
-	{
-		this.isCold = isCold;
-	}
-
-	public void setSaveSatietyHot(boolean isSaveSatietyHot)
-	{
-		this.isSaveSatietyHot = isSaveSatietyHot;
-	}
-
-	public void setSaveSatietyCold(boolean isSaveSatietyCold)
-	{
-		this.isSaveSatietyCold = isSaveSatietyCold;
-	}
-	
-	public void setMetal(boolean isMetal)
-	{
-		this.isMetal = isMetal;
-	}
 
 	@Override
 	public boolean isColorable()
@@ -583,15 +507,31 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 		this.overlayTexturePath = overlayTexturePath;
 	}
 
+	// IMetalArmor
+	@Optional.Method(modid = Compats.IC2)
+	@Override
+	public boolean isMetalArmor(ItemStack itemstack, EntityPlayer player)
+	{
+		if (!ConfigurationCG.ic2Compat) {
+			return false;
+		}
+		
+		return attributes.containsKey("ic2_metal");
+	}
+
 	@Optional.Method(modid = Compats.IC2)
 	@Override
 	public boolean addsProtection(EntityLivingBase entity, EntityEquipmentSlot slot, ItemStack stack)
 	{
-		return isHazmat;
+		if (!ConfigurationCG.ic2Compat) {
+			return false;
+		}
+		
+		return attributes.containsKey("ic2_hazmat");
 	}
 	
-	public void setHazmat(boolean isHazmat)
+	public Map<String, Object> getAttributes()
 	{
-		this.isHazmat = isHazmat;
+		return this.attributes;
 	}
 }

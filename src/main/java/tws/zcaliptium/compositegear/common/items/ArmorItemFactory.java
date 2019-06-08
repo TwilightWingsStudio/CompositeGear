@@ -120,17 +120,20 @@ public class ArmorItemFactory extends GenericItemFactory
 			ModItems.COLORABLE_REGISTRY.add(armorItem);
 
 		} else if (type.equals("ic2_metal")) {
-			armorItem.setMetal(true);
-			
+			armorItem.getAttributes().put("ic2_metal", null);
+
 		} else if (type.equals("ic2_hazmat")) {
-			armorItem.setHazmat(true);
+			armorItem.getAttributes().put("ic2_hazmat", null);
 
 		} else if (type.equals("warm")) {
-			armorItem.setWarm(true);
+			armorItem.getAttributes().put("tan_warm", null);
+
 		} else if (type.equals("satiety_save_cold")) {
-			armorItem.setSaveSatietyCold(true);
+			armorItem.getAttributes().put("ac_satiety_save_cold", null);
+
 		} else if (type.equals("satiety_save_hot")) {
-			armorItem.setSaveSatietyHot(true);
+			armorItem.getAttributes().put("ac_satiety_save_hot", null);
+
 		} else {
 			throw new IllegalArgumentException("Invalid armor feature type '" + type + "'.");
 		}
