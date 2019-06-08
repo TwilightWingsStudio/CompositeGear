@@ -13,7 +13,8 @@
       },
       "composite_dagger": {
         "textures": {
-          "layer0": "compositegear:items/composite_dagger"
+          "layer0": "compositegear:items/composite_dagger",
+          "layer1": "compositegear:items/composite_dagger_overlay"
         }
       },
       "composite_mace": {

@@ -12,6 +12,12 @@
     "attackSpeed": 3.2,
     "enchantability": 12
   },
+  "features": [
+    {
+      "type": "colorable",
+      "defaultColor": 8815987
+    }
+  ],
   "model" : {
     "type": "variant_type",
     "path": "items/tool/melee",
