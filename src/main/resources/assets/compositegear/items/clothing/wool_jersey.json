@@ -3,16 +3,17 @@
   "slot": "chest",
   "id": "wool_jersey",
   "durability": 64,
-  "intelligence": {
-    "class": "CLOTHING"
-  },
   "material" : {
     "type": "generic",
     "protection": 1,
     "enchantability": 15,
     "repairItem": "compositegear:string_reel"
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "CLOTHING"
+    },
     {
       "type": "colorable",
       "defaultColor": 8487297

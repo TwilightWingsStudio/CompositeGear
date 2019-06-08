@@ -1,11 +1,6 @@
 {
   "type": "compositegear:melee_weapon",
   "id": "composite_mace",
-  "intelligence": {
-    "class": "MELEE_WEAPON",
-    "rarity": "CgRare",
-    "hasDescription": true
-  },
   "durability": 1792,
   "material" : {
     "type": "generic",
@@ -13,7 +8,13 @@
     "attackSpeed": 1.2,
     "enchantability": 12
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "MELEE_WEAPON",
+      "rarity": "CgRare",
+      "hasDescription": true
+    },
     {
       "type": "shield_disabler"
     },

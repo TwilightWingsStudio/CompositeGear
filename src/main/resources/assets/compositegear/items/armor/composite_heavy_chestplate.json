@@ -2,10 +2,6 @@
   "type": "compositegear:armor",
   "slot": "chest",
   "id": "composite_heavy_chestplate",
-  "intelligence": {
-    "class": "HEAVY_ARMOR",
-    "rarity": "Epic"
-  },
   "durability": 1280,
   "material" : {
     "type": "generic",
@@ -13,7 +9,12 @@
     "toughness": 3,
     "enchantability": 12
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "HEAVY_ARMOR",
+      "rarity": "Epic"
+    },
     {
       "type": "colorable",
       "defaultColor": 8815987

@@ -2,10 +2,6 @@
   "type": "compositegear:armor",
   "slot": "chest",
   "id": "composite_chestplate",
-  "intelligence": {
-    "class": "MEDIUM_ARMOR",
-    "rarity": "CgRare"
-  },
   "durability": 1024,
   "material" : {
     "type": "generic",
@@ -13,7 +9,12 @@
     "toughness": 2,
     "enchantability": 12
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "MEDIUM_ARMOR",
+      "rarity": "CgRare"
+    },
     {
       "type": "colorable",
       "defaultColor": 8815987

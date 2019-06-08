@@ -1,11 +1,6 @@
 {
   "type": "compositegear:melee_weapon",
   "id": "composite_club",
-  "intelligence": {
-    "class": "MELEE_WEAPON",
-    "rarity": "CgUncommon",
-    "hasDescription": true
-  },
   "durability": 2048,
   "material" : {
     "type": "generic",
@@ -13,7 +8,13 @@
     "attackSpeed": 1.6,
     "enchantability": 12
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "MELEE_WEAPON",
+      "rarity": "CgUncommon",
+      "hasDescription": true
+    },
     {
       "type": "colorable",
       "defaultColor": 8815987

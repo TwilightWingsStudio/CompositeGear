@@ -2,10 +2,6 @@
   "type": "compositegear:armor",
   "slot": "legs",
   "id": "composite_heavy_leggings",
-  "intelligence": {
-    "class": "HEAVY_ARMOR",
-    "rarity": "Epic"
-  },
   "durability": 1024,
   "material" : {
     "type": "generic",
@@ -13,7 +9,12 @@
     "toughness": 3,
     "enchantability": 12
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "HEAVY_ARMOR",
+      "rarity": "Epic"
+    },
     {
       "type": "colorable",
       "defaultColor": 8815987

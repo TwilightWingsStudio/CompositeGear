@@ -3,17 +3,18 @@
   "slot": "head",
   "id": "composite_helmet",
   "durability": 768,
-  "intelligence": {
-    "class": "MEDIUM_ARMOR",
-    "rarity": "CgRare"
-  },
   "material" : {
     "type": "generic",
     "protection": 3,
     "toughness": 2,
     "enchantability": 12
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "MEDIUM_ARMOR",
+      "rarity": "CgRare"
+    },
     {
       "type": "colorable",
       "defaultColor": 8815987

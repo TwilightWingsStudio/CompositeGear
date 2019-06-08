@@ -3,15 +3,16 @@
   "slot": "legs",
   "id": "wool_pants",
   "durability": 64,
-  "intelligence": {
-    "class": "CLOTHING"
-  },
   "material" : {
     "type": "generic",
     "protection": 1,
     "enchantability": 15
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "CLOTHING"
+    },
     {
       "type": "colorable",
       "defaultColor": 8487297

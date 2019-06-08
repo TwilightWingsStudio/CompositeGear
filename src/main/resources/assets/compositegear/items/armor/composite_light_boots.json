@@ -2,10 +2,6 @@
   "type": "compositegear:armor",
   "slot": "feet",
   "id": "composite_light_boots",
-  "intelligence": {
-    "class": "LIGHT_ARMOR",
-    "rarity": "CgUncommon"
-  },
   "durability": 512,
   "material" : {
     "type": "generic",
@@ -13,7 +9,12 @@
     "toughness": 1,
     "enchantability": 12
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "LIGHT_ARMOR",
+      "rarity": "CgUncommon"
+    },
     {
       "type": "colorable",
       "defaultColor": 8815987

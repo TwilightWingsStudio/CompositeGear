@@ -1,10 +1,6 @@
 {
   "type": "compositegear:melee_weapon",
   "id": "composite_sword",
-  "intelligence": {
-    "class": "MELEE_WEAPON",
-    "rarity": "CgUncommon"
-  },
   "durability": 1536,
   "material" : {
     "type": "generic",
@@ -12,7 +8,12 @@
     "attackSpeed": 1.6,
     "enchantability": 12
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "MELEE_WEAPON",
+      "rarity": "CgUncommon"
+    },
     {
       "type": "colorable",
       "defaultColor": 8815987

@@ -3,16 +3,17 @@
   "slot": "feet",
   "id": "padded_boots",
   "durability": 96,
-  "intelligence": {
-    "class": "LIGHT_ARMOR"
-  },
   "material" : {
     "type": "generic",
     "protection": 1,
     "enchantability": 15,
     "repairItem": "compositegear:fabric_sheet"
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "LIGHT_ARMOR"
+    },
     {
       "type": "colorable",
       "defaultColor": 8487297

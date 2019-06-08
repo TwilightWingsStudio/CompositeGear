@@ -3,16 +3,17 @@
   "slot": "head",
   "id": "rubber_gasmask",
   "durability": 128,
-  "intelligence": {
-    "class": "ACCESSORY_ARMOR",
-    "hasDescription": true
-  },
   "material" : {
     "type": "generic",
     "protection": 1,
     "enchantability": 15
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "ACCESSORY_ARMOR",
+      "hasDescription": true
+    },
     {
       "type": "colorable",
       "defaultColor": 8487297

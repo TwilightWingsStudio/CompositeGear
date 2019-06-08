@@ -3,15 +3,16 @@
   "slot": "head",
   "id": "respirator_halfmask",
   "durability": 64,
-  "intelligence": {
-    "class": "ACCESSORY_ARMOR"
-  },
   "material" : {
     "type": "generic",
     "protection": 1,
     "enchantability": 15
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "ACCESSORY_ARMOR"
+    },
     {
       "type": "air_mask",
       "minAir": 80

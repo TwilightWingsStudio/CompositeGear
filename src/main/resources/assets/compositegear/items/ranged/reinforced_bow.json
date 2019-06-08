@@ -2,14 +2,17 @@
   "type": "compositegear:ranged_weapon",
   "id": "reinforced_bow",
   "durability": 768,
-  "intelligence": {
-    "rarity": "CgUncommon",
-    "hasDescription": true
-  },
   "material" : {
     "type": "generic",
     "enchantability": 15
   },
+  "attributes": [
+    {
+      "type": "intelligence",
+      "rarity": "CgUncommon",
+      "hasDescription": true
+    }
+  ],
   "model" : {
     "type": "simple",
     "path": "tool/reinforced_bow"

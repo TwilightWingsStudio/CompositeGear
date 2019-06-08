@@ -3,16 +3,17 @@
   "slot": "legs",
   "id": "padded_leggings",
   "durability": 128,
-  "intelligence": {
-    "class": "LIGHT_ARMOR"
-  },
   "material" : {
     "type": "generic",
     "protection": 2,
     "enchantability": 15,
     "repairItem": "compositegear:fabric_sheet"
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "LIGHT_ARMOR"
+    },
     {
       "type": "colorable",
       "defaultColor": 8487297

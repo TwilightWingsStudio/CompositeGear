@@ -2,17 +2,18 @@
   "type": "compositegear:armor",
   "slot": "head",
   "id": "respirator_mask",
-  "intelligence": {
-    "class": "ACCESSORY_ARMOR",
-    "rarity": "CgUncommon"
-  },
   "durability": 128,
   "material" : {
     "type": "generic",
     "protection": 1,
     "enchantability": 15
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "ACCESSORY_ARMOR",
+      "rarity": "CgUncommon"
+    },
     {
       "type": "colorable",
       "defaultColor": 8487297

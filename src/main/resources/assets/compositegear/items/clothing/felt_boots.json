@@ -3,16 +3,17 @@
   "slot": "feet",
   "id": "felt_boots",
   "durability": 64,
-  "intelligence": {
-    "class": "CLOTHING",
-    "hasDescription": true
-  },
   "material" : {
     "type": "generic",
     "protection": 1,
     "enchantability": 15
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "CLOTHING",
+      "hasDescription": true
+    },
     {
       "type": "colorable",
       "defaultColor": 8487297

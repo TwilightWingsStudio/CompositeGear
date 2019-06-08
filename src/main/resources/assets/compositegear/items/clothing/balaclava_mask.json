@@ -3,17 +3,18 @@
   "slot": "head",
   "id": "balaclava_mask",
   "durability": 256,
-  "intelligence": {
-    "class": "CLOTHING",
-    "hasDescription": true,
-    "hasVisualAttributes": true
-  },
   "material" : {
     "type": "generic",
     "protection": 1,
     "enchantability": 15
   },
-  "features": [
+  "attributes": [
+    {
+      "type": "intelligence",
+      "class": "CLOTHING",
+      "hasDescription": true,
+      "hasVisualAttributes": true
+    },
     {
       "type": "colorable",
       "defaultColor": 8487297
