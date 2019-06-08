@@ -35,21 +35,12 @@ public class MeleeItemFactory extends GenericItemFactory
 		// Material.
 		parseMaterial(JsonUtils.getJsonObject(json, "material"), item);
 
-		// Features.
-		JsonArray features = JsonUtils.getJsonArray(json, "features", null);
+		// Attributes.
+		JsonArray attributes = JsonUtils.getJsonArray(json, "attributes", null);
 
-		if (features != null)
+		if (attributes != null)
 		{
-			parseFeatures(features, item);
-		}
-
-		// Intelligence.
-		JsonObject intelligenceObj = JsonUtils.getJsonObject(json, "intelligence", null);
-
-		// Localized name & Description.
-		if (intelligenceObj != null)
-		{
-			parseIntelligence(intelligenceObj, item);
+			parseAttributes(attributes, item);
 		}
 		
 		// Only client need model info.
@@ -62,7 +53,7 @@ public class MeleeItemFactory extends GenericItemFactory
 	}
 
 	@Override
-	protected void parseFeature(JsonObject json, Item item, String type)
+	protected void parseAttribute(JsonObject json, Item item, String type)
 	{
 		ItemCGMelee meleeItem = (ItemCGMelee)item;
 
@@ -76,6 +67,10 @@ public class MeleeItemFactory extends GenericItemFactory
 
 		} else if (type.equals("constant_gem_damage")) {
 			meleeItem.setConstantGemDamage(JsonUtils.getInt(json, "damage"));
+			
+		} else if (type.equals("intelligence")) {
+			parseIntelligence(json, item);
+			
 		} else {
 			throw new IllegalArgumentException("Invalid melee feature type '" + type + "'.");	
 		}

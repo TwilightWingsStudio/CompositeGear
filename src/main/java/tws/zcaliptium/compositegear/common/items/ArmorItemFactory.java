@@ -56,20 +56,12 @@ public class ArmorItemFactory extends GenericItemFactory
 		// Material
 		parseMaterial(JsonUtils.getJsonObject(json, "material"), item);
 
-		// Features
-		JsonArray features = JsonUtils.getJsonArray(json, "features", null);
+		// Attributes
+		JsonArray attributes = JsonUtils.getJsonArray(json, "attributes", null);
 
-		if (features != null)
+		if (attributes != null)
 		{
-			parseFeatures(features, item);
-		}
-
-		JsonObject intelligenceObj = JsonUtils.getJsonObject(json, "intelligence", null);
-		
-		// Localized name & Description.
-		if (intelligenceObj != null)
-		{
-			parseIntelligence(intelligenceObj, item);
+			parseAttributes(attributes, item);
 		}
 
 		// Only client need model info and hud overlay.
@@ -106,7 +98,7 @@ public class ArmorItemFactory extends GenericItemFactory
 	}
 
 	@Override
-	protected void parseFeature(JsonObject json, Item item, String type)
+	protected void parseAttribute(JsonObject json, Item item, String type)
 	{
 		ItemCGArmor armorItem = (ItemCGArmor)item;
 		
@@ -133,6 +125,9 @@ public class ArmorItemFactory extends GenericItemFactory
 
 		} else if (type.equals("satiety_save_hot")) {
 			armorItem.getAttributes().put("ac_satiety_save_hot", null);
+			
+		} else if (type.equals("intelligence")) {
+			parseIntelligence(json, item);
 
 		} else {
 			throw new IllegalArgumentException("Invalid armor feature type '" + type + "'.");

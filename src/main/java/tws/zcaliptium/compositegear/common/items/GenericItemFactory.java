@@ -144,12 +144,12 @@ public class GenericItemFactory implements IItemFactory
 		intelligence.setHasVisualAttributes(hasVisualAttributes);
 	}
 
-	protected void parseFeature(JsonObject json, Item item, String type)
+	protected void parseAttribute(JsonObject json, Item item, String type)
 	{
 		throw new IllegalArgumentException("Invalid item feature type '" + type + "'.");
 	}
 
-	protected void parseFeatures(JsonArray json, Item item)
+	protected void parseAttributes(JsonArray json, Item item)
 	{
 		Iterator<JsonElement> featuresIt = json.iterator();
 		while (featuresIt.hasNext())
@@ -158,7 +158,7 @@ public class GenericItemFactory implements IItemFactory
 			
 			String featureType = JsonUtils.getString(featureObj, "type");
 			
-			parseFeature(featureObj, item, featureType);
+			parseAttribute(featureObj, item, featureType);
 		}
 	}
 }

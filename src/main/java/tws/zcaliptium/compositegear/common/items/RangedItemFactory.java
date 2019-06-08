@@ -7,6 +7,7 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common.items;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import net.minecraft.item.Item;
@@ -14,6 +15,7 @@ import net.minecraft.util.JsonUtils;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.crafting.JsonContext;
 import tws.zcaliptium.compositegear.common.CompositeGear;
+import tws.zcaliptium.compositegear.common.init.ModItems;
 
 public class RangedItemFactory extends GenericItemFactory
 {
@@ -33,13 +35,12 @@ public class RangedItemFactory extends GenericItemFactory
 		// Material.
 		parseMaterial(JsonUtils.getJsonObject(json, "material"), item);
 		
-		// Intelligence.
-		JsonObject intelligenceObj = JsonUtils.getJsonObject(json, "intelligence", null);
+		// Attributes.
+		JsonArray attributes = JsonUtils.getJsonArray(json, "attributes", null);
 
-		// Localized name & Description.
-		if (intelligenceObj != null)
+		if (attributes != null)
 		{
-			parseIntelligence(intelligenceObj, item);
+			parseAttributes(attributes, item);
 		}
 
 		// Only client need model info.
@@ -49,6 +50,17 @@ public class RangedItemFactory extends GenericItemFactory
 		}
 
 		return item;
+	}
+	
+	@Override
+	protected void parseAttribute(JsonObject json, Item item, String type)
+	{
+		if (type.equals("intelligence")) {
+			parseIntelligence(json, item);
+			
+		} else {
+			throw new IllegalArgumentException("Invalid ranged feature type '" + type + "'.");	
+		}
 	}
 	
 	protected void parseMaterial(JsonObject json, ItemCGBow item)
