@@ -15,7 +15,8 @@
       "materialType": "generic",
       "protection": 4,
       "toughness": 3,
-      "enchantability": 12
+      "enchantability": 12,
+      "repairItem": "compositegear:advanced_alloy_plate"
     },
     {
       "type": "intelligence",
