@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "head",
   "id": "respirator_halfmask",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "head"
+    },
     {
       "type": "durability",
       "durability": 64
@@ -20,13 +23,14 @@
     {
       "type": "air_mask",
       "minAir": 80
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/respirators",
+      "variant": "respirator_halfmask"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/respirators",
-    "variant": "respirator_halfmask"
-  },
   "armorModel" : {
     "armorName": "respirator_halfmask"
   }

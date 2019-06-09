@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "head",
   "id": "respirator_mask",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "head"
+    },
     {
       "type": "durability",
       "durability": 128
@@ -25,13 +28,14 @@
     {
       "type": "air_mask",
       "minAir": 20
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/respirators",
+      "variant": "respirator_mask"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/respirators",
-    "variant": "respirator_mask"
-  },
   "armorModel" : {
     "armorName": "respirator_mask",
     "hasOverlay": true

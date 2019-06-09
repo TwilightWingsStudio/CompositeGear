@@ -1,9 +1,12 @@
 {
   "type": "compositegear:generic",
   "id": "advanced_alloy_plate",
-  "model" : {
-    "type": "variant_type",
-    "path": "items/materials",
-    "variant": "advanced_alloy_plate"
-  }
+  "attributes": [
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/materials",
+      "variant": "advanced_alloy_plate"
+    }
+  ]
 }

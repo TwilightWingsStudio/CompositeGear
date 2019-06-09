@@ -1,9 +1,12 @@
 {
   "type": "compositegear:generic",
   "id": "rubberized_strap",
-  "model" : {
-    "type": "variant_type",
-    "path": "items/materials",
-    "variant": "rubberized_strap"
-  }
+  "attributes": [
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/materials",
+      "variant": "rubberized_strap"
+    }
+  ]
 }

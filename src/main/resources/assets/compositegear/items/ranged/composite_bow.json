@@ -11,10 +11,11 @@
       "type": "intelligence",
       "rarity": "CgRare",
       "hasDescription": true
+    },
+    {
+      "type": "model",
+      "modelType": "simple",
+      "path": "tool/composite_bow"
     }
-  ],
-  "model" : {
-    "type": "simple",
-    "path": "tool/composite_bow"
-  }
+  ]
 }

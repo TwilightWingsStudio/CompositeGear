@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "legs",
   "id": "composite_leggings",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "legs"
+    },
     {
       "type": "durability",
       "durability": 768
@@ -25,13 +28,14 @@
     },
     {
       "type": "ic2_metal"
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/armor",
+      "variant": "composite_leggings"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/armor",
-    "variant": "composite_leggings"
-  },
   "armorModel" : {
     "armorName": "composite",
     "hasOverlay": true

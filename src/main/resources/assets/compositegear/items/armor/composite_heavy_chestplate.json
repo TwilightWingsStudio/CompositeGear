@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "chest",
   "id": "composite_heavy_chestplate",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "chest"
+    },
     {
       "type": "durability",
       "durability": 1280
@@ -25,13 +28,14 @@
     },
     {
       "type": "ic2_metal"
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/armor",
+      "variant": "composite_heavy_chestplate"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/armor",
-    "variant": "composite_heavy_chestplate"
-  },
   "armorModel" : {
     "armorName": "composite",
     "hasOverlay": true

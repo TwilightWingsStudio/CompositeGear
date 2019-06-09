@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "feet",
   "id": "felt_boots",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "feet"
+    },
     {
       "type": "durability",
       "durability": 64
@@ -27,13 +30,14 @@
     },
     {
       "type": "satiety_save_cold"
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/clothing",
+      "variant": "felt_boots"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/clothing",
-    "variant": "felt_boots"
-  },
   "armorModel" : {
     "armorName": "felt_boots",
     "hasOverlay": true

@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "head",
   "id": "shemagh_mask",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "head"
+    },
     {
       "type": "durability",
       "durability": 256
@@ -25,13 +28,14 @@
     },
     {
       "type": "satiety_save_hot"
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/clothing",
+      "variant": "shemagh_mask"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/clothing",
-    "variant": "shemagh_mask"
-  },
   "armorModel" : {
     "armorName": "shemagh_mask",
     "hasOverlay": true

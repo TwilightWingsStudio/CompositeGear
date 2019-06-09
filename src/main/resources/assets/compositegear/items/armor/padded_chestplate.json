@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "chest",
   "id": "padded_chestplate",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "chest"
+    },
     {
       "type": "durability",
       "durability": 128
@@ -27,13 +30,14 @@
     },
     {
       "type": "satiety_save_cold"
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/armor",
+      "variant": "padded_chestplate"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/armor",
-    "variant": "padded_chestplate"
-  },
   "armorModel" : {
     "armorName": "padded",
     "hasOverlay": true

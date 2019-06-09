@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "head",
   "id": "composite_faceplate",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "head"
+    },
     {
       "type": "durability",
       "durability": 768
@@ -25,13 +28,14 @@
     },
     {
       "type": "ic2_metal"
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/armor",
+      "variant": "composite_faceplate"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/armor",
-    "variant": "composite_faceplate"
-  },
   "armorModel" : {
     "armorName": "composite_faceplate",
     "hasOverlay": true

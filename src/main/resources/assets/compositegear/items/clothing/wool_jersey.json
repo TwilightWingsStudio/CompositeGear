@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "chest",
   "id": "wool_jersey",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "chest"
+    },
     {
       "type": "durability",
       "durability": 64
@@ -27,13 +30,14 @@
     },
     {
       "type": "satiety_save_cold"
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/clothing",
+      "variant": "wool_jersey"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/clothing",
-    "variant": "wool_jersey"
-  },
   "armorModel" : {
     "armorName": "wool",
     "hasOverlay": true

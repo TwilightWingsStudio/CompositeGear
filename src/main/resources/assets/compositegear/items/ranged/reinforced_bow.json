@@ -11,10 +11,11 @@
       "type": "intelligence",
       "rarity": "CgUncommon",
       "hasDescription": true
+    },
+    {
+      "type": "model",
+      "modelType": "simple",
+      "path": "tool/reinforced_bow"
     }
-  ],
-  "model" : {
-    "type": "simple",
-    "path": "tool/reinforced_bow"
-  }
+  ]
 }

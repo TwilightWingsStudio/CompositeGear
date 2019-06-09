@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "head",
   "id": "padded_helmet",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "head"
+    },
     {
       "type": "durability",
       "durability": 96
@@ -27,13 +30,14 @@
     },
     {
       "type": "satiety_save_cold"
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/armor",
+      "variant": "padded_helmet"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/armor",
-    "variant": "padded_helmet"
-  },
   "armorModel" : {
     "armorName": "padded",
     "hasOverlay": true

@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "head",
   "id": "composite_light_helmet",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "head"
+    },
     {
       "type": "durability",
       "durability": 512
@@ -25,13 +28,14 @@
     },
     {
       "type": "ic2_metal"
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/armor",
+      "variant": "composite_light_helmet"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/armor",
-    "variant": "composite_light_helmet"
-  },
   "armorModel" : {
     "armorName": "composite_light",
     "hasOverlay": true

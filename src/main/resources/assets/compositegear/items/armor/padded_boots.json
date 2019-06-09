@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "feet",
   "id": "padded_boots",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "feet"
+    },
     {
       "type": "durability",
       "durability": 96
@@ -27,13 +30,14 @@
     },
     {
       "type": "satiety_save_cold"
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/armor",
+      "variant": "padded_boots"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/armor",
-    "variant": "padded_boots"
-  },
   "armorModel" : {
     "armorName": "padded",
     "hasOverlay": true

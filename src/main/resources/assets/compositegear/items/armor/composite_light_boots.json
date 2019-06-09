@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "feet",
   "id": "composite_light_boots",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "feet"
+    },
     {
       "type": "durability",
       "durability": 512
@@ -25,13 +28,14 @@
     },
     {
       "type": "ic2_metal"
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/armor",
+      "variant": "composite_light_boots"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/armor",
-    "variant": "composite_light_boots"
-  },
   "armorModel" : {
     "armorName": "composite_light",
     "hasOverlay": true

@@ -1,9 +1,12 @@
 {
   "type": "compositegear:generic",
   "id": "wooden_reel",
-  "model" : {
-    "type": "variant_type",
-    "path": "items/materials",
-    "variant": "wooden_reel"
-  }
+  "attributes": [
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/materials",
+      "variant": "wooden_reel"
+    }
+  ]
 }

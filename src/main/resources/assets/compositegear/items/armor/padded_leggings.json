@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "legs",
   "id": "padded_leggings",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "legs"
+    },
     {
       "type": "durability",
       "durability": 128
@@ -27,13 +30,14 @@
     },
     {
       "type": "satiety_save_cold"
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/armor",
+      "variant": "padded_leggings"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/armor",
-    "variant": "padded_leggings"
-  },
   "armorModel" : {
     "armorName": "padded",
     "hasOverlay": true

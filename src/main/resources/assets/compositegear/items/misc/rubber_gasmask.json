@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "head",
   "id": "rubber_gasmask",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "head"
+    },
     {
       "type": "durability",
       "durability": 128
@@ -28,13 +31,14 @@
     },
     {
       "type": "ic2_hazmat"
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/respirators",
+      "variant": "rubber_gasmask"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/respirators",
-    "variant": "rubber_gasmask"
-  },
   "armorModel" : {
     "armorName": "rubber_gasmask",
     "hasOverlay": true

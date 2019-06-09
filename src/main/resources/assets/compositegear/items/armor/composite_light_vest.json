@@ -1,8 +1,11 @@
 {
   "type": "compositegear:armor",
-  "slot": "chest",
   "id": "composite_light_vest",
   "attributes": [
+    {
+      "type": "slot",
+      "slot": "chest"
+    },
     {
       "type": "durability",
       "durability": 768
@@ -25,13 +28,14 @@
     },
     {
       "type": "ic2_metal"
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/armor",
+      "variant": "composite_light_vest"
     }
   ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/armor",
-    "variant": "composite_light_vest"
-  },
   "armorModel" : {
     "armorName": "composite_light",
     "hasOverlay": true

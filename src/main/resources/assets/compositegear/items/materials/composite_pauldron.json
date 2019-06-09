@@ -1,9 +1,12 @@
 {
   "type": "compositegear:generic",
   "id": "composite_pauldron",
-  "model" : {
-    "type": "variant_type",
-    "path": "items/materials",
-    "variant": "composite_pauldron"
-  }
+  "attributes": [
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/materials",
+      "variant": "composite_pauldron"
+    }
+  ]
 }

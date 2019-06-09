@@ -1,9 +1,12 @@
 {
   "type": "compositegear:generic",
   "id": "rubberized_handle_rod",
-  "model" : {
-    "type": "variant_type",
-    "path": "items/materials",
-    "variant": "rubberized_handle_rod"
-  }
+  "attributes": [
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/materials",
+      "variant": "rubberized_handle_rod"
+    }
+  ]
 }
