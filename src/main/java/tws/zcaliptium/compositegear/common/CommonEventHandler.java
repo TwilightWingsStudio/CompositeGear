@@ -20,11 +20,14 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
 import tws.zcaliptium.compositegear.common.loot.LootTableHelper;
+import tws.zcaliptium.compositegear.lib.IAttributeHolder;
 
 public class CommonEventHandler
 {
@@ -96,6 +99,37 @@ public class CommonEventHandler
 		}
 
 		return true;
+	}
+	
+	@SubscribeEvent
+	public void playerFall(LivingFallEvent event)
+	{
+		if (event.getEntityLiving().world.isRemote) {
+			return;
+		}
+		
+		if (!ConfigurationCG.isFESafeFall) {
+			return;
+		}
+
+		if (event.getEntity() instanceof EntityPlayer)
+		{
+			float distance = event.getDistance();
+			
+			if (distance > 3) {
+	        	ItemStack stackBoots = ((EntityPlayer)event.getEntity()).inventory.armorItemInSlot(0);
+	        	Item itemBoots = stackBoots.getItem();
+	        	
+	        	//System.out.println("" + itemBoots.getUnlocalizedName());
+
+	        	if (itemBoots != null && itemBoots instanceof IAttributeHolder) {
+	        		IAttributeHolder attributeHolder = (IAttributeHolder)stackBoots.getItem();
+	        		float safeFall = (Float)attributeHolder.getAttributes().getOrDefault("safe_fall", 0.0F);
+	        		
+	        		event.setDistance(MathHelper.clamp(distance - safeFall, 0.0F, 1000.0F));
+	        	}
+			}
+		}
 	}
 	
 	@SubscribeEvent

@@ -57,6 +57,7 @@ public class ConfigurationCG
 	public static boolean isFECold = true;
 	public static boolean isFESaveSatietyHot = true;
 	public static boolean isFESaveSatietyCold = true;
+	public static boolean isFESafeFall = true;
 
 	// Melee Features
 	public static boolean isFEConstantGemDamage = true;
@@ -111,7 +112,8 @@ public class ConfigurationCG
 	    isFECold = config.getBoolean("cold", SECTION_FEATURES_ARMOR, true, "Chills you down. TAN integration required.");
 	    isFESaveSatietyHot = config.getBoolean("save_satiety_hot", SECTION_FEATURES_ARMOR, true, "Saves your energy in hot places. AppleCore integration required.");
 	    isFESaveSatietyCold = config.getBoolean("save_satiety_cold", SECTION_FEATURES_ARMOR, true, "Saves your energy in cold places. AppleCore integration required.");
-
+	    isFESafeFall = config.getBoolean("safe_fall", SECTION_FEATURES_ARMOR, true, "Increases safe fall distance. Some boots added by mod give such bonus.");
+	    
 	    // Melee
 	    isFEConstantGemDamage = config.getBoolean("constant_gem_damage", SECTION_FEATURES_MELEE, true, "Deals constant damage to most of gem armor. Should work for many armor materials from mods.");
 	

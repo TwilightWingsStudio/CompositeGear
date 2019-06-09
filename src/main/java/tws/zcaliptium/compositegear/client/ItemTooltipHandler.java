@@ -136,6 +136,12 @@ public class ItemTooltipHandler
 		{
 			IAttributeHolder attributeHolder = (IAttributeHolder)itemStack.getItem();
 			
+			float safeFall = (float)attributeHolder.getAttributes().getOrDefault("safe_fall", 0.0F);
+			if (safeFall > 0) {
+				String safeFallLabel = I18n.translateToLocal("compositegear.safefall");
+				ev.getToolTip().add(TextFormatting.DARK_GREEN + " +" + safeFall + " " + safeFallLabel);
+			}
+			
 			// Visual Attributes.
 			if (attributeHolder.getAttributes().containsKey("has_va"))
 			{

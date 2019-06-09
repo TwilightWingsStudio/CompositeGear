@@ -146,6 +146,9 @@ public class ArmorItemFactory extends GenericItemFactory
 				parseArmorModel(json, armorItem); // Armor model.
 			}
 			
+		} else if (type.equals("safe_fall")) {
+			armorItem.getAttributes().put("safe_fall", new Float(JsonUtils.getFloat(json, "distance")));
+
 		} else if (type.equals("hud_overlay")) {
 			if (CompositeGear.proxy.isClient()) {
 				String overlayTexturePath = JsonUtils.getString(json, "texture", null);
