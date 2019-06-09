@@ -47,15 +47,6 @@ public class ArmorItemFactory extends GenericItemFactory
 
 		ItemCGArmor item = new ItemCGArmor(id, ItemCGArmor.GENERIC_MATERIAL, 0, slot);
 
-		// Durability.
-		int durability = MathHelper.clamp(JsonUtils.getInt(json, "durability", 	1), 0, Integer.MAX_VALUE);
-		if (durability > 0) {
-			item.setMaxDamage(durability);			
-		}
-
-		// Material
-		parseMaterial(JsonUtils.getJsonObject(json, "material"), item);
-
 		// Attributes
 		JsonArray attributes = JsonUtils.getJsonArray(json, "attributes", null);
 
@@ -81,7 +72,7 @@ public class ArmorItemFactory extends GenericItemFactory
 
 	protected void parseMaterial(JsonObject json, ItemCGArmor item)
 	{
-		String materialType = JsonUtils.getString(json, "type");
+		String materialType = JsonUtils.getString(json, "materialType");
 
 		if (materialType.equalsIgnoreCase("generic")) {
 			item.setProtection(JsonUtils.getInt(json, "protection", 0));
@@ -128,6 +119,15 @@ public class ArmorItemFactory extends GenericItemFactory
 			
 		} else if (type.equals("intelligence")) {
 			parseIntelligence(json, item);
+
+		} else if (type.equals("material")) {
+			parseMaterial(json, armorItem);
+			
+		} else if (type.equals("durability")) {
+			int durability = MathHelper.clamp(JsonUtils.getInt(json, "durability", 	1), 0, Integer.MAX_VALUE);
+			if (durability > 0) {
+				item.setMaxDamage(durability);			
+			}
 
 		} else {
 			throw new IllegalArgumentException("Invalid armor feature type '" + type + "'.");

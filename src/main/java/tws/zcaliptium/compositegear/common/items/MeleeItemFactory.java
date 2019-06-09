@@ -25,15 +25,6 @@ public class MeleeItemFactory extends GenericItemFactory
 		String id = JsonUtils.getString(json, "id");
 
 		ItemCGMelee item = new ItemCGMelee(id, ItemCGMelee.GENERIC_MELEE_MATERIAL);
-		
-		// Durability.
-		int durability = MathHelper.clamp(JsonUtils.getInt(json, "durability", 	1), 0, Integer.MAX_VALUE);
-		if (durability > 0) {
-			item.setMaxDamage(durability);
-		}
-
-		// Material.
-		parseMaterial(JsonUtils.getJsonObject(json, "material"), item);
 
 		// Attributes.
 		JsonArray attributes = JsonUtils.getJsonArray(json, "attributes", null);
@@ -41,12 +32,6 @@ public class MeleeItemFactory extends GenericItemFactory
 		if (attributes != null)
 		{
 			parseAttributes(attributes, item);
-		}
-		
-		// Only client need model info.
-		if (CompositeGear.proxy.isClient())
-		{
-			parseModel(JsonUtils.getJsonObject(json, "model"), item); // Item model.
 		}
 
 		return item;
@@ -70,7 +55,23 @@ public class MeleeItemFactory extends GenericItemFactory
 			
 		} else if (type.equals("intelligence")) {
 			parseIntelligence(json, item);
+
+		} else if (type.equals("material")) {
+			parseMaterial(json, meleeItem);
 			
+		} else if (type.equals("durability")) {
+			int durability = MathHelper.clamp(JsonUtils.getInt(json, "durability", 	1), 0, Integer.MAX_VALUE);
+			if (durability > 0) {
+				item.setMaxDamage(durability);			
+			}
+			
+		} else if (type.equals("model")) {
+			// Only client need model info.
+			if (CompositeGear.proxy.isClient())
+			{
+				parseModel(json, item); // Item model.
+			}
+
 		} else {
 			throw new IllegalArgumentException("Invalid melee feature type '" + type + "'.");	
 		}
@@ -78,7 +79,7 @@ public class MeleeItemFactory extends GenericItemFactory
 
 	protected void parseMaterial(JsonObject json, ItemCGMelee item)
 	{
-		String materialType = JsonUtils.getString(json, "type");
+		String materialType = JsonUtils.getString(json, "materialType");
 
 		if (materialType.equalsIgnoreCase("generic")) {
 			item.setAttackDamage(JsonUtils.getFloat(json, "attackDamage", 0.0F));

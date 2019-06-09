@@ -80,7 +80,8 @@ public class GenericItemFactory implements IItemFactory
 	
 	protected ModelResourceLocation parseModelEntry(JsonObject json)
 	{
-		String type = JsonUtils.getString(json, "type");
+		// TODO: Here is fallback. Remove it in future.
+		String type = JsonUtils.getString(json, "modelType", JsonUtils.getString(json, "type"));
 
         if (type.isEmpty())
             throw new JsonSyntaxException("Item model type can not be an empty string");
