@@ -36,7 +36,25 @@ public class ArmorItemFactory extends GenericItemFactory
 	{
 		// Main stuff.
 		String id = JsonUtils.getString(json, "id");
-		String slotIn = JsonUtils.getString(json, "slot");
+		JsonArray attributes = JsonUtils.getJsonArray(json, "attributes", null);
+		
+		String slotIn = "head";
+		
+		if (attributes != null)
+		{
+			Iterator<JsonElement> featuresIt = attributes.iterator();
+			while (featuresIt.hasNext())
+			{
+				JsonObject attributeObj = featuresIt.next().getAsJsonObject();
+				
+				String attributeType = JsonUtils.getString(attributeObj, "type");
+				
+				if (attributeType.equals("slot")) {
+					slotIn = JsonUtils.getString(attributeObj, "slot");
+				}
+			}
+		}
+
 
 		EntityEquipmentSlot slot = EntityEquipmentSlot.fromString(slotIn);
 		
@@ -48,8 +66,6 @@ public class ArmorItemFactory extends GenericItemFactory
 		ItemCGArmor item = new ItemCGArmor(id, ItemCGArmor.GENERIC_MATERIAL, 0, slot);
 
 		// Attributes
-		JsonArray attributes = JsonUtils.getJsonArray(json, "attributes", null);
-
 		if (attributes != null)
 		{
 			parseAttributes(attributes, item);
@@ -58,7 +74,6 @@ public class ArmorItemFactory extends GenericItemFactory
 		// Only client need model info and hud overlay.
 		if (CompositeGear.proxy.isClient())
 		{
-			parseModel(JsonUtils.getJsonObject(json, "model"), item); // Item model.
 			parseArmorModel(JsonUtils.getJsonObject(json, "armorModel"), item); // Armor model.
 
 			String overlayTexturePath = JsonUtils.getString(json, "overlayTexture", null);
@@ -128,9 +143,16 @@ public class ArmorItemFactory extends GenericItemFactory
 			if (durability > 0) {
 				item.setMaxDamage(durability);			
 			}
+			
+		} else if (type.equals("slot")) {
+
+		} else if (type.equals("model")) {
+			if (CompositeGear.proxy.isClient()) {
+				parseModel(json, item);
+			}
 
 		} else {
-			throw new IllegalArgumentException("Invalid armor feature type '" + type + "'.");
+			throw new IllegalArgumentException("Invalid armor attribute type '" + type + "'.");
 		}
 	}
 

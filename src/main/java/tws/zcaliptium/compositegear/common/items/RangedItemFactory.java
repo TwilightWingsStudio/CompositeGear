@@ -31,10 +31,7 @@ public class RangedItemFactory extends GenericItemFactory
 		if (durability > 0) {
 			item.setMaxDamage(durability);			
 		}
-		
-		// Material.
-		parseMaterial(JsonUtils.getJsonObject(json, "material"), item);
-		
+
 		// Attributes.
 		JsonArray attributes = JsonUtils.getJsonArray(json, "attributes", null);
 
@@ -43,23 +40,28 @@ public class RangedItemFactory extends GenericItemFactory
 			parseAttributes(attributes, item);
 		}
 
-		// Only client need model info.
-		if (CompositeGear.proxy.isClient())
-		{
-			parseModel(JsonUtils.getJsonObject(json, "model"), item); // Item model.
-		}
-
 		return item;
 	}
 	
 	@Override
 	protected void parseAttribute(JsonObject json, Item item, String type)
 	{
+		ItemCGBow rangedItem = (ItemCGBow)item;
+		
 		if (type.equals("intelligence")) {
 			parseIntelligence(json, item);
+
+		} else if (type.equals("material")) {
+			parseMaterial(json, rangedItem);
+			
+		} else if (type.equals("model")) {
+			// Only client need model info.
+			if (CompositeGear.proxy.isClient()) {
+				parseModel(json, item); // Item model.
+			}
 			
 		} else {
-			throw new IllegalArgumentException("Invalid ranged feature type '" + type + "'.");	
+			throw new IllegalArgumentException("Invalid ranged attribute type '" + type + "'.");	
 		}
 	}
 	
@@ -69,6 +71,7 @@ public class RangedItemFactory extends GenericItemFactory
 
 		if (materialType.equalsIgnoreCase("generic")) {
 			item.setEnchantability(JsonUtils.getInt(json, "enchantability", 0));
+			
 		} else {
 			throw new IllegalArgumentException("Invalid armor material type '" + materialType + "'.");
 		}

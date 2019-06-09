@@ -44,17 +44,12 @@ public class GenericItemFactory implements IItemFactory
 		ItemCG item = new ItemCG(id);
 		item.setMaxStackSize(maxStackSize);
 
-		JsonObject intelligenceObj = JsonUtils.getJsonObject(json, "intelligence", null);
+		// Attributes.
+		JsonArray attributes = JsonUtils.getJsonArray(json, "attributes", null);
 
-		// Localized name & Description.
-		if (intelligenceObj != null) {
-			parseIntelligence(intelligenceObj, item);
-		}
-
-		// Only client need model info.
-		if (CompositeGear.proxy.isClient()) {
-			JsonObject modelObj = JsonUtils.getJsonObject(json, "model");
-			parseModel(modelObj, item);
+		if (attributes != null)
+		{
+			parseAttributes(attributes, item);
 		}
 
 		return item;
@@ -81,7 +76,7 @@ public class GenericItemFactory implements IItemFactory
 	protected ModelResourceLocation parseModelEntry(JsonObject json)
 	{
 		// TODO: Here is fallback. Remove it in future.
-		String type = JsonUtils.getString(json, "modelType", JsonUtils.getString(json, "type"));
+		String type = JsonUtils.getString(json, "modelType");
 
         if (type.isEmpty())
             throw new JsonSyntaxException("Item model type can not be an empty string");
@@ -147,7 +142,18 @@ public class GenericItemFactory implements IItemFactory
 
 	protected void parseAttribute(JsonObject json, Item item, String type)
 	{
-		throw new IllegalArgumentException("Invalid item feature type '" + type + "'.");
+		if (type.equals("intelligence")) {
+			parseIntelligence(json, item);
+
+		} else if (type.equals("model")) {
+			// Only client need model info.
+			if (CompositeGear.proxy.isClient()) {
+				parseModel(json, item); // Item model.
+			}
+			
+		} else {
+			throw new IllegalArgumentException("Invalid item attribute type '" + type + "'.");
+		}
 	}
 
 	protected void parseAttributes(JsonArray json, Item item)

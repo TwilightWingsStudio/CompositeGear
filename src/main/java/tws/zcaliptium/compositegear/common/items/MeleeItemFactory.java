@@ -73,7 +73,7 @@ public class MeleeItemFactory extends GenericItemFactory
 			}
 
 		} else {
-			throw new IllegalArgumentException("Invalid melee feature type '" + type + "'.");	
+			throw new IllegalArgumentException("Invalid melee attribute type '" + type + "'.");	
 		}
 	}
 
