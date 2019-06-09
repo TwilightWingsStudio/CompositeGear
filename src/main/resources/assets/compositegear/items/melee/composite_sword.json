@@ -1,14 +1,18 @@
 {
   "type": "compositegear:melee_weapon",
   "id": "composite_sword",
-  "durability": 1536,
-  "material" : {
-    "type": "generic",
-    "attackDamage": 6.0,
-    "attackSpeed": 1.6,
-    "enchantability": 12
-  },
   "attributes": [
+    {
+      "type": "durability",
+      "durability": 1536
+    },
+    {
+      "type": "material",
+      "materialType": "generic",
+      "attackDamage": 6.0,
+      "attackSpeed": 1.6,
+      "enchantability": 12
+    },
     {
       "type": "intelligence",
       "class": "MELEE_WEAPON",
@@ -17,11 +21,12 @@
     {
       "type": "colorable",
       "defaultColor": 8815987
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/melee",
+      "variant": "composite_sword"
     }
-  ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/melee",
-    "variant": "composite_sword"
-  }
+  ]
 }

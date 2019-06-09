@@ -2,14 +2,18 @@
   "type": "compositegear:armor",
   "slot": "head",
   "id": "composite_faceplate",
-  "durability": 768,
-  "material" : {
-    "type": "generic",
-    "protection": 2,
-    "toughness": 1,
-    "enchantability": 12
-  },
   "attributes": [
+    {
+      "type": "durability",
+      "durability": 768
+    },
+    {
+      "type": "material",
+      "materialType": "generic",
+      "protection": 2,
+      "toughness": 1,
+      "enchantability": 12
+    },
     {
       "type": "intelligence",
       "class": "LIGHT_ARMOR",

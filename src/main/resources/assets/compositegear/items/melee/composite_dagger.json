@@ -1,14 +1,18 @@
 {
   "type": "compositegear:melee_weapon",
   "id": "composite_dagger",
-  "durability": 768,
-  "material" : {
-    "type": "generic",
-    "attackDamage": 4.0,
-    "attackSpeed": 3.2,
-    "enchantability": 12
-  },
   "attributes": [
+    {
+      "type": "durability",
+      "durability": 768
+    },
+    {
+      "type": "material",
+      "materialType": "generic",
+      "attackDamage": 4.0,
+      "attackSpeed": 3.2,
+      "enchantability": 12
+    },
     {
       "type": "intelligence",
       "class": "MELEE_WEAPON",
@@ -17,11 +21,12 @@
     {
       "type": "colorable",
       "defaultColor": 8815987
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/melee",
+      "variant": "composite_dagger"
     }
-  ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/melee",
-    "variant": "composite_dagger"
-  }
+  ]
 }

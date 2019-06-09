@@ -1,14 +1,18 @@
 {
   "type": "compositegear:melee_weapon",
   "id": "composite_mace",
-  "durability": 1792,
-  "material" : {
-    "type": "generic",
-    "attackDamage": 10.0,
-    "attackSpeed": 1.2,
-    "enchantability": 12
-  },
   "attributes": [
+    {
+      "type": "durability",
+      "durability": 1792
+    },
+    {
+      "type": "material",
+      "materialType": "generic",
+      "attackDamage": 10.0,
+      "attackSpeed": 1.2,
+      "enchantability": 12
+    },
     {
       "type": "intelligence",
       "class": "MELEE_WEAPON",
@@ -21,11 +25,12 @@
     {
       "type": "constant_gem_damage",
       "damage": 100
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/melee",
+      "variant": "composite_mace"
     }
-  ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/melee",
-    "variant": "composite_mace"
-  }
+  ]
 }

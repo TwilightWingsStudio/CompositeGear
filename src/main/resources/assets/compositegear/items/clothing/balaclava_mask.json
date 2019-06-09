@@ -2,13 +2,17 @@
   "type": "compositegear:armor",
   "slot": "head",
   "id": "balaclava_mask",
-  "durability": 256,
-  "material" : {
-    "type": "generic",
-    "protection": 1,
-    "enchantability": 15
-  },
   "attributes": [
+    {
+      "type": "durability",
+      "durability": 256
+    },
+    {
+      "type": "material",
+      "materialType": "generic",
+      "protection": 1,
+      "enchantability": 15
+    },
     {
       "type": "intelligence",
       "class": "CLOTHING",

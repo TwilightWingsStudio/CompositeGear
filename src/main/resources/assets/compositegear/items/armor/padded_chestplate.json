@@ -2,14 +2,18 @@
   "type": "compositegear:armor",
   "slot": "chest",
   "id": "padded_chestplate",
-  "durability": 128,
-  "material" : {
-    "type": "generic",
-    "protection": 3,
-    "enchantability": 15,
-    "repairItem": "compositegear:fabric_sheet"
-  },
   "attributes": [
+    {
+      "type": "durability",
+      "durability": 128
+    },
+    {
+      "type": "material",
+      "materialType": "generic",
+      "protection": 3,
+      "enchantability": 15,
+      "repairItem": "compositegear:fabric_sheet"
+    },
     {
       "type": "intelligence",
       "class": "LIGHT_ARMOR"

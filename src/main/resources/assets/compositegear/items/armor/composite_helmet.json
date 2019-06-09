@@ -2,14 +2,18 @@
   "type": "compositegear:armor",
   "slot": "head",
   "id": "composite_helmet",
-  "durability": 768,
-  "material" : {
-    "type": "generic",
-    "protection": 3,
-    "toughness": 2,
-    "enchantability": 12
-  },
   "attributes": [
+    {
+      "type": "durability",
+      "durability": 768
+    },
+    {
+      "type": "material",
+      "materialType": "generic",
+      "protection": 3,
+      "toughness": 2,
+      "enchantability": 12
+    },
     {
       "type": "intelligence",
       "class": "MEDIUM_ARMOR",

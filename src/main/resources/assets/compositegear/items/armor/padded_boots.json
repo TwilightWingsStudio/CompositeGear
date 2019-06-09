@@ -2,14 +2,18 @@
   "type": "compositegear:armor",
   "slot": "feet",
   "id": "padded_boots",
-  "durability": 96,
-  "material" : {
-    "type": "generic",
-    "protection": 1,
-    "enchantability": 15,
-    "repairItem": "compositegear:fabric_sheet"
-  },
   "attributes": [
+    {
+      "type": "durability",
+      "durability": 96
+    },
+    {
+      "type": "material",
+      "materialType": "generic",
+      "protection": 1,
+      "enchantability": 15,
+      "repairItem": "compositegear:fabric_sheet"
+    },
     {
       "type": "intelligence",
       "class": "LIGHT_ARMOR"

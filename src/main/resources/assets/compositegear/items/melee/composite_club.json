@@ -1,14 +1,18 @@
 {
   "type": "compositegear:melee_weapon",
   "id": "composite_club",
-  "durability": 2048,
-  "material" : {
-    "type": "generic",
-    "attackDamage": 8.0,
-    "attackSpeed": 1.6,
-    "enchantability": 12
-  },
   "attributes": [
+    {
+      "type": "durability",
+      "durability": 2048
+    },
+    {
+      "type": "material",
+      "materialType": "generic",
+      "attackDamage": 8.0,
+      "attackSpeed": 1.6,
+      "enchantability": 12
+    },
     {
       "type": "intelligence",
       "class": "MELEE_WEAPON",
@@ -22,11 +26,12 @@
     {
       "type": "constant_gem_damage",
       "damage": 50
+    },
+    {
+      "type": "model",
+      "modelType": "variant_type",
+      "path": "items/tool/melee",
+      "variant": "composite_club"
     }
-  ],
-  "model" : {
-    "type": "variant_type",
-    "path": "items/tool/melee",
-    "variant": "composite_club"
-  }
+  ]
 }
