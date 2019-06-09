@@ -46,7 +46,7 @@ public class MeleeItemFactory extends GenericItemFactory
 			meleeItem.setShieldDisabler(true);
 			
 		} else if (type.equals("colorable")) {
-			meleeItem.setColorable(true);
+			meleeItem.getAttributes().put("colorable", null);
 			meleeItem.setDefaultColor(JsonUtils.getInt(json, "defaultColor", 16777215));
 			ModItems.COLORABLE_REGISTRY.add(meleeItem);
 

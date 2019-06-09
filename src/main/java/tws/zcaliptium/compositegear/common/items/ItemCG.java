@@ -7,20 +7,27 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common.items;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.init.ModItems;
-import tws.zcaliptium.compositegear.lib.IItemIntelligence;
+import tws.zcaliptium.compositegear.lib.IAttributeHolder;
 
-public class ItemCG extends Item implements IItemIntelligence
+public class ItemCG extends Item implements IAttributeHolder
 {
 	protected boolean hasDescription;
+	
+	protected Map<String, Object> attributes;
 
     public ItemCG(String id)
     {
+		attributes = new HashMap<String, Object>();
+    	
 		setUnlocalizedName(id);
 		
 		hasDescription = false;
@@ -33,35 +40,8 @@ public class ItemCG extends Item implements IItemIntelligence
     }
 
 	@Override
-	public EnumItemClass getItemClass()
+	public Map<String, Object> getAttributes()
 	{
-		return EnumItemClass.NO_CLASS;
+		return this.attributes;
 	}
-
-	@Override
-	public boolean hasDescription()
-	{
-		return this.hasDescription;
-	}
-
-	@Override
-	public boolean hasVisualAttributes()
-	{
-		return false;
-	}
-	
-	@Override
-	public void setRarity(EnumRarity rarity) {}
-	
-	@Override
-	public void setItemClass(EnumItemClass itemClass) {}
-
-	@Override
-	public void setHasDescription(boolean hasDescription)
-	{
-		this.hasDescription = hasDescription;
-	}
-
-	@Override
-	public void setHasVisualAttributes(boolean hasVisualAttributes) {}
 }

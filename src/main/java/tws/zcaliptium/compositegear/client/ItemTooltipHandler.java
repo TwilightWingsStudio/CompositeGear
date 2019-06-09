@@ -49,7 +49,7 @@ import tws.zcaliptium.compositegear.common.items.EnumItemClass;
 import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
 import tws.zcaliptium.compositegear.common.items.ItemCGBow;
 import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
-import tws.zcaliptium.compositegear.lib.IItemIntelligence;
+import tws.zcaliptium.compositegear.lib.IAttributeHolder;
 
 @SideOnly(Side.CLIENT)
 public class ItemTooltipHandler
@@ -62,22 +62,33 @@ public class ItemTooltipHandler
 		Item item = itemStack.getItem();
 
 		int line = 1;
+		
+		if (item == null) {
+			return;
+		}
 
-		if (item instanceof IItemIntelligence)
+		if (item instanceof IAttributeHolder)
 		{
-			IItemIntelligence itemIntelligence = (IItemIntelligence)itemStack.getItem();
+			IAttributeHolder attributeHolder = (IAttributeHolder)item;
+			
+			if (attributeHolder.getAttributes() == null) {
+				return;
+			}
+
+			EnumItemClass classIn = (EnumItemClass)attributeHolder.getAttributes().getOrDefault("class", EnumItemClass.NO_CLASS);
+			boolean hasDescription = attributeHolder.getAttributes().containsKey("has_description");
 			
 			// If class selected then print it out.
-			if (itemIntelligence.getItemClass() != EnumItemClass.NO_CLASS)
+			if (classIn != EnumItemClass.NO_CLASS)
 			{
 				String transItemClass = I18n.translateToLocal("compositegear.itemclass");
 
-				ev.getToolTip().add(line, transItemClass + ": " + itemIntelligence.getItemClass().getLocalized());
+				ev.getToolTip().add(line, transItemClass + ": " + classIn.getLocalized());
 				line++;
 			}
 
 			// Item Description.
-			if (itemIntelligence.hasDescription())
+			if (hasDescription)
 			{
 				String transItemDesc = I18n.translateToLocal("compositegear.itemdesc");
 
@@ -121,12 +132,12 @@ public class ItemTooltipHandler
 			line++;
 		}
 
-		if (item instanceof IItemIntelligence)
+		if (item instanceof IAttributeHolder)
 		{
-			IItemIntelligence itemIntelligence = (IItemIntelligence)itemStack.getItem();
+			IAttributeHolder attributeHolder = (IAttributeHolder)itemStack.getItem();
 			
 			// Visual Attributes.
-			if (itemIntelligence.hasVisualAttributes())
+			if (attributeHolder.getAttributes().containsKey("has_va"))
 			{
 				String visualAttributes = I18n.translateToLocal(itemStack.getItem().getUnlocalizedName() + ".va");
 				String attributes[] = visualAttributes.split("\\^");

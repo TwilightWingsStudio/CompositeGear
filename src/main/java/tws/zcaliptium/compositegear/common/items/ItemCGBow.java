@@ -7,6 +7,9 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common.items;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Nullable;
 
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -35,25 +38,23 @@ import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.init.ModItems;
-import tws.zcaliptium.compositegear.lib.IItemIntelligence;
+import tws.zcaliptium.compositegear.lib.IAttributeHolder;
 
-public class ItemCGBow extends ItemBow implements IItemIntelligence
+public class ItemCGBow extends ItemBow implements IAttributeHolder
 {
-	// Intelligence.
-    protected boolean hasDescription;
-	protected EnumRarity rarity;
-
 	// Material.
     private int enchantability;
+    
+	protected Map<String, Object> attributes;
 
     public ItemCGBow(String id)
     {
+		attributes = new HashMap<String, Object>();
+    	
 		setUnlocalizedName(id);
         this.maxStackSize = 1; // Because item have durability.
         this.setMaxDamage(1);
         this.enchantability = 0;
-        this.hasDescription = false;
-		this.rarity = EnumRarity.COMMON;
         
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
         {
@@ -297,41 +298,12 @@ public class ItemCGBow extends ItemBow implements IItemIntelligence
     @SideOnly(Side.CLIENT)
     public EnumRarity getRarity(ItemStack var1)
     {
-    	return this.rarity;
+    	return (EnumRarity)attributes.getOrDefault("rarity", EnumRarity.COMMON);
     }
 
 	@Override
-	public EnumItemClass getItemClass() {
-		return EnumItemClass.RANGED_WEAPON;
-	}
-
-	@Override
-	public boolean hasDescription()
+	public Map<String, Object> getAttributes()
 	{
-		return this.hasDescription;
+		return this.attributes;
 	}
-
-	@Override
-	public boolean hasVisualAttributes()
-	{
-		return false;
-	}
-
-	@Override
-	public void setRarity(EnumRarity rarity)
-	{
-		this.rarity = rarity;
-	}
-
-	@Override
-	public void setItemClass(EnumItemClass itemClass) {}
-
-	@Override
-	public void setHasDescription(boolean hasDescription)
-	{
-		this.hasDescription = hasDescription;
-	}
-
-	@Override
-	public void setHasVisualAttributes(boolean hasVisualAttributes) {}
 }

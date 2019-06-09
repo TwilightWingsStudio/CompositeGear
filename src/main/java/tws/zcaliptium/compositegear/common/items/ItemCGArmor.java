@@ -49,25 +49,21 @@ import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.compat.IC2Compat;
 import tws.zcaliptium.compositegear.common.compat.TRCompat;
 import tws.zcaliptium.compositegear.common.init.ModItems;
+import tws.zcaliptium.compositegear.lib.IAttributeHolder;
 import tws.zcaliptium.compositegear.lib.IItemColorable;
-import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
 @Optional.Interface(iface = "ic2.api.item.IMetalArmor", modid = Compats.IC2)
 @Optional.Interface(iface = "ic2.api.item.IHazmatLike", modid = Compats.IC2)
-public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalArmor, IHazmatLike, IItemColorable
+public class ItemCGArmor extends ItemArmor implements IMetalArmor, IHazmatLike, IItemColorable, IAttributeHolder
 {
 	public static ItemArmor.ArmorMaterial GENERIC_MATERIAL = EnumHelper.addArmorMaterial("CG_GENERIC", ModInfo.MODID + ":composite", 1, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0);
 	
 	protected String armorName;
 
 	// Intelligence
-	protected boolean hasDescription;
-	protected boolean hasVisualAttributes;
 	protected EnumItemClass itemClass;
-	protected EnumRarity rarity;
 
 	// Model
-	protected boolean isColorable;
 	protected int defaultColor;
 	protected boolean hasOverlay;
 
@@ -96,7 +92,6 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 		
 		this.armorName = armorName;
 		this.itemClass = EnumItemClass.NO_CLASS;
-		this.rarity = EnumRarity.COMMON;
 		setUnlocalizedName(id);
 		
 		this.setOverlayTexturePath(null);
@@ -115,7 +110,6 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 		// Model.
 		this.defaultColor = 0;
 		this.hasOverlay = false;
-		this.isColorable = false;
 
 		ModItems.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
 
@@ -397,12 +391,7 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 	@Override
 	public boolean isColorable()
 	{
-		return isColorable;
-	}
-
-	public void setColorable(boolean isColorable)
-	{
-		this.isColorable = isColorable;
+		return attributes.containsKey("colorable");
 	}
 	
     private ItemStack getRepairItemStack()
@@ -430,50 +419,8 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
     @SideOnly(Side.CLIENT)
     public EnumRarity getRarity(ItemStack var1)
     {
-    	return rarity;
+    	return (EnumRarity)attributes.getOrDefault("rarity", EnumRarity.COMMON);
     }
-
-	@Override
-	public EnumItemClass getItemClass()
-	{
-		return itemClass;
-	}
-
-    @Override
-    public boolean hasDescription() 
-    {
-    	return hasDescription;
-    }
-
-    @Override
-    public boolean hasVisualAttributes() 
-    {
-    	return hasVisualAttributes;
-    }
-
-	@Override
-	public void setRarity(EnumRarity rarity)
-	{
-		this.rarity = rarity;
-	}
-
-	@Override
-	public void setItemClass(EnumItemClass itemClass)
-	{
-		this.itemClass = itemClass;
-	}
-
-	@Override
-	public void setHasDescription(boolean hasDescription)
-	{
-		this.hasDescription = hasDescription;
-	}
-
-	@Override
-	public void setHasVisualAttributes(boolean hasVisualAttributes)
-	{
-		this.hasVisualAttributes = hasVisualAttributes;
-	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -529,7 +476,8 @@ public class ItemCGArmor extends ItemArmor implements IItemIntelligence, IMetalA
 		
 		return attributes.containsKey("ic2_hazmat");
 	}
-	
+
+	@Override
 	public Map<String, Object> getAttributes()
 	{
 		return this.attributes;

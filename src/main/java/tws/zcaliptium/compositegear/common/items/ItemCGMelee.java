@@ -8,6 +8,8 @@
 package tws.zcaliptium.compositegear.common.items;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -36,17 +38,14 @@ import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ConfigurationCG;
 import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.init.ModItems;
+import tws.zcaliptium.compositegear.lib.IAttributeHolder;
 import tws.zcaliptium.compositegear.lib.IItemColorable;
-import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
-public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemModelProvider, IItemColorable
+public class ItemCGMelee extends ItemSword implements IItemModelProvider, IItemColorable, IAttributeHolder
 {
-	// Intelligence.
-    protected boolean hasDescription;
-	protected EnumRarity rarity;
+	public static Item.ToolMaterial GENERIC_MELEE_MATERIAL = EnumHelper.addToolMaterial("CG_MELEE_GENERIC", 0, 1, 0.0F, 0.0F, 0);
 	
 	// Model.
-	protected boolean isColorable;
 	protected int defaultColor;
 	protected boolean hasOverlay;
 
@@ -59,16 +58,15 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 	protected boolean isShieldDisabler;
 	protected int constantGemDamage;
 	
-	public static Item.ToolMaterial GENERIC_MELEE_MATERIAL = EnumHelper.addToolMaterial("CG_MELEE_GENERIC", 0, 1, 0.0F, 0.0F, 0);
+	protected Map<String, Object> attributes;
 	
 	public ItemCGMelee(String id, ToolMaterial material)
 	{
 		super(material);
 		
-		// Intelligence.
+		attributes = new HashMap<String, Object>();
+
 		setUnlocalizedName(id);
-		hasDescription = false;
-		this.rarity = EnumRarity.COMMON;
 		
 		// Material.
 		this.attackDamage = 0.0F;
@@ -150,12 +148,7 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 	@Override
 	public boolean isColorable()
 	{
-		return isColorable;
-	}
-
-	public void setColorable(boolean isColorable)
-	{
-		this.isColorable = isColorable;
+		return attributes.containsKey("colorable");
 	}
 
     public boolean hasOverlay(ItemStack stack)
@@ -248,44 +241,8 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
     @SideOnly(Side.CLIENT)
     public EnumRarity getRarity(ItemStack var1)
     {
-    	return rarity;
+    	return (EnumRarity)attributes.getOrDefault("rarity", EnumRarity.COMMON);
     }
-
-	@Override
-	public EnumItemClass getItemClass()
-	{
-		return EnumItemClass.MELEE_WEAPON;
-	}
-
-	@Override
-	public boolean hasDescription()
-	{
-		return this.hasDescription;
-	}
-
-	@Override
-	public boolean hasVisualAttributes()
-	{
-		return false;
-	}
-
-	@Override
-	public void setRarity(EnumRarity rarity)
-	{
-		this.rarity = rarity;
-	}
-
-	@Override
-	public void setItemClass(EnumItemClass itemClass) {}
-
-	@Override
-	public void setHasDescription(boolean hasDescription)
-	{
-		this.hasDescription = hasDescription;
-	}
-
-	@Override
-	public void setHasVisualAttributes(boolean hasVisualAttributes) {}
 
 	public void setEnchantability(int enchantability)
 	{
@@ -305,5 +262,11 @@ public class ItemCGMelee extends ItemSword implements IItemIntelligence, IItemMo
 	protected void setShieldDisabler(boolean isShieldDisabler)
 	{
 		this.isShieldDisabler = isShieldDisabler;
+	}
+	
+	@Override
+	public Map<String, Object> getAttributes()
+	{
+		return this.attributes;
 	}
 }

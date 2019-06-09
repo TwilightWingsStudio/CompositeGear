@@ -102,7 +102,7 @@ public class ArmorItemFactory extends GenericItemFactory
 			armorItem.setMinAir(JsonUtils.getInt(json, "minAir", 0));
 
 		} else if (type.equals("colorable")) {
-			armorItem.setColorable(true);
+			armorItem.getAttributes().put("colorable", null);
 			armorItem.setDefaultColor(JsonUtils.getInt(json, "defaultColor", 16777215));
 			ModItems.COLORABLE_REGISTRY.add(armorItem);
 

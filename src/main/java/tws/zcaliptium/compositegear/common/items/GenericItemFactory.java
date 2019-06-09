@@ -29,8 +29,8 @@ import net.minecraftforge.oredict.OreDictionary;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.init.ModItems;
+import tws.zcaliptium.compositegear.lib.IAttributeHolder;
 import tws.zcaliptium.compositegear.lib.IItemFactory;
-import tws.zcaliptium.compositegear.lib.IItemIntelligence;
 
 public class GenericItemFactory implements IItemFactory
 {	
@@ -108,36 +108,43 @@ public class GenericItemFactory implements IItemFactory
 	
 	protected void parseIntelligence(JsonObject json, Item item)
 	{
-		IItemIntelligence intelligence = (IItemIntelligence)item;
+		if (!(item instanceof IAttributeHolder)) {
+			return;
+		}
 		
+		IAttributeHolder attributeHolder = (IAttributeHolder)item;
+		
+		// Read fields.
 		String unlocalized = JsonUtils.getString(json, "unlocalizedName", null);
+		String rarityName = JsonUtils.getString(json, "rarity", null);
+		String className = JsonUtils.getString(json, "class", null);
+		boolean hasDescription = JsonUtils.getBoolean(json, "hasDescription", false);
+		boolean hasVisualAttributes = JsonUtils.getBoolean(json, "hasVisualAttributes", false);
 		
 		if (unlocalized != null) {
 			item.setUnlocalizedName(unlocalized);
 		}
+			
+		if (hasDescription) {
+			attributeHolder.getAttributes().put("has_description", null);
+		}
 
-		String rarityName = JsonUtils.getString(json, "rarity", null);
-		if (rarityName != null)
-		{
+		if (hasVisualAttributes) {
+			attributeHolder.getAttributes().put("has_va", null);
+		}
+		
+		if (className != null) {
+			attributeHolder.getAttributes().put("class", EnumItemClass.valueOf(className));
+		}
+		
+		if (rarityName != null) {
 			for (EnumRarity rarity : EnumRarity.values()) {
 				if (rarity.rarityName.equals(rarityName)) {
-					intelligence.setRarity(rarity);
+					attributeHolder.getAttributes().put("rarity", rarity);
 					break;
 				}
 			}
 		}
-
-		String className = JsonUtils.getString(json, "class", null);
-		if (className != null)
-		{
-			intelligence.setItemClass(EnumItemClass.valueOf(className));
-		}
-
-		boolean hasDescription = JsonUtils.getBoolean(json, "hasDescription", false);
-		boolean hasVisualAttributes = JsonUtils.getBoolean(json, "hasVisualAttributes", false);
-
-		intelligence.setHasDescription(hasDescription); // Description.
-		intelligence.setHasVisualAttributes(hasVisualAttributes);
 	}
 
 	protected void parseAttribute(JsonObject json, Item item, String type)
