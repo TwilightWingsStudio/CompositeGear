@@ -33,6 +33,10 @@
       "type": "satiety_save_cold"
     },
     {
+      "type": "safe_fall",
+      "distance": 1.0
+    },
+    {
       "type": "model",
       "modelType": "variant_type",
       "path": "items/clothing",

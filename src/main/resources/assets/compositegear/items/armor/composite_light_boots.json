@@ -31,6 +31,10 @@
       "type": "ic2_metal"
     },
     {
+      "type": "safe_fall",
+      "distance": 2.0
+    },
+    {
       "type": "model",
       "modelType": "variant_type",
       "path": "items/tool/armor",

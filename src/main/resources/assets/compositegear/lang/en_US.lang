@@ -73,7 +73,12 @@ item.air_mask_module.name=Air Mask Module
 item.rubber_gasmask.name=Rubber Gasmask
 item.rubber_gasmask.desc=Get of here, stalker!
 
+item.oxygen_tank.name=Oxygen Tank
+item.oxygen_tank_t2.name=Oxygen Tank T2
+item.oxygen_tank_t3.name=Oxygen Tank T3
+
 compositegear.itemdesc=Description
+compositegear.safefall=Safe Fall
 
 compositegear.itemclass=Class
 compositegear.itemclass.accessoryarmor=Accessory Gear
