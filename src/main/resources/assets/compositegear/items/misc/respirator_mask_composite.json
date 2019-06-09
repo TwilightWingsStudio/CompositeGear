@@ -38,11 +38,15 @@
       "modelType": "variant_type",
       "path": "items/tool/respirators",
       "variant": "respirator_mask_composite"
+    },
+    {
+      "type": "armor_model",
+      "armorName": "respirator_mask_composite",
+      "hasOverlay": true
+    },
+    {
+      "type": "hud_overlay",
+      "texture": "compositegear:textures/misc/faceplate_overlay.png"
     }
-  ],
-  "armorModel" : {
-    "armorName": "respirator_mask_composite",
-    "hasOverlay": true
-  },
-  "overlayTexture": "compositegear:textures/misc/faceplate_overlay.png"
+  ]
 }

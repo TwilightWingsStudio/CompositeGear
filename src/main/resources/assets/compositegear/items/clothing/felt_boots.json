@@ -36,10 +36,11 @@
       "modelType": "variant_type",
       "path": "items/clothing",
       "variant": "felt_boots"
+    },
+    {
+      "type": "armor_model",
+      "armorName": "felt_boots",
+      "hasOverlay": true
     }
-  ],
-  "armorModel" : {
-    "armorName": "felt_boots",
-    "hasOverlay": true
-  }
+  ]
 }

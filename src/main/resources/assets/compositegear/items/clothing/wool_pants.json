@@ -35,10 +35,11 @@
       "modelType": "variant_type",
       "path": "items/clothing",
       "variant": "wool_pants"
+    },
+    {
+      "type": "armor_model",
+      "armorName": "wool",
+      "hasOverlay": true
     }
-  ],
-  "armorModel" : {
-    "armorName": "wool",
-    "hasOverlay": true
-  }
+  ]
 }

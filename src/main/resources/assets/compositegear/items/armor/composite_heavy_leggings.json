@@ -34,10 +34,11 @@
       "modelType": "variant_type",
       "path": "items/tool/armor",
       "variant": "composite_heavy_leggings"
+    },
+    {
+      "type": "armor_model",
+      "armorName": "composite",
+      "hasOverlay": true
     }
-  ],
-  "armorModel" : {
-    "armorName": "composite",
-    "hasOverlay": true
-  }
+  ]
 }

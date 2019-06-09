@@ -37,10 +37,11 @@
       "modelType": "variant_type",
       "path": "items/clothing",
       "variant": "balaclava_mask"
+    },
+    {
+      "type": "armor_model",
+      "armorName": "balaclava_mask",
+      "hasOverlay": true
     }
-  ],
-  "armorModel" : {
-    "armorName": "balaclava_mask",
-    "hasOverlay": true
-  }
+  ]
 }

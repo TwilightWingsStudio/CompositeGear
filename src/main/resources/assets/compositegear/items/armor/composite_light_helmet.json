@@ -34,10 +34,11 @@
       "modelType": "variant_type",
       "path": "items/tool/armor",
       "variant": "composite_light_helmet"
+    },
+    {
+      "type": "armor_model",
+      "armorName": "composite_light",
+      "hasOverlay": true
     }
-  ],
-  "armorModel" : {
-    "armorName": "composite_light",
-    "hasOverlay": true
-  }
+  ]
 }

@@ -36,10 +36,11 @@
       "modelType": "variant_type",
       "path": "items/tool/armor",
       "variant": "padded_chestplate"
+    },
+    {
+      "type": "armor_model",
+      "armorName": "padded",
+      "hasOverlay": true
     }
-  ],
-  "armorModel" : {
-    "armorName": "padded",
-    "hasOverlay": true
-  }
+  ]
 }

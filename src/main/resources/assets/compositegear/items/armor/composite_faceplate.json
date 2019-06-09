@@ -34,11 +34,15 @@
       "modelType": "variant_type",
       "path": "items/tool/armor",
       "variant": "composite_faceplate"
+    },
+    {
+      "type": "armor_model",
+      "armorName": "composite_faceplate",
+      "hasOverlay": true
+    },
+    {
+      "type": "hud_overlay",
+      "texture": "compositegear:textures/misc/faceplate_overlay.png"
     }
-  ],
-  "armorModel" : {
-    "armorName": "composite_faceplate",
-    "hasOverlay": true
-  },
-  "overlayTexture": "compositegear:textures/misc/faceplate_overlay.png"
+  ]
 }

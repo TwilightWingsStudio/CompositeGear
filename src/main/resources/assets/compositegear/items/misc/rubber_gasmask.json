@@ -37,11 +37,15 @@
       "modelType": "variant_type",
       "path": "items/tool/respirators",
       "variant": "rubber_gasmask"
+    },
+    {
+      "type": "armor_model",
+      "armorName": "rubber_gasmask",
+      "hasOverlay": true
+    },
+    {
+      "type": "hud_overlay",
+      "texture": "compositegear:textures/misc/gasmask_overlay.png"
     }
-  ],
-  "armorModel" : {
-    "armorName": "rubber_gasmask",
-    "hasOverlay": true
-  },
-  "overlayTexture": "compositegear:textures/misc/gasmask_overlay.png"
+  ]
 }

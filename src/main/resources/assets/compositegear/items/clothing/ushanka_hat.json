@@ -37,10 +37,11 @@
       "modelType": "variant_type",
       "path": "items/clothing",
       "variant": "ushanka_hat"
+    },
+    {
+      "type": "armor_model",
+      "armorName": "ushanka_hat",
+      "hasOverlay": true
     }
-  ],
-  "armorModel" : {
-    "armorName": "ushanka_hat",
-    "hasOverlay": true
-  }
+  ]
 }

@@ -41,11 +41,15 @@
       "modelType": "variant_type",
       "path": "items/tool/armor",
       "variant": "composite_heavy_helmet"
+    },
+    {
+      "type": "armor_model",
+      "armorName": "composite",
+      "hasOverlay": true
+    },
+    {
+      "type": "hud_overlay",
+      "texture": "compositegear:textures/misc/faceplate_overlay.png"
     }
-  ],
-  "armorModel" : {
-    "armorName": "composite",
-    "hasOverlay": true
-  },
-  "overlayTexture": "compositegear:textures/misc/faceplate_overlay.png"
+  ]
 }

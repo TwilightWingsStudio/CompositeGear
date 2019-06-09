@@ -29,9 +29,10 @@
       "modelType": "variant_type",
       "path": "items/tool/respirators",
       "variant": "respirator_halfmask"
+    },
+    {
+      "type": "armor_model",
+      "armorName": "respirator_halfmask"
     }
-  ],
-  "armorModel" : {
-    "armorName": "respirator_halfmask"
-  }
+  ]
 }
