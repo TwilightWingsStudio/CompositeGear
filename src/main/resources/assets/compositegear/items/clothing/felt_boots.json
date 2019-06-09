@@ -14,7 +14,8 @@
       "type": "material",
       "materialType": "generic",
       "protection": 1,
-      "enchantability": 15
+      "enchantability": 15,
+      "repairItem": "compositegear:string_reel"
     },
     {
       "type": "intelligence",
