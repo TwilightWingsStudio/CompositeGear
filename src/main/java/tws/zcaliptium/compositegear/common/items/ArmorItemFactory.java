@@ -71,17 +71,6 @@ public class ArmorItemFactory extends GenericItemFactory
 			parseAttributes(attributes, item);
 		}
 
-		// Only client need model info and hud overlay.
-		if (CompositeGear.proxy.isClient())
-		{
-			parseArmorModel(JsonUtils.getJsonObject(json, "armorModel"), item); // Armor model.
-
-			String overlayTexturePath = JsonUtils.getString(json, "overlayTexture", null);
-			if (overlayTexturePath != null) {
-				item.setOverlayTexturePath(new ResourceLocation(overlayTexturePath));
-			}
-		}
-
 		return item;
 	}
 
@@ -145,10 +134,24 @@ public class ArmorItemFactory extends GenericItemFactory
 			}
 			
 		} else if (type.equals("slot")) {
+			// It was parsed on first pass.
 
 		} else if (type.equals("model")) {
 			if (CompositeGear.proxy.isClient()) {
 				parseModel(json, item);
+			}
+			
+		} else if (type.equals("armor_model")) {
+			if (CompositeGear.proxy.isClient()) {
+				parseArmorModel(json, armorItem); // Armor model.
+			}
+			
+		} else if (type.equals("hud_overlay")) {
+			if (CompositeGear.proxy.isClient()) {
+				String overlayTexturePath = JsonUtils.getString(json, "texture", null);
+				if (overlayTexturePath != null) {
+					armorItem.setOverlayTexturePath(new ResourceLocation(overlayTexturePath));
+				}
 			}
 
 		} else {

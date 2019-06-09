@@ -23,18 +23,11 @@ public class RangedItemFactory extends GenericItemFactory
 	public Item parse(JsonContext context, JsonObject json)
 	{
 		String id = JsonUtils.getString(json, "id");
-
-		ItemCGBow item = new ItemCGBow(id);
-		
-		// Durability.
-		int durability = MathHelper.clamp(JsonUtils.getInt(json, "durability", 	1), 0, Integer.MAX_VALUE);
-		if (durability > 0) {
-			item.setMaxDamage(durability);			
-		}
-
-		// Attributes.
 		JsonArray attributes = JsonUtils.getJsonArray(json, "attributes", null);
 
+		ItemCGBow item = new ItemCGBow(id);
+
+		// Attributes.
 		if (attributes != null)
 		{
 			parseAttributes(attributes, item);
@@ -54,6 +47,12 @@ public class RangedItemFactory extends GenericItemFactory
 		} else if (type.equals("material")) {
 			parseMaterial(json, rangedItem);
 			
+		} else if (type.equals("durability")) {
+			int durability = MathHelper.clamp(JsonUtils.getInt(json, "durability", 	1), 0, Integer.MAX_VALUE);
+			if (durability > 0) {
+				item.setMaxDamage(durability);			
+			}
+
 		} else if (type.equals("model")) {
 			// Only client need model info.
 			if (CompositeGear.proxy.isClient()) {
@@ -67,7 +66,7 @@ public class RangedItemFactory extends GenericItemFactory
 	
 	protected void parseMaterial(JsonObject json, ItemCGBow item)
 	{
-		String materialType = JsonUtils.getString(json, "type");
+		String materialType = JsonUtils.getString(json, "materialType");
 
 		if (materialType.equalsIgnoreCase("generic")) {
 			item.setEnchantability(JsonUtils.getInt(json, "enchantability", 0));
