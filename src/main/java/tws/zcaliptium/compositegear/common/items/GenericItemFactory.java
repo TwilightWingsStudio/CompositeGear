@@ -149,7 +149,10 @@ public class GenericItemFactory implements IItemFactory
 
 	protected void parseAttribute(JsonObject json, Item item, String type)
 	{
-		if (type.equals("intelligence")) {
+		if (type.equals("max_stack_size")) {
+			item.setMaxStackSize(JsonUtils.getInt(json, "size", 64));
+
+		} else if (type.equals("intelligence")) {
 			parseIntelligence(json, item);
 
 		} else if (type.equals("model")) {
