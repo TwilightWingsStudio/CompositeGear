@@ -12,6 +12,7 @@ import java.io.File;
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.storage.loot.conditions.LootConditionManager;
+import net.minecraft.world.storage.loot.functions.LootFunctionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
@@ -23,7 +24,9 @@ import tws.zcaliptium.compositegear.common.compat.ACHungerHandler;
 import tws.zcaliptium.compositegear.common.compat.TANTemperatureModifier;
 import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.common.loot.ForgeModLoaded;
+import tws.zcaliptium.compositegear.common.loot.SheepSheared;
 import tws.zcaliptium.compositegear.common.loot.LootTableHelper;
+import tws.zcaliptium.compositegear.common.loot.SheepColor;
 import tws.zcaliptium.compositegear.common.tags.TagHelper;
 
 public class CommonProxy
@@ -40,6 +43,8 @@ public class CommonProxy
     	LeveledCap.init();
  
         LootConditionManager.registerCondition(new ForgeModLoaded.Serializer());
+		LootConditionManager.registerCondition(new SheepSheared.Serializer());
+		LootFunctionManager.registerFunction(new SheepColor.Serializer());
 	}
 	
 	public void init()
