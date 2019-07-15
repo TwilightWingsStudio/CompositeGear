@@ -46,6 +46,7 @@ import tws.zcaliptium.compositegear.common.compat.TRCompat;
 import tws.zcaliptium.compositegear.common.crafting.FurnaceRecipeHelper;
 import tws.zcaliptium.compositegear.common.crafting.RecipesDyingEquipment;
 import tws.zcaliptium.compositegear.common.items.ArmorItemFactory;
+import tws.zcaliptium.compositegear.common.items.CrossbowItemFactory;
 import tws.zcaliptium.compositegear.common.items.GenericItemFactory;
 import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
 import tws.zcaliptium.compositegear.common.items.ItemHelper;
@@ -73,6 +74,7 @@ public class ModItems
     	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "armor"), new ArmorItemFactory());
     	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "melee_weapon"), new MeleeItemFactory());
     	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "ranged_weapon"), new RangedItemFactory());
+    	ItemHelper.factories.put(new ResourceLocation(ModInfo.MODID, "crossbow"), new CrossbowItemFactory());
 
     	ItemHelper.loadItems(CompositeGear.container);
 		
