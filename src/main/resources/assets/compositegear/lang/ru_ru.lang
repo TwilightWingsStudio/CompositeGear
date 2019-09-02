@@ -1,3 +1,4 @@
+# Armor
 item.composite_helmet.name=Композитный шлем
 item.composite_chestplate.name=Композитный доспех
 item.composite_leggings.name=Композитные поножи
@@ -74,6 +75,7 @@ item.rubber_gasmask.name=Резиновый противогаз
 item.rubber_gasmask.desc=Иди своей дорогой, сталкер!
 
 compositegear.itemdesc=Описание
+compositegear.safefall=Безопасное падение
 
 compositegear.itemclass=Класс
 compositegear.itemclass.accessoryarmor=Снаряжение
