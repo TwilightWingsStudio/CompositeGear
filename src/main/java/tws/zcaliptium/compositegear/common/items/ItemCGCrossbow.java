@@ -12,14 +12,15 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.init.Enchantments;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.EnumAction;
-import net.minecraft.item.IItemPropertyGetter;
-import net.minecraft.item.ItemBow;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -109,11 +110,10 @@ public class ItemCGCrossbow extends ItemBow implements IAttributeHolder
 		{
 	        ItemStack stack = playerIn.getHeldItemMainhand();
 	        NBTTagCompound nbt = getTagCompound(stack);
-	        
+
 	        // If loaded then shoot.
 	        if (getLoadState(stack)) {
-	        	// TODO: Shoot.
-	        	shoot(worldIn, playerIn);
+	        	shoot(worldIn, stack, playerIn);
 	        	setLoadState(stack, false);
 				return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
 	        } else {
@@ -128,8 +128,38 @@ public class ItemCGCrossbow extends ItemBow implements IAttributeHolder
 		return new ActionResult<ItemStack>(EnumActionResult.FAIL, playerIn.getHeldItemOffhand());
     }
     
-    public void shoot(World worldIn, EntityPlayer entityplayer)
+    public void shoot(World worldIn, ItemStack stack, EntityPlayer entityplayer)
     {
+    	if (!worldIn.isRemote) {
+			ItemStack ammoStack = new ItemStack(Items.ARROW);
+			ItemArrow itemArrow = (ItemArrow) ammoStack.getItem();
+
+			EntityArrow entityarrow = itemArrow.createArrow(worldIn, ammoStack, entityplayer);
+			entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, 3.0F, 1.0F);
+
+			int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
+
+			if (j > 0)
+			{
+				entityarrow.setDamage(entityarrow.getDamage() + (double)j * 0.5D + 0.5D);
+			}
+
+			int k = EnchantmentHelper.getEnchantmentLevel(Enchantments.PUNCH, stack);
+
+			if (k > 0)
+			{
+				entityarrow.setKnockbackStrength(k);
+			}
+
+			if (EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAME, stack) > 0)
+			{
+				entityarrow.setFire(100);
+			}
+
+			worldIn.spawnEntity(entityarrow);
+    	}
+
+
     	float f = 0.5F;
         worldIn.playSound((EntityPlayer)null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
     }
@@ -146,7 +176,7 @@ public class ItemCGCrossbow extends ItemBow implements IAttributeHolder
 		int i = getMaxItemUseDuration(stack) - timeLeft;
 
 		// If not loaded then we can load it.
-		if (i >= 20 && !getLoadState(stack) && consumeAmmo(stack)) {
+		if (i >= 20 && !getLoadState(stack) && consumeAmmo((EntityPlayer) entityLiving, stack)) {
 			setLoadState(stack, true);
 		}
 	}
@@ -157,9 +187,27 @@ public class ItemCGCrossbow extends ItemBow implements IAttributeHolder
         return 72000;
     }
 	
-    public static boolean consumeAmmo(ItemStack stack)
+    public boolean consumeAmmo(EntityPlayer player, ItemStack stack)
 	{
-		// TODO: Consume stack.
+		ItemStack ammoStack = this.findAmmo(player);
+
+		boolean flag = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
+
+		if (flag) {
+			return true;
+		}
+
+		// If no ammo.
+		if (ammoStack.isEmpty()) {
+			return false;
+		}
+
+		ammoStack.shrink(1);
+
+		if (ammoStack.isEmpty()) {
+			player.inventory.deleteStack(ammoStack);
+		}
+
 		return true;
 	}
 
