@@ -20,8 +20,6 @@ import tws.zcaliptium.compositegear.lib.IAttributeHolder;
 
 public class ItemCG extends Item implements IAttributeHolder
 {
-	protected boolean hasDescription;
-	
 	protected Map<String, Object> attributes;
 
     public ItemCG(String id)
@@ -29,8 +27,6 @@ public class ItemCG extends Item implements IAttributeHolder
 		attributes = new HashMap<String, Object>();
     	
 		setUnlocalizedName(id);
-		
-		hasDescription = false;
     	
 		ModItems.registerItem(this, new ResourceLocation(ModInfo.MODID, id)); // Put into registry.
 
