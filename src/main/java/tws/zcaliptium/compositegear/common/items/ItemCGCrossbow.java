@@ -156,6 +156,7 @@ public class ItemCGCrossbow extends ItemBow implements IAttributeHolder
 				entityarrow.setFire(100);
 			}
 
+			stack.damageItem(1, entityplayer);
 			worldIn.spawnEntity(entityarrow);
     	}
 
