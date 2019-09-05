@@ -7,24 +7,11 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.model.IBakedModel;
-import net.minecraft.client.renderer.color.IItemColor;
-import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ModContainer;
-import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -32,25 +19,13 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.oredict.OreDictionary;
-import toughasnails.api.temperature.TemperatureHelper;
-import tws.zcaliptium.compositegear.client.ModelBakeHandler;
-import tws.zcaliptium.compositegear.common.capabilities.LeveledCap;
-import tws.zcaliptium.compositegear.common.compat.TANTemperatureModifier;
-import tws.zcaliptium.compositegear.common.init.ModItems;
-import tws.zcaliptium.compositegear.common.items.ArmorItemFactory;
-import tws.zcaliptium.compositegear.common.items.GenericItemFactory;
-import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
-import tws.zcaliptium.compositegear.common.items.ItemHelper;
-import tws.zcaliptium.compositegear.common.items.MeleeItemFactory;
-import tws.zcaliptium.compositegear.common.items.RangedItemFactory;
+import tws.zcaliptium.compositegear.common.config.CommonConfig;
 
+import java.io.File;
 import java.util.Iterator;
 
 import org.apache.logging.log4j.Logger;
-
-import ic2.api.recipe.Recipes;
+import tws.zcaliptium.compositegear.common.config.ConfigManager;
 
 @Mod(	modid = ModInfo.MODID,
 		name = ModInfo.MODNAME,
@@ -70,6 +45,7 @@ public class CompositeGear
     public static CreativeTabs cgTab = new CreativeTabCG();
 
 	public static Logger modLog;
+	public static File configDir;
 	public static ModContainer container;
 
 	public static ModContainer getModContainer(String modid)
@@ -91,22 +67,12 @@ public class CompositeGear
     public void load(FMLPreInitializationEvent event)
     {
     	modLog = event.getModLog();
+		configDir = new File(event.getModConfigurationDirectory(), ModInfo.MODID);
     	container = getModContainer(ModInfo.MODID);
 
-	    try {
-	    	ConfigurationCG.init(event.getSuggestedConfigurationFile());
-	    } catch (Exception e) {
-	      CompositeGear.modLog.error("Unable to load configuration file!");
-	      throw new RuntimeException(e);
-	    } finally {
-	    	if (ConfigurationCG.config != null) {
-	    		ConfigurationCG.save();
-	    	}
-	    }
+		ConfigManager.loadConfigs();
 
     	proxy.preInit();
-
-    	ConfigurationCG.save();
     }
     
     @EventHandler

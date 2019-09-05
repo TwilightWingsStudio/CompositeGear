@@ -7,14 +7,9 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common;
 
-import java.util.List;
-
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -25,6 +20,7 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import tws.zcaliptium.compositegear.common.config.CommonConfig;
 import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
 import tws.zcaliptium.compositegear.common.loot.LootTableHelper;
 import tws.zcaliptium.compositegear.lib.IAttributeHolder;
@@ -49,7 +45,7 @@ public class CommonEventHandler
 		}
 
 		// If we don't hate gem armor then don't execute following code.
-		if (!ConfigurationCG.isFEConstantGemDamage) {
+		if (!CommonConfig.isFEConstantGemDamage) {
 			return true;
 		}
 
@@ -108,7 +104,7 @@ public class CommonEventHandler
 			return;
 		}
 		
-		if (!ConfigurationCG.isFESafeFall) {
+		if (!CommonConfig.isFESafeFall) {
 			return;
 		}
 
@@ -144,7 +140,7 @@ public class CommonEventHandler
 			return;
 		}
 		
-		if (ConfigurationCG.customLootTables) {
+		if (CommonConfig.customLootTables) {
 			EntityLiving entity = (EntityLiving)event.getEntityLiving();
 
 	        ResourceLocation resourcelocation = EntityList.getKey(entity);

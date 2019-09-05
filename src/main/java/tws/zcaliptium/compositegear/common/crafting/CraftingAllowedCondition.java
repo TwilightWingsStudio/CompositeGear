@@ -14,8 +14,7 @@ import com.google.gson.JsonObject;
 import net.minecraft.util.JsonUtils;
 import net.minecraftforge.common.crafting.IConditionFactory;
 import net.minecraftforge.common.crafting.JsonContext;
-import net.minecraftforge.fml.common.Loader;
-import tws.zcaliptium.compositegear.common.ConfigurationCG;
+import tws.zcaliptium.compositegear.common.config.CommonConfig;
 
 public class CraftingAllowedCondition implements IConditionFactory
 {
@@ -26,6 +25,6 @@ public class CraftingAllowedCondition implements IConditionFactory
 		
 		// TODO: Add better check here for non-existing keys.
 
-		return () -> !ConfigurationCG.CRAFTING_BLACKLIST.contains(key);
+		return () -> !CommonConfig.CRAFTING_BLACKLIST.contains(key);
 	}
 }

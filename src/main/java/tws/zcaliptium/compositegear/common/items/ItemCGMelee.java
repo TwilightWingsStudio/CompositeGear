@@ -7,11 +7,8 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common.items;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -19,23 +16,19 @@ import com.google.common.collect.Multimap;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tws.zcaliptium.compositegear.client.IItemModelProvider;
 import tws.zcaliptium.compositegear.common.CompositeGear;
-import tws.zcaliptium.compositegear.common.ConfigurationCG;
+import tws.zcaliptium.compositegear.common.config.CommonConfig;
 import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.lib.IAttributeHolder;
@@ -118,7 +111,7 @@ public class ItemCGMelee extends ItemSword implements IItemModelProvider, IItemC
 	@Override
 	public int getItemEnchantability(ItemStack stack)
 	{
-		if (!ConfigurationCG.allowMeleeEnchanting) {
+		if (!CommonConfig.allowMeleeEnchanting) {
 			return 0;
 		}
 		
@@ -142,7 +135,7 @@ public class ItemCGMelee extends ItemSword implements IItemModelProvider, IItemC
 	@Override
 	public boolean isBookEnchantable(ItemStack stack, ItemStack book)
 	{
-		return ConfigurationCG.allowMeleeEnchanting;
+		return CommonConfig.allowMeleeEnchanting;
 	}
 	
 	@Override

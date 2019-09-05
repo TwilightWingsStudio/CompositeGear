@@ -15,14 +15,15 @@ import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.fml.client.DefaultGuiFactory;
 import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraftforge.fml.client.config.IConfigElement;
-import tws.zcaliptium.compositegear.common.ConfigurationCG;
+import tws.zcaliptium.compositegear.common.config.ClientConfig;
+import tws.zcaliptium.compositegear.common.config.CommonConfig;
 import tws.zcaliptium.compositegear.common.ModInfo;
 
 public class GuiFactoryCG extends DefaultGuiFactory
 {
 	public GuiFactoryCG()
 	{
-		super(ModInfo.MODID, GuiConfig.getAbridgedConfigPath(ConfigurationCG.config.toString()));
+		super(ModInfo.MODID, GuiConfig.getAbridgedConfigPath(ClientConfig.config.toString()));
 	}
 
 	@Override
@@ -35,8 +36,8 @@ public class GuiFactoryCG extends DefaultGuiFactory
 	{
 		List<IConfigElement> list = new ArrayList<IConfigElement>();
 
-		list.addAll(new ConfigElement(ConfigurationCG.config
-				.getCategory(ConfigurationCG.SECTION_CLIENT))
+		list.addAll(new ConfigElement(ClientConfig.config
+				.getCategory(CommonConfig.SECTION_CLIENT))
 				.getChildElements());
 
 		return list;

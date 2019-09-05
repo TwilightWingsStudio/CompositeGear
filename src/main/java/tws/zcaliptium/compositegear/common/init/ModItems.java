@@ -13,33 +13,16 @@ import java.util.Map;
 
 import com.google.common.collect.Lists;
 
-import ic2.api.item.IC2Items;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.model.ModelBakery;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.Optional;
-import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapedOreRecipe;
-import techreborn.api.TechRebornAPI;
 import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.compat.IC2Compat;
 import tws.zcaliptium.compositegear.common.compat.TRCompat;
@@ -54,7 +37,6 @@ import tws.zcaliptium.compositegear.common.items.MeleeItemFactory;
 import tws.zcaliptium.compositegear.common.items.RangedItemFactory;
 import tws.zcaliptium.compositegear.common.Compats;
 import tws.zcaliptium.compositegear.common.CompositeGear;
-import tws.zcaliptium.compositegear.common.ConfigurationCG;
 
 public class ModItems
 {

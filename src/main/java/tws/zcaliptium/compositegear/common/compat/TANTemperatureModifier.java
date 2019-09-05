@@ -7,8 +7,6 @@
  ******************************************************************************/
 package tws.zcaliptium.compositegear.common.compat;
 
-import java.util.stream.IntStream;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
@@ -20,8 +18,7 @@ import toughasnails.api.temperature.IModifierMonitor;
 import toughasnails.api.temperature.ITemperatureModifier;
 import toughasnails.api.temperature.Temperature;
 import tws.zcaliptium.compositegear.common.Compats;
-import tws.zcaliptium.compositegear.common.ConfigurationCG;
-import tws.zcaliptium.compositegear.common.init.ModItems;
+import tws.zcaliptium.compositegear.common.config.CommonConfig;
 import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
 
 @Optional.Interface(iface = "toughasnails.api.temperature.ITemperatureModifier", modid = Compats.TAN)
@@ -58,7 +55,7 @@ public class TANTemperatureModifier implements ITemperatureModifier
 			if (item instanceof ItemCGArmor) {
 				ItemCGArmor tempItem = (ItemCGArmor)item;
 				
-				if (ConfigurationCG.isFEWarm && tempItem.getAttributes().containsKey("tan_warm")) {
+				if (CommonConfig.isFEWarm && tempItem.getAttributes().containsKey("tan_warm")) {
 					modifier += 1;
 				}
 			}

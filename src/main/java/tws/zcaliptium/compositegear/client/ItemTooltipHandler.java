@@ -12,8 +12,6 @@ import java.util.List;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.block.model.IBakedModel;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemBow;
@@ -26,9 +24,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
-import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.RenderTooltipEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.fml.common.Loader;
@@ -39,12 +35,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import ic2.api.item.IElectricItem;
 import reborncore.api.power.IEnergyItemInfo;
 
-import tws.zcaliptium.compositegear.client.model.BakedWrappedWithGuiModel;
-import tws.zcaliptium.compositegear.common.Compats;
-import tws.zcaliptium.compositegear.common.CompositeGear;
-import tws.zcaliptium.compositegear.common.ConfigurationCG;
-import tws.zcaliptium.compositegear.common.ModInfo;
+import tws.zcaliptium.compositegear.common.*;
 import tws.zcaliptium.compositegear.common.capabilities.LeveledCap;
+import tws.zcaliptium.compositegear.common.config.ClientConfig;
 import tws.zcaliptium.compositegear.common.items.EnumItemClass;
 import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
 import tws.zcaliptium.compositegear.common.items.ItemCGBow;
@@ -110,9 +103,9 @@ public class ItemTooltipHandler
 			}
 		}
 
-		if (ConfigurationCG.tooltipDurabilityDisplay > 0 && isItemAllowedForDurabilityDisplay(item))
+		if (ClientConfig.tooltipDurabilityDisplay > 0 && isItemAllowedForDurabilityDisplay(item))
 		{
-			if (Loader.isModLoaded(Compats.ENDERCORE) && ConfigurationCG.tooltipDurabilityDisplay_removeEnderCoreDurability)
+			if (Loader.isModLoaded(Compats.ENDERCORE) && ClientConfig.tooltipDurabilityDisplay_removeEnderCoreDurability)
 			{
 				List<String> tooltip = ev.getToolTip();
 				
@@ -177,7 +170,7 @@ public class ItemTooltipHandler
 		List<String> lines = event.getLines();
 
 
-		if (ConfigurationCG.tooltipDurabilityDisplay > 0 && isItemAllowedForDurabilityDisplay(item))
+		if (ClientConfig.tooltipDurabilityDisplay > 0 && isItemAllowedForDurabilityDisplay(item))
 		{
 			int x = event.getX();
 			int y = event.getY();
@@ -208,7 +201,7 @@ public class ItemTooltipHandler
 		boolean b2 = (item instanceof ItemCGBow) || (item instanceof ItemCGArmor) || (item instanceof ItemCGMelee);
 		
 		// If only our items then return result of checking them.
-		if (ConfigurationCG.tooltipDurabilityDisplay == 1) {
+		if (ClientConfig.tooltipDurabilityDisplay == 1) {
 			return b2;
 		}
 		

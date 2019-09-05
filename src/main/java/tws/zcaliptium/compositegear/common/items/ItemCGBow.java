@@ -35,7 +35,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tws.zcaliptium.compositegear.common.CompositeGear;
-import tws.zcaliptium.compositegear.common.ConfigurationCG;
+import tws.zcaliptium.compositegear.common.config.CommonConfig;
 import tws.zcaliptium.compositegear.common.ModInfo;
 import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.lib.IAttributeHolder;
@@ -276,7 +276,7 @@ public class ItemCGBow extends ItemBow implements IAttributeHolder
 	@Override
 	public int getItemEnchantability(ItemStack stack)
 	{
-		if (!ConfigurationCG.allowRangedEnchanting) {
+		if (!CommonConfig.allowRangedEnchanting) {
 			return 0;
 		}
 		
@@ -291,7 +291,7 @@ public class ItemCGBow extends ItemBow implements IAttributeHolder
 	@Override
 	public boolean isBookEnchantable(ItemStack stack, ItemStack book)
 	{
-		return ConfigurationCG.allowRangedEnchanting;
+		return CommonConfig.allowRangedEnchanting;
 	}
 	
     @Override

@@ -31,7 +31,6 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.ItemStack;
@@ -39,15 +38,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import tws.zcaliptium.compositegear.common.Compats;
-import tws.zcaliptium.compositegear.common.CompositeGear;
-import tws.zcaliptium.compositegear.common.ConfigurationCG;
-import tws.zcaliptium.compositegear.common.ModInfo;
+import tws.zcaliptium.compositegear.common.*;
 import tws.zcaliptium.compositegear.common.compat.IC2Compat;
 import tws.zcaliptium.compositegear.common.compat.TRCompat;
+import tws.zcaliptium.compositegear.common.config.ClientConfig;
+import tws.zcaliptium.compositegear.common.config.CommonConfig;
 import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.lib.IAttributeHolder;
 import tws.zcaliptium.compositegear.lib.IItemColorable;
@@ -171,7 +168,7 @@ public class ItemCGArmor extends ItemArmor implements IMetalArmor, IHazmatLike, 
 				boolean refilled = false;
 
 				// TR cells.
-				if (!refilled && Loader.isModLoaded(Compats.TR) && ConfigurationCG.trCompat && ConfigurationCG.isFEAirMask)
+				if (!refilled && Loader.isModLoaded(Compats.TR) && CommonConfig.trCompat && CommonConfig.isFEAirMask)
 				{
 					if (consumeItemFromInventory(player, TRCompat.trCompressedAirCell))
 					{
@@ -182,7 +179,7 @@ public class ItemCGArmor extends ItemArmor implements IMetalArmor, IHazmatLike, 
 				}
 
 				// IC2 cells.
-				if (!refilled && Loader.isModLoaded(Compats.IC2) && ConfigurationCG.ic2Compat && ConfigurationCG.isFEAirMask)
+				if (!refilled && Loader.isModLoaded(Compats.IC2) && CommonConfig.ic2Compat && CommonConfig.isFEAirMask)
 				{
 					if (consumeItemFromInventory(player, IC2Compat.ic2CompressedAirCell))
 					{
@@ -213,7 +210,7 @@ public class ItemCGArmor extends ItemArmor implements IMetalArmor, IHazmatLike, 
 	@Override
 	public int getItemEnchantability(ItemStack stack)
 	{
-		if (!ConfigurationCG.allowArmorEnchanting) {
+		if (!CommonConfig.allowArmorEnchanting) {
 			return 0;
 		}
 		
@@ -227,7 +224,7 @@ public class ItemCGArmor extends ItemArmor implements IMetalArmor, IHazmatLike, 
 	@Override
 	public boolean isBookEnchantable(ItemStack stack, ItemStack book)
 	{
-		return ConfigurationCG.allowArmorEnchanting;
+		return CommonConfig.allowArmorEnchanting;
 	}
 
 	public ItemCGArmor setMinAir(int minAir) {
@@ -426,7 +423,7 @@ public class ItemCGArmor extends ItemArmor implements IMetalArmor, IHazmatLike, 
 	@SideOnly(Side.CLIENT)
     public void renderHelmetOverlay(ItemStack stack, EntityPlayer player, net.minecraft.client.gui.ScaledResolution resolution, float partialTicks)
 	{
-		if (ConfigurationCG.helmetHudOverlay && overlayTexturePath != null)
+		if (ClientConfig.helmetHudOverlay && overlayTexturePath != null)
 		{
 	        GlStateManager.disableDepth();
 	        GlStateManager.depthMask(false);
@@ -459,7 +456,7 @@ public class ItemCGArmor extends ItemArmor implements IMetalArmor, IHazmatLike, 
 	@Override
 	public boolean isMetalArmor(ItemStack itemstack, EntityPlayer player)
 	{
-		if (!ConfigurationCG.ic2Compat) {
+		if (!CommonConfig.ic2Compat) {
 			return false;
 		}
 		
@@ -470,7 +467,7 @@ public class ItemCGArmor extends ItemArmor implements IMetalArmor, IHazmatLike, 
 	@Override
 	public boolean addsProtection(EntityLivingBase entity, EntityEquipmentSlot slot, ItemStack stack)
 	{
-		if (!ConfigurationCG.ic2Compat) {
+		if (!CommonConfig.ic2Compat) {
 			return false;
 		}
 		

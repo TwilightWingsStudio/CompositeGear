@@ -9,8 +9,6 @@ package tws.zcaliptium.compositegear.common;
 
 import java.io.File;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.storage.loot.conditions.LootConditionManager;
 import net.minecraft.world.storage.loot.functions.LootFunctionManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -18,10 +16,10 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
 import toughasnails.api.temperature.TemperatureHelper;
-import tws.zcaliptium.compositegear.client.ItemTooltipHandler;
 import tws.zcaliptium.compositegear.common.capabilities.LeveledCap;
 import tws.zcaliptium.compositegear.common.compat.ACHungerHandler;
 import tws.zcaliptium.compositegear.common.compat.TANTemperatureModifier;
+import tws.zcaliptium.compositegear.common.config.CommonConfig;
 import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.common.loot.ForgeModLoaded;
 import tws.zcaliptium.compositegear.common.loot.SheepSheared;
@@ -51,11 +49,11 @@ public class CommonProxy
 	{
 		MinecraftForge.EVENT_BUS.register(new CommonEventHandler());
 		
-		if (ConfigurationCG.acCompat && Loader.isModLoaded(Compats.APPLECORE)) {		
+		if (CommonConfig.acCompat && Loader.isModLoaded(Compats.APPLECORE)) {
 			MinecraftForge.EVENT_BUS.register(new ACHungerHandler());
 		}
 		
-		if (ConfigurationCG.tanCompat && Loader.isModLoaded(Compats.TAN)) {
+		if (CommonConfig.tanCompat && Loader.isModLoaded(Compats.TAN)) {
 			registerTANModifier();
 		}
 	}

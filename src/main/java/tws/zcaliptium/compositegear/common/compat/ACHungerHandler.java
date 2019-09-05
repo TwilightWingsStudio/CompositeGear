@@ -14,12 +14,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import squeek.applecore.api.AppleCoreAPI;
 import squeek.applecore.api.hunger.ExhaustionEvent;
 import tws.zcaliptium.compositegear.common.Compats;
-import tws.zcaliptium.compositegear.common.CompositeGear;
-import tws.zcaliptium.compositegear.common.ConfigurationCG;
-import tws.zcaliptium.compositegear.common.init.ModItems;
+import tws.zcaliptium.compositegear.common.config.CommonConfig;
 import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
 
 public class ACHungerHandler
@@ -48,12 +45,12 @@ public class ACHungerHandler
 				ItemCGArmor tempItem = (ItemCGArmor)item;
 				
 				if (biome.getTempCategory() == Biome.TempCategory.COLD) {
-					if (ConfigurationCG.isFESaveSatietyCold && tempItem.getAttributes().containsKey("ac_satiety_save_cold")) {
+					if (CommonConfig.isFESaveSatietyCold && tempItem.getAttributes().containsKey("ac_satiety_save_cold")) {
 						multiplier += 0.15F;
 					}
 					
 				} else if (biome.getTempCategory() == Biome.TempCategory.WARM) {
-					if (ConfigurationCG.isFESaveSatietyHot && tempItem.getAttributes().containsKey("ac_satiety_save_hot")) {
+					if (CommonConfig.isFESaveSatietyHot && tempItem.getAttributes().containsKey("ac_satiety_save_hot")) {
 						multiplier += 0.15F;
 					}
 				}
