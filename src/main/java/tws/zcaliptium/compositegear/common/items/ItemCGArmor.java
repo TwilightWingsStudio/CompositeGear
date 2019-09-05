@@ -168,7 +168,7 @@ public class ItemCGArmor extends ItemArmor implements IMetalArmor, IHazmatLike, 
 				boolean refilled = false;
 
 				// TR cells.
-				if (!refilled && Loader.isModLoaded(Compats.TR) && CommonConfig.trCompat && CommonConfig.isFEAirMask)
+				if (!refilled && Loader.isModLoaded(Compats.TR) && CommonConfig.Compat.techreborn && CommonConfig.ArmorFeatures.airMask)
 				{
 					if (consumeItemFromInventory(player, TRCompat.trCompressedAirCell))
 					{
@@ -179,7 +179,7 @@ public class ItemCGArmor extends ItemArmor implements IMetalArmor, IHazmatLike, 
 				}
 
 				// IC2 cells.
-				if (!refilled && Loader.isModLoaded(Compats.IC2) && CommonConfig.ic2Compat && CommonConfig.isFEAirMask)
+				if (!refilled && Loader.isModLoaded(Compats.IC2) && CommonConfig.Compat.ic2 && CommonConfig.ArmorFeatures.airMask)
 				{
 					if (consumeItemFromInventory(player, IC2Compat.ic2CompressedAirCell))
 					{
@@ -210,7 +210,7 @@ public class ItemCGArmor extends ItemArmor implements IMetalArmor, IHazmatLike, 
 	@Override
 	public int getItemEnchantability(ItemStack stack)
 	{
-		if (!CommonConfig.allowArmorEnchanting) {
+		if (!CommonConfig.Enchanting.allowArmorEnchanting) {
 			return 0;
 		}
 		
@@ -224,7 +224,7 @@ public class ItemCGArmor extends ItemArmor implements IMetalArmor, IHazmatLike, 
 	@Override
 	public boolean isBookEnchantable(ItemStack stack, ItemStack book)
 	{
-		return CommonConfig.allowArmorEnchanting;
+		return CommonConfig.Enchanting.allowArmorEnchanting;
 	}
 
 	public ItemCGArmor setMinAir(int minAir) {
@@ -456,7 +456,7 @@ public class ItemCGArmor extends ItemArmor implements IMetalArmor, IHazmatLike, 
 	@Override
 	public boolean isMetalArmor(ItemStack itemstack, EntityPlayer player)
 	{
-		if (!CommonConfig.ic2Compat) {
+		if (!CommonConfig.Compat.ic2) {
 			return false;
 		}
 		
@@ -467,7 +467,7 @@ public class ItemCGArmor extends ItemArmor implements IMetalArmor, IHazmatLike, 
 	@Override
 	public boolean addsProtection(EntityLivingBase entity, EntityEquipmentSlot slot, ItemStack stack)
 	{
-		if (!CommonConfig.ic2Compat) {
+		if (!CommonConfig.Compat.ic2) {
 			return false;
 		}
 		

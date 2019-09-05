@@ -25,6 +25,6 @@ public class CraftingAllowedCondition implements IConditionFactory
 		
 		// TODO: Add better check here for non-existing keys.
 
-		return () -> !CommonConfig.CRAFTING_BLACKLIST.contains(key);
+		return () -> !CommonConfig.Crafting.ITEM_BLACKLIST.contains(key);
 	}
 }

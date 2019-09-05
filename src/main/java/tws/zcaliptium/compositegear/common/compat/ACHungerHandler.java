@@ -45,12 +45,12 @@ public class ACHungerHandler
 				ItemCGArmor tempItem = (ItemCGArmor)item;
 				
 				if (biome.getTempCategory() == Biome.TempCategory.COLD) {
-					if (CommonConfig.isFESaveSatietyCold && tempItem.getAttributes().containsKey("ac_satiety_save_cold")) {
+					if (CommonConfig.ArmorFeatures.saveSatietyCold && tempItem.getAttributes().containsKey("ac_satiety_save_cold")) {
 						multiplier += 0.15F;
 					}
 					
 				} else if (biome.getTempCategory() == Biome.TempCategory.WARM) {
-					if (CommonConfig.isFESaveSatietyHot && tempItem.getAttributes().containsKey("ac_satiety_save_hot")) {
+					if (CommonConfig.ArmorFeatures.saveSatietyHot && tempItem.getAttributes().containsKey("ac_satiety_save_hot")) {
 						multiplier += 0.15F;
 					}
 				}

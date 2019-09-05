@@ -49,11 +49,11 @@ public class CommonProxy
 	{
 		MinecraftForge.EVENT_BUS.register(new CommonEventHandler());
 		
-		if (CommonConfig.acCompat && Loader.isModLoaded(Compats.APPLECORE)) {
+		if (CommonConfig.Compat.applecore && Loader.isModLoaded(Compats.APPLECORE)) {
 			MinecraftForge.EVENT_BUS.register(new ACHungerHandler());
 		}
 		
-		if (CommonConfig.tanCompat && Loader.isModLoaded(Compats.TAN)) {
+		if (CommonConfig.Compat.tan && Loader.isModLoaded(Compats.TAN)) {
 			registerTANModifier();
 		}
 	}

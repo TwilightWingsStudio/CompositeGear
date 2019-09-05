@@ -276,7 +276,7 @@ public class ItemCGBow extends ItemBow implements IAttributeHolder
 	@Override
 	public int getItemEnchantability(ItemStack stack)
 	{
-		if (!CommonConfig.allowRangedEnchanting) {
+		if (!CommonConfig.Enchanting.allowRangedEnchanting) {
 			return 0;
 		}
 		
@@ -291,7 +291,7 @@ public class ItemCGBow extends ItemBow implements IAttributeHolder
 	@Override
 	public boolean isBookEnchantable(ItemStack stack, ItemStack book)
 	{
-		return CommonConfig.allowRangedEnchanting;
+		return CommonConfig.Enchanting.allowRangedEnchanting;
 	}
 	
     @Override

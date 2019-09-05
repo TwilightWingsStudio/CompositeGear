@@ -45,7 +45,7 @@ public class CommonEventHandler
 		}
 
 		// If we don't hate gem armor then don't execute following code.
-		if (!CommonConfig.isFEConstantGemDamage) {
+		if (!CommonConfig.MeleeFeatures.constantGemDamage) {
 			return true;
 		}
 
@@ -104,7 +104,7 @@ public class CommonEventHandler
 			return;
 		}
 		
-		if (!CommonConfig.isFESafeFall) {
+		if (!CommonConfig.ArmorFeatures.safeFall) {
 			return;
 		}
 
@@ -140,7 +140,7 @@ public class CommonEventHandler
 			return;
 		}
 		
-		if (CommonConfig.customLootTables) {
+		if (CommonConfig.Gameplay.customLootTables) {
 			EntityLiving entity = (EntityLiving)event.getEntityLiving();
 
 	        ResourceLocation resourcelocation = EntityList.getKey(entity);

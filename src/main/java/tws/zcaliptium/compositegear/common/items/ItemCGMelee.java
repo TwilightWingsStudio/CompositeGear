@@ -111,7 +111,7 @@ public class ItemCGMelee extends ItemSword implements IItemModelProvider, IItemC
 	@Override
 	public int getItemEnchantability(ItemStack stack)
 	{
-		if (!CommonConfig.allowMeleeEnchanting) {
+		if (!CommonConfig.Enchanting.allowMeleeEnchanting) {
 			return 0;
 		}
 		
@@ -135,7 +135,7 @@ public class ItemCGMelee extends ItemSword implements IItemModelProvider, IItemC
 	@Override
 	public boolean isBookEnchantable(ItemStack stack, ItemStack book)
 	{
-		return CommonConfig.allowMeleeEnchanting;
+		return CommonConfig.Enchanting.allowMeleeEnchanting;
 	}
 	
 	@Override

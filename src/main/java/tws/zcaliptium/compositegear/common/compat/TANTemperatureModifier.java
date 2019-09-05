@@ -55,7 +55,7 @@ public class TANTemperatureModifier implements ITemperatureModifier
 			if (item instanceof ItemCGArmor) {
 				ItemCGArmor tempItem = (ItemCGArmor)item;
 				
-				if (CommonConfig.isFEWarm && tempItem.getAttributes().containsKey("tan_warm")) {
+				if (CommonConfig.ArmorFeatures.warm && tempItem.getAttributes().containsKey("tan_warm")) {
 					modifier += 1;
 				}
 			}
