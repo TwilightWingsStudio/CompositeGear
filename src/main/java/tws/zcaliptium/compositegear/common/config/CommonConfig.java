@@ -17,14 +17,15 @@ public class CommonConfig
 {
 	public static Configuration config;
 
-	public static final String SECTION_CRAFTING = "crafting";
-	public static final String SECTION_ENCHANTING = "enchanting";
-	public static final String SECTION_CLIENT = "client";
-	public static final String SECTION_COMPAT = "compat";
-	public static final String SECTION_GAMEPLAY = "gameplay";
+	public static final String SECTION_COMMON = "common";
 
-	public static final String SECTION_FEATURES_ARMOR = "features_armor";
-	public static final String SECTION_FEATURES_MELEE = "features_melee";
+	public static final String SECTION_CRAFTING = "common.crafting";
+	public static final String SECTION_ENCHANTING = "common.enchanting";
+	public static final String SECTION_COMPAT = "common.compat";
+	public static final String SECTION_GAMEPLAY = "common.gameplay";
+
+	public static final String SECTION_FEATURES_ARMOR = "common.features_armor";
+	public static final String SECTION_FEATURES_MELEE = "common.features_melee";
 
 	private static final String[] DEFAULT_CRAFTING_BLACKLIST = new String[]{};
 

@@ -37,7 +37,7 @@ public class GuiFactoryCG extends DefaultGuiFactory
 		List<IConfigElement> list = new ArrayList<IConfigElement>();
 
 		list.addAll(new ConfigElement(ClientConfig.config
-				.getCategory(CommonConfig.SECTION_CLIENT))
+				.getCategory(ClientConfig.SECTION_CLIENT))
 				.getChildElements());
 
 		return list;
