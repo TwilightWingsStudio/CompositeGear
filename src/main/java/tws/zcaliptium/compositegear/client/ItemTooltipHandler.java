@@ -38,10 +38,7 @@ import reborncore.api.power.IEnergyItemInfo;
 import tws.zcaliptium.compositegear.common.*;
 import tws.zcaliptium.compositegear.common.capabilities.LeveledCap;
 import tws.zcaliptium.compositegear.common.config.ClientConfig;
-import tws.zcaliptium.compositegear.common.items.EnumItemClass;
-import tws.zcaliptium.compositegear.common.items.ItemCGArmor;
-import tws.zcaliptium.compositegear.common.items.ItemCGBow;
-import tws.zcaliptium.compositegear.common.items.ItemCGMelee;
+import tws.zcaliptium.compositegear.common.items.*;
 import tws.zcaliptium.compositegear.lib.IAttributeHolder;
 
 @SideOnly(Side.CLIENT)
@@ -198,7 +195,7 @@ public class ItemTooltipHandler
 	
 	public boolean isItemAllowedForDurabilityDisplay(Item item)
 	{		
-		boolean b2 = (item instanceof ItemCGBow) || (item instanceof ItemCGArmor) || (item instanceof ItemCGMelee);
+		boolean b2 = (item instanceof ItemCGBow) || (item instanceof ItemCGArmor) || (item instanceof ItemCGMelee) || (item instanceof ItemCGCrossbow);
 		
 		// If only our items then return result of checking them.
 		if (ClientConfig.tooltipDurabilityDisplay == 1) {
