@@ -34,6 +34,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tws.zcaliptium.compositegear.common.CompositeGear;
 import tws.zcaliptium.compositegear.common.ModInfo;
+import tws.zcaliptium.compositegear.common.config.CommonConfig;
 import tws.zcaliptium.compositegear.common.init.ModItems;
 import tws.zcaliptium.compositegear.lib.IAttributeHolder;
 
@@ -215,6 +216,16 @@ public class ItemCGCrossbow extends ItemBow implements IAttributeHolder
 	public void setEnchantability(int enchantability)
 	{
 		this.enchantability = enchantability;
+	}
+
+	@Override
+	public int getItemEnchantability(ItemStack stack)
+	{
+		if (!CommonConfig.Enchanting.allowRangedEnchanting) {
+			return 0;
+		}
+
+		return super.getItemEnchantability(stack);
 	}
 
 	@Override
